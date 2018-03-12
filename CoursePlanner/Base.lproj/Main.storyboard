@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,58 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3CO-9t-L0f">
+                                <rect key="frame" x="89" y="139" width="197" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0nW-i7-7ch">
+                                <rect key="frame" x="89" y="177" width="197" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxg-fI-qgP">
+                                <rect key="frame" x="168" y="215" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5vC-TF-Jve"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pE4-5y-SF1">
+                                <rect key="frame" x="177" y="333.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3CO-9t-L0f" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="119" id="1QA-ck-KvB"/>
+                            <constraint firstItem="3CO-9t-L0f" firstAttribute="trailing" secondItem="0nW-i7-7ch" secondAttribute="trailing" id="3lK-7V-0QC"/>
+                            <constraint firstItem="3CO-9t-L0f" firstAttribute="leading" secondItem="0nW-i7-7ch" secondAttribute="leading" id="H5Y-R4-IxJ"/>
+                            <constraint firstItem="kxg-fI-qgP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HF0-Wu-Ace"/>
+                            <constraint firstItem="0nW-i7-7ch" firstAttribute="centerX" secondItem="kxg-fI-qgP" secondAttribute="centerX" id="WMd-Ed-Z6i"/>
+                            <constraint firstItem="pE4-5y-SF1" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="YoE-5E-qT2"/>
+                            <constraint firstItem="0nW-i7-7ch" firstAttribute="top" secondItem="3CO-9t-L0f" secondAttribute="bottom" constant="8" symbolic="YES" id="ZuB-bC-nbu"/>
+                            <constraint firstItem="kxg-fI-qgP" firstAttribute="top" secondItem="0nW-i7-7ch" secondAttribute="bottom" constant="8" symbolic="YES" id="eAF-4l-zvD"/>
+                            <constraint firstItem="3CO-9t-L0f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="89" id="qZM-gv-flN"/>
+                            <constraint firstItem="pE4-5y-SF1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zTU-OB-oUh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="pE4-5y-SF1" id="ljK-nB-R5T"/>
+                        <outlet property="passwordField" destination="0nW-i7-7ch" id="jCq-aA-ypk"/>
+                        <outlet property="userField" destination="3CO-9t-L0f" id="yul-R0-UC8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="118.29085457271366"/>
         </scene>
     </scenes>
 </document>
