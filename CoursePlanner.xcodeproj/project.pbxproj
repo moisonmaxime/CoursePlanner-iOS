@@ -87,10 +87,7 @@
 				1B644E182050ED9F00CA9264 /* ViewController.swift */,
 				1B644E1A2050ED9F00CA9264 /* Main.storyboard */,
 				1B644E362050EDAD00CA9264 /* RestAPI.swift */,
-				1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */,
-				1B644E382051AD2100CA9264 /* DictionaryExtension.swift */,
-				1B644E1D2050ED9F00CA9264 /* Assets.xcassets */,
-				1B644E1F2050ED9F00CA9264 /* LaunchScreen.storyboard */,
+				1BAB20A620586B5400C0D079 /* Supporting Files */,
 				1B644E222050ED9F00CA9264 /* Info.plist */,
 			);
 			path = CoursePlanner;
@@ -103,6 +100,17 @@
 				1B644E2D2050ED9F00CA9264 /* Info.plist */,
 			);
 			path = CoursePlannerUITests;
+			sourceTree = "<group>";
+		};
+		1BAB20A620586B5400C0D079 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */,
+				1B644E382051AD2100CA9264 /* DictionaryExtension.swift */,
+				1B644E1D2050ED9F00CA9264 /* Assets.xcassets */,
+				1B644E1F2050ED9F00CA9264 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

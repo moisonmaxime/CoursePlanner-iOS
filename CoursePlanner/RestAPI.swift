@@ -24,8 +24,6 @@ enum APIError {
 
 class RestAPI {
     
-    
-    
     static func login(user: String,
                       password: String,
                       completion: @escaping (Bool, APIError?) -> ()) {
@@ -46,8 +44,6 @@ class RestAPI {
         }
     }
     
-    
-    
     static func register(user: String,
                          password: String,
                          first: String,
@@ -60,7 +56,11 @@ class RestAPI {
             return
         }
         
-        var postContent = [ "username": user, "password": password, "first": first, "last": last ]
+        var postContent = [ "username": user,
+                            "password": password,
+                            "firstname": first,
+                            "lastname": last,
+                            "name": "\(first) \(last)" ]
         if (email != nil) {
             postContent["email"] = email!
         }
@@ -76,4 +76,5 @@ class RestAPI {
             }
         }
     }
+
 }
