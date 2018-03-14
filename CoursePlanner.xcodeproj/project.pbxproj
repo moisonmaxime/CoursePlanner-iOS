@@ -18,7 +18,7 @@
 		1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7660592059AC69000929D5 /* LoginVC.swift */; };
 		1B76605C2059AF99000929D5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605B2059AF99000929D5 /* HomeVC.swift */; };
 		1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605D2059B089000929D5 /* RegisterVC.swift */; };
-		1B7660602059B965000929D5 /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605F2059B965000929D5 /* CustomTransition.swift */; };
+		1B7660602059B965000929D5 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605F2059B965000929D5 /* Transition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,7 @@
 		1B7660592059AC69000929D5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1B76605B2059AF99000929D5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		1B76605D2059B089000929D5 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
-		1B76605F2059B965000929D5 /* CustomTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
+		1B76605F2059B965000929D5 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +113,7 @@
 		1BAB20A620586B5400C0D079 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1B76605F2059B965000929D5 /* CustomTransition.swift */,
+				1B76605F2059B965000929D5 /* Transition.swift */,
 				1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */,
 				1B644E382051AD2100CA9264 /* DictionaryExtension.swift */,
 				1B644E1D2050ED9F00CA9264 /* Assets.xcassets */,
@@ -232,7 +232,7 @@
 				1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */,
 				1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */,
 				1B644E392051AD2100CA9264 /* DictionaryExtension.swift in Sources */,
-				1B7660602059B965000929D5 /* CustomTransition.swift in Sources */,
+				1B7660602059B965000929D5 /* Transition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
