@@ -15,10 +15,19 @@ extension URLRequest {
         case GET = "GET"
     }
     
-    init(url: URL, type: RequestType, dictionary: Dictionary<String, String>) {
+    init(url: URL, type: RequestType) {
         self.init(url: url)
         self.setValue("application/json", forHTTPHeaderField: "Content-Type")
         self.httpMethod = type.rawValue
+        
+        let token = UserDefaults.standard.string(forKey: "api_token")
+        if (token != nil) {
+            self.addValue("Bearer \(token!)", forHTTPHeaderField: "Authorization")
+        }
+    }
+    
+    init(url: URL, type: RequestType, dictionary: Dictionary<String, String>) {
+        self.init(url: url, type: type)
         let json = dictionary.toJSONString()
         self.httpBody = json.data(using: .utf8)
     }
