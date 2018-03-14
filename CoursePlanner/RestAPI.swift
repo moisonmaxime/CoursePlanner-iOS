@@ -10,6 +10,7 @@ import Foundation
 
 enum APIError {
     case NetworkError               // Internal Errors
+    case URLCreationFailed
     case DictionaryCreationFailed
     case JSONSerializationFailed
     case TokenReadFailed
@@ -29,8 +30,7 @@ class RestAPI {
                       password: String,
                       completion: @escaping (Bool, APIError?) -> ()) {
         guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/auth/token/obtain") else {
-            print("Error: Could not create URL")
-            completion(false, nil)
+            completion(false, .URLCreationFailed)
             return
         }
         let request:URLRequest = URLRequest(url: url, type: .POST, dictionary: [ "username": user, "password": password ])
@@ -53,6 +53,26 @@ class RestAPI {
         }
     }
     
+    static func checkAPIKey(completion: @escaping(Bool) -> ()) {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/***") else {
+            completion(false)
+            return
+        }
+        
+        let request:URLRequest = URLRequest(url: url, type: .GET)
+        request.getJsonData { (dict, err) in
+            if (err != nil) {
+                // Failed
+                completion(false)
+                return
+            } else {
+                // Success
+                completion(true)
+                return
+            }
+        }
+    }
+    
     static func register(user: String,
                          password: String,
                          first: String,
@@ -60,8 +80,7 @@ class RestAPI {
                          email: String?,
                          completion: @escaping (Bool, APIError?) -> ()) {
         guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/***") else {
-            print("Error: Could not create URL")
-            completion(false, nil)
+            completion(false, .URLCreationFailed)
             return
         }
         
