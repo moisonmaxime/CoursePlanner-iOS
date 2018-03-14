@@ -12,6 +12,7 @@ enum APIError {
     case NetworkError               // Internal Errors
     case DictionaryCreationFailed
     case JSONSerializationFailed
+    case TokenReadFailed
     
     case Unknown                    // Server Errors
     case Unauthorized
@@ -36,10 +37,18 @@ class RestAPI {
         request.getJsonData { (dict, err) in
             if (err != nil) {
                 completion(false, err)
+                return
             } else {
                 // Save to application settings
-                print(dict!["access"] as! String)
+                
+                guard let token = dict!["access"] as? String else {
+                    completion(false, .TokenReadFailed)
+                    return
+                }
+                UserDefaults.standard.set(token, forKey: "api_token")
+                print(token)
                 completion(true, nil)
+                return
             }
         }
     }
