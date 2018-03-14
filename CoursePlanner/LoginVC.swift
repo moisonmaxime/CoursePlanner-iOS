@@ -27,18 +27,17 @@ class LoginVC: UIViewController {
             activityIndicator.startAnimating()
             self.view.isUserInteractionEnabled = false
             RestAPI.login(user: userField.text!, password: passwordField.text!) { (isSuccess, error) in
-                
                 DispatchQueue.main.async {
                     self.view.isUserInteractionEnabled = true
                     self.activityIndicator.stopAnimating()
+                    if (isSuccess) {
+                        Transition.coverFromRight(from: self, to: (self.storyboard?.instantiateViewController(withIdentifier: "Home"))!)
+                    }
                 }
-                
                 if error != nil {
                     print("Error")
                     return
                 }
-                
-                print(isSuccess ? "Successful" : "Failed")
             }
         }
         
