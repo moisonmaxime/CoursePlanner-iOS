@@ -34,8 +34,6 @@ class LoginVC: UIViewController {
                 }
                 
                 if error != nil {
-                    var msg:String
-                    
                     print("Error")
                     return
                 }
