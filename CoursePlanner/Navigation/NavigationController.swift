@@ -35,6 +35,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
         if (willRevertAnimationType) {
             animationType = previousAnimationType
             previousAnimationType = nil
+            willRevertAnimationType = false
         }
         
         let duration = TimeInterval(UINavigationControllerHideShowBarDuration) > 0.4 ? TimeInterval(UINavigationControllerHideShowBarDuration) : 0.4
