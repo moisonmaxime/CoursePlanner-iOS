@@ -19,6 +19,8 @@
 		1B76605C2059AF99000929D5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605B2059AF99000929D5 /* HomeVC.swift */; };
 		1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605D2059B089000929D5 /* RegisterVC.swift */; };
 		1B7660602059B965000929D5 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605F2059B965000929D5 /* Transition.swift */; };
+		1BDEED512059EEE4001FE6FB /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED502059EEE4001FE6FB /* UINavigationControllerExtension.swift */; };
+		1BDEED532059F220001FE6FB /* CustomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED522059F220001FE6FB /* CustomAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		1B76605B2059AF99000929D5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		1B76605D2059B089000929D5 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		1B76605F2059B965000929D5 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		1BDEED502059EEE4001FE6FB /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		1BDEED522059F220001FE6FB /* CustomAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 				1B76605D2059B089000929D5 /* RegisterVC.swift */,
 				1B76605B2059AF99000929D5 /* HomeVC.swift */,
 				1B644E362050EDAD00CA9264 /* RestAPI.swift */,
+				1BDEED522059F220001FE6FB /* CustomAnimator.swift */,
 				1BAB20A620586B5400C0D079 /* Supporting Files */,
 				1B644E222050ED9F00CA9264 /* Info.plist */,
 			);
@@ -114,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				1B76605F2059B965000929D5 /* Transition.swift */,
+				1BDEED502059EEE4001FE6FB /* UINavigationControllerExtension.swift */,
 				1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */,
 				1B644E382051AD2100CA9264 /* DictionaryExtension.swift */,
 				1B644E1D2050ED9F00CA9264 /* Assets.xcassets */,
@@ -227,6 +233,8 @@
 			files = (
 				1B644E372050EDAD00CA9264 /* RestAPI.swift in Sources */,
 				1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */,
+				1BDEED512059EEE4001FE6FB /* UINavigationControllerExtension.swift in Sources */,
+				1BDEED532059F220001FE6FB /* CustomAnimator.swift in Sources */,
 				1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */,
 				1B76605C2059AF99000929D5 /* HomeVC.swift in Sources */,
 				1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */,

@@ -31,7 +31,8 @@ class LoginVC: UIViewController {
                     self.view.isUserInteractionEnabled = true
                     self.activityIndicator.stopAnimating()
                     if (isSuccess) {
-                        Transition.coverFromRight(from: self, to: (self.storyboard?.instantiateViewController(withIdentifier: "Home"))!)
+                        let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                        self.navigationController?.setViewControllers([home!], animated: true)
                     }
                 }
                 if error != nil {

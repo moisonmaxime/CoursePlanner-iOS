@@ -21,7 +21,10 @@ class RegisterVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func backPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
