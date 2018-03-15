@@ -54,7 +54,7 @@ class RestAPI {
     }
     
     static func checkAPIKey(completion: @escaping(Bool) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/***") else {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/login") else {
             completion(false)
             return
         }
