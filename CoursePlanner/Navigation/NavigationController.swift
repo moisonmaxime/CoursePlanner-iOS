@@ -10,8 +10,9 @@ import UIKit
 
 class NavigationController: UINavigationController, UINavigationControllerDelegate {
     
-    var isFading = false
-    var type:CustomAnimation.Type = FadingAnimator.self
+    var animationType:CustomAnimation.Type?
+    var previousAnimationType:CustomAnimation.Type?
+    var willRevertAnimationType:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,24 +28,29 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        let duration = TimeInterval(UINavigationControllerHideShowBarDuration) > 0.4 ? TimeInterval(UINavigationControllerHideShowBarDuration) : 0.4
-        
-        if (isFading) {
-            return FadingAnimator(duration: duration, isPresenting: false)
+        guard let currentAnimationType:CustomAnimation.Type = animationType, animationType != nil  else {
+            return nil
         }
+        
+        if (willRevertAnimationType) {
+            animationType = previousAnimationType
+            previousAnimationType = nil
+        }
+        
+        let duration = TimeInterval(UINavigationControllerHideShowBarDuration) > 0.4 ? TimeInterval(UINavigationControllerHideShowBarDuration) : 0.4
         
         switch operation {
         case .push:
-            return nil
+            return currentAnimationType.init(duration: duration, isPresenting: true)
         default:
-            return nil
+            return currentAnimationType.init(duration: duration, isPresenting: false)
         }
     }
     
-    override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
-        isFading = true
-        super.setViewControllers(viewControllers, animated: animated)
-        isFading = false
+    func setAnimationType(type: CustomAnimation.Type, isRepeating: Bool) {
+        previousAnimationType = isRepeating ? animationType : nil
+        animationType = type
+        willRevertAnimationType = !isRepeating
     }
     
     /*
