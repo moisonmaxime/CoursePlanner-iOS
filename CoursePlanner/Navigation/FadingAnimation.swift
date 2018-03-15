@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FadingAnimator: NSObject, CustomAnimation {
+class FadingAnimation: NSObject, Animation {
     var isPresenting: Bool
     var duration : TimeInterval
     

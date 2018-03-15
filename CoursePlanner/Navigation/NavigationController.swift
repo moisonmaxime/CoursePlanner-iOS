@@ -10,8 +10,8 @@ import UIKit
 
 class NavigationController: UINavigationController, UINavigationControllerDelegate {
     
-    var animationType:CustomAnimation.Type?
-    var previousAnimationType:CustomAnimation.Type?
+    var animationType:Animation.Type?
+    var previousAnimationType:Animation.Type?
     var willRevertAnimationType:Bool = false
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        guard let currentAnimationType:CustomAnimation.Type = animationType, animationType != nil  else {
+        guard let currentAnimationType:Animation.Type = animationType, animationType != nil  else {
             return nil
         }
         
@@ -47,7 +47,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
         }
     }
     
-    func setAnimationType(type: CustomAnimation.Type, isRepeating: Bool) {
+    func setAnimationType(type: Animation.Type, isRepeating: Bool) {
         previousAnimationType = isRepeating ? animationType : nil
         animationType = type
         willRevertAnimationType = !isRepeating

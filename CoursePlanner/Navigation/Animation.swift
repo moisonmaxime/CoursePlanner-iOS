@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CustomAnimation: UIViewControllerAnimatedTransitioning {
+protocol Animation: UIViewControllerAnimatedTransitioning {
     var duration : TimeInterval {get set}
     var isPresenting : Bool {get set}
     init(duration : TimeInterval, isPresenting: Bool)

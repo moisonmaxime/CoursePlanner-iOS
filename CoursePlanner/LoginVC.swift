@@ -31,7 +31,7 @@ class LoginVC: UIViewController {
                 self.view.isUserInteractionEnabled = true
                 self.activityIndicator.stopAnimating()
                 if (isSuccess) {
-                    (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimator.self, isRepeating: false)
+                    (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
                     let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.navigationController?.setViewControllers([home!], animated: true)
                 }
