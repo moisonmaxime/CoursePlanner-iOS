@@ -18,6 +18,7 @@
 		1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7660592059AC69000929D5 /* LoginVC.swift */; };
 		1B76605C2059AF99000929D5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605B2059AF99000929D5 /* HomeVC.swift */; };
 		1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605D2059B089000929D5 /* RegisterVC.swift */; };
+		1BB2021C205A198A00A96619 /* CustomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2021B205A198A00A96619 /* CustomAnimation.swift */; };
 		1BDEED532059F220001FE6FB /* FadingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED522059F220001FE6FB /* FadingAnimator.swift */; };
 		1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED542059F36B001FE6FB /* NavigationController.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		1B7660592059AC69000929D5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1B76605B2059AF99000929D5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		1B76605D2059B089000929D5 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		1BB2021B205A198A00A96619 /* CustomAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomAnimation.swift; path = CoursePlanner/Navigation/CustomAnimation.swift; sourceTree = SOURCE_ROOT; };
 		1BDEED522059F220001FE6FB /* FadingAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingAnimator.swift; sourceTree = "<group>"; };
 		1BDEED542059F36B001FE6FB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +129,7 @@
 		1BB2021A205A14C600A96619 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				1BB2021B205A198A00A96619 /* CustomAnimation.swift */,
 				1BDEED522059F220001FE6FB /* FadingAnimator.swift */,
 				1BDEED542059F36B001FE6FB /* NavigationController.swift */,
 			);
@@ -245,6 +248,7 @@
 				1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */,
 				1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */,
 				1B644E392051AD2100CA9264 /* DictionaryExtension.swift in Sources */,
+				1BB2021C205A198A00A96619 /* CustomAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

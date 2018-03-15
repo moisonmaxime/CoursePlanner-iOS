@@ -11,6 +11,7 @@ import UIKit
 class NavigationController: UINavigationController, UINavigationControllerDelegate {
     
     var isFading = false
+    var type:CustomAnimation.Type = FadingAnimator.self
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +30,15 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
         let duration = TimeInterval(UINavigationControllerHideShowBarDuration) > 0.4 ? TimeInterval(UINavigationControllerHideShowBarDuration) : 0.4
         
         if (isFading) {
-            return FadingAnimator(duration: duration)
+            return FadingAnimator(duration: duration, isPresenting: false)
         }
-        return nil
+        
+        switch operation {
+        case .push:
+            return nil
+        default:
+            return nil
+        }
     }
     
     override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {

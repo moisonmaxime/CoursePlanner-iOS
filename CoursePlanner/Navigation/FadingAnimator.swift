@@ -8,12 +8,13 @@
 
 import UIKit
 
-class FadingAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    
+class FadingAnimator: NSObject, CustomAnimation {
+    var isPresenting: Bool
     var duration : TimeInterval
     
-    init(duration : TimeInterval) {
+    required init(duration: TimeInterval, isPresenting: Bool) {
         self.duration = duration
+        self.isPresenting = isPresenting
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
