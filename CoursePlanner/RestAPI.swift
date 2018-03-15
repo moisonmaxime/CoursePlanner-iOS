@@ -52,24 +52,26 @@ class RestAPI {
         }
     }
     
-    static func checkAPIKey(completion: @escaping(Bool) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/login") else {
-            completion(false)
-            return
+    static func checkAPIKey() -> Bool {
+        let semaphore = DispatchSemaphore(value: 0)
+        var success = true
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/login/") else {
+            return false
         }
         
         let request:URLRequest = URLRequest(url: url, type: .GET)
         request.getJsonData { (dict, err) in
             if (err != nil) {
-                // Failed
-                completion(false)
-                return
+                // Failed - invalid api key
+                success = false
             } else {
-                // Success
-                completion(true)
-                return
+                // Success - valid api key
+                success = true
             }
+            semaphore.signal()
         }
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+        return success
     }
     
     static func register(user: String,
