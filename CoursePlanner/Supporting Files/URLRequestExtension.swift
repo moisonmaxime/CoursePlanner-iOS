@@ -51,6 +51,7 @@ extension URLRequest {
                     break
                 default:
                     requestError = .Unknown
+                    print("Unknown error: \(httpStatus.statusCode)")
                     break
                 }
                 
