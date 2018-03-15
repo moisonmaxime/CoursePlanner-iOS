@@ -46,7 +46,6 @@ class RestAPI {
                     return
                 }
                 UserDefaults.standard.set(token, forKey: "api_token")
-                print(token)
                 completion(true, nil)
                 return
             }
@@ -108,7 +107,6 @@ class RestAPI {
                     return
                 }
                 UserDefaults.standard.set(token, forKey: "api_token")
-                print(token)
                 completion(true, nil)
             }
         }
