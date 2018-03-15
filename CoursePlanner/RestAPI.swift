@@ -79,15 +79,15 @@ class RestAPI {
                          last: String,
                          email: String?,
                          completion: @escaping (Bool, APIError?) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/***") else {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/register/") else {
             completion(false, .URLCreationFailed)
             return
         }
         
         var postContent = [ "username": user,
                             "password": password,
-                            "firstname": first,
-                            "lastname": last,
+                            "first_name": first,
+                            "last_name": last,
                             "name": "\(first) \(last)" ]
         if (email != nil) {
             postContent["email"] = email!
@@ -99,7 +99,16 @@ class RestAPI {
                 completion(false, err)
             } else {
                 // Save to application settings
-                print(dict!["access"] as! String)
+                guard let keys = dict!["api_keys"]! as? Dictionary<String, String> else {
+                    completion(false, .DictionaryCreationFailed)
+                    return
+                }
+                guard let token = keys["access"] else {
+                    completion(false, .TokenReadFailed)
+                    return
+                }
+                UserDefaults.standard.set(token, forKey: "api_token")
+                print(token)
                 completion(true, nil)
             }
         }
