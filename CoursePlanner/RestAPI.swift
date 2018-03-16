@@ -35,31 +35,27 @@ class RestAPI {
         }
     }
     
-    static func checkAPIKey() -> Bool {
-        let semaphore = DispatchSemaphore(value: 1)
-        var success = true
+    static func checkAPIKey(completion: @escaping (APIError?) -> ()) {
         guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/login/") else {
-            return false
+            return
         }
         
         let request:URLRequest = URLRequest(url: url, type: .GET)
         request.getJsonData { (dict, err) in
             if (err != nil) {
                 // Failed - invalid api key
-                success = false
+                completion(err)
             } else {
                 // Success - valid api key
-                success = true
+                completion(nil)
             }
-            semaphore.signal()
         }
-        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
-        return success
     }
     
-    static func refreshApplicationKey() -> String? {
+    static func refreshApplicationKey() throws -> String? {
         let semaphore = DispatchSemaphore(value: 1)
         var token:String?
+        var error:APIError?
         guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/auth/token/refresh") else {
             return nil
         }
@@ -69,10 +65,15 @@ class RestAPI {
             if (err == nil) {
                 // Success - valid api key
                 token = "Bearer \(dict!["access"] ?? "")"
+            } else {
+                error = err
             }
             semaphore.signal()
         }
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+        if (error != nil) {
+            throw error!
+        }
         return token
     }
     
@@ -98,8 +99,11 @@ class RestAPI {
         
         var request:URLRequest = URLRequest(url: url, type: .POST, dictionary: postContent)
         
-        guard let token = refreshApplicationKey() else {            // !!! - need better error handling here
-            completion(.ServerError)
+        let token:String
+        do {
+            token = (try refreshApplicationKey())!
+        } catch {
+            completion(error as? APIError)
             return
         }
         request.setValue(token, forHTTPHeaderField: "Authorization")
