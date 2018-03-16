@@ -219,7 +219,7 @@
         <!--Navigation Controller-->
         <scene sceneID="BGg-BF-LVc">
             <objects>
-                <navigationController storyboardIdentifier="HomeNav" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="S4v-G4-58B" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNav" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="S4v-G4-58B" customClass="NavigationController" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xkN-2m-Cwg">
                         <autoresizingMask key="autoresizingMask"/>

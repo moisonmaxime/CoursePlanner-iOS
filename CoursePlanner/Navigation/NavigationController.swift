@@ -12,7 +12,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     
     var animationType:Animation.Type?
     var previousAnimationType:Animation.Type?
-    var willRevertAnimationType:Bool = false
+    var willRevert:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +32,10 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
             return nil
         }
         
-        if (willRevertAnimationType) {
+        if (willRevert) {
             animationType = previousAnimationType
             previousAnimationType = nil
-            willRevertAnimationType = false
+            willRevert = false
         }
         
         let duration = TimeInterval(UINavigationControllerHideShowBarDuration) > 0.4 ? TimeInterval(UINavigationControllerHideShowBarDuration) : 0.4
@@ -51,7 +51,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     func setAnimationType(type: Animation.Type, isRepeating: Bool) {
         previousAnimationType = isRepeating ? animationType : nil
         animationType = type
-        willRevertAnimationType = !isRepeating
+        willRevert = !isRepeating
     }
     
     /*
