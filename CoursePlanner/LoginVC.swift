@@ -26,19 +26,17 @@ class LoginVC: UIViewController {
     @IBAction func loginClick(_ sender: Any) {
         activityIndicator.startAnimating()
         self.view.isUserInteractionEnabled = false
-        RestAPI.login(user: userField.text!, password: passwordField.text!) { (isSuccess, error) in
+        RestAPI.login(user: userField.text!, password: passwordField.text!) { error in
             DispatchQueue.main.async {
                 self.view.isUserInteractionEnabled = true
                 self.activityIndicator.stopAnimating()
-                if (isSuccess) {
+                if (error != nil) {
+                    self.handleError(error: error!)
+                } else {
                     (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
                     let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.navigationController?.setViewControllers([home!], animated: true)
                 }
-            }
-            if error != nil {
-                print("Error")
-                return
             }
         }
     }

@@ -12,24 +12,24 @@ class RestAPI {
     
     static func login(user: String,
                       password: String,
-                      completion: @escaping (Bool, APIError?) -> ()) {
+                      completion: @escaping (APIError?) -> ()) {
         guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/auth/token/obtain") else {
-            completion(false, .InternalError)
+            completion(.InternalError)
             return
         }
         let request:URLRequest = URLRequest(url: url, type: .POST, dictionary: [ "username": user, "password": password ])
         request.getJsonData { (dict, err) in
             if (err != nil) {
-                completion(false, err)
+                completion(err!)
                 return
             } else {
                 // Save to application settings
                 guard let token = dict!["access"] as? String else {
-                    completion(false, .InternalError)
+                    completion(.InternalError)
                     return
                 }
                 UserDefaults.standard.set(token, forKey: "api_token")
-                completion(true, nil)
+                completion(nil)
                 return
             }
         }
@@ -81,9 +81,9 @@ class RestAPI {
                          first: String,
                          last: String,
                          email: String?,
-                         completion: @escaping (Bool, APIError?) -> ()) {
+                         completion: @escaping (APIError?) -> ()) {
         guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/register/") else {
-            completion(false, .InternalError)
+            completion(.InternalError)
             return
         }
         
@@ -98,26 +98,26 @@ class RestAPI {
         
         var request:URLRequest = URLRequest(url: url, type: .POST, dictionary: postContent)
         
-        guard let token = refreshApplicationKey() else {
-            completion(false, nil)
+        guard let token = refreshApplicationKey() else {            // !!! - need better error handling here
+            completion(.ServerError)
             return
         }
         request.setValue(token, forHTTPHeaderField: "Authorization")
         request.getJsonData { (dict, err) in
             if (err != nil) {
-                completion(false, err)
+                completion(err)
             } else {
                 // Save to application settings
                 guard let keys = dict!["api_keys"]! as? Dictionary<String, String> else {
-                    completion(false, .InternalError)
+                    completion(.InternalError)
                     return
                 }
                 guard let token = keys["access"] else {
-                    completion(false, .InternalError)
+                    completion(.InternalError)
                     return
                 }
                 UserDefaults.standard.set(token, forKey: "api_token")
-                completion(true, nil)
+                completion(nil)
             }
         }
     }

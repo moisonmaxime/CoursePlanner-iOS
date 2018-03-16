@@ -54,19 +54,19 @@ class RegisterVC: UIViewController {
         
         self.view.isUserInteractionEnabled = false
         
-        RestAPI.register(user: username, password: password, first: firstName, last: lastName, email: email) { (isSuccess, error) in
+        RestAPI.register(user: username, password: password, first: firstName, last: lastName, email: email) { (error) in
             DispatchQueue.main.async {
+                
                 self.view.isUserInteractionEnabled = true
                 //self.activityIndicator.stopAnimating()
-                if (isSuccess) {
+                
+                if (error != nil) {
+                    self.handleError(error: error!)
+                } else {
                     (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
                     let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.navigationController?.setViewControllers([home!], animated: true)
                 }
-            }
-            if (error != nil) {
-                print("Error: \(String(describing: error))")
-                return
             }
         }
     }
