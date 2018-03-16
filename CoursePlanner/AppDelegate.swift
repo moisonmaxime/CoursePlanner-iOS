@@ -22,9 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let token = UserDefaults.standard.string(forKey: "api_token")
         if (token != nil) {
             // Load Home View
-            if (!RestAPI.checkAPIKey()) {
-                return true
-            }
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialVC:UIViewController

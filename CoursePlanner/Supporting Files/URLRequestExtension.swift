@@ -32,6 +32,7 @@ extension URLRequest {
         self.httpBody = json.data(using: .utf8)
     }
     
+    
     func getJsonData(completion: @escaping (Dictionary<String, Any>?, APIError?)->()) {
         let task = URLSession.shared.dataTask(with: self) { data, response, error in
             guard let data = data, error == nil else {                                   // check for fundamental networking error
@@ -40,22 +41,10 @@ extension URLRequest {
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {    // check for http errors
-                var requestError:APIError
-                
-                switch (httpStatus.statusCode) {
-                case 401:
-                    requestError = .Unauthorized
-                    break
-                case 400:
-                    requestError = .Unauthorized
-                    break
-                default:
-                    requestError = .Unknown
-                    print("Unknown error: \(httpStatus.statusCode)")
-                    break
+                if (httpStatus.statusCode == 401 && UserDefaults.standard.string(forKey: "api_token") != nil) {
+                    completion(nil, .InvalidAPIKey)
                 }
-                
-                completion(nil, requestError)
+                completion(nil, .ServerError)
                 return
             }
             
@@ -63,14 +52,10 @@ extension URLRequest {
                 if let dict = json as? Dictionary<String, Any> {
                     completion(dict, nil)
                     return
-                } else {
-                    completion(nil, .DictionaryCreationFailed)
-                    return
                 }
-            } else {
-                completion(nil, APIError.JSONSerializationFailed)
-                return
             }
+            completion(nil, .InternalError)
+            return
         }
         
         task.resume()
