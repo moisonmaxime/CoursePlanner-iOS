@@ -10,23 +10,37 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+    
+    func displayAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func handleError(error: APIError) {
         DispatchQueue.main.async {
-            debugPrint("Error")
+            self.view.isUserInteractionEnabled = true
+            
+            let message:String
             switch (error) {
             case .InternalError:
-                debugPrint("Internal Error")
+                message = "Internal Error"
                 break
             case .InvalidAPIKey:
-                debugPrint("Invalid API Key")
+                message = "Invalid API Key"
                 break
             case .ServerError:
-                debugPrint("Server Error")
+                message = "Server Error"
                 break
             case .NetworkError:
-                debugPrint("Network Error")
+                message = "Network Error"
                 break
             }
+            
+            debugPrint("Error")
+            debugPrint(message)
+            
+            displayAlert(message: message)
         }
     }
 }

@@ -103,7 +103,6 @@
 				1B76605D2059B089000929D5 /* RegisterVC.swift */,
 				1B76605B2059AF99000929D5 /* HomeVC.swift */,
 				1B644E362050EDAD00CA9264 /* RestAPI.swift */,
-				1B6A1974205C3C6C000AD3D5 /* APIError.swift */,
 				1BB2021A205A14C600A96619 /* Navigation */,
 				1BAB20A620586B5400C0D079 /* Supporting Files */,
 				1B644E222050ED9F00CA9264 /* Info.plist */,
@@ -123,6 +122,7 @@
 		1BAB20A620586B5400C0D079 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B6A1974205C3C6C000AD3D5 /* APIError.swift */,
 				1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */,
 				1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */,
 				1B644E382051AD2100CA9264 /* DictionaryExtension.swift */,
