@@ -48,9 +48,8 @@ extension URLRequest {
                     } else {
                         completion(nil, .InvalidCredentials)
                     }
+                    return
                 }
-                completion(nil, .ServerError)
-                return
             }
             
             if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
