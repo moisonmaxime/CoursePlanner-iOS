@@ -12,5 +12,6 @@ enum APIError: Error {
     case NetworkError
     case ServerError
     case InvalidAPIKey
+    case InvalidCredentials
     case InternalError
 }

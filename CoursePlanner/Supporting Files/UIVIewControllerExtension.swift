@@ -26,6 +26,9 @@ extension UIViewController {
         case .InvalidAPIKey:
             message = "Invalid API Key"
             break
+        case .InvalidCredentials:
+            message = "Invalid Credentials"
+            break
         case .ServerError:
             message = "Server Error"
             break
