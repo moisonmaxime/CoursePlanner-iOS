@@ -18,29 +18,28 @@ extension UIViewController {
     }
     
     func handleError(error: APIError) {
+        let message:String
+        switch (error) {
+        case .InternalError:
+            message = "Internal Error"
+            break
+        case .InvalidAPIKey:
+            message = "Invalid API Key"
+            break
+        case .ServerError:
+            message = "Server Error"
+            break
+        case .NetworkError:
+            message = "Network Error"
+            break
+        }
+        
+        debugPrint("Error")
+        debugPrint(message)
+        
         DispatchQueue.main.async {
             self.view.isUserInteractionEnabled = true
-            
-            let message:String
-            switch (error) {
-            case .InternalError:
-                message = "Internal Error"
-                break
-            case .InvalidAPIKey:
-                message = "Invalid API Key"
-                break
-            case .ServerError:
-                message = "Server Error"
-                break
-            case .NetworkError:
-                message = "Network Error"
-                break
-            }
-            
-            debugPrint("Error")
-            debugPrint(message)
-            
-            displayAlert(message: message)
+            self.displayAlert(message: message)
         }
     }
 }
