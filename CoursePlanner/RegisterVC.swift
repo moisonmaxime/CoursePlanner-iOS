@@ -34,19 +34,23 @@ class RegisterVC: UIViewController {
     @IBAction func registerPressed(_ sender: Any) {
         
         guard let firstName = firstField.text, firstField.text != "" else {
-            print("No first")
+            displayAlert(message: "First name required")
             return
         }
         guard let lastName = lastField.text, lastField.text != "" else {
-            print("No last")
+            displayAlert(message: "Last name required")
             return
         }
         guard let username = userField.text, userField.text != "" else {
-            print("No user")
+            displayAlert(message: "Username required")
             return
         }
         guard let password = passField1.text, passField1.text != "", passField1.text == passField2.text else {
-            print("No password")
+            if (passField1.text == passField2.text) {
+                displayAlert(message: "Password required")
+            } else {
+                displayAlert(message: "Passwords are not matching")
+            }
             return
         }
         
