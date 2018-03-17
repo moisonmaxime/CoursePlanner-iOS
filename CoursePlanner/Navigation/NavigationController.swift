@@ -14,6 +14,8 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     var previousAnimationType:Animation.Type?
     var willRevert:Bool = false
     
+    var interactor:InteractiveTransition!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -42,10 +44,16 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
         
         switch operation {
         case .push:
+            self.interactor = InteractiveTransition(attachTo: toVC)
             return currentAnimationType.init(duration: duration, isPresenting: true)
         default:
             return currentAnimationType.init(duration: duration, isPresenting: false)
         }
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        guard let transitioner = interactor else { return nil }
+        return transitioner.transitionInProgress ? interactor : nil
     }
     
     func setAnimationType(type: Animation.Type, isRepeating: Bool) {

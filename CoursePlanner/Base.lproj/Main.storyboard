@@ -78,7 +78,7 @@
         <!--Register-->
         <scene sceneID="4Qq-Gy-GLJ">
             <objects>
-                <viewController title="Register" id="JlZ-CH-N0H" customClass="RegisterVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" title="Register" id="JlZ-CH-N0H" customClass="RegisterVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uoq-Yr-FfK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
