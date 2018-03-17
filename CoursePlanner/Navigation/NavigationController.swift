@@ -11,7 +11,7 @@ import UIKit
 class NavigationController: UINavigationController, UINavigationControllerDelegate {
     
     var animationType:Animation.Type?
-    var previousAnimationType:Animation.Type?
+    var defaultAnimationType:Animation.Type?
     var willRevert:Bool = false
     
     var interactor:InteractiveTransition!
@@ -35,8 +35,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
         }
         
         if (willRevert) {
-            animationType = previousAnimationType
-            previousAnimationType = nil
+            animationType = defaultAnimationType
             willRevert = false
         }
         
@@ -57,7 +56,9 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     }
     
     func setAnimationType(type: Animation.Type, isRepeating: Bool) {
-        previousAnimationType = isRepeating ? animationType : nil
+        if (isRepeating) {
+            defaultAnimationType = type
+        }
         animationType = type
         willRevert = !isRepeating
     }
