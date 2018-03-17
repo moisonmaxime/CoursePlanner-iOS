@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterVC: UIViewController {
+class RegisterVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var firstField: UITextField!
     @IBOutlet weak var lastField: UITextField!
     @IBOutlet weak var userField: UITextField!
@@ -19,6 +19,7 @@ class RegisterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
