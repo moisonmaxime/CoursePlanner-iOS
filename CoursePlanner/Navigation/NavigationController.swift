@@ -38,7 +38,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
             willRevert = false
         }
         
-        let duration = TimeInterval(UINavigationControllerHideShowBarDuration) > 0.4 ? TimeInterval(UINavigationControllerHideShowBarDuration) : 0.4
+        let duration = self.isNavigationBarHidden ? 0.4 : TimeInterval(UINavigationControllerHideShowBarDuration)
         
         switch operation {
         case .push:
