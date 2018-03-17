@@ -40,9 +40,17 @@ extension UIViewController {
         debugPrint("Error")
         debugPrint(message)
         
-        DispatchQueue.main.async {
-            self.view.isUserInteractionEnabled = true
-            self.displayAlert(message: message)
-        }
+        self.view.isUserInteractionEnabled = true
+        self.displayAlert(message: message)
+    }
+    
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
