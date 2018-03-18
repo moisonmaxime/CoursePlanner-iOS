@@ -41,7 +41,7 @@ class CoverRightAnimation: NSObject, Animation {
             container.insertSubview(toView, aboveSubview: fromView)
         }
         
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in // Animate the transition
+        UIView.animate(withDuration: duration, animations: { () -> Void in // Animate the transition
             rootView.alpha = self.isPresenting ? 0.3 : 1
             rootView.transform = self.isPresenting ? CGAffineTransform(scaleX: 0.95, y: 0.95) : CGAffineTransform(scaleX: 1, y: 1)
             detailView.frame = self.isPresenting ? container.frame : detailView.frame.offsetBy(dx: container.frame.width, dy: 0)
