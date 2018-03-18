@@ -37,6 +37,4 @@ class FadingAnimation: NSObject, Animation {
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }
-    
-
 }

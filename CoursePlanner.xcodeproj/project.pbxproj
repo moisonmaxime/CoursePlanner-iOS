@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B204475205E3E6A00615A4A /* CoverRightAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B204474205E3E6A00615A4A /* CoverRightAnimation.swift */; };
 		1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
 		1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E162050ED9F00CA9264 /* AppDelegate.swift */; };
 		1B644E1C2050ED9F00CA9264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1A2050ED9F00CA9264 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B204474205E3E6A00615A4A /* CoverRightAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverRightAnimation.swift; sourceTree = "<group>"; };
 		1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
 		1B644E132050ED9F00CA9264 /* CoursePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoursePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B644E162050ED9F00CA9264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				1BB2021B205A198A00A96619 /* Animation.swift */,
 				1BDEED522059F220001FE6FB /* FadingAnimation.swift */,
 				1BDEED542059F36B001FE6FB /* NavigationController.swift */,
+				1B204474205E3E6A00615A4A /* CoverRightAnimation.swift */,
 				1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */,
 			);
 			path = Navigation;
@@ -253,6 +256,7 @@
 				1BB93B46205D8DF20042B021 /* InteractiveTransitioner.swift in Sources */,
 				1BDEED532059F220001FE6FB /* FadingAnimation.swift in Sources */,
 				1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */,
+				1B204475205E3E6A00615A4A /* CoverRightAnimation.swift in Sources */,
 				1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */,
 				1B76605C2059AF99000929D5 /* HomeVC.swift in Sources */,
 				1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */,
