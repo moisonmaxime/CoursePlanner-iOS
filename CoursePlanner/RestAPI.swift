@@ -125,5 +125,27 @@ class RestAPI {
             }
         }
     }
+    
+    static func searchCourseIDs(id: String, term: String = "", completion: @escaping (Array<String>?, APIError?) -> ()) {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-search?course=\(id)&term=201810") else {
+            completion(nil, .InternalError)
+            return
+        }
+        let request:URLRequest = URLRequest(url: url, type: .GET)
+        request.getJsonData { (dict, err) in
+            if (err != nil) {
+                completion(nil, err!)
+                return
+            } else {
+                // Save to application settings
+                guard let result = dict!["result"] as? Array<String> else {
+                    completion(nil, .InternalError)
+                    return
+                }
+                completion(result, nil)
+                return
+            }
+        }
+    }
 
 }

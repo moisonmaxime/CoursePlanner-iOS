@@ -56,6 +56,10 @@ extension URLRequest {
                 if let dict = json as? Dictionary<String, Any> {
                     completion(dict, nil)
                     return
+                } else if let array = json as? Array<Any> {
+                    let dict = ["result": array]
+                    completion(dict, nil)
+                    return
                 }
             }
             completion(nil, .InternalError)

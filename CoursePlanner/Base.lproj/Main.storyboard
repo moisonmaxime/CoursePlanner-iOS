@@ -173,6 +173,9 @@
                                 <rect key="frame" x="172" y="318" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Top"/>
+                                <connections>
+                                    <segue destination="tN9-yH-7gg" kind="show" id="u7t-LL-TZK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTy-3x-eXg">
                                 <rect key="frame" x="162" y="356" width="51" height="30"/>
@@ -184,10 +187,63 @@
                         <viewLayoutGuide key="safeArea" id="dLY-Bc-dgi"/>
                     </view>
                     <navigationItem key="navigationItem" id="TI0-yM-K6i"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="O3Q-Pl-DTt" id="U8p-aV-qIu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6J-AH-s7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="O3Q-Pl-DTt">
+                    <connections>
+                        <outlet property="delegate" destination="Bqd-8e-Rac" id="yGV-vp-jaq"/>
+                        <outlet property="searchContentsController" destination="Bqd-8e-Rac" id="8HO-dp-Wdi"/>
+                        <outlet property="searchResultsDataSource" destination="Bqd-8e-Rac" id="NF9-AO-AjO"/>
+                        <outlet property="searchResultsDelegate" destination="Bqd-8e-Rac" id="MGB-XU-Wxh"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="238" y="1116"/>
+            <point key="canvasLocation" x="238" y="834"/>
+        </scene>
+        <!--CoursesVC-->
+        <scene sceneID="qiq-4w-G1f">
+            <objects>
+                <viewController id="tN9-yH-7gg" customClass="CoursesVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QE0-S8-wJs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-vT-Qo6">
+                                <rect key="frame" x="0.0" y="76" width="375" height="291"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xbo-VZ-sZ4">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-bX-7p5">
+                                <rect key="frame" x="0.0" y="267" width="375" height="380"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <tableView key="tableFooterView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eN8-Hb-VEL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="307"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </tableView>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Dug-H3-JDK"/>
+                    </view>
+                    <connections>
+                        <outlet property="seacrhBar" destination="xbo-VZ-sZ4" id="uyF-nd-WXh"/>
+                        <outlet property="searchTable" destination="7j9-vT-Qo6" id="mdZ-nl-ez4"/>
+                        <outlet property="selectedTable" destination="RZK-bX-7p5" id="s5a-yT-bOB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i0k-l5-kgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048.8" y="833.43328335832086"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vg1-vK-hXI">
@@ -221,7 +277,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxX-Ot-A0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-634" y="1116"/>
+            <point key="canvasLocation" x="-634" y="834"/>
         </scene>
     </scenes>
 </document>
