@@ -19,7 +19,16 @@ class CoursesVC: UIViewController, UITableViewDataSource, UISearchBarDelegate, U
         super.viewDidLoad()
         seacrhBar.delegate = self
         searchTable.dataSource = self
+        searchTable.delegate = self
         selectedTable.dataSource = self
+        selectedTable.delegate = self
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: NSNotification.Name.UIKeyboardWillShow,
+            object: nil
+        )
         // Do any additional setup after loading the view.
     }
     
@@ -52,7 +61,19 @@ class CoursesVC: UIViewController, UITableViewDataSource, UISearchBarDelegate, U
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if ((seacrhBar.text?.underestimatedCount)! >= 2) {
             RestAPI.searchCourseIDs(id: searchBar.text!, completion: { (result, err) in
-                self.searchedCourses = result!
+                self.searchedCourses = result!.filter({ (course) -> Bool in
+                    return !self.selectedCourses.contains(course)
+                }).sorted(by: { (s1, s2) -> Bool in
+                    let s1 = s1.split(separator: "-")
+                    let s2 = s2.split(separator: "-")
+                    
+                    if (s1[0] == s2[0]) {
+                        let n1 = Int(s1[1]) ?? 0
+                        let n2 = Int(s2[1]) ?? 0
+                        return n1 < n2
+                    }
+                    return s1[0] < s2[0]
+                })
                 DispatchQueue.main.async {
                     self.searchTable.reloadData()
                 }
@@ -64,6 +85,7 @@ class CoursesVC: UIViewController, UITableViewDataSource, UISearchBarDelegate, U
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
         searchBar.endEditing(true)
     }
     
@@ -76,15 +98,21 @@ class CoursesVC: UIViewController, UITableViewDataSource, UISearchBarDelegate, U
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected")
         if (tableView == searchTable) {
-            print("1")
             selectedCourses.append(searchedCourses[indexPath.row])
         } else {
             selectedCourses.remove(at: indexPath.row)
         }
         selectedTable.reloadData()
     }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            self.searchTable.contentInset.bottom = keyboardHeight - 40
+        }
+    }
+    
     
     /*
      // MARK: - Navigation
