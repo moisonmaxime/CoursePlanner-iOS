@@ -108,7 +108,7 @@
 				1B7660592059AC69000929D5 /* LoginVC.swift */,
 				1B76605D2059B089000929D5 /* RegisterVC.swift */,
 				1B76605B2059AF99000929D5 /* HomeVC.swift */,
-				1BFE085D205EE51800FEEB1F /* CoursesVC.swift */,
+				1BF9DF11205F4F9100DCC97B /* ScheduleBuilding */,
 				1B644E362050EDAD00CA9264 /* RestAPI.swift */,
 				1BB2021A205A14C600A96619 /* Navigation */,
 				1BAB20A620586B5400C0D079 /* Supporting Files */,
@@ -149,6 +149,14 @@
 				1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		1BF9DF11205F4F9100DCC97B /* ScheduleBuilding */ = {
+			isa = PBXGroup;
+			children = (
+				1BFE085D205EE51800FEEB1F /* CoursesVC.swift */,
+			);
+			path = ScheduleBuilding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

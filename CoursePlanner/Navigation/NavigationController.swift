@@ -21,7 +21,6 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
         self.delegate = self
         self.view.backgroundColor = .clear
         // Do any additional setup after loading the view.
-        hideKeyboardWhenTappedAround()
     }
     
     override func didReceiveMemoryWarning() {
