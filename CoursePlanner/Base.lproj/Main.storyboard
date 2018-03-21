@@ -194,12 +194,15 @@
                                 <rect key="frame" x="222" y="617" width="137" height="30"/>
                                 <state key="normal" title="Build New Schedule"/>
                                 <connections>
-                                    <segue destination="tN9-yH-7gg" kind="show" id="u7t-LL-TZK"/>
+                                    <segue destination="tN9-yH-7gg" kind="show" identifier="showBuilder" id="u7t-LL-TZK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdO-VT-e3o">
                                 <rect key="frame" x="16" y="617" width="155" height="30"/>
                                 <state key="normal" title="View Saved Schedules"/>
+                                <connections>
+                                    <segue destination="Iqs-wM-7Xx" kind="show" identifier="showSaved" id="0PT-a4-0eZ"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8mg-Er-QeP">
                                 <rect key="frame" x="16" y="129" width="343" height="429"/>
@@ -308,6 +311,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0k-l5-kgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1048.8" y="833.43328335832086"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hME-hO-9xD">
+            <objects>
+                <viewController id="Iqs-wM-7Xx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bJK-vT-kAs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved Schedules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCE-Gc-uM3">
+                                <rect key="frame" x="76" y="325.5" width="223" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yCE-Gc-uM3" firstAttribute="centerX" secondItem="ExQ-JM-iQP" secondAttribute="centerX" id="0fc-j9-Te3"/>
+                            <constraint firstItem="yCE-Gc-uM3" firstAttribute="centerY" secondItem="ExQ-JM-iQP" secondAttribute="centerY" id="aVo-ZS-Tdy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ExQ-JM-iQP"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWj-ia-Ply" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="237.59999999999999" y="1614.2428785607199"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vg1-vK-hXI">
