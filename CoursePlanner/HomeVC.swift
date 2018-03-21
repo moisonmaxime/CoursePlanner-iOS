@@ -11,22 +11,31 @@ import UIKit
 class HomeVC: UIViewController, UITableViewDataSource {
     
     var terms:Array<String> = []
+    var refreshControl: UIRefreshControl!
     @IBOutlet weak var termTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         termTable.dataSource = self
-//        let semaphore = DispatchSemaphore(value: 1)
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
+        termTable.addSubview(refreshControl)
         RestAPI.checkAPIKey { (error) in
             if (error != nil) {
                 DispatchQueue.main.async {
                     self.handleError(error: error!)
                 }
             }
-//            semaphore.signal()
         }
-//        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+        refresh()
+    }
+    
+    @objc func refresh() {
         RestAPI.getTerms { (terms, error) in
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
             if (error != nil) {
                 DispatchQueue.main.async {
                     self.handleError(error: error!)
@@ -38,7 +47,6 @@ class HomeVC: UIViewController, UITableViewDataSource {
                 }
             }
         }
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
