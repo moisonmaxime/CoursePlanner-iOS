@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CoursesVC: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
+class CoursesVC: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate, UIGestureRecognizerDelegate {
     @IBOutlet weak var searchTable: UITableView!
     @IBOutlet weak var selectedTable: UITableView!
     @IBOutlet weak var seacrhBar: UISearchBar!
@@ -22,6 +22,7 @@ class CoursesVC: UIViewController, UITableViewDataSource, UISearchBarDelegate, U
         searchTable.delegate = self
         selectedTable.dataSource = self
         selectedTable.delegate = self
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         NotificationCenter.default.addObserver(
             self,
@@ -98,11 +99,14 @@ class CoursesVC: UIViewController, UITableViewDataSource, UISearchBarDelegate, U
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if (tableView == searchTable) {
             selectedCourses.append(searchedCourses[indexPath.row])
+            searchedCourses.remove(at: indexPath.row)
         } else {
             selectedCourses.remove(at: indexPath.row)
         }
+        searchTable.reloadData()
         selectedTable.reloadData()
     }
     

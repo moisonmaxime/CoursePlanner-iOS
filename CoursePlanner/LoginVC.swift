@@ -17,7 +17,6 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         hideKeyboardWhenTappedAround()
-        (navigationController as! NavigationController).setAnimationType(type: CoverRightAnimation.self, isRepeating: true)
     }
     
     override func didReceiveMemoryWarning() {
