@@ -8,10 +8,11 @@
 
 import UIKit
 
-class HomeVC: UIViewController, UITableViewDataSource {
+class HomeVC: UIViewController {
     
     var terms:Array<String> = []
     var refreshControl: UIRefreshControl!
+    var selectedRow = ""
     @IBOutlet weak var termTable: UITableView!
     
     override func viewDidLoad() {
@@ -53,16 +54,6 @@ class HomeVC: UIViewController, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return terms.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = terms[indexPath.row]
-        return cell
-    }
-    
     /*
      // MARK: - Navigation
      
@@ -72,5 +63,12 @@ class HomeVC: UIViewController, UITableViewDataSource {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showBuilder") {
+            let dest = segue.destination as! CoursesVC
+            dest.term = selectedRow
+        }
+    }
     
 }
