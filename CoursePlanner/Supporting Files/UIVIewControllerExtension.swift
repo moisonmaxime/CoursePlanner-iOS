@@ -40,7 +40,6 @@ extension UIViewController {
         debugPrint("Error")
         debugPrint(message)
         
-        self.view.isUserInteractionEnabled = true
         self.displayAlert(message: message)
     }
     
@@ -52,5 +51,16 @@ extension UIViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    @IBAction func nextTextField(sender: UITextField) {
+        let fields = view.subviews.filter { (field) -> Bool in
+            return type(of: field) == UITextField.self
+        }
+        if let index = fields.index(of: sender) {
+            if (index+1 < fields.count) {
+                fields[index+1].becomeFirstResponder()
+            }
+        }
     }
 }
