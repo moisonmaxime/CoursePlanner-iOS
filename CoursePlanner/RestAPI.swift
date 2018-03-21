@@ -126,8 +126,8 @@ class RestAPI {
         }
     }
     
-    static func searchCourseIDs(id: String, term: String = "201810", completion: @escaping (Array<String>?, APIError?) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-search?course=\(id)&term=\(term)") else {
+    static func searchCourseIDs(id: String, term: String?, completion: @escaping (Array<String>?, APIError?) -> ()) {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-search?course=\(id)&term=\(term ?? "201810")") else {
             completion(nil, .InternalError)
             return
         }

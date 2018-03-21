@@ -12,12 +12,13 @@ class HomeVC: UIViewController {
     
     var terms:Array<String> = []
     var refreshControl: UIRefreshControl!
-    var selectedRow = ""
+    var selectedRow: String?
     @IBOutlet weak var termTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         termTable.dataSource = self
+        termTable.delegate = self
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
         termTable.addSubview(refreshControl)
