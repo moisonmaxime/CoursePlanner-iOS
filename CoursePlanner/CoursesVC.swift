@@ -91,6 +91,7 @@ class CoursesVC: UIViewController, UITableViewDataSource, UISearchBarDelegate, U
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchedCourses = []
         searchTable.isHidden = false
     }
     
