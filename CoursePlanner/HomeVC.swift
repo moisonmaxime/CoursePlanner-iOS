@@ -18,7 +18,6 @@ class HomeVC: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         termTable.dataSource = self
         refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
         termTable.addSubview(refreshControl)
         RestAPI.checkAPIKey { (error) in
