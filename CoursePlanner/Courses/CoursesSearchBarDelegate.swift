@@ -20,9 +20,7 @@ extension CoursesVC: UISearchBarDelegate {
                     }
                 }
                 
-                self.searchedCourses = result!.filter({ (course) -> Bool in
-                    return !self.selectedCourses.contains(course)
-                }).sorted(by: { (s1, s2) -> Bool in
+                self.searchedCourses = result!.sorted(by: { (s1, s2) -> Bool in
                     let s1 = s1.split(separator: "-")
                     let s2 = s2.split(separator: "-")
                     
@@ -43,14 +41,12 @@ extension CoursesVC: UISearchBarDelegate {
         }
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        searchBar.endEditing(true)
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchTable.isHidden = false
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchedCourses = []
-        searchTable.isHidden = false
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

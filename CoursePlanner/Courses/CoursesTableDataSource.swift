@@ -22,6 +22,9 @@ extension CoursesVC: UITableViewDataSource {
         if (tableView == searchTable) {
             let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
             cell.textLabel?.text = searchedCourses[indexPath.row]
+            if (selectedCourses.contains(searchedCourses[indexPath.row])) {
+                cell.backgroundColor = .lightGray
+            }
             return cell
         } else {
             let cell = UITableViewCell(style: .default, reuseIdentifier: nil)

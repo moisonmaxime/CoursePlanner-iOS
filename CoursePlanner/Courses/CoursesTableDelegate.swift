@@ -13,8 +13,11 @@ extension CoursesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if (tableView == searchTable) {
-            selectedCourses.append(searchedCourses[indexPath.row])
-            searchedCourses.remove(at: indexPath.row)
+            if let index = selectedCourses.index(of: searchedCourses[indexPath.row]) {
+                selectedCourses.remove(at: index)
+            } else {
+                selectedCourses.append(searchedCourses[indexPath.row])
+            }
         } else {
             selectedCourses.remove(at: indexPath.row)
         }
