@@ -11,9 +11,10 @@ import UIKit
 
 extension UIViewController {
     
-    func displayAlert(message: String) {
+    func displayAlert(message: String, handler: ((UIAlertAction) -> ())? = nil) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: handler))
+        print(message)
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -25,7 +26,12 @@ extension UIViewController {
             break
         case .InvalidAPIKey:
             message = "Invalid API Key"
-            break
+            displayAlert(message: message, handler: { (action) in
+                (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
+                let login = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+                self.navigationController?.setViewControllers([login!], animated: true)
+            })
+            return
         case .InvalidCredentials:
             message = "Invalid Credentials"
             break
@@ -40,7 +46,7 @@ extension UIViewController {
         debugPrint("Error")
         debugPrint(message)
         
-        self.displayAlert(message: message)
+        self.displayAlert(message: message, handler: nil)
     }
     
     

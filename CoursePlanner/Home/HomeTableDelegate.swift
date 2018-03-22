@@ -11,7 +11,6 @@ import UIKit
 
 extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(terms[indexPath.row])
         self.selectedRow = terms[indexPath.row]
     }
 }

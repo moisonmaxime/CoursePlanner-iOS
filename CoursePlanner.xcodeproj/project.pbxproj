@@ -191,8 +191,8 @@
 			children = (
 				1BB2021B205A198A00A96619 /* Animation.swift */,
 				1BDEED522059F220001FE6FB /* FadingAnimation.swift */,
-				1BDEED542059F36B001FE6FB /* NavigationController.swift */,
 				1B204474205E3E6A00615A4A /* CoverRightAnimation.swift */,
+				1BDEED542059F36B001FE6FB /* NavigationController.swift */,
 				1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */,
 			);
 			path = Navigation;
