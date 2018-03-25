@@ -169,4 +169,51 @@ class RestAPI {
             }
         }
     }
+    
+    static func getSchedules(term: String="",
+                             courses: Array<String>=[],
+                             earliest: String?=nil,
+                             latest: String?=nil,
+                             gapsAscending: Bool?=nil,
+                             daysAscending: Bool?=nil,
+                             completion: @escaping ([Schedule]?, APIError?) -> ()) {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/schedule-search/") else {
+            completion(nil, .InternalError)
+            return
+        }
+        var request:URLRequest = URLRequest(url: url, type: .POST)
+        request.httpBody = "{\"course_list\": [\"CSE-120\", \"CSE-150\"], \"term\": \"201810\"}".data(using: .utf8)
+        request.getJsonData { (dict, err) in
+            if (err != nil) {
+                completion(nil, err!)
+                return
+            } else {
+                // Save to application settings
+                guard let result = dict!["result"] as? Array<Dictionary<String, Any>> else {
+                    completion(nil, .InternalError)
+                    return
+                }
+                
+                var schedules:[Schedule] = []
+                for i in 0..<result.count {
+                    let info:Dictionary<String, Any>
+                    guard let tempInfo = result[i]["info"]! as? Dictionary<String, Any> else {
+                        completion(nil, .InternalError)
+                        return
+                    }
+                    info = tempInfo
+                    let classes:Dictionary<String, Dictionary<String, Dictionary<String, Any?>>>
+                    guard let tempClasses = result[i]["schedule"] as? Dictionary<String, Dictionary<String, Dictionary<String, Any?>>> else {
+                        completion(nil, .InternalError)
+                        return
+                    }
+                    classes = tempClasses
+                    let newSchedule = Schedule(info: info, classes: classes)
+                    schedules.append(newSchedule)
+                }
+                completion(schedules, nil)
+                return
+            }
+        }
+    }
 }
