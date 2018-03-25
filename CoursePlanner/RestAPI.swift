@@ -170,8 +170,8 @@ class RestAPI {
         }
     }
     
-    static func getSchedules(term: String="",
-                             courses: Array<String>=[],
+    static func getSchedules(term: String,
+                             courses: Array<String>,
                              earliest: String?=nil,
                              latest: String?=nil,
                              gapsAscending: Bool?=nil,
@@ -182,7 +182,28 @@ class RestAPI {
             return
         }
         var request:URLRequest = URLRequest(url: url, type: .POST)
-        request.httpBody = "{\"course_list\": [\"CSE-120\", \"CSE-150\"], \"term\": \"201810\"}".data(using: .utf8)
+        
+        var dict = ["term": term, "course_list": courses] as [String : Any]
+        if (earliest != nil) {
+            dict["earliest_time"] = earliest!
+        }
+        if (earliest != nil) {
+            dict["latest_time"] = latest!
+        }
+        if (gapsAscending != nil) {
+            dict["gaps"] = gapsAscending! ? "asc" : "desc"
+        }
+        if (daysAscending != nil) {
+            dict["days"] = daysAscending! ? "asc" : "desc"
+        }
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) else {
+            completion(nil, .InternalError)
+            return
+        }
+        
+        request.httpBody = jsonData
+        
         request.getJsonData { (dict, err) in
             if (err != nil) {
                 completion(nil, err!)

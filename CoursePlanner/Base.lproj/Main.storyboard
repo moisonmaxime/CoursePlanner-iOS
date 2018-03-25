@@ -266,6 +266,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaZ-ol-ppf">
                                 <rect key="frame" x="170" y="617" width="35" height="30"/>
                                 <state key="normal" title="Build"/>
+                                <connections>
+                                    <segue destination="Yh2-kt-Ah4" kind="show" identifier="showSchedules" id="UY1-Ah-3Wt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -322,6 +325,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWj-ia-Ply" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="237.59999999999999" y="1614.2428785607199"/>
+        </scene>
+        <!--SchedulesVC-->
+        <scene sceneID="bzG-ke-CBr">
+            <objects>
+                <viewController id="Yh2-kt-Ah4" customClass="SchedulesVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NMa-1y-u3e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="FNj-Bg-LKw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jZS-2C-ULa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1049" y="1614"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vg1-vK-hXI">

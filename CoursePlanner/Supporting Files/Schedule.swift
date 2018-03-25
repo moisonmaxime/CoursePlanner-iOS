@@ -29,7 +29,7 @@ class Schedule: NSObject {
             for a in c.value {
                 desc += "\n\t\t\t\(a.key)"
                 for b in a.value {
-                    desc += "\n\t\t\t\(b)"
+                    desc += "\n\t\t\t\"\(b.key)\": \(String(describing: b.value))"
                 }
             }
         }
