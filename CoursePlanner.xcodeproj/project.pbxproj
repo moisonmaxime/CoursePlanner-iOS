@@ -14,6 +14,7 @@
 		1B209D452062EED800F701C6 /* CoursesSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B209D442062EED800F701C6 /* CoursesSearchBarDelegate.swift */; };
 		1B209D472062F08B00F701C6 /* HomeTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B209D462062F08B00F701C6 /* HomeTableDelegate.swift */; };
 		1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
+		1B5C7F612065ABB9009911E0 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C7F602065ABB9009911E0 /* Schedule.swift */; };
 		1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E162050ED9F00CA9264 /* AppDelegate.swift */; };
 		1B644E1C2050ED9F00CA9264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1A2050ED9F00CA9264 /* Main.storyboard */; };
 		1B644E1E2050ED9F00CA9264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1D2050ED9F00CA9264 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		1BDEED532059F220001FE6FB /* FadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED522059F220001FE6FB /* FadingAnimation.swift */; };
 		1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED542059F36B001FE6FB /* NavigationController.swift */; };
 		1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE085D205EE51800FEEB1F /* CoursesVC.swift */; };
+		1BFE30C02068629B0053C3B3 /* SchedulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE30BF2068629B0053C3B3 /* SchedulesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,7 @@
 		1B209D442062EED800F701C6 /* CoursesSearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesSearchBarDelegate.swift; sourceTree = "<group>"; };
 		1B209D462062F08B00F701C6 /* HomeTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableDelegate.swift; sourceTree = "<group>"; };
 		1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
+		1B5C7F602065ABB9009911E0 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		1B644E132050ED9F00CA9264 /* CoursePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoursePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B644E162050ED9F00CA9264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B644E1B2050ED9F00CA9264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 		1BDEED522059F220001FE6FB /* FadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingAnimation.swift; sourceTree = "<group>"; };
 		1BDEED542059F36B001FE6FB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1BFE085D205EE51800FEEB1F /* CoursesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesVC.swift; sourceTree = "<group>"; };
+		1BFE30BF2068629B0053C3B3 /* SchedulesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,14 @@
 			path = Courses;
 			sourceTree = "<group>";
 		};
+		1B5C7F5F2065A1D9009911E0 /* Schedules */ = {
+			isa = PBXGroup;
+			children = (
+				1BFE30BF2068629B0053C3B3 /* SchedulesVC.swift */,
+			);
+			path = Schedules;
+			sourceTree = "<group>";
+		};
 		1B644E0A2050ED9F00CA9264 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +168,7 @@
 				1B209D3B2062ED7700F701C6 /* Register */,
 				1B209D3C2062ED7C00F701C6 /* Home */,
 				1B209D3D2062ED8100F701C6 /* Courses */,
+				1B5C7F5F2065A1D9009911E0 /* Schedules */,
 				1B644E362050EDAD00CA9264 /* RestAPI.swift */,
 				1BB2021A205A14C600A96619 /* Navigation */,
 				1BAB20A620586B5400C0D079 /* Supporting Files */,
@@ -176,6 +189,7 @@
 		1BAB20A620586B5400C0D079 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B5C7F602065ABB9009911E0 /* Schedule.swift */,
 				1B6A1974205C3C6C000AD3D5 /* APIError.swift */,
 				1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */,
 				1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */,
@@ -310,9 +324,11 @@
 				1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */,
 				1B204475205E3E6A00615A4A /* CoverRightAnimation.swift in Sources */,
 				1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */,
+				1BFE30C02068629B0053C3B3 /* SchedulesVC.swift in Sources */,
 				1B76605C2059AF99000929D5 /* HomeVC.swift in Sources */,
 				1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */,
 				1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */,
+				1B5C7F612065ABB9009911E0 /* Schedule.swift in Sources */,
 				1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */,
 				1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */,
 				1B209D472062F08B00F701C6 /* HomeTableDelegate.swift in Sources */,

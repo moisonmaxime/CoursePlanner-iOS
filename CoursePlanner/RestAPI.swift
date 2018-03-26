@@ -169,4 +169,72 @@ class RestAPI {
             }
         }
     }
+    
+    static func getSchedules(term: String,
+                             courses: Array<String>,
+                             earliest: String?=nil,
+                             latest: String?=nil,
+                             gapsAscending: Bool?=nil,
+                             daysAscending: Bool?=nil,
+                             completion: @escaping ([Schedule]?, APIError?) -> ()) {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/schedule-search/") else {
+            completion(nil, .InternalError)
+            return
+        }
+        var request:URLRequest = URLRequest(url: url, type: .POST)
+        
+        var dict = ["term": term, "course_list": courses] as [String : Any]
+        if (earliest != nil) {
+            dict["earliest_time"] = earliest!
+        }
+        if (earliest != nil) {
+            dict["latest_time"] = latest!
+        }
+        if (gapsAscending != nil) {
+            dict["gaps"] = gapsAscending! ? "asc" : "desc"
+        }
+        if (daysAscending != nil) {
+            dict["days"] = daysAscending! ? "asc" : "desc"
+        }
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) else {
+            completion(nil, .InternalError)
+            return
+        }
+        
+        request.httpBody = jsonData
+        
+        request.getJsonData { (dict, err) in
+            if (err != nil) {
+                completion(nil, err!)
+                return
+            } else {
+                // Save to application settings
+                guard let result = dict!["result"] as? Array<Dictionary<String, Any>> else {
+                    completion(nil, .InternalError)
+                    return
+                }
+                
+                var schedules:[Schedule] = []
+                for i in 0..<result.count {
+                    let info:Dictionary<String, Any>
+                    guard let tempInfo = result[i]["info"]! as? Dictionary<String, Any> else {
+                        completion(nil, .InternalError)
+                        return
+                    }
+                    info = tempInfo
+                    let classes:Dictionary<String, Dictionary<String, Dictionary<String, Any?>>>
+                    guard let tempClasses = result[i]["schedule"] as? Dictionary<String, Dictionary<String, Dictionary<String, Any?>>> else {
+                        completion(nil, .InternalError)
+                        return
+                    }
+                    classes = tempClasses
+                    let newSchedule = Schedule(info: info, classes: classes)
+                    schedules.append(newSchedule)
+                }
+                completion(schedules, nil)
+                return
+            }
+        }
+    }
 }
