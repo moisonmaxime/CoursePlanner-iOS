@@ -26,6 +26,13 @@
 		1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7660592059AC69000929D5 /* LoginVC.swift */; };
 		1B76605C2059AF99000929D5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605B2059AF99000929D5 /* HomeVC.swift */; };
 		1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605D2059B089000929D5 /* RegisterVC.swift */; };
+		1B7C115A2071B500001328E4 /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C11532071B500001328E4 /* DaysView.swift */; };
+		1B7C115B2071B500001328E4 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C11542071B500001328E4 /* CalendarView.swift */; };
+		1B7C115C2071B500001328E4 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C11552071B500001328E4 /* EventView.swift */; };
+		1B7C115D2071B500001328E4 /* HoursView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C11562071B500001328E4 /* HoursView.swift */; };
+		1B7C115E2071B500001328E4 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C11572071B500001328E4 /* GridView.swift */; };
+		1B7C115F2071B500001328E4 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C11582071B500001328E4 /* StringExtensions.swift */; };
+		1B7C11602071B500001328E4 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C11592071B500001328E4 /* ColorExtensions.swift */; };
 		1BB2021C205A198A00A96619 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2021B205A198A00A96619 /* Animation.swift */; };
 		1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */; };
 		1BB93B46205D8DF20042B021 /* InteractiveTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */; };
@@ -69,6 +76,13 @@
 		1B7660592059AC69000929D5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1B76605B2059AF99000929D5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		1B76605D2059B089000929D5 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		1B7C11532071B500001328E4 /* DaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysView.swift; sourceTree = "<group>"; };
+		1B7C11542071B500001328E4 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		1B7C11552071B500001328E4 /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		1B7C11562071B500001328E4 /* HoursView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoursView.swift; sourceTree = "<group>"; };
+		1B7C11572071B500001328E4 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		1B7C11582071B500001328E4 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		1B7C11592071B500001328E4 /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		1BB2021B205A198A00A96619 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = CoursePlanner/Navigation/Animation.swift; sourceTree = SOURCE_ROOT; };
 		1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewControllerExtension.swift; sourceTree = "<group>"; };
 		1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioner.swift; sourceTree = "<group>"; };
@@ -137,6 +151,13 @@
 			isa = PBXGroup;
 			children = (
 				1BFE30BF2068629B0053C3B3 /* SchedulesVC.swift */,
+				1B7C11542071B500001328E4 /* CalendarView.swift */,
+				1B7C11592071B500001328E4 /* ColorExtensions.swift */,
+				1B7C11532071B500001328E4 /* DaysView.swift */,
+				1B7C11552071B500001328E4 /* EventView.swift */,
+				1B7C11572071B500001328E4 /* GridView.swift */,
+				1B7C11562071B500001328E4 /* HoursView.swift */,
+				1B7C11582071B500001328E4 /* StringExtensions.swift */,
 			);
 			path = Schedules;
 			sourceTree = "<group>";
@@ -317,23 +338,30 @@
 			files = (
 				1B209D3F2062EDAC00F701C6 /* HomeTableDatasource.swift in Sources */,
 				1B644E372050EDAD00CA9264 /* RestAPI.swift in Sources */,
+				1B7C115B2071B500001328E4 /* CalendarView.swift in Sources */,
 				1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */,
 				1BB93B46205D8DF20042B021 /* InteractiveTransitioner.swift in Sources */,
 				1B209D432062EE9200F701C6 /* CoursesTableDelegate.swift in Sources */,
 				1BDEED532059F220001FE6FB /* FadingAnimation.swift in Sources */,
+				1B7C115E2071B500001328E4 /* GridView.swift in Sources */,
 				1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */,
 				1B204475205E3E6A00615A4A /* CoverRightAnimation.swift in Sources */,
+				1B7C115C2071B500001328E4 /* EventView.swift in Sources */,
 				1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */,
 				1BFE30C02068629B0053C3B3 /* SchedulesVC.swift in Sources */,
+				1B7C115A2071B500001328E4 /* DaysView.swift in Sources */,
 				1B76605C2059AF99000929D5 /* HomeVC.swift in Sources */,
 				1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */,
 				1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */,
 				1B5C7F612065ABB9009911E0 /* Schedule.swift in Sources */,
 				1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */,
+				1B7C115D2071B500001328E4 /* HoursView.swift in Sources */,
 				1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */,
+				1B7C11602071B500001328E4 /* ColorExtensions.swift in Sources */,
 				1B209D472062F08B00F701C6 /* HomeTableDelegate.swift in Sources */,
 				1B209D452062EED800F701C6 /* CoursesSearchBarDelegate.swift in Sources */,
 				1B209D412062EE1000F701C6 /* CoursesTableDataSource.swift in Sources */,
+				1B7C115F2071B500001328E4 /* StringExtensions.swift in Sources */,
 				1B644E392051AD2100CA9264 /* DictionaryExtension.swift in Sources */,
 				1BB2021C205A198A00A96619 /* Animation.swift in Sources */,
 				1B6A1975205C3C6C000AD3D5 /* APIError.swift in Sources */,
