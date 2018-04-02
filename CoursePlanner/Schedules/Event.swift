@@ -11,6 +11,7 @@ import UIKit
 class Event: UIView {
 
     @IBOutlet weak var courseID: UILabel!
+    @IBOutlet weak var time: UILabel!
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
