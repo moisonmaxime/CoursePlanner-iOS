@@ -10,9 +10,16 @@ import UIKit
 
 class HomeVC: UIViewController {
     
+    @IBOutlet var displayButtons: [UIButton]!
     var terms:Array<String> = []
     var refreshControl: UIRefreshControl!
-    var selectedRow: String?
+    var selectedRow: String? {
+        didSet {
+            for b in displayButtons {
+                b.isEnabled = (selectedRow != nil)
+            }
+        }
+    }
     @IBOutlet weak var termTable: UITableView!
     
     override func viewDidLoad() {

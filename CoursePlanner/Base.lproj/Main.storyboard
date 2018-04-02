@@ -190,14 +190,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd5-0c-40B">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd5-0c-40B">
                                 <rect key="frame" x="222" y="617" width="137" height="30"/>
                                 <state key="normal" title="Build New Schedule"/>
                                 <connections>
                                     <segue destination="tN9-yH-7gg" kind="show" identifier="showBuilder" id="u7t-LL-TZK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdO-VT-e3o">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdO-VT-e3o">
                                 <rect key="frame" x="16" y="617" width="155" height="30"/>
                                 <state key="normal" title="View Saved Schedules"/>
                                 <connections>
@@ -229,6 +229,8 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="O3Q-Pl-DTt" id="U8p-aV-qIu"/>
                         <outlet property="termTable" destination="8mg-Er-QeP" id="ASn-Lj-dqI"/>
+                        <outletCollection property="displayButtons" destination="pdO-VT-e3o" collectionClass="NSMutableArray" id="lak-Td-jWq"/>
+                        <outletCollection property="displayButtons" destination="Dd5-0c-40B" collectionClass="NSMutableArray" id="9c4-GM-zbM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6J-AH-s7a" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -9,6 +9,8 @@
 import Foundation
 
 extension String {
+    
+    
     func extractTime() -> [String: Int] {
         let times = self.split(separator: "-")
         var startSubs = times[0].split(separator: ":")
@@ -40,4 +42,14 @@ extension String {
         }
         return ["start": Int(startHour + startMin)!, "end": Int(endHour + endMin)!]
     }
+    
+    
+    func readableTerm() -> String {
+        let year = self.prefix(4)
+        let term = self.suffix(from: .init(encodedOffset: 4))
+        let TERMS = ["30": "Fall", "10": "Spring"]
+        return "\(TERMS[String(term)] ?? String(term)) \(year)"
+    }
+    
+    
 }

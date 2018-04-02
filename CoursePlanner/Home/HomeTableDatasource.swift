@@ -16,7 +16,7 @@ extension HomeVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = terms[indexPath.row]
+        cell.textLabel?.text = terms[indexPath.row].readableTerm()
         return cell
     }
 }

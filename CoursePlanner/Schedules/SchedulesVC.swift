@@ -46,6 +46,9 @@ class SchedulesVC: UIViewController {
             DispatchQueue.main.async {
                 self.schedules = response!
                 // print(self.schedules)
+                if (self.schedules.count == 0) {
+                    print("No schedule!")
+                }
                 self.weekDisplay.schedule = self.schedules.first
                 self.checkButtonStates()
                 self.weekDisplay.setNeedsDisplay()
@@ -56,16 +59,8 @@ class SchedulesVC: UIViewController {
     }
     
     func checkButtonStates() {
-        if (index == 0) {
-            previousButton.isEnabled = false
-        } else {
-            previousButton.isEnabled = true
-        }
-        if (index < schedules.count - 1) {
-            nextButton.isEnabled = true
-        } else {
-            nextButton.isEnabled = false
-        }
+        previousButton.isEnabled = (index != 0)
+        nextButton.isEnabled = (index < schedules.count - 1)
     }
     
     override func didReceiveMemoryWarning() {
