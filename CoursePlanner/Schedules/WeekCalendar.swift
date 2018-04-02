@@ -50,7 +50,7 @@ class WeekCalendar: UIView {
                         height: hourHeight * CGFloat(times["end"]! - times["start"]!))
                     let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Event
                     view.frame = frame
-                    view.courseID.text = course["course_id"] as! String
+                    view.courseID.text! = course["course_id"] as! String
                     view.time.text = hours
                     insertSubview(view, at: 0)
                     let path = UIBezierPath(rect: frame)

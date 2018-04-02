@@ -26,6 +26,7 @@ extension UIViewController {
             break
         case .InvalidAPIKey:
             message = "Invalid API Key"
+            UserDefaults.standard.removeObject(forKey: "api_token") // Clear token
             displayAlert(message: message, handler: { (action) in
                 (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
                 let login = self.storyboard?.instantiateViewController(withIdentifier: "Login")
