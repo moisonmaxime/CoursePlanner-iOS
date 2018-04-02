@@ -9,7 +9,7 @@
 import UIKit
 
 let DAYS:[Character: Int] = ["M": 0, "T": 1, "W": 2, "R": 3, "F": 4]
-var colors:[UIColor] = [.red, .blue, .green, .orange, .purple]
+let COLORS:[UIColor] = [.red, .blue, .green, .orange, .purple]
 
 
 class WeekCalendar: UIView {
@@ -23,6 +23,12 @@ class WeekCalendar: UIView {
         if (schedule == nil) {
             return
         }
+        
+        for v in subviews {
+            v.removeFromSuperview()
+        }
+        
+        var colors = COLORS
         
         let start = schedule.info["earliest"] as! Int
         let end = schedule.info["latest"] as! Int
@@ -42,6 +48,9 @@ class WeekCalendar: UIView {
                         y: hourHeight * CGFloat(times["start"]! - start),
                         width: dayWidth - 2,
                         height: hourHeight * CGFloat(times["end"]! - times["start"]!))
+                    let view = UINib(nibName: "EventView", bundle: nil).instantiate(withOwner: self, options: nil)
+                    //view.frame = frame
+                    //self.insertSubview(view, at: 0)
                     let path = UIBezierPath(rect: frame)
                     color.setFill()
                     path.fill()
