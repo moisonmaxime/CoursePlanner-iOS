@@ -197,6 +197,8 @@ class RestAPI {
             dict["days"] = daysAscending! ? "asc" : "desc"
         }
         
+        dict["search_full"] = "true"
+        
         guard let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) else {
             completion(nil, .InternalError)
             return

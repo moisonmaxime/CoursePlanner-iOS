@@ -13,6 +13,7 @@ class SchedulesVC: UIViewController {
     var term:String!
     var courses:[String]!
     
+    @IBOutlet weak var weekDisplay: WeekCalendar!
     var schedules:[Schedule] = []
     
     override func viewDidLoad() {
@@ -24,7 +25,11 @@ class SchedulesVC: UIViewController {
                 }
             }
             self.schedules = response!
-            print(self.schedules)
+            // print(self.schedules)
+            self.weekDisplay.schedule = self.schedules.first
+            DispatchQueue.main.async {
+                self.weekDisplay.setNeedsDisplay()
+            }
         })
         // Do any additional setup after loading the view.
     }
