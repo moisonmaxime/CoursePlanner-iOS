@@ -48,9 +48,7 @@ class WeekCalendar: UIView {
                         y: hourHeight * CGFloat(times["start"]! - start),
                         width: dayWidth - 2,
                         height: hourHeight * CGFloat(times["end"]! - times["start"]!))
-                    let view = UINib(nibName: "EventView", bundle: nil).instantiate(withOwner: self, options: nil)
-                    //view.frame = frame
-                    //self.insertSubview(view, at: 0)
+                    
                     let path = UIBezierPath(rect: frame)
                     color.setFill()
                     path.fill()
