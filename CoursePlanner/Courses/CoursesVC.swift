@@ -18,6 +18,8 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
     var selectedCourses:Array<[String: String]> = []
     var searchedCourses:Array<[String: String]> = []
     
+    var badCRNs:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         seacrhBar.delegate = self
@@ -44,7 +46,7 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
     @objc func keyboardWillShow(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardHeight = keyboardFrame.cgRectValue.height
-            self.searchTable.contentInset.bottom = keyboardHeight - 40
+            self.searchTable.contentInset.bottom = keyboardHeight - 60
         }
     }
     

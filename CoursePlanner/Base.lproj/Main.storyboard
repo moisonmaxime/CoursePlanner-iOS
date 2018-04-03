@@ -258,7 +258,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-bX-7p5">
-                                <rect key="frame" x="0.0" y="76" width="375" height="527"/>
+                                <rect key="frame" x="64" y="140" width="247" height="413"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaZ-ol-ppf">
@@ -283,14 +283,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="RZK-bX-7p5" secondAttribute="bottom" constant="64" id="0o0-2m-FSu"/>
                             <constraint firstItem="7j9-vT-Qo6" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" id="7ad-Si-4l6"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="TaZ-ol-ppf" secondAttribute="bottom" constant="20" id="9F7-EI-bwa"/>
+                            <constraint firstItem="RZK-bX-7p5" firstAttribute="top" secondItem="xbo-VZ-sZ4" secondAttribute="bottom" constant="64" id="E88-Sk-yfg"/>
+                            <constraint firstItem="TaZ-ol-ppf" firstAttribute="top" secondItem="RZK-bX-7p5" secondAttribute="bottom" constant="64" id="JWh-1f-Qdo"/>
+                            <constraint firstItem="RZK-bX-7p5" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" constant="64" id="L2X-FG-6Ce"/>
+                            <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="RZK-bX-7p5" secondAttribute="trailing" constant="64" id="NAe-gf-Nsr"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="Bo1-dZ-FVa" secondAttribute="bottom" constant="20" id="Of6-Kh-pim"/>
                             <constraint firstItem="mud-R2-aON" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" constant="16" id="RJj-Gu-Ado"/>
                             <constraint firstItem="xbo-VZ-sZ4" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="UzP-hZ-vf7"/>
                             <constraint firstItem="7j9-vT-Qo6" firstAttribute="top" secondItem="xbo-VZ-sZ4" secondAttribute="bottom" id="V87-DC-YFd"/>
-                            <constraint firstItem="RZK-bX-7p5" firstAttribute="top" secondItem="xbo-VZ-sZ4" secondAttribute="bottom" id="WXI-Is-c2L"/>
                             <constraint firstItem="7j9-vT-Qo6" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="XDq-bc-6g6"/>
                             <constraint firstItem="xbo-VZ-sZ4" firstAttribute="top" secondItem="Dug-H3-JDK" secondAttribute="top" id="XL3-l6-px6"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="7j9-vT-Qo6" secondAttribute="bottom" id="eMj-yq-tlt"/>
@@ -298,8 +300,6 @@
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="mud-R2-aON" secondAttribute="bottom" constant="20" id="jph-6I-Whl"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="Bo1-dZ-FVa" secondAttribute="trailing" constant="16" id="ms3-r5-L8z"/>
                             <constraint firstItem="xbo-VZ-sZ4" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" id="sIi-Fp-kLA"/>
-                            <constraint firstItem="RZK-bX-7p5" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" id="uys-P0-dDO"/>
-                            <constraint firstItem="RZK-bX-7p5" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="yOa-Sx-JCN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dug-H3-JDK"/>
                     </view>
@@ -312,6 +312,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0k-l5-kgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1048.8" y="833.43328335832086"/>
+        </scene>
+        <!--SectionsVC-->
+        <scene sceneID="dKO-8h-C4j">
+            <objects>
+                <viewController storyboardIdentifier="Sections" id="Pu4-f6-ddb" customClass="SectionsVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ddr-0t-tAq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hjM-Yj-j8j">
+                                <rect key="frame" x="32" y="52" width="311" height="583"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h1B-Ph-2tp" firstAttribute="bottom" secondItem="hjM-Yj-j8j" secondAttribute="bottom" constant="32" id="1Cg-dp-eNs"/>
+                            <constraint firstItem="hjM-Yj-j8j" firstAttribute="top" secondItem="h1B-Ph-2tp" secondAttribute="top" constant="32" id="70F-Kl-mET"/>
+                            <constraint firstItem="h1B-Ph-2tp" firstAttribute="trailing" secondItem="hjM-Yj-j8j" secondAttribute="trailing" constant="32" id="TUE-ng-vwg"/>
+                            <constraint firstItem="hjM-Yj-j8j" firstAttribute="leading" secondItem="h1B-Ph-2tp" secondAttribute="leading" constant="32" id="k0f-vi-LiU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h1B-Ph-2tp"/>
+                    </view>
+                    <connections>
+                        <outlet property="sectionTable" destination="hjM-Yj-j8j" id="gpu-OV-V0c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6r-sG-EN9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1785" y="833"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hME-hO-9xD">

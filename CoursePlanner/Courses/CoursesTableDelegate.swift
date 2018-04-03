@@ -18,7 +18,12 @@ extension CoursesVC: UITableViewDelegate {
                 selectedCourses.append(searchedCourses[indexPath.row])
             }
         } else {
-            selectedCourses.remove(at: indexPath.row)
+            //selectedCourses.remove(at: indexPath.row)
+            let destination = (storyboard?.instantiateViewController(withIdentifier: "Sections"))! as! SectionsVC
+            destination.id = selectedCourses[indexPath.row]["name"]
+            destination.courseVC = self
+            destination.term = term
+            self.navigationController?.pushViewController(destination, animated: true)
         }
         searchTable.reloadData()
         selectedTable.reloadData()
