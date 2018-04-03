@@ -33,6 +33,7 @@
 		1BB2021C205A198A00A96619 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2021B205A198A00A96619 /* Animation.swift */; };
 		1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */; };
 		1BB93B46205D8DF20042B021 /* InteractiveTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */; };
+		1BBFDB4420742043003FBADE /* SectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBFDB4320742043003FBADE /* SectionsVC.swift */; };
 		1BDEED532059F220001FE6FB /* FadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED522059F220001FE6FB /* FadingAnimation.swift */; };
 		1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED542059F36B001FE6FB /* NavigationController.swift */; };
 		1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE085D205EE51800FEEB1F /* CoursesVC.swift */; };
@@ -80,6 +81,7 @@
 		1BB2021B205A198A00A96619 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = CoursePlanner/Navigation/Animation.swift; sourceTree = SOURCE_ROOT; };
 		1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewControllerExtension.swift; sourceTree = "<group>"; };
 		1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioner.swift; sourceTree = "<group>"; };
+		1BBFDB4320742043003FBADE /* SectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsVC.swift; sourceTree = "<group>"; };
 		1BDEED522059F220001FE6FB /* FadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingAnimation.swift; sourceTree = "<group>"; };
 		1BDEED542059F36B001FE6FB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1BFE085D205EE51800FEEB1F /* CoursesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesVC.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				1B209D402062EE1000F701C6 /* CoursesTableDataSource.swift */,
 				1B209D422062EE9200F701C6 /* CoursesTableDelegate.swift */,
 				1B209D442062EED800F701C6 /* CoursesSearchBarDelegate.swift */,
+				1BBFDB4220742029003FBADE /* Sections */,
 			);
 			path = Courses;
 			sourceTree = "<group>";
@@ -222,6 +225,14 @@
 				1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		1BBFDB4220742029003FBADE /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				1BBFDB4320742043003FBADE /* SectionsVC.swift */,
+			);
+			path = Sections;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +356,7 @@
 				1B5C7F612065ABB9009911E0 /* Schedule.swift in Sources */,
 				1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */,
 				1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */,
+				1BBFDB4420742043003FBADE /* SectionsVC.swift in Sources */,
 				1B209D472062F08B00F701C6 /* HomeTableDelegate.swift in Sources */,
 				1B209D452062EED800F701C6 /* CoursesSearchBarDelegate.swift in Sources */,
 				1B209D412062EE1000F701C6 /* CoursesTableDataSource.swift in Sources */,
