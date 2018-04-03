@@ -77,6 +77,21 @@ class SchedulesVC: UIViewController {
         index = index + 1
     }
     
+    @IBAction func doubleTap(_ sender: Any) {
+        let newSize:CGSize
+        
+        if (weekDisplay.contentSize.height > weekDisplay.frame.height) {
+            newSize = weekDisplay.frame.size
+        } else {
+            newSize = weekDisplay.frame.size.applying(CGAffineTransform(scaleX: 2, y: 2))
+            let location = (sender as! UITapGestureRecognizer).location(in: weekDisplay)
+            weekDisplay.contentOffset = location
+                .applying(CGAffineTransform(scaleX: 2, y: 2))
+                .applying(CGAffineTransform(translationX: -weekDisplay.frame.width/2, y: -weekDisplay.frame.height/2))
+        }
+        weekDisplay.contentSize = newSize
+        weekDisplay.setNeedsDisplay()
+    }
     /*
      // MARK: - Navigation
      

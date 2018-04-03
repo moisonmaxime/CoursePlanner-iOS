@@ -336,10 +336,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QG1-qZ-wHJ" customClass="WeekCalendar" customModule="CoursePlanner" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QG1-qZ-wHJ" customClass="WeekCalendar" customModule="CoursePlanner" customModuleProvider="target">
                                 <rect key="frame" x="32" y="52" width="311" height="542"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hDl-FG-nOZ" appends="YES" id="RpY-h9-1YS"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Y1-yb-OuQ">
                                 <rect key="frame" x="16" y="617" width="59" height="30"/>
@@ -385,6 +388,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZS-2C-ULa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="hDl-FG-nOZ">
+                    <connections>
+                        <action selector="doubleTap:" destination="Yh2-kt-Ah4" id="MkD-DZ-CcK"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1048.8" y="1613.3433283358322"/>
         </scene>
