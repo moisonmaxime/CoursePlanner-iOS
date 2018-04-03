@@ -126,6 +126,46 @@ class RestAPI {
         }
     }
     
+    static func getSections(term: String, id: String, completion: @escaping (Array<[String: Any?]>?, APIError?) -> ()) {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-match/") else {
+            completion(nil, .InternalError)
+            return
+        }
+        
+        let dict = ["term": term, "course_list": [id]] as [String : Any]
+        
+        var request:URLRequest = URLRequest(url: url, type: .POST)
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) else {
+            completion(nil, .InternalError)
+            return
+        }
+        
+        request.httpBody = jsonData
+        
+        request.getJsonData { (dict, err) in
+            if (err != nil) {
+                completion(nil, err!)
+                return
+            } else {
+                // Save to application settings
+                guard var result = dict![id] as? Array<[String: Any?]> else {
+                    completion(nil, .InternalError)
+                    return
+                }
+                result.sort(by: { (d1, d2) -> Bool in
+                    let id1 = d1["course_id"] as? String
+                    let id2 = d2["course_id"] as? String
+                    let s1 = String((id1?.split(separator: "-")[2])!)
+                    let s2 = String((id2?.split(separator: "-")[2])!)
+                    return s1 < s2
+                })
+                completion(result, nil)
+                return
+            }
+        }
+    }
+    
     static func searchCourseIDs(id: String, term: String?, completion: @escaping (Array<[String: String]>?, APIError?) -> ()) {
         guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-search?course=\(id)&term=\(term ?? "201810")") else {
             completion(nil, .InternalError)
