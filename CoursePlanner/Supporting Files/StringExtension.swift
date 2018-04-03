@@ -11,15 +11,15 @@ import Foundation
 extension String {
     
     
-    func extractTime() -> [String: Int] {
+    func extractTime() -> [String: Double] {
         let times = self.split(separator: "-")
         var startSubs = times[0].split(separator: ":")
         var endSubs = times[1].split(separator: ":")
         
         var startHour = ""
-        let startMin = startSubs[1]
+        let startMin = Double(startSubs[1])! / 60
         var endHour = ""
-        let endMin = String(String(endSubs[1]).prefix(2))
+        let endMin = Double(String(endSubs[1]).prefix(2))! / 60
         
         if (endSubs[1].contains("pm")) {
             if (endSubs[0] != "12") {
@@ -40,7 +40,8 @@ extension String {
         if (Int(startHour)! > Int(endHour)!) {
             startHour = String(Int(startHour)! - 12)
         }
-        return ["start": Int(startHour + startMin)!, "end": Int(endHour + endMin)!]
+        print(["start": Double(startHour)! + startMin, "end": Double(endHour)! + endMin])
+        return ["start": Double(startHour)! + startMin, "end": Double(endHour)! + endMin]
     }
     
     

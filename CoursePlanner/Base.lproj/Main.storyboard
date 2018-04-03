@@ -261,8 +261,8 @@
                                 <rect key="frame" x="0.0" y="76" width="375" height="527"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-vT-Qo6">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-vT-Qo6">
+                                <rect key="frame" x="271" y="617" width="104" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaZ-ol-ppf">
@@ -337,8 +337,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QG1-qZ-wHJ" customClass="WeekCalendar" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="16" y="20" width="343" height="598"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="32" y="52" width="311" height="542"/>
+                                <color key="backgroundColor" red="1" green="0.02328635045" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Y1-yb-OuQ">
                                 <rect key="frame" x="16" y="617" width="59" height="30"/>
@@ -361,17 +361,17 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="C5T-lc-Kj7" firstAttribute="top" secondItem="QG1-qZ-wHJ" secondAttribute="bottom" constant="8" id="D4j-JV-brO"/>
-                            <constraint firstItem="QG1-qZ-wHJ" firstAttribute="top" secondItem="FNj-Bg-LKw" secondAttribute="top" id="K4a-Fs-tha"/>
+                            <constraint firstItem="C5T-lc-Kj7" firstAttribute="top" secondItem="QG1-qZ-wHJ" secondAttribute="bottom" constant="32" id="D4j-JV-brO"/>
+                            <constraint firstItem="QG1-qZ-wHJ" firstAttribute="top" secondItem="FNj-Bg-LKw" secondAttribute="top" constant="32" id="K4a-Fs-tha"/>
                             <constraint firstItem="FNj-Bg-LKw" firstAttribute="bottom" secondItem="JcS-Ag-n6N" secondAttribute="bottom" constant="20" id="Vb7-GA-aCG"/>
                             <constraint firstItem="FNj-Bg-LKw" firstAttribute="bottom" secondItem="C5T-lc-Kj7" secondAttribute="bottom" constant="20" id="bp2-AP-LMI"/>
                             <constraint firstItem="C5T-lc-Kj7" firstAttribute="centerX" secondItem="FNj-Bg-LKw" secondAttribute="centerX" id="ei5-2M-htS"/>
                             <constraint firstItem="FNj-Bg-LKw" firstAttribute="bottom" secondItem="7Y1-yb-OuQ" secondAttribute="bottom" constant="20" id="gMB-MD-YNP"/>
-                            <constraint firstItem="QG1-qZ-wHJ" firstAttribute="leading" secondItem="FNj-Bg-LKw" secondAttribute="leading" constant="16" id="hci-0d-bmF"/>
+                            <constraint firstItem="QG1-qZ-wHJ" firstAttribute="leading" secondItem="FNj-Bg-LKw" secondAttribute="leading" constant="32" id="hci-0d-bmF"/>
                             <constraint firstItem="7Y1-yb-OuQ" firstAttribute="leading" secondItem="FNj-Bg-LKw" secondAttribute="leading" constant="16" id="j8y-Wz-6Qd"/>
-                            <constraint firstItem="FNj-Bg-LKw" firstAttribute="trailing" secondItem="QG1-qZ-wHJ" secondAttribute="trailing" constant="16" id="w2p-it-1Dz"/>
+                            <constraint firstItem="FNj-Bg-LKw" firstAttribute="trailing" secondItem="QG1-qZ-wHJ" secondAttribute="trailing" constant="32" id="w2p-it-1Dz"/>
                             <constraint firstItem="FNj-Bg-LKw" firstAttribute="trailing" secondItem="JcS-Ag-n6N" secondAttribute="trailing" constant="16" id="zXL-hu-2ab"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FNj-Bg-LKw"/>

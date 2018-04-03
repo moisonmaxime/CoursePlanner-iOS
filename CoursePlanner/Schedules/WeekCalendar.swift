@@ -30,10 +30,15 @@ class WeekCalendar: UIView {
         
         var colors = COLORS
         
-        let start = schedule.info["earliest"] as! Int
-        let end = schedule.info["latest"] as! Int
+        var start = schedule.info["earliest"] as! Double
+        var end = schedule.info["latest"] as! Double
+        start = Double(Int(start/100)) + Double(Int(start) % 100)/60
+        end = Double(Int(end/100)) + Double(Int(end) % 100)/60
+        
         let hourHeight:CGFloat = self.frame.height / CGFloat(end-start)
         let dayWidth = self.frame.width / 5
+        
+        print("start: \(start), end: \(end)")
         
         for subject in schedule.classes.values {
             let color = colors.popLast() ?? .lightGray
@@ -44,9 +49,9 @@ class WeekCalendar: UIView {
                     let dayOffset = DAYS[d]
                     let times = hours.extractTime()
                     let frame = CGRect(
-                        x: CGFloat(dayOffset!) * (dayWidth + 1),
+                        x: CGFloat(dayOffset!) * (dayWidth),
                         y: hourHeight * CGFloat(times["start"]! - start),
-                        width: dayWidth - 2,
+                        width: dayWidth,
                         height: hourHeight * CGFloat(times["end"]! - times["start"]!))
                     let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Event
                     view.frame = frame

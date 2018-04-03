@@ -16,13 +16,13 @@
             <rect key="frame" x="0.0" y="0.0" width="265" height="183"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CSE-120-03L" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="YGf-83-xi3">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CSE-120-03L" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="YGf-83-xi3">
                     <rect key="frame" x="4" y="4" width="105" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:30-11:15am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="juR-N7-QzU">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:30-11:15am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="juR-N7-QzU">
                     <rect key="frame" x="4" y="29" width="88.5" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
@@ -44,7 +44,7 @@
                 <outlet property="courseID" destination="YGf-83-xi3" id="v2Z-y5-vDx"/>
                 <outlet property="time" destination="juR-N7-QzU" id="zAt-hL-k5o"/>
             </connections>
-            <point key="canvasLocation" x="-314.5" y="-126.5"/>
+            <point key="canvasLocation" x="-198" y="-100"/>
         </view>
     </objects>
 </document>
