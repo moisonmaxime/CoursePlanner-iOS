@@ -40,7 +40,7 @@ extension String {
         if (Int(startHour)! > Int(endHour)!) {
             startHour = String(Int(startHour)! - 12)
         }
-        print(["start": Double(startHour)! + startMin, "end": Double(endHour)! + endMin])
+        
         return ["start": Double(startHour)! + startMin, "end": Double(endHour)! + endMin]
     }
     

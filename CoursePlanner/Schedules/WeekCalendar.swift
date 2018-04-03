@@ -38,8 +38,6 @@ class WeekCalendar: UIView {
         let hourHeight:CGFloat = self.frame.height / CGFloat(end-start)
         let dayWidth = self.frame.width / 5
         
-        print("start: \(start), end: \(end)")
-        
         for subject in schedule.classes.values {
             let color = colors.popLast() ?? .lightGray
             for course in subject.values {
