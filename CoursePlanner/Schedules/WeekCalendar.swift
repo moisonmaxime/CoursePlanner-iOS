@@ -12,7 +12,7 @@ let DAYS:[Character: Int] = ["M": 0, "T": 1, "W": 2, "R": 3, "F": 4]
 let COLORS:[UIColor] = [.red, .blue, .green, .orange, .purple]
 
 
-class WeekCalendar: UIView {
+class WeekCalendar: UIScrollView {
     
     var schedule:Schedule!
     
@@ -35,8 +35,8 @@ class WeekCalendar: UIView {
         start = Double(Int(start/100)) + Double(Int(start) % 100)/60
         end = Double(Int(end/100)) + Double(Int(end) % 100)/60
         
-        let hourHeight:CGFloat = self.frame.height / CGFloat(end-start)
-        let dayWidth = self.frame.width / 5
+        let hourHeight:CGFloat = self.contentSize.height / CGFloat(end-start)
+        let dayWidth = self.contentSize.width / 5
         
         for subject in schedule.classes.values {
             let color = colors.popLast() ?? .lightGray
@@ -47,18 +47,16 @@ class WeekCalendar: UIView {
                     let dayOffset = DAYS[d]
                     let times = hours.extractTime()
                     let frame = CGRect(
-                        x: CGFloat(dayOffset!) * (dayWidth),
+                        x: 1 + CGFloat(dayOffset!) * (dayWidth),
                         y: hourHeight * CGFloat(times["start"]! - start),
-                        width: dayWidth,
+                        width: dayWidth-2,
                         height: hourHeight * CGFloat(times["end"]! - times["start"]!))
                     let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Event
                     view.frame = frame
                     view.courseID.text! = course["course_id"] as! String
                     view.time.text = hours
+                    view.backgroundColor = color
                     insertSubview(view, at: 0)
-                    let path = UIBezierPath(rect: frame)
-                    color.setFill()
-                    path.fill()
                 }
             }
         }

@@ -17,6 +17,7 @@ class SchedulesVC: UIViewController {
             currentScheduleLbl.text! = "\(index + 1)/\(schedules.count)"
             checkButtonStates()
             weekDisplay.schedule = schedules[index]
+            weekDisplay.contentSize = weekDisplay.frame.size
             weekDisplay.setNeedsDisplay()
         }
     }
@@ -34,7 +35,7 @@ class SchedulesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        weekDisplay.contentSize = weekDisplay.frame.size
         checkButtonStates()
         
         RestAPI.getSchedules(term: term, courses: courses, completion: { (response, error) in
