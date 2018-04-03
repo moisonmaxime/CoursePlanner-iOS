@@ -126,7 +126,7 @@ class RestAPI {
         }
     }
     
-    static func searchCourseIDs(id: String, term: String?, completion: @escaping (Array<String>?, APIError?) -> ()) {
+    static func searchCourseIDs(id: String, term: String?, completion: @escaping (Array<[String: String]>?, APIError?) -> ()) {
         guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-search?course=\(id)&term=\(term ?? "201810")") else {
             completion(nil, .InternalError)
             return
@@ -137,8 +137,7 @@ class RestAPI {
                 completion(nil, err!)
                 return
             } else {
-                // Save to application settings
-                guard let result = dict!["result"] as? Array<String> else {
+                guard let result = dict!["result"] as? Array<[String: String]> else {
                     completion(nil, .InternalError)
                     return
                 }

@@ -21,14 +21,14 @@ extension CoursesVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (tableView == searchTable) {
             let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-            cell.textLabel?.text = searchedCourses[indexPath.row]
+            cell.textLabel?.text = searchedCourses[indexPath.row]["name"]
             if (selectedCourses.contains(searchedCourses[indexPath.row])) {
                 cell.backgroundColor = .lightGray
             }
             return cell
         } else {
             let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-            cell.textLabel?.text = selectedCourses[indexPath.row]
+            cell.textLabel?.text = selectedCourses[indexPath.row]["name"]
             return cell
         }
     }

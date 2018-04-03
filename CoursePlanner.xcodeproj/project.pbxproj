@@ -135,8 +135,8 @@
 			children = (
 				1BFE085D205EE51800FEEB1F /* CoursesVC.swift */,
 				1B209D402062EE1000F701C6 /* CoursesTableDataSource.swift */,
-				1B209D422062EE9200F701C6 /* CoursesTableDelegate.swift */,
 				1B209D442062EED800F701C6 /* CoursesSearchBarDelegate.swift */,
+				1B209D422062EE9200F701C6 /* CoursesTableDelegate.swift */,
 			);
 			path = Courses;
 			sourceTree = "<group>";

@@ -20,9 +20,9 @@ extension CoursesVC: UISearchBarDelegate {
                     }
                 }
                 
-                self.searchedCourses = result!.sorted(by: { (s1, s2) -> Bool in
-                    let s1 = s1.split(separator: "-")
-                    let s2 = s2.split(separator: "-")
+                self.searchedCourses = result!.sorted(by: { (c1, c2) -> Bool in
+                    let s1 = c1["name"]!.split(separator: "-")
+                    let s2 = c2["name"]!.split(separator: "-")
                     
                     if (s1[0] == s2[0]) {
                         let n1 = Int(s1[1]) ?? 0

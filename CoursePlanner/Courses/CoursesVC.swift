@@ -15,8 +15,8 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
     
     var term:String?
     
-    var selectedCourses:Array<String> = []
-    var searchedCourses:Array<String> = []
+    var selectedCourses:Array<[String: String]> = []
+    var searchedCourses:Array<[String: String]> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,11 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
      // Pass the selected object to the new view controller.
         if (segue.identifier == "showSchedules") {
             let VC = segue.destination as! SchedulesVC
-            VC.courses = selectedCourses
+            var selectedIDs:[String] = []
+            for course in selectedCourses {
+                selectedIDs.append(course["name"]!)
+            }
+            VC.courses = selectedIDs
             VC.term = term!
         }
      }
