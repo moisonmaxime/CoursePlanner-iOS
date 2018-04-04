@@ -21,12 +21,11 @@ extension CoursesVC: UITableViewDelegate {
         } else {
             //selectedCourses.remove(at: indexPath.row)
             let destination = (storyboard?.instantiateViewController(withIdentifier: "Sections"))! as! SectionsVC
-            destination.id = selectedCourses[indexPath.row]["name"]
+            destination.course = selectedCourses[indexPath.row]
             destination.courseVC = self
             destination.term = term
             self.navigationController?.pushViewController(destination, animated: true)
         }
-        searchTable.reloadData()
-        selectedTable.reloadData()
+        reloadTables()
     }
 }

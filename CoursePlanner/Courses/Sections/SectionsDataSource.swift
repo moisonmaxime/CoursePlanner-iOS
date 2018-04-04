@@ -14,11 +14,17 @@ extension SectionsVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = sections[indexPath.row]["course_id"] as? String
-        if (!courseVC.badCRNs.contains(sections[indexPath.row]["crn"] as! String)) {
-            cell.backgroundColor = .lightGray
-        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as! CourseCell
+        cell.selectionStyle = .none
+        cell.setup(course: sections[indexPath.row])
+        cell.setSelected(courseVC.badCRNs.contains(sections[indexPath.row]["crn"] as! String), animated: false)
+        cell.checkLecture(courseVC.badCRNs)
+        cell.updateView()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }

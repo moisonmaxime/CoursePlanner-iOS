@@ -315,17 +315,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hjM-Yj-j8j">
-                                <rect key="frame" x="32" y="52" width="311" height="583"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hjM-Yj-j8j">
+                                <rect key="frame" x="0.0" y="52" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivL-lT-ysm">
+                                <rect key="frame" x="160" y="617" width="55" height="30"/>
+                                <state key="normal" title="Remove">
+                                    <color key="titleColor" red="1" green="0.02328635045" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="remove:" destination="Pu4-f6-ddb" eventType="touchUpInside" id="7ft-U9-F7a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="h1B-Ph-2tp" firstAttribute="bottom" secondItem="hjM-Yj-j8j" secondAttribute="bottom" constant="32" id="1Cg-dp-eNs"/>
+                            <constraint firstItem="h1B-Ph-2tp" firstAttribute="bottom" secondItem="hjM-Yj-j8j" secondAttribute="bottom" constant="64" id="1Cg-dp-eNs"/>
                             <constraint firstItem="hjM-Yj-j8j" firstAttribute="top" secondItem="h1B-Ph-2tp" secondAttribute="top" constant="32" id="70F-Kl-mET"/>
-                            <constraint firstItem="h1B-Ph-2tp" firstAttribute="trailing" secondItem="hjM-Yj-j8j" secondAttribute="trailing" constant="32" id="TUE-ng-vwg"/>
-                            <constraint firstItem="hjM-Yj-j8j" firstAttribute="leading" secondItem="h1B-Ph-2tp" secondAttribute="leading" constant="32" id="k0f-vi-LiU"/>
+                            <constraint firstItem="h1B-Ph-2tp" firstAttribute="trailing" secondItem="hjM-Yj-j8j" secondAttribute="trailing" id="TUE-ng-vwg"/>
+                            <constraint firstItem="h1B-Ph-2tp" firstAttribute="bottom" secondItem="ivL-lT-ysm" secondAttribute="bottom" constant="20" id="g0S-Df-jfB"/>
+                            <constraint firstItem="hjM-Yj-j8j" firstAttribute="leading" secondItem="h1B-Ph-2tp" secondAttribute="leading" id="k0f-vi-LiU"/>
+                            <constraint firstItem="ivL-lT-ysm" firstAttribute="centerX" secondItem="h1B-Ph-2tp" secondAttribute="centerX" id="wEb-Fw-ciN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h1B-Ph-2tp"/>
                     </view>

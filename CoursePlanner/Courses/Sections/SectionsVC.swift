@@ -12,7 +12,7 @@ class SectionsVC: UIViewController {
     
     var courseVC:CoursesVC!
     var sections:[[String: Any?]] = []
-    var id:String?
+    var course:[String: String]?
     var term:String?
     @IBOutlet weak var sectionTable: UITableView!
     
@@ -20,7 +20,11 @@ class SectionsVC: UIViewController {
         super.viewDidLoad()
         sectionTable.dataSource = self
         sectionTable.delegate = self
-        RestAPI.getSections(term: term!, id: id!) { (response, err) in
+        
+        let nib = UINib.init(nibName: "CourseCell", bundle: nil)
+        self.sectionTable.register(nib, forCellReuseIdentifier: "CourseCell")
+        
+        RestAPI.getSections(term: term!, id: course!["name"]!) { (response, err) in
             if (err != nil) {
                 DispatchQueue.main.async {
                     self.handleError(error: err!)
@@ -32,6 +36,13 @@ class SectionsVC: UIViewController {
             }
         }
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func remove(_ sender: Any) {
+        let index = courseVC.selectedCourses.index(of: course!)!
+        courseVC.selectedCourses.remove(at: index)
+        courseVC.reloadTables()
+        navigationController?.popViewController(animated: true)
     }
     
     override func didReceiveMemoryWarning() {

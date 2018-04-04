@@ -47,10 +47,15 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func reloadTables() {
+        searchTable.reloadData()
+        selectedTable.reloadData()
+    }
+    
     @objc func keyboardWillShow(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardHeight = keyboardFrame.cgRectValue.height
-            self.searchTable.contentInset.bottom = keyboardHeight - 80
+            self.searchTable.contentInset.bottom = keyboardHeight + 50
         }
     }
     
