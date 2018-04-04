@@ -15,8 +15,14 @@ extension HomeVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = terms[indexPath.row].readableTerm()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell") as! TermCell
+        cell.termLabel.text = terms[indexPath.row].readableTerm()
+        cell.selectionStyle = .none
+        cell.updateView()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
     }
 }

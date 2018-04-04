@@ -30,6 +30,8 @@
 		1B7C116C2071C00C001328E4 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C116B2071C00C001328E4 /* StringExtension.swift */; };
 		1B7C11762071F833001328E4 /* Event.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7C11752071F833001328E4 /* Event.xib */; };
 		1B7C11782071F967001328E4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C11772071F967001328E4 /* Event.swift */; };
+		1B88D139207569EA00F5B555 /* TermCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B88D137207569EA00F5B555 /* TermCell.swift */; };
+		1B88D13A207569EA00F5B555 /* TermCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B88D138207569EA00F5B555 /* TermCell.xib */; };
 		1BB2021C205A198A00A96619 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2021B205A198A00A96619 /* Animation.swift */; };
 		1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */; };
 		1BB93B46205D8DF20042B021 /* InteractiveTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */; };
@@ -82,6 +84,8 @@
 		1B7C116B2071C00C001328E4 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		1B7C11752071F833001328E4 /* Event.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Event.xib; sourceTree = "<group>"; };
 		1B7C11772071F967001328E4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		1B88D137207569EA00F5B555 /* TermCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermCell.swift; sourceTree = "<group>"; };
+		1B88D138207569EA00F5B555 /* TermCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermCell.xib; sourceTree = "<group>"; };
 		1BB2021B205A198A00A96619 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = CoursePlanner/Navigation/Animation.swift; sourceTree = SOURCE_ROOT; };
 		1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewControllerExtension.swift; sourceTree = "<group>"; };
 		1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioner.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				1B76605B2059AF99000929D5 /* HomeVC.swift */,
 				1B209D3E2062EDAC00F701C6 /* HomeTableDatasource.swift */,
 				1B209D462062F08B00F701C6 /* HomeTableDelegate.swift */,
+				1B88D137207569EA00F5B555 /* TermCell.swift */,
+				1B88D138207569EA00F5B555 /* TermCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 				1B644E1E2050ED9F00CA9264 /* Assets.xcassets in Resources */,
 				1BBFDB5520747A57003FBADE /* CourseCell.xib in Resources */,
 				1B644E1C2050ED9F00CA9264 /* Main.storyboard in Resources */,
+				1B88D13A207569EA00F5B555 /* TermCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +362,7 @@
 				1B209D3F2062EDAC00F701C6 /* HomeTableDatasource.swift in Sources */,
 				1BBFDB482074514E003FBADE /* SectionsTableDelegate.swift in Sources */,
 				1B644E372050EDAD00CA9264 /* RestAPI.swift in Sources */,
+				1B88D139207569EA00F5B555 /* TermCell.swift in Sources */,
 				1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */,
 				1BB93B46205D8DF20042B021 /* InteractiveTransitioner.swift in Sources */,
 				1B209D432062EE9200F701C6 /* CoursesTableDelegate.swift in Sources */,

@@ -26,6 +26,10 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         termTable.dataSource = self
         termTable.delegate = self
+        
+        let nib = UINib.init(nibName: "TermCell", bundle: nil)
+        termTable.register(nib, forCellReuseIdentifier: "TermCell")
+        
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
         termTable.addSubview(refreshControl)
