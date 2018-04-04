@@ -43,20 +43,22 @@ class WeekCalendar: UIScrollView {
             for course in subject.values {
                 let hours = course["hours"] as! String
                 let days = course["days"] as! String
-                for d in days {
-                    let dayOffset = DAYS[d]
-                    let times = hours.extractTime()
-                    let frame = CGRect(
-                        x: 1 + CGFloat(dayOffset!) * (dayWidth),
-                        y: hourHeight * CGFloat(times["start"]! - start),
-                        width: dayWidth-2,
-                        height: hourHeight * CGFloat(times["end"]! - times["start"]!))
-                    let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Event
-                    view.frame = frame
-                    view.courseID.text! = course["course_id"] as! String
-                    view.time.text = hours
-                    view.backgroundColor = color
-                    insertSubview(view, at: 0)
+                if (hours != "TBD-TBD") {
+                    for d in days {
+                        let dayOffset = DAYS[d]
+                        let times = hours.extractTime()
+                        let frame = CGRect(
+                            x: 1 + CGFloat(dayOffset!) * (dayWidth),
+                            y: hourHeight * CGFloat(times["start"]! - start),
+                            width: dayWidth-2,
+                            height: hourHeight * CGFloat(times["end"]! - times["start"]!))
+                        let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Event
+                        view.frame = frame
+                        view.courseID.text! = course["course_id"] as! String
+                        view.time.text = hours
+                        view.backgroundColor = color
+                        insertSubview(view, at: 0)
+                    }
                 }
             }
         }
