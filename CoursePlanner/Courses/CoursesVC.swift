@@ -38,6 +38,10 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
         // Do any additional setup after loading the view.
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -46,7 +50,7 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
     @objc func keyboardWillShow(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardHeight = keyboardFrame.cgRectValue.height
-            self.searchTable.contentInset.bottom = keyboardHeight - 60
+            self.searchTable.contentInset.bottom = keyboardHeight - 80
         }
     }
     
@@ -64,6 +68,7 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
             }
             VC.courses = selectedIDs
             VC.term = term!
+            VC.badCRNs = badCRNs
         }
      }
 }

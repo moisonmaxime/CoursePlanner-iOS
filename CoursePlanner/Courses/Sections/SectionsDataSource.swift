@@ -16,6 +16,9 @@ extension SectionsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         cell.textLabel?.text = sections[indexPath.row]["course_id"] as? String
+        if (!courseVC.badCRNs.contains(sections[indexPath.row]["crn"] as! String)) {
+            cell.backgroundColor = .lightGray
+        }
         return cell
     }
 }

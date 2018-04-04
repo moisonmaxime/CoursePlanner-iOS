@@ -11,7 +11,6 @@ import UIKit
 class LoginVC: UIViewController {
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +24,10 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginClick(_ sender: Any) {
-        activityIndicator.startAnimating()
         self.view.isUserInteractionEnabled = false
         RestAPI.login(user: userField.text!, password: passwordField.text!) { error in
             DispatchQueue.main.async {
                 self.view.isUserInteractionEnabled = true
-                self.activityIndicator.stopAnimating()
                 if (error != nil) {
                     self.handleError(error: error!)
                 } else {

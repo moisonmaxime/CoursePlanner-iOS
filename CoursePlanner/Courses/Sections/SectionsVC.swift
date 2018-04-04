@@ -19,6 +19,7 @@ class SectionsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sectionTable.dataSource = self
+        sectionTable.delegate = self
         RestAPI.getSections(term: term!, id: id!) { (response, err) in
             if (err != nil) {
                 DispatchQueue.main.async {

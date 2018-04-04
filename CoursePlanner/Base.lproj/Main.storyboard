@@ -22,7 +22,7 @@
                                 <rect key="frame" x="89" y="139" width="197" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                 <connections>
                                     <action selector="nextTextFieldWithSender:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="nkj-lR-eE0"/>
                                 </connections>
@@ -43,9 +43,6 @@
                                     <action selector="loginClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5vC-TF-Jve"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pE4-5y-SF1">
-                                <rect key="frame" x="177" y="333.5" width="20" height="20"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaN-ee-FmA">
                                 <rect key="frame" x="77" y="617" width="221" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -62,17 +59,14 @@
                             <constraint firstItem="3CO-9t-L0f" firstAttribute="leading" secondItem="0nW-i7-7ch" secondAttribute="leading" id="H5Y-R4-IxJ"/>
                             <constraint firstItem="kxg-fI-qgP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HF0-Wu-Ace"/>
                             <constraint firstItem="0nW-i7-7ch" firstAttribute="centerX" secondItem="kxg-fI-qgP" secondAttribute="centerX" id="WMd-Ed-Z6i"/>
-                            <constraint firstItem="pE4-5y-SF1" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="YoE-5E-qT2"/>
                             <constraint firstItem="0nW-i7-7ch" firstAttribute="top" secondItem="3CO-9t-L0f" secondAttribute="bottom" constant="8" symbolic="YES" id="ZuB-bC-nbu"/>
                             <constraint firstItem="kxg-fI-qgP" firstAttribute="top" secondItem="0nW-i7-7ch" secondAttribute="bottom" constant="8" symbolic="YES" id="eAF-4l-zvD"/>
                             <constraint firstItem="3CO-9t-L0f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="89" id="qZM-gv-flN"/>
-                            <constraint firstItem="pE4-5y-SF1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zTU-OB-oUh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="OvP-AO-udm"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="pE4-5y-SF1" id="ljK-nB-R5T"/>
                         <outlet property="passwordField" destination="0nW-i7-7ch" id="jCq-aA-ypk"/>
                         <outlet property="userField" destination="3CO-9t-L0f" id="yul-R0-UC8"/>
                     </connections>
@@ -94,7 +88,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="given-name"/>
                                 <connections>
                                     <action selector="nextTextFieldWithSender:" destination="JlZ-CH-N0H" eventType="primaryActionTriggered" id="IKK-YK-Qgr"/>
                                 </connections>
@@ -104,7 +98,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="family-name"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="family-name"/>
                                 <connections>
                                     <action selector="nextTextFieldWithSender:" destination="JlZ-CH-N0H" eventType="primaryActionTriggered" id="w4Z-zI-7nI"/>
                                 </connections>
@@ -124,7 +118,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
                                     <action selector="nextTextFieldWithSender:" destination="JlZ-CH-N0H" eventType="primaryActionTriggered" id="dDb-wE-QSc"/>
                                 </connections>
@@ -134,7 +128,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
                                     <action selector="nextTextFieldWithSender:" destination="JlZ-CH-N0H" eventType="primaryActionTriggered" id="HDs-TU-97v"/>
                                 </connections>
@@ -158,7 +152,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8k-8U-pAC">
-                                <rect key="frame" x="16" y="51" width="34" height="30"/>
+                                <rect key="frame" x="22" y="55" width="44" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
@@ -180,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqO-rx-ZUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1050" y="116"/>
+            <point key="canvasLocation" x="1048.8" y="115.59220389805098"/>
         </scene>
         <!--Home-->
         <scene sceneID="0Vh-uo-zse">
@@ -385,8 +379,8 @@
                                     <action selector="previous:" destination="Yh2-kt-Ah4" eventType="touchUpInside" id="Y2O-Oc-YiA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5T-lc-Kj7">
-                                <rect key="frame" x="171" y="626" width="33" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5T-lc-Kj7">
+                                <rect key="frame" x="174.5" y="626" width="26" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

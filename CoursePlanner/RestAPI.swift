@@ -24,11 +24,16 @@ class RestAPI {
                 return
             } else {
                 // Save to application settings
-                guard let token = dict!["access"] as? String else {
+                guard let refresh = dict!["refresh"] as? String else {
                     completion(.InternalError)
                     return
                 }
-                UserDefaults.standard.set(token, forKey: "api_token")
+                guard let access = dict!["access"] as? String else {
+                    completion(.InternalError)
+                    return
+                }
+                UserDefaults.standard.set(access, forKey: "api_token")
+                UserDefaults.standard.set(refresh, forKey: "refresh_token")
                 completion(nil)
                 return
             }
@@ -52,30 +57,36 @@ class RestAPI {
         }
     }
     
-    static func refreshApplicationKey() throws -> String? {
-        let semaphore = DispatchSemaphore(value: 1)
-        var token:String?
-        var error:APIError?
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/auth/token/refresh") else {
-            return nil
-        }
-        
-        let request:URLRequest = URLRequest(url: url, type: .POST, dictionary: [ "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYwNzUzOTkzMiwianRpIjoiZGM3N2EyMDExMTE2NGEwZGI0YjIzOGE0NWU5ZWUxZTMiLCJ1c2VyX2lkIjo4fQ.bFawovm0b01mfzGgO-DmqXzENg7DeLzBCFKoAJV4LP4" ])
-        request.getJsonData { (dict, err) in
-            if (err == nil) {
-                // Success - valid api key
-                token = "Bearer \(dict!["access"] ?? "")"
-            } else {
-                error = err
-            }
-            semaphore.signal()
-        }
-        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
-        if (error != nil) {
-            throw error!
-        }
-        return token
-    }
+    /*
+     static func refreshApplicationKey(completion: @escaping (APIError?) -> ()) {
+     guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/auth/token/refresh") else {
+     completion(.InternalError)
+     return
+     }
+     let request:URLRequest = URLRequest(url: url, type: .POST, dictionary: [ "refresh": UserDefaults.standard.string(forKey: "refresh_token")! ])
+     request.getJsonData { (dict, err) in
+     if (err != nil) {
+     completion(err!)
+     return
+     } else {
+     // Save to application settings
+     print(dict)
+     //                guard let refresh = dict!["refresh"] as? String else {
+     //                    completion(.InternalError)
+     //                    return
+     //                }
+     guard let access = dict!["access"] as? String else {
+     completion(.InternalError)
+     return
+     }
+     UserDefaults.standard.set(access, forKey: "api_token")
+     // UserDefaults.standard.set(refresh, forKey: "refresh_token")
+     completion(nil)
+     return
+     }
+     }
+     }
+     */
     
     static func register(user: String,
                          password: String,
@@ -97,16 +108,8 @@ class RestAPI {
             postContent["email"] = email!
         }
         
-        var request:URLRequest = URLRequest(url: url, type: .POST, dictionary: postContent)
+        let request:URLRequest = URLRequest(url: url, type: .POST, dictionary: postContent)
         
-        let token:String
-        do {
-            token = (try refreshApplicationKey())!
-        } catch {
-            completion(error as? APIError)
-            return
-        }
-        request.setValue(token, forHTTPHeaderField: "Authorization")
         request.getJsonData { (dict, err) in
             if (err != nil) {
                 completion(err)
@@ -186,7 +189,7 @@ class RestAPI {
             }
         }
     }
-
+    
     static func getTerms(completion: @escaping (Array<String>?, APIError?) -> ()) {
         guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/get-terms/") else {
             completion(nil, .InternalError)

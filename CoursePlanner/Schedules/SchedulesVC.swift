@@ -12,6 +12,8 @@ class SchedulesVC: UIViewController {
     
     var term:String!
     var courses:[String]!
+    var badCRNs:[String]!
+    
     var index:Int = 0 {
         didSet {
             currentScheduleLbl.text! = "\(index + 1)/\(schedules.count)"
@@ -45,7 +47,16 @@ class SchedulesVC: UIViewController {
                 }
             }
             DispatchQueue.main.async {
-                self.schedules = response!
+                self.schedules = response!.filter({ (schedule) -> Bool in
+                    for section in schedule.classes {
+                        for course in section.value {
+                            if (self.badCRNs.contains(course.value["crn"]! as! String)) {
+                                return false
+                            }
+                        }
+                    }
+                    return true
+                })
                 // print(self.schedules)
                 if (self.schedules.count == 0) {
                     print("No schedule!")

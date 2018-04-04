@@ -11,6 +11,7 @@ import UIKit
 
 extension CoursesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         if (tableView == searchTable) {
             if let index = selectedCourses.index(of: searchedCourses[indexPath.row]) {
                 selectedCourses.remove(at: index)

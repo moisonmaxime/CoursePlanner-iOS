@@ -36,6 +36,8 @@
 		1BBFDB4420742043003FBADE /* SectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBFDB4320742043003FBADE /* SectionsVC.swift */; };
 		1BBFDB4620743CFC003FBADE /* SectionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBFDB4520743CFC003FBADE /* SectionsDataSource.swift */; };
 		1BBFDB482074514E003FBADE /* SectionsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBFDB472074514E003FBADE /* SectionsTableDelegate.swift */; };
+		1BBFDB5420747A57003FBADE /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBFDB5220747A57003FBADE /* CourseCell.swift */; };
+		1BBFDB5520747A57003FBADE /* CourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBFDB5320747A57003FBADE /* CourseCell.xib */; };
 		1BDEED532059F220001FE6FB /* FadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED522059F220001FE6FB /* FadingAnimation.swift */; };
 		1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED542059F36B001FE6FB /* NavigationController.swift */; };
 		1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE085D205EE51800FEEB1F /* CoursesVC.swift */; };
@@ -86,6 +88,8 @@
 		1BBFDB4320742043003FBADE /* SectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsVC.swift; sourceTree = "<group>"; };
 		1BBFDB4520743CFC003FBADE /* SectionsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsDataSource.swift; sourceTree = "<group>"; };
 		1BBFDB472074514E003FBADE /* SectionsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTableDelegate.swift; sourceTree = "<group>"; };
+		1BBFDB5220747A57003FBADE /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		1BBFDB5320747A57003FBADE /* CourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
 		1BDEED522059F220001FE6FB /* FadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingAnimation.swift; sourceTree = "<group>"; };
 		1BDEED542059F36B001FE6FB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1BFE085D205EE51800FEEB1F /* CoursesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesVC.swift; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 				1BBFDB4320742043003FBADE /* SectionsVC.swift */,
 				1BBFDB472074514E003FBADE /* SectionsTableDelegate.swift */,
 				1BBFDB4520743CFC003FBADE /* SectionsDataSource.swift */,
+				1BBFDB5220747A57003FBADE /* CourseCell.swift */,
+				1BBFDB5320747A57003FBADE /* CourseCell.xib */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 				1B7C11762071F833001328E4 /* Event.xib in Resources */,
 				1B644E212050ED9F00CA9264 /* LaunchScreen.storyboard in Resources */,
 				1B644E1E2050ED9F00CA9264 /* Assets.xcassets in Resources */,
+				1BBFDB5520747A57003FBADE /* CourseCell.xib in Resources */,
 				1B644E1C2050ED9F00CA9264 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +376,7 @@
 				1B209D452062EED800F701C6 /* CoursesSearchBarDelegate.swift in Sources */,
 				1B209D412062EE1000F701C6 /* CoursesTableDataSource.swift in Sources */,
 				1B7C116C2071C00C001328E4 /* StringExtension.swift in Sources */,
+				1BBFDB5420747A57003FBADE /* CourseCell.swift in Sources */,
 				1B644E392051AD2100CA9264 /* DictionaryExtension.swift in Sources */,
 				1BB2021C205A198A00A96619 /* Animation.swift in Sources */,
 				1B6A1975205C3C6C000AD3D5 /* APIError.swift in Sources */,
