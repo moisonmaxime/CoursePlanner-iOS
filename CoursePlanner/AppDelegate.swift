@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        UserDefaults.standard.removeObject(forKey: "api_token") // Clear token
+        // UserDefaults.standard.removeObject(forKey: "api_token") // Clear token
         
         let token = UserDefaults.standard.string(forKey: "api_token")
         if (token != nil) {
