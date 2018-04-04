@@ -28,6 +28,7 @@ class SchedulesVC: UIViewController {
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var currentScheduleLbl: UILabel!
+    @IBOutlet weak var termLabel: UILabel!
     
     var schedules:[Schedule] = [] {
         didSet {
@@ -37,6 +38,7 @@ class SchedulesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        termLabel.text = term?.readableTerm()
         weekDisplay.contentSize = weekDisplay.frame.size
         checkButtonStates()
         

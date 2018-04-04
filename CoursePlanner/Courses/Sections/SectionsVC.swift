@@ -15,9 +15,11 @@ class SectionsVC: UIViewController {
     var course:[String: String]?
     var term:String?
     @IBOutlet weak var sectionTable: UITableView!
+    @IBOutlet weak var termLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        termLabel.text = term?.readableTerm()
         sectionTable.dataSource = self
         sectionTable.delegate = self
         

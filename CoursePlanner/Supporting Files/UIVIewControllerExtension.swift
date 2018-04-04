@@ -50,6 +50,9 @@ extension UIViewController {
         self.displayAlert(message: message, handler: nil)
     }
     
+    @IBAction func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))

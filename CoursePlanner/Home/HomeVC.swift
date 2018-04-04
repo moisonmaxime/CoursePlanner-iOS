@@ -57,6 +57,13 @@ class HomeVC: UIViewController {
         }
     }
     
+    @IBAction func logout(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "api_token") // Clear token
+        (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
+        let login = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+        self.navigationController?.setViewControllers([login!], animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -12,6 +12,7 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var searchTable: UITableView!
     @IBOutlet weak var selectedTable: UITableView!
     @IBOutlet weak var seacrhBar: UISearchBar!
+    @IBOutlet weak var termLabel: UILabel!
     
     var term:String?
     
@@ -22,6 +23,7 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        termLabel.text = term?.readableTerm()
         seacrhBar.delegate = self
         searchTable.dataSource = self
         searchTable.delegate = self
