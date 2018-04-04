@@ -11,6 +11,8 @@ import UIKit
 
 extension UIViewController {
     
+    
+    // Display PopUp Alert
     func displayAlert(message: String, handler: ((UIAlertAction) -> ())? = nil) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: handler))
@@ -18,6 +20,9 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    
+    // ### - Handle API errors
     func handleError(error: APIError) {
         let message:String
         switch (error) {
@@ -50,10 +55,16 @@ extension UIViewController {
         self.displayAlert(message: message, handler: nil)
     }
     
+    
+    // ### - Go Back button
     @IBAction func goBack() {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    
+    
+    // ### - Tap to dismiss keyboard
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -62,7 +73,10 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    // ###
     
+    
+    // ### - Done goes to the next field
     @IBAction func nextTextField(sender: UITextField) {
         let fields = view.subviews.filter { (field) -> Bool in
             return type(of: field) == UITextField.self
