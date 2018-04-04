@@ -35,6 +35,7 @@
 		1BB93B46205D8DF20042B021 /* InteractiveTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */; };
 		1BBFDB4420742043003FBADE /* SectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBFDB4320742043003FBADE /* SectionsVC.swift */; };
 		1BBFDB4620743CFC003FBADE /* SectionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBFDB4520743CFC003FBADE /* SectionsDataSource.swift */; };
+		1BBFDB482074514E003FBADE /* SectionsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBFDB472074514E003FBADE /* SectionsTableDelegate.swift */; };
 		1BDEED532059F220001FE6FB /* FadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED522059F220001FE6FB /* FadingAnimation.swift */; };
 		1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED542059F36B001FE6FB /* NavigationController.swift */; };
 		1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE085D205EE51800FEEB1F /* CoursesVC.swift */; };
@@ -84,6 +85,7 @@
 		1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioner.swift; sourceTree = "<group>"; };
 		1BBFDB4320742043003FBADE /* SectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsVC.swift; sourceTree = "<group>"; };
 		1BBFDB4520743CFC003FBADE /* SectionsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsDataSource.swift; sourceTree = "<group>"; };
+		1BBFDB472074514E003FBADE /* SectionsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTableDelegate.swift; sourceTree = "<group>"; };
 		1BDEED522059F220001FE6FB /* FadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingAnimation.swift; sourceTree = "<group>"; };
 		1BDEED542059F36B001FE6FB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1BFE085D205EE51800FEEB1F /* CoursesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesVC.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				1BBFDB4320742043003FBADE /* SectionsVC.swift */,
+				1BBFDB472074514E003FBADE /* SectionsTableDelegate.swift */,
 				1BBFDB4520743CFC003FBADE /* SectionsDataSource.swift */,
 			);
 			path = Sections;
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B209D3F2062EDAC00F701C6 /* HomeTableDatasource.swift in Sources */,
+				1BBFDB482074514E003FBADE /* SectionsTableDelegate.swift in Sources */,
 				1B644E372050EDAD00CA9264 /* RestAPI.swift in Sources */,
 				1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */,
 				1BB93B46205D8DF20042B021 /* InteractiveTransitioner.swift in Sources */,
