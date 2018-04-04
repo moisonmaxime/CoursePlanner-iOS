@@ -99,13 +99,13 @@ class RestAPI {
             return
         }
         
-        var postContent = [ "username": user,
-                            "password": password,
-                            "first_name": first,
-                            "last_name": last,
+        var postContent = [ "username": user.trimmingCharacters(in: .whitespaces),
+                            "password": password.trimmingCharacters(in: .whitespaces),
+                            "first_name": first.trimmingCharacters(in: .whitespaces),
+                            "last_name": last.trimmingCharacters(in: .whitespaces),
                             "name": "\(first) \(last)" ]
         if (email != nil) {
-            postContent["email"] = email!
+            postContent["email"] = email!.trimmingCharacters(in: .whitespaces)
         }
         
         let request:URLRequest = URLRequest(url: url, type: .POST, dictionary: postContent)
@@ -170,7 +170,7 @@ class RestAPI {
     }
     
     static func searchCourseIDs(id: String, term: String?, completion: @escaping (Array<[String: String]>?, APIError?) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-search?course=\(id)&term=\(term ?? "201810")") else {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-search?course=\(id.replacingOccurrences(of: " ", with: "%20"))&term=\(term ?? "201810")") else {
             completion(nil, .InternalError)
             return
         }
