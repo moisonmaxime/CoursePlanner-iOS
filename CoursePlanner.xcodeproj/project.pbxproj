@@ -15,6 +15,8 @@
 		1B209D472062F08B00F701C6 /* HomeTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B209D462062F08B00F701C6 /* HomeTableDelegate.swift */; };
 		1B27C6302075C8E000DBA833 /* QuickCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27C62E2075C8E000DBA833 /* QuickCourseCell.swift */; };
 		1B27C6312075C8E000DBA833 /* QuickCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B27C62F2075C8E000DBA833 /* QuickCourseCell.xib */; };
+		1B31BC2920773B590013FC53 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B31BC2820773B590013FC53 /* BackButton.swift */; };
+		1B31BC2B20773B6A0013FC53 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B31BC2A20773B6A0013FC53 /* RoundedButton.swift */; };
 		1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
 		1B5C7F612065ABB9009911E0 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C7F602065ABB9009911E0 /* Schedule.swift */; };
 		1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E162050ED9F00CA9264 /* AppDelegate.swift */; };
@@ -67,6 +69,8 @@
 		1B209D462062F08B00F701C6 /* HomeTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableDelegate.swift; sourceTree = "<group>"; };
 		1B27C62E2075C8E000DBA833 /* QuickCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickCourseCell.swift; sourceTree = "<group>"; };
 		1B27C62F2075C8E000DBA833 /* QuickCourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickCourseCell.xib; sourceTree = "<group>"; };
+		1B31BC2820773B590013FC53 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		1B31BC2A20773B6A0013FC53 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
 		1B5C7F602065ABB9009911E0 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		1B644E132050ED9F00CA9264 /* CoursePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoursePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +168,15 @@
 			path = Courses;
 			sourceTree = "<group>";
 		};
+		1B31BC2720773B320013FC53 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				1B31BC2820773B590013FC53 /* BackButton.swift */,
+				1B31BC2A20773B6A0013FC53 /* RoundedButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		1B5C7F5F2065A1D9009911E0 /* Schedules */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +218,7 @@
 				1B5C7F5F2065A1D9009911E0 /* Schedules */,
 				1B644E362050EDAD00CA9264 /* RestAPI.swift */,
 				1BB2021A205A14C600A96619 /* Navigation */,
+				1B31BC2720773B320013FC53 /* Buttons */,
 				1BAB20A620586B5400C0D079 /* Supporting Files */,
 				1B644E222050ED9F00CA9264 /* Info.plist */,
 			);
@@ -390,9 +404,11 @@
 				1B209D472062F08B00F701C6 /* HomeTableDelegate.swift in Sources */,
 				1B27C6302075C8E000DBA833 /* QuickCourseCell.swift in Sources */,
 				1B209D452062EED800F701C6 /* CoursesSearchBarDelegate.swift in Sources */,
+				1B31BC2920773B590013FC53 /* BackButton.swift in Sources */,
 				1B209D412062EE1000F701C6 /* CoursesTableDataSource.swift in Sources */,
 				1B7C116C2071C00C001328E4 /* StringExtension.swift in Sources */,
 				1BBFDB5420747A57003FBADE /* CourseCell.swift in Sources */,
+				1B31BC2B20773B6A0013FC53 /* RoundedButton.swift in Sources */,
 				1B644E392051AD2100CA9264 /* DictionaryExtension.swift in Sources */,
 				1BB2021C205A198A00A96619 /* Animation.swift in Sources */,
 				1B6A1975205C3C6C000AD3D5 /* APIError.swift in Sources */,

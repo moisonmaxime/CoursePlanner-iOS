@@ -184,29 +184,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd5-0c-40B">
-                                <rect key="frame" x="222" y="617" width="137" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd5-0c-40B" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="597" width="200" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="AhD-UY-Q9m"/>
+                                    <constraint firstAttribute="width" constant="200" id="QWS-Fz-ZIq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Build New Schedule"/>
                                 <connections>
                                     <segue destination="tN9-yH-7gg" kind="show" identifier="showBuilder" id="u7t-LL-TZK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdO-VT-e3o">
-                                <rect key="frame" x="16" y="617" width="155" height="30"/>
-                                <state key="normal" title="View Saved Schedules"/>
-                                <connections>
-                                    <segue destination="Iqs-wM-7Xx" kind="show" identifier="showSaved" id="0PT-a4-0eZ"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8mg-Er-QeP">
-                                <rect key="frame" x="16" y="129" width="343" height="429"/>
+                                <rect key="frame" x="16" y="81" width="343" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="429" id="KyP-kA-zeR"/>
-                                </constraints>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf1-en-7nQ">
-                                <rect key="frame" x="312" y="20" width="48" height="30"/>
+                                <rect key="frame" x="312" y="19.5" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logout:" destination="Bqd-8e-Rac" eventType="touchUpInside" id="GNO-Nk-gFi"/>
@@ -218,21 +215,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdO-VT-e3o" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                <rect key="frame" x="112.5" y="565" width="150" height="24"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="CBo-2G-JEb"/>
+                                    <constraint firstAttribute="width" constant="150" id="bWd-qk-L5h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="View Saved Schedules"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Iqs-wM-7Xx" kind="show" identifier="showSaved" id="0PT-a4-0eZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dLY-Bc-dgi" firstAttribute="trailing" secondItem="Dd5-0c-40B" secondAttribute="trailing" constant="16" id="6rE-lj-04Z"/>
                             <constraint firstItem="8mg-Er-QeP" firstAttribute="leading" secondItem="dLY-Bc-dgi" secondAttribute="leading" constant="16" id="72o-mh-Zfl"/>
                             <constraint firstItem="Bf1-en-7nQ" firstAttribute="centerY" secondItem="Qyu-M8-R8R" secondAttribute="centerY" id="7Zz-Tz-eCV"/>
-                            <constraint firstItem="8mg-Er-QeP" firstAttribute="centerY" secondItem="dLY-Bc-dgi" secondAttribute="centerY" id="LU0-VE-vDH"/>
-                            <constraint firstItem="pdO-VT-e3o" firstAttribute="leading" secondItem="dLY-Bc-dgi" secondAttribute="leading" constant="16" id="QaO-dI-ChA"/>
+                            <constraint firstItem="dLY-Bc-dgi" firstAttribute="bottom" secondItem="Dd5-0c-40B" secondAttribute="bottom" constant="20" id="DAi-jx-m95"/>
+                            <constraint firstItem="pdO-VT-e3o" firstAttribute="centerX" secondItem="dLY-Bc-dgi" secondAttribute="centerX" id="M7Y-6S-xGr"/>
+                            <constraint firstItem="Dd5-0c-40B" firstAttribute="top" secondItem="pdO-VT-e3o" secondAttribute="bottom" constant="8" id="NeO-NI-S3v"/>
+                            <constraint firstItem="8mg-Er-QeP" firstAttribute="top" secondItem="Qyu-M8-R8R" secondAttribute="bottom" constant="32" id="O8n-g3-787"/>
+                            <constraint firstItem="pdO-VT-e3o" firstAttribute="top" secondItem="8mg-Er-QeP" secondAttribute="bottom" constant="20" id="YSf-uM-Cmz"/>
+                            <constraint firstItem="Dd5-0c-40B" firstAttribute="centerX" secondItem="dLY-Bc-dgi" secondAttribute="centerX" id="Yg4-vT-eWo"/>
                             <constraint firstItem="8mg-Er-QeP" firstAttribute="centerX" secondItem="dLY-Bc-dgi" secondAttribute="centerX" id="bDl-cw-kmr"/>
                             <constraint firstItem="dLY-Bc-dgi" firstAttribute="trailing" secondItem="Bf1-en-7nQ" secondAttribute="trailing" constant="15" id="jJ1-MG-m3P"/>
                             <constraint firstItem="Qyu-M8-R8R" firstAttribute="top" secondItem="dLY-Bc-dgi" secondAttribute="top" id="mdb-4n-hEB"/>
                             <constraint firstItem="dLY-Bc-dgi" firstAttribute="trailing" secondItem="8mg-Er-QeP" secondAttribute="trailing" constant="16" id="oNK-gI-qah"/>
-                            <constraint firstItem="dLY-Bc-dgi" firstAttribute="bottom" secondItem="Dd5-0c-40B" secondAttribute="bottom" constant="20" id="rkX-9D-oND"/>
                             <constraint firstItem="Qyu-M8-R8R" firstAttribute="centerX" secondItem="dLY-Bc-dgi" secondAttribute="centerX" id="xq3-su-Sox"/>
-                            <constraint firstItem="dLY-Bc-dgi" firstAttribute="bottom" secondItem="pdO-VT-e3o" secondAttribute="bottom" constant="20" id="zH2-Er-VJG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dLY-Bc-dgi"/>
                     </view>
@@ -269,22 +286,43 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-bX-7p5">
-                                <rect key="frame" x="64" y="173" width="247" height="380"/>
+                                <rect key="frame" x="0.0" y="109" width="375" height="466"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaZ-ol-ppf">
-                                <rect key="frame" x="170" y="617" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaZ-ol-ppf" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                <rect key="frame" x="155" y="607" width="64" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ni9-Fc-a1B"/>
+                                    <constraint firstAttribute="width" constant="64" id="gj1-IO-EXh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Build"/>
                                 <connections>
                                     <segue destination="Yh2-kt-Ah4" kind="show" identifier="showSchedules" id="UY1-Ah-3Wt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mud-R2-aON">
-                                <rect key="frame" x="16" y="617" width="50" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mud-R2-aON" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                <rect key="frame" x="16" y="607" width="72" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="E1x-U7-x3b"/>
+                                    <constraint firstAttribute="height" constant="40" id="t4W-s5-4pN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Sorting"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo1-dZ-FVa">
-                                <rect key="frame" x="303" y="617" width="56" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo1-dZ-FVa" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                <rect key="frame" x="287" y="607" width="72" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="gZn-ml-N2t"/>
+                                    <constraint firstAttribute="height" constant="40" id="jo5-cG-zTz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Filtering"/>
                             </button>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-vT-Qo6">
@@ -316,13 +354,13 @@
                             <constraint firstItem="xbo-VZ-sZ4" firstAttribute="top" secondItem="cwe-Ha-hRj" secondAttribute="bottom" constant="4" id="7EM-tj-CQ9"/>
                             <constraint firstItem="7j9-vT-Qo6" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" id="7ad-Si-4l6"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="TaZ-ol-ppf" secondAttribute="bottom" constant="20" id="9F7-EI-bwa"/>
-                            <constraint firstItem="RZK-bX-7p5" firstAttribute="top" secondItem="xbo-VZ-sZ4" secondAttribute="bottom" constant="64" id="E88-Sk-yfg"/>
+                            <constraint firstItem="RZK-bX-7p5" firstAttribute="top" secondItem="xbo-VZ-sZ4" secondAttribute="bottom" id="E88-Sk-yfg"/>
                             <constraint firstItem="cwe-Ha-hRj" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="J75-aA-JT9"/>
-                            <constraint firstItem="TaZ-ol-ppf" firstAttribute="top" secondItem="RZK-bX-7p5" secondAttribute="bottom" constant="64" id="JWh-1f-Qdo"/>
-                            <constraint firstItem="RZK-bX-7p5" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" constant="64" id="L2X-FG-6Ce"/>
+                            <constraint firstItem="TaZ-ol-ppf" firstAttribute="top" secondItem="RZK-bX-7p5" secondAttribute="bottom" constant="32" id="JWh-1f-Qdo"/>
+                            <constraint firstItem="RZK-bX-7p5" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" id="L2X-FG-6Ce"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="3oG-Ic-0d5" secondAttribute="trailing" constant="16" id="MHi-Iv-kNt"/>
                             <constraint firstItem="cwe-Ha-hRj" firstAttribute="top" secondItem="Dug-H3-JDK" secondAttribute="top" id="MdJ-tc-obq"/>
-                            <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="RZK-bX-7p5" secondAttribute="trailing" constant="64" id="NAe-gf-Nsr"/>
+                            <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="RZK-bX-7p5" secondAttribute="trailing" id="NAe-gf-Nsr"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="Bo1-dZ-FVa" secondAttribute="bottom" constant="20" id="Of6-Kh-pim"/>
                             <constraint firstItem="mud-R2-aON" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" constant="16" id="RJj-Gu-Ado"/>
                             <constraint firstItem="xbo-VZ-sZ4" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="UzP-hZ-vf7"/>

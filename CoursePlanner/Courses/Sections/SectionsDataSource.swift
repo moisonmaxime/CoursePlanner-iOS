@@ -19,7 +19,7 @@ extension SectionsVC: UITableViewDataSource {
         cell.selectionStyle = .none
         cell.setup(course: sections[indexPath.row])
         cell.setSelected(courseVC.badCRNs.contains(sections[indexPath.row]["crn"] as! String), animated: false)
-        cell.checkLecture(courseVC.badCRNs)
+        cell.updateAvailability(courseVC.badCRNs)
         cell.updateView()
         return cell
     }

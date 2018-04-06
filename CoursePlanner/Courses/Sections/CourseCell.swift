@@ -15,7 +15,9 @@ class CourseCell: UITableViewCell {
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var instructorLabel: UILabel!
     @IBOutlet weak var crnLabel: UILabel!
+    
     var course:[String:Any?]!
+    var isAvailable:Bool = true
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,16 +33,17 @@ class CourseCell: UITableViewCell {
         crnLabel.text = course["crn"] as? String
     }
     
-    func checkLecture(_ badCRNs: [String]) {
-        if badCRNs.contains(course["lecture_crn"] as? String ?? "") {
-            crnLabel.alpha = 0.3
+    func updateAvailability(_ badCRNs: [String]) {
+        if (badCRNs.contains(course["lecture_crn"] as? String ?? "") || badCRNs.contains(course["attached_crn"] as? String ?? "")) {
+            isAvailable = false
             return
         }
-        crnLabel.alpha = 1
+        isAvailable = true
     }
     
     func updateView() {
         crnLabel.isHidden = isSelected
+        crnLabel.alpha = isAvailable ? 1 : 0.3
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
