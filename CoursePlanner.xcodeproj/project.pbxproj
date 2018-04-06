@@ -44,6 +44,7 @@
 		1BBFDB482074514E003FBADE /* SectionsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBFDB472074514E003FBADE /* SectionsTableDelegate.swift */; };
 		1BBFDB5420747A57003FBADE /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBFDB5220747A57003FBADE /* CourseCell.swift */; };
 		1BBFDB5520747A57003FBADE /* CourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBFDB5320747A57003FBADE /* CourseCell.xib */; };
+		1BC75CD02078192F009AD910 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E362050EDAD00CA9264 /* RestAPI.swift */; };
 		1BDEED532059F220001FE6FB /* FadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED522059F220001FE6FB /* FadingAnimation.swift */; };
 		1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED542059F36B001FE6FB /* NavigationController.swift */; };
 		1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE085D205EE51800FEEB1F /* CoursesVC.swift */; };
@@ -52,6 +53,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		1B644E282050ED9F00CA9264 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B644E0B2050ED9F00CA9264 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1B644E122050ED9F00CA9264;
+			remoteInfo = CoursePlanner;
+		};
+		1BC75CCB20781904009AD910 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1B644E0B2050ED9F00CA9264 /* Project object */;
 			proxyType = 1;
@@ -102,6 +110,8 @@
 		1BBFDB472074514E003FBADE /* SectionsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTableDelegate.swift; sourceTree = "<group>"; };
 		1BBFDB5220747A57003FBADE /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		1BBFDB5320747A57003FBADE /* CourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
+		1BC75CC620781904009AD910 /* CoursePlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoursePlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BC75CCA20781904009AD910 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BDEED522059F220001FE6FB /* FadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingAnimation.swift; sourceTree = "<group>"; };
 		1BDEED542059F36B001FE6FB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1BFE085D205EE51800FEEB1F /* CoursesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesVC.swift; sourceTree = "<group>"; };
@@ -117,6 +127,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1B644E242050ED9F00CA9264 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BC75CC320781904009AD910 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -193,6 +210,7 @@
 			children = (
 				1B644E152050ED9F00CA9264 /* CoursePlanner */,
 				1B644E2A2050ED9F00CA9264 /* CoursePlannerUITests */,
+				1BC75CC720781904009AD910 /* CoursePlannerTests */,
 				1B644E142050ED9F00CA9264 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -202,6 +220,7 @@
 			children = (
 				1B644E132050ED9F00CA9264 /* CoursePlanner.app */,
 				1B644E272050ED9F00CA9264 /* CoursePlannerUITests.xctest */,
+				1BC75CC620781904009AD910 /* CoursePlannerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -273,6 +292,14 @@
 			path = Sections;
 			sourceTree = "<group>";
 		};
+		1BC75CC720781904009AD910 /* CoursePlannerTests */ = {
+			isa = PBXGroup;
+			children = (
+				1BC75CCA20781904009AD910 /* Info.plist */,
+			);
+			path = CoursePlannerTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -311,13 +338,31 @@
 			productReference = 1B644E272050ED9F00CA9264 /* CoursePlannerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		1BC75CC520781904009AD910 /* CoursePlannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BC75CCD20781904009AD910 /* Build configuration list for PBXNativeTarget "CoursePlannerTests" */;
+			buildPhases = (
+				1BC75CC220781904009AD910 /* Sources */,
+				1BC75CC320781904009AD910 /* Frameworks */,
+				1BC75CC420781904009AD910 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1BC75CCC20781904009AD910 /* PBXTargetDependency */,
+			);
+			name = CoursePlannerTests;
+			productName = CoursePlannerTests;
+			productReference = 1BC75CC620781904009AD910 /* CoursePlannerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		1B644E0B2050ED9F00CA9264 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Maxime Moison";
 				TargetAttributes = {
@@ -327,6 +372,11 @@
 					};
 					1B644E262050ED9F00CA9264 = {
 						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1B644E122050ED9F00CA9264;
+					};
+					1BC75CC520781904009AD910 = {
+						CreatedOnToolsVersion = 9.3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1B644E122050ED9F00CA9264;
 					};
@@ -347,6 +397,7 @@
 			targets = (
 				1B644E122050ED9F00CA9264 /* CoursePlanner */,
 				1B644E262050ED9F00CA9264 /* CoursePlannerUITests */,
+				1BC75CC520781904009AD910 /* CoursePlannerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -367,6 +418,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1B644E252050ED9F00CA9264 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BC75CC420781904009AD910 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -424,6 +482,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1BC75CC220781904009AD910 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BC75CD02078192F009AD910 /* RestAPI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -431,6 +497,11 @@
 			isa = PBXTargetDependency;
 			target = 1B644E122050ED9F00CA9264 /* CoursePlanner */;
 			targetProxy = 1B644E282050ED9F00CA9264 /* PBXContainerItemProxy */;
+		};
+		1BC75CCC20781904009AD910 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1B644E122050ED9F00CA9264 /* CoursePlanner */;
+			targetProxy = 1BC75CCB20781904009AD910 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -625,6 +696,42 @@
 			};
 			name = Release;
 		};
+		1BC75CCE20781904009AD910 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZE6FXYDW4P;
+				INFOPLIST_FILE = CoursePlannerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = maximemoison.CoursePlannerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoursePlanner.app/CoursePlanner";
+			};
+			name = Debug;
+		};
+		1BC75CCF20781904009AD910 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZE6FXYDW4P;
+				INFOPLIST_FILE = CoursePlannerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = maximemoison.CoursePlannerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoursePlanner.app/CoursePlanner";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -651,6 +758,15 @@
 			buildConfigurations = (
 				1B644E342050ED9F00CA9264 /* Debug */,
 				1B644E352050ED9F00CA9264 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BC75CCD20781904009AD910 /* Build configuration list for PBXNativeTarget "CoursePlannerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BC75CCE20781904009AD910 /* Debug */,
+				1BC75CCF20781904009AD910 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
