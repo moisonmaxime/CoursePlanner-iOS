@@ -170,7 +170,7 @@ class RestAPI {
     }
     
     static func searchCourseIDs(id: String, term: String?, completion: @escaping (Array<[String: String]>?, APIError?) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-search?course=\(id.replacingOccurrences(of: " ", with: "%20"))&term=\(term ?? "201810")") else {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-search?course=\(id.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)&term=\(term ?? "201810")") else {
             completion(nil, .InternalError)
             return
         }
