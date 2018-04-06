@@ -53,4 +53,11 @@ extension String {
     }
     
     
+    func readableRoom() -> String {
+        var s = self.replacingOccurrences(of: "CLSSRM", with: "COB")
+        s = s.replacingOccurrences(of: "SCIENG", with: "S&E")
+        s = s.replacingOccurrences(of: "SE", with: "S&E")
+        return s
+    }
+    
 }

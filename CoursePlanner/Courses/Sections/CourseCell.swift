@@ -15,6 +15,7 @@ class CourseCell: UITableViewCell {
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var instructorLabel: UILabel!
     @IBOutlet weak var crnLabel: UILabel!
+    @IBOutlet weak var roomLabel: UILabel!
     
     var course:[String:Any?]!
     var isAvailable:Bool = true
@@ -31,6 +32,8 @@ class CourseCell: UITableViewCell {
         hoursLabel.text = course["hours"] as? String
         instructorLabel.text = course["instructor"] as? String
         crnLabel.text = course["crn"] as? String
+        let room = course["room"] as? String ?? "TBD"
+        roomLabel.text = room.readableRoom()
     }
     
     func updateAvailability(_ badCRNs: [String]) {
