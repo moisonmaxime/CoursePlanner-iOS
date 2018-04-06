@@ -194,6 +194,11 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Build New Schedule"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="tN9-yH-7gg" kind="show" identifier="showBuilder" id="u7t-LL-TZK"/>
                                 </connections>
@@ -299,6 +304,11 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Build"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="Yh2-kt-Ah4" kind="show" identifier="showSchedules" id="UY1-Ah-3Wt"/>
                                 </connections>
@@ -313,6 +323,11 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Sorting"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo1-dZ-FVa" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
                                 <rect key="frame" x="287" y="607" width="72" height="40"/>
@@ -324,6 +339,11 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Filtering"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-vT-Qo6">
                                 <rect key="frame" x="213" y="611" width="82" height="56"/>
@@ -336,7 +356,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fall 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oG-Ic-0d5">
-                                <rect key="frame" x="309.5" y="28" width="49.5" height="14.5"/>
+                                <rect key="frame" x="309.5" y="30.5" width="49.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -366,7 +386,7 @@
                             <constraint firstItem="xbo-VZ-sZ4" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="UzP-hZ-vf7"/>
                             <constraint firstItem="7j9-vT-Qo6" firstAttribute="top" secondItem="xbo-VZ-sZ4" secondAttribute="bottom" id="V87-DC-YFd"/>
                             <constraint firstItem="7j9-vT-Qo6" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="XDq-bc-6g6"/>
-                            <constraint firstItem="3oG-Ic-0d5" firstAttribute="centerY" secondItem="cwe-Ha-hRj" secondAttribute="centerY" id="YDh-nE-XlU"/>
+                            <constraint firstItem="3oG-Ic-0d5" firstAttribute="centerY" secondItem="cwe-Ha-hRj" secondAttribute="centerY" constant="3" id="YDh-nE-XlU"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="7j9-vT-Qo6" secondAttribute="bottom" id="eMj-yq-tlt"/>
                             <constraint firstItem="TaZ-ol-ppf" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="iEK-Wp-OFe"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="mud-R2-aON" secondAttribute="bottom" constant="20" id="jph-6I-Whl"/>
@@ -398,14 +418,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hjM-Yj-j8j">
-                                <rect key="frame" x="0.0" y="53" width="375" height="550"/>
+                                <rect key="frame" x="0.0" y="53" width="375" height="534"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivL-lT-ysm">
-                                <rect key="frame" x="160" y="617" width="55" height="30"/>
-                                <state key="normal" title="Remove">
-                                    <color key="titleColor" red="1" green="0.02328635045" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivL-lT-ysm" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                <rect key="frame" x="147.5" y="607" width="80" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.02328635045" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Bw4-l0-iKR"/>
+                                    <constraint firstAttribute="height" constant="40" id="eSo-bL-AdW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Remove"/>
                                 <connections>
                                     <action selector="remove:" destination="Pu4-f6-ddb" eventType="touchUpInside" id="7ft-U9-F7a"/>
                                 </connections>
@@ -432,12 +457,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="h1B-Ph-2tp" firstAttribute="bottom" secondItem="hjM-Yj-j8j" secondAttribute="bottom" constant="64" id="1Cg-dp-eNs"/>
                             <constraint firstItem="ekT-2F-M1Z" firstAttribute="centerY" secondItem="fET-Wn-Nak" secondAttribute="centerY" id="Dhr-NY-r35"/>
                             <constraint firstItem="fET-Wn-Nak" firstAttribute="centerX" secondItem="h1B-Ph-2tp" secondAttribute="centerX" id="KCc-RY-Q7g"/>
                             <constraint firstItem="ekT-2F-M1Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fET-Wn-Nak" secondAttribute="trailing" constant="4" id="KhP-nl-sEq"/>
                             <constraint firstItem="zrD-wT-Zm0" firstAttribute="leading" secondItem="h1B-Ph-2tp" secondAttribute="leading" constant="16" id="P6n-uw-LS6"/>
                             <constraint firstItem="h1B-Ph-2tp" firstAttribute="trailing" secondItem="hjM-Yj-j8j" secondAttribute="trailing" id="TUE-ng-vwg"/>
+                            <constraint firstItem="ivL-lT-ysm" firstAttribute="top" secondItem="hjM-Yj-j8j" secondAttribute="bottom" constant="20" id="WaT-QQ-3iy"/>
                             <constraint firstItem="h1B-Ph-2tp" firstAttribute="trailing" secondItem="ekT-2F-M1Z" secondAttribute="trailing" constant="16.5" id="ahu-kv-uNP"/>
                             <constraint firstItem="zrD-wT-Zm0" firstAttribute="centerY" secondItem="fET-Wn-Nak" secondAttribute="centerY" id="fdw-63-wLg"/>
                             <constraint firstItem="h1B-Ph-2tp" firstAttribute="bottom" secondItem="ivL-lT-ysm" secondAttribute="bottom" constant="20" id="g0S-Df-jfB"/>
