@@ -11,8 +11,14 @@ import UIKit
 
 extension CoursesVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if (isSearching) {
+            return
+        }
+        
         if ((seacrhBar.text?.underestimatedCount)! >= 2) {
             RestAPI.searchCourseIDs(id: searchBar.text!, term: self.term, completion: { (result, err) in
+                self.isSearching = false
                 if (err != nil) {
                     DispatchQueue.main.async {
                         self.handleError(error: err!)
