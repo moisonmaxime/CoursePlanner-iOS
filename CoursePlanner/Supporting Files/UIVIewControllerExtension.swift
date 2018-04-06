@@ -16,7 +16,7 @@ extension UIViewController {
     func displayAlert(message: String, handler: ((UIAlertAction) -> ())? = nil) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: handler))
-        print(message)
+        // debugPrint(message)
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -49,8 +49,8 @@ extension UIViewController {
             break
         }
         
-        debugPrint("Error")
-        debugPrint(message)
+        // debugPrint("Error")
+        // debugPrint(message)
         
         self.displayAlert(message: message, handler: nil)
     }

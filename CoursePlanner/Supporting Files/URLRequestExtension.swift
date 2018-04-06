@@ -41,13 +41,16 @@ extension URLRequest {
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {    // check for http errors
-                debugPrint("HttpCode: \(httpStatus.statusCode)")
+                // debugPrint("HttpCode: \(httpStatus.statusCode)")
                 if (httpStatus.statusCode == 401 || httpStatus.statusCode == 400) {
                     if (UserDefaults.standard.string(forKey: "api_token") != nil) {
                         completion(nil, .InvalidAPIKey)
                     } else {
                         completion(nil, .InvalidCredentials)
                     }
+                    return
+                } else if (httpStatus.statusCode == 500) {
+                    completion(nil, .ServerError)
                     return
                 }
             }
