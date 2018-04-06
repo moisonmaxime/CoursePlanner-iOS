@@ -17,7 +17,14 @@ class RestAPI {
             completion(.InternalError)
             return
         }
-        let request:URLRequest = URLRequest(url: url, type: .POST, dictionary: [ "username": user, "password": password ])
+        
+        var request:URLRequest = URLRequest(url: url, type: .POST)
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: ["username": user, "password": password], options: .prettyPrinted) else {
+            completion(.InternalError)
+            return
+        }
+        request.httpBody = jsonData
+        
         request.getJsonData { (dict, err) in
             if (err != nil) {
                 completion(err!)
@@ -108,7 +115,13 @@ class RestAPI {
             postContent["email"] = email!.trimmingCharacters(in: .whitespaces)
         }
         
-        let request:URLRequest = URLRequest(url: url, type: .POST, dictionary: postContent)
+        
+        var request:URLRequest = URLRequest(url: url, type: .POST)
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
+            completion(.InternalError)
+            return
+        }
+        request.httpBody = jsonData
         
         request.getJsonData { (dict, err) in
             if (err != nil) {
@@ -135,15 +148,12 @@ class RestAPI {
             return
         }
         
-        let dict = ["term": term, "course_list": [id]] as [String : Any]
-        
+        let postContent = ["term": term, "course_list": [id]] as [String : Any]
         var request:URLRequest = URLRequest(url: url, type: .POST)
-        
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) else {
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
             completion(nil, .InternalError)
             return
         }
-        
         request.httpBody = jsonData
         
         request.getJsonData { (dict, err) in
@@ -223,29 +233,26 @@ class RestAPI {
             completion(nil, .InternalError)
             return
         }
-        var request:URLRequest = URLRequest(url: url, type: .POST)
         
-        var dict = ["term": term, "course_list": courses] as [String : Any]
+        var request:URLRequest = URLRequest(url: url, type: .POST)
+        var postContent = ["term": term, "course_list": courses] as [String : Any]
         if (earliest != nil) {
-            dict["earliest_time"] = earliest!
+            postContent["earliest_time"] = earliest!
         }
         if (earliest != nil) {
-            dict["latest_time"] = latest!
+            postContent["latest_time"] = latest!
         }
         if (gapsAscending != nil) {
-            dict["gaps"] = gapsAscending! ? "asc" : "desc"
+            postContent["gaps"] = gapsAscending! ? "asc" : "desc"
         }
         if (daysAscending != nil) {
-            dict["days"] = daysAscending! ? "asc" : "desc"
+            postContent["days"] = daysAscending! ? "asc" : "desc"
         }
-        
-        dict["search_full"] = "true"
-        
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) else {
+        postContent["search_full"] = "true"
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
             completion(nil, .InternalError)
             return
         }
-        
         request.httpBody = jsonData
         
         request.getJsonData { (dict, err) in

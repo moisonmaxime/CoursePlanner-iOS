@@ -26,13 +26,6 @@ extension URLRequest {
         }
     }
     
-    init(url: URL, type: RequestType, dictionary: Dictionary<String, String>) {
-        self.init(url: url, type: type)
-        let json = dictionary.toJSONString()
-        self.httpBody = json.data(using: .utf8)
-    }
-    
-    
     func getJsonData(completion: @escaping (Dictionary<String, Any>?, APIError?)->()) {
         let task = URLSession.shared.dataTask(with: self) { data, response, error in
             guard let data = data, error == nil else {                                   // check for fundamental networking error
