@@ -17,14 +17,18 @@
 		1B27C6312075C8E000DBA833 /* QuickCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B27C62F2075C8E000DBA833 /* QuickCourseCell.xib */; };
 		1B31BC2920773B590013FC53 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B31BC2820773B590013FC53 /* BackButton.swift */; };
 		1B31BC2B20773B6A0013FC53 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B31BC2A20773B6A0013FC53 /* RoundedButton.swift */; };
-		1B37623320781E54006C20D6 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C116B2071C00C001328E4 /* StringExtension.swift */; };
+		1B37625220783902006C20D6 /* CoursePlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625120783902006C20D6 /* CoursePlannerTests.swift */; };
+		1B37625A20783981006C20D6 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C116B2071C00C001328E4 /* StringExtension.swift */; };
+		1B37625C20783AD4006C20D6 /* ReadableTermTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625B20783AD4006C20D6 /* ReadableTermTests.swift */; };
+		1B37625E20783B22006C20D6 /* ReadableRoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625D20783B22006C20D6 /* ReadableRoomTests.swift */; };
+		1B37626020783CAE006C20D6 /* RestAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625F20783CAE006C20D6 /* RestAPITests.swift */; };
+		1B37626120783D17006C20D6 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E362050EDAD00CA9264 /* RestAPI.swift */; };
 		1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
 		1B5C7F612065ABB9009911E0 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C7F602065ABB9009911E0 /* Schedule.swift */; };
 		1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E162050ED9F00CA9264 /* AppDelegate.swift */; };
 		1B644E1C2050ED9F00CA9264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1A2050ED9F00CA9264 /* Main.storyboard */; };
 		1B644E1E2050ED9F00CA9264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1D2050ED9F00CA9264 /* Assets.xcassets */; };
 		1B644E212050ED9F00CA9264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1F2050ED9F00CA9264 /* LaunchScreen.storyboard */; };
-		1B644E2C2050ED9F00CA9264 /* CoursePlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E2B2050ED9F00CA9264 /* CoursePlannerUITests.swift */; };
 		1B644E372050EDAD00CA9264 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E362050EDAD00CA9264 /* RestAPI.swift */; };
 		1B6A1975205C3C6C000AD3D5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6A1974205C3C6C000AD3D5 /* APIError.swift */; };
 		1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7660592059AC69000929D5 /* LoginVC.swift */; };
@@ -51,14 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1B644E282050ED9F00CA9264 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1B644E0B2050ED9F00CA9264 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1B644E122050ED9F00CA9264;
-			remoteInfo = CoursePlanner;
-		};
-		1BC75CCB20781904009AD910 /* PBXContainerItemProxy */ = {
+		1B37625420783902006C20D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1B644E0B2050ED9F00CA9264 /* Project object */;
 			proxyType = 1;
@@ -78,6 +75,12 @@
 		1B27C62F2075C8E000DBA833 /* QuickCourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickCourseCell.xib; sourceTree = "<group>"; };
 		1B31BC2820773B590013FC53 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		1B31BC2A20773B6A0013FC53 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		1B37624F20783902006C20D6 /* CoursePlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoursePlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B37625120783902006C20D6 /* CoursePlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePlannerTests.swift; sourceTree = "<group>"; };
+		1B37625320783902006C20D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B37625B20783AD4006C20D6 /* ReadableTermTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadableTermTests.swift; sourceTree = "<group>"; };
+		1B37625D20783B22006C20D6 /* ReadableRoomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadableRoomTests.swift; sourceTree = "<group>"; };
+		1B37625F20783CAE006C20D6 /* RestAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPITests.swift; sourceTree = "<group>"; };
 		1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
 		1B5C7F602065ABB9009911E0 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		1B644E132050ED9F00CA9264 /* CoursePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoursePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,9 +89,6 @@
 		1B644E1D2050ED9F00CA9264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B644E202050ED9F00CA9264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B644E222050ED9F00CA9264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B644E272050ED9F00CA9264 /* CoursePlannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoursePlannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B644E2B2050ED9F00CA9264 /* CoursePlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePlannerUITests.swift; sourceTree = "<group>"; };
-		1B644E2D2050ED9F00CA9264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B644E362050EDAD00CA9264 /* RestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPI.swift; sourceTree = "<group>"; };
 		1B6A1974205C3C6C000AD3D5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		1B7660592059AC69000929D5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -108,8 +108,6 @@
 		1BBFDB472074514E003FBADE /* SectionsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTableDelegate.swift; sourceTree = "<group>"; };
 		1BBFDB5220747A57003FBADE /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		1BBFDB5320747A57003FBADE /* CourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
-		1BC75CC620781904009AD910 /* CoursePlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoursePlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1BC75CCA20781904009AD910 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BDEED522059F220001FE6FB /* FadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingAnimation.swift; sourceTree = "<group>"; };
 		1BDEED542059F36B001FE6FB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1BFE085D205EE51800FEEB1F /* CoursesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesVC.swift; sourceTree = "<group>"; };
@@ -117,21 +115,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1B37624C20783902006C20D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1B644E102050ED9F00CA9264 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1B644E242050ED9F00CA9264 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1BC75CC320781904009AD910 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -192,6 +183,18 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		1B37625020783902006C20D6 /* CoursePlannerTests */ = {
+			isa = PBXGroup;
+			children = (
+				1B37625120783902006C20D6 /* CoursePlannerTests.swift */,
+				1B37625B20783AD4006C20D6 /* ReadableTermTests.swift */,
+				1B37625D20783B22006C20D6 /* ReadableRoomTests.swift */,
+				1B37625F20783CAE006C20D6 /* RestAPITests.swift */,
+				1B37625320783902006C20D6 /* Info.plist */,
+			);
+			path = CoursePlannerTests;
+			sourceTree = "<group>";
+		};
 		1B5C7F5F2065A1D9009911E0 /* Schedules */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,8 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				1B644E152050ED9F00CA9264 /* CoursePlanner */,
-				1B644E2A2050ED9F00CA9264 /* CoursePlannerUITests */,
-				1BC75CC720781904009AD910 /* CoursePlannerTests */,
+				1B37625020783902006C20D6 /* CoursePlannerTests */,
 				1B644E142050ED9F00CA9264 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -217,8 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				1B644E132050ED9F00CA9264 /* CoursePlanner.app */,
-				1B644E272050ED9F00CA9264 /* CoursePlannerUITests.xctest */,
-				1BC75CC620781904009AD910 /* CoursePlannerTests.xctest */,
+				1B37624F20783902006C20D6 /* CoursePlannerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,15 +241,6 @@
 				1B644E222050ED9F00CA9264 /* Info.plist */,
 			);
 			path = CoursePlanner;
-			sourceTree = "<group>";
-		};
-		1B644E2A2050ED9F00CA9264 /* CoursePlannerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				1B644E2B2050ED9F00CA9264 /* CoursePlannerUITests.swift */,
-				1B644E2D2050ED9F00CA9264 /* Info.plist */,
-			);
-			path = CoursePlannerUITests;
 			sourceTree = "<group>";
 		};
 		1BAB20A620586B5400C0D079 /* Supporting Files */ = {
@@ -289,17 +281,27 @@
 			path = Sections;
 			sourceTree = "<group>";
 		};
-		1BC75CC720781904009AD910 /* CoursePlannerTests */ = {
-			isa = PBXGroup;
-			children = (
-				1BC75CCA20781904009AD910 /* Info.plist */,
-			);
-			path = CoursePlannerTests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1B37624E20783902006C20D6 /* CoursePlannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B37625620783902006C20D6 /* Build configuration list for PBXNativeTarget "CoursePlannerTests" */;
+			buildPhases = (
+				1B37624B20783902006C20D6 /* Sources */,
+				1B37624C20783902006C20D6 /* Frameworks */,
+				1B37624D20783902006C20D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1B37625520783902006C20D6 /* PBXTargetDependency */,
+			);
+			name = CoursePlannerTests;
+			productName = CoursePlannerTests;
+			productReference = 1B37624F20783902006C20D6 /* CoursePlannerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		1B644E122050ED9F00CA9264 /* CoursePlanner */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B644E302050ED9F00CA9264 /* Build configuration list for PBXNativeTarget "CoursePlanner" */;
@@ -317,42 +319,6 @@
 			productReference = 1B644E132050ED9F00CA9264 /* CoursePlanner.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1B644E262050ED9F00CA9264 /* CoursePlannerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1B644E332050ED9F00CA9264 /* Build configuration list for PBXNativeTarget "CoursePlannerUITests" */;
-			buildPhases = (
-				1B644E232050ED9F00CA9264 /* Sources */,
-				1B644E242050ED9F00CA9264 /* Frameworks */,
-				1B644E252050ED9F00CA9264 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1B644E292050ED9F00CA9264 /* PBXTargetDependency */,
-			);
-			name = CoursePlannerUITests;
-			productName = CoursePlannerUITests;
-			productReference = 1B644E272050ED9F00CA9264 /* CoursePlannerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		1BC75CC520781904009AD910 /* CoursePlannerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1BC75CCD20781904009AD910 /* Build configuration list for PBXNativeTarget "CoursePlannerTests" */;
-			buildPhases = (
-				1BC75CC220781904009AD910 /* Sources */,
-				1BC75CC320781904009AD910 /* Frameworks */,
-				1BC75CC420781904009AD910 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1BC75CCC20781904009AD910 /* PBXTargetDependency */,
-			);
-			name = CoursePlannerTests;
-			productName = CoursePlannerTests;
-			productReference = 1BC75CC620781904009AD910 /* CoursePlannerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -363,19 +329,14 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Maxime Moison";
 				TargetAttributes = {
-					1B644E122050ED9F00CA9264 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
-					1B644E262050ED9F00CA9264 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 1B644E122050ED9F00CA9264;
-					};
-					1BC75CC520781904009AD910 = {
+					1B37624E20783902006C20D6 = {
 						CreatedOnToolsVersion = 9.3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1B644E122050ED9F00CA9264;
+					};
+					1B644E122050ED9F00CA9264 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -393,13 +354,19 @@
 			projectRoot = "";
 			targets = (
 				1B644E122050ED9F00CA9264 /* CoursePlanner */,
-				1B644E262050ED9F00CA9264 /* CoursePlannerUITests */,
-				1BC75CC520781904009AD910 /* CoursePlannerTests */,
+				1B37624E20783902006C20D6 /* CoursePlannerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1B37624D20783902006C20D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1B644E112050ED9F00CA9264 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -414,23 +381,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B644E252050ED9F00CA9264 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1BC75CC420781904009AD910 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1B37624B20783902006C20D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B37626120783D17006C20D6 /* RestAPI.swift in Sources */,
+				1B37626020783CAE006C20D6 /* RestAPITests.swift in Sources */,
+				1B37625A20783981006C20D6 /* StringExtension.swift in Sources */,
+				1B37625220783902006C20D6 /* CoursePlannerTests.swift in Sources */,
+				1B37625E20783B22006C20D6 /* ReadableRoomTests.swift in Sources */,
+				1B37625C20783AD4006C20D6 /* ReadableTermTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1B644E0F2050ED9F00CA9264 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -470,34 +436,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B644E232050ED9F00CA9264 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1B644E2C2050ED9F00CA9264 /* CoursePlannerUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1BC75CC220781904009AD910 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1B37623320781E54006C20D6 /* StringExtension.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1B644E292050ED9F00CA9264 /* PBXTargetDependency */ = {
+		1B37625520783902006C20D6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1B644E122050ED9F00CA9264 /* CoursePlanner */;
-			targetProxy = 1B644E282050ED9F00CA9264 /* PBXContainerItemProxy */;
-		};
-		1BC75CCC20781904009AD910 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1B644E122050ED9F00CA9264 /* CoursePlanner */;
-			targetProxy = 1BC75CCB20781904009AD910 /* PBXContainerItemProxy */;
+			targetProxy = 1B37625420783902006C20D6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -521,6 +466,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1B37625720783902006C20D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZE6FXYDW4P;
+				INFOPLIST_FILE = CoursePlannerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = maximemoison.CoursePlannerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoursePlanner.app/CoursePlanner";
+			};
+			name = Debug;
+		};
+		1B37625820783902006C20D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZE6FXYDW4P;
+				INFOPLIST_FILE = CoursePlannerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = maximemoison.CoursePlannerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoursePlanner.app/CoursePlanner";
+			};
+			name = Release;
+		};
 		1B644E2E2050ED9F00CA9264 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -662,75 +643,18 @@
 			};
 			name = Release;
 		};
-		1B644E342050ED9F00CA9264 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CoursePlannerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = maximemoison.CoursePlannerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CoursePlanner;
-			};
-			name = Debug;
-		};
-		1B644E352050ED9F00CA9264 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CoursePlannerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = maximemoison.CoursePlannerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CoursePlanner;
-			};
-			name = Release;
-		};
-		1BC75CCE20781904009AD910 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZE6FXYDW4P;
-				INFOPLIST_FILE = CoursePlannerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = maximemoison.CoursePlannerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoursePlanner.app/CoursePlanner";
-			};
-			name = Debug;
-		};
-		1BC75CCF20781904009AD910 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZE6FXYDW4P;
-				INFOPLIST_FILE = CoursePlannerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = maximemoison.CoursePlannerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoursePlanner.app/CoursePlanner";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1B37625620783902006C20D6 /* Build configuration list for PBXNativeTarget "CoursePlannerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B37625720783902006C20D6 /* Debug */,
+				1B37625820783902006C20D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1B644E0E2050ED9F00CA9264 /* Build configuration list for PBXProject "CoursePlanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -745,24 +669,6 @@
 			buildConfigurations = (
 				1B644E312050ED9F00CA9264 /* Debug */,
 				1B644E322050ED9F00CA9264 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1B644E332050ED9F00CA9264 /* Build configuration list for PBXNativeTarget "CoursePlannerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1B644E342050ED9F00CA9264 /* Debug */,
-				1B644E352050ED9F00CA9264 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1BC75CCD20781904009AD910 /* Build configuration list for PBXNativeTarget "CoursePlannerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1BC75CCE20781904009AD910 /* Debug */,
-				1BC75CCF20781904009AD910 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
