@@ -48,7 +48,7 @@ class RestAPI {
     }
     
     static func checkAPIKey(completion: @escaping (APIError?) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/login/") else {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/users/user-info/") else {
             return
         }
         
@@ -59,6 +59,14 @@ class RestAPI {
                 completion(err)
             } else {
                 // Success - valid api key
+                
+                guard let uniqueID = dict!["unique_id"] as? String else {
+                    completion(.InternalError)
+                    return
+                }
+                
+                UserDefaults.standard.set(uniqueID, forKey: "unique_id")
+                
                 completion(nil)
             }
         }
