@@ -12,7 +12,7 @@ let DAYS:[Character: Int] = ["M": 0, "T": 1, "W": 2, "R": 3, "F": 4]
 let COLORS:[UIColor] = [.red, .blue, .green, .orange, .purple]
 
 
-class WeekCalendar: UIScrollView {
+class WeekCalendar: UIView {
     
     var schedule:Schedule!
     
@@ -35,8 +35,8 @@ class WeekCalendar: UIScrollView {
         start = Double(Int(start/100)) + Double(Int(start) % 100)/60
         end = Double(Int(end/100)) + Double(Int(end) % 100)/60
         
-        let hourHeight:CGFloat = self.contentSize.height / CGFloat(end-start)
-        let dayWidth = self.contentSize.width / 5
+        let hourHeight:CGFloat = self.frame.height / CGFloat(end-start)
+        let dayWidth = self.frame.width / 5
         
         for subject in schedule.classes.values {
             let color = colors.popLast() ?? .lightGray

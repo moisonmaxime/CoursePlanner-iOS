@@ -19,7 +19,6 @@ class SchedulesVC: UIViewController {
             currentScheduleLbl.text! = "\(index + 1)/\(schedules.count)"
             checkButtonStates()
             weekDisplay.schedule = schedules[index]
-            weekDisplay.contentSize = weekDisplay.frame.size
             weekDisplay.setNeedsDisplay()
         }
     }
@@ -39,7 +38,6 @@ class SchedulesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         termLabel.text = term?.readableTerm()
-        weekDisplay.contentSize = weekDisplay.frame.size
         checkButtonStates()
         
         RestAPI.getSchedules(term: term, courses: courses, completion: { (response, error) in
@@ -90,21 +88,6 @@ class SchedulesVC: UIViewController {
         index = index + 1
     }
     
-    @IBAction func doubleTap(_ sender: Any) {
-        let newSize:CGSize
-        
-        if (weekDisplay.contentSize.height > weekDisplay.frame.height) {
-            newSize = weekDisplay.frame.size
-        } else {
-            newSize = weekDisplay.frame.size.applying(CGAffineTransform(scaleX: 2, y: 2))
-            let location = (sender as! UITapGestureRecognizer).location(in: weekDisplay)
-            weekDisplay.contentOffset = location
-                .applying(CGAffineTransform(scaleX: 2, y: 2))
-                .applying(CGAffineTransform(translationX: -weekDisplay.frame.width/2, y: -weekDisplay.frame.height/2))
-        }
-        weekDisplay.contentSize = newSize
-        weekDisplay.setNeedsDisplay()
-    }
     /*
      // MARK: - Navigation
      
