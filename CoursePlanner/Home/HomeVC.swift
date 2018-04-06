@@ -44,6 +44,7 @@ class HomeVC: UIViewController {
     }
     
     @objc func refresh() {
+        selectedRow = nil
         RestAPI.getTerms { (terms, error) in
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
