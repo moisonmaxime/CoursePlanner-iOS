@@ -13,6 +13,8 @@
 		1B209D432062EE9200F701C6 /* CoursesTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B209D422062EE9200F701C6 /* CoursesTableDelegate.swift */; };
 		1B209D452062EED800F701C6 /* CoursesSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B209D442062EED800F701C6 /* CoursesSearchBarDelegate.swift */; };
 		1B209D472062F08B00F701C6 /* HomeTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B209D462062F08B00F701C6 /* HomeTableDelegate.swift */; };
+		1B27C6302075C8E000DBA833 /* QuickCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27C62E2075C8E000DBA833 /* QuickCourseCell.swift */; };
+		1B27C6312075C8E000DBA833 /* QuickCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B27C62F2075C8E000DBA833 /* QuickCourseCell.xib */; };
 		1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
 		1B5C7F612065ABB9009911E0 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C7F602065ABB9009911E0 /* Schedule.swift */; };
 		1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E162050ED9F00CA9264 /* AppDelegate.swift */; };
@@ -63,6 +65,8 @@
 		1B209D422062EE9200F701C6 /* CoursesTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesTableDelegate.swift; sourceTree = "<group>"; };
 		1B209D442062EED800F701C6 /* CoursesSearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesSearchBarDelegate.swift; sourceTree = "<group>"; };
 		1B209D462062F08B00F701C6 /* HomeTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableDelegate.swift; sourceTree = "<group>"; };
+		1B27C62E2075C8E000DBA833 /* QuickCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickCourseCell.swift; sourceTree = "<group>"; };
+		1B27C62F2075C8E000DBA833 /* QuickCourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickCourseCell.xib; sourceTree = "<group>"; };
 		1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
 		1B5C7F602065ABB9009911E0 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		1B644E132050ED9F00CA9264 /* CoursePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoursePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +157,8 @@
 				1B209D402062EE1000F701C6 /* CoursesTableDataSource.swift */,
 				1B209D422062EE9200F701C6 /* CoursesTableDelegate.swift */,
 				1B209D442062EED800F701C6 /* CoursesSearchBarDelegate.swift */,
+				1B27C62E2075C8E000DBA833 /* QuickCourseCell.swift */,
+				1B27C62F2075C8E000DBA833 /* QuickCourseCell.xib */,
 				1BBFDB4220742029003FBADE /* Sections */,
 			);
 			path = Courses;
@@ -339,6 +345,7 @@
 				1B7C11762071F833001328E4 /* Event.xib in Resources */,
 				1B644E212050ED9F00CA9264 /* LaunchScreen.storyboard in Resources */,
 				1B644E1E2050ED9F00CA9264 /* Assets.xcassets in Resources */,
+				1B27C6312075C8E000DBA833 /* QuickCourseCell.xib in Resources */,
 				1BBFDB5520747A57003FBADE /* CourseCell.xib in Resources */,
 				1B644E1C2050ED9F00CA9264 /* Main.storyboard in Resources */,
 				1B88D13A207569EA00F5B555 /* TermCell.xib in Resources */,
@@ -381,6 +388,7 @@
 				1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */,
 				1BBFDB4420742043003FBADE /* SectionsVC.swift in Sources */,
 				1B209D472062F08B00F701C6 /* HomeTableDelegate.swift in Sources */,
+				1B27C6302075C8E000DBA833 /* QuickCourseCell.swift in Sources */,
 				1B209D452062EED800F701C6 /* CoursesSearchBarDelegate.swift in Sources */,
 				1B209D412062EE1000F701C6 /* CoursesTableDataSource.swift in Sources */,
 				1B7C116C2071C00C001328E4 /* StringExtension.swift in Sources */,

@@ -26,6 +26,11 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         termLabel.text = term?.readableTerm()
+        
+        let nib = UINib.init(nibName: "QuickCourseCell", bundle: nil)
+        searchTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
+        selectedTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
+        
         seacrhBar.delegate = self
         searchTable.dataSource = self
         searchTable.delegate = self
