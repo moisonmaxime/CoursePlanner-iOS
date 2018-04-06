@@ -16,10 +16,12 @@ class CourseCell: UITableViewCell {
     @IBOutlet weak var instructorLabel: UILabel!
     @IBOutlet weak var crnLabel: UILabel!
     @IBOutlet weak var roomLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
     
     var course:[String:Any?]!
     var isAvailable:Bool = true
-
+    var neededCRN:String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -34,19 +36,35 @@ class CourseCell: UITableViewCell {
         crnLabel.text = course["crn"] as? String
         let room = course["room"] as? String ?? "TBD"
         roomLabel.text = room.readableRoom()
+        typeLabel.text = course["type"] as? String
     }
     
     func updateAvailability(_ badCRNs: [String]) {
-        if (badCRNs.contains(course["lecture_crn"] as? String ?? "") || badCRNs.contains(course["attached_crn"] as? String ?? "")) {
+        
+        if badCRNs.contains(course["crn"] as? String ?? "") {
             isAvailable = false
-            return
+            neededCRN = course["crn"] as? String
+        }else if badCRNs.contains(course["lecture_crn"] as? String ?? "") {
+            isAvailable = false
+            neededCRN = course["lecture_crn"] as? String
+        } else if badCRNs.contains(course["attached_crn"] as? String ?? "") {
+            isAvailable = false
+            neededCRN = course["attached_crn"] as? String
+        } else {
+            isAvailable = true
+            neededCRN = nil
         }
-        isAvailable = true
     }
     
     func updateView() {
-        crnLabel.isHidden = isSelected
-        crnLabel.alpha = isAvailable ? 1 : 0.3
+        let newAlpha:CGFloat = isAvailable ? 1 : 0.2
+        courseIDLabel.alpha = newAlpha
+        daysLabel.alpha = newAlpha
+        hoursLabel.alpha = newAlpha
+        instructorLabel.alpha = newAlpha
+        crnLabel.alpha = newAlpha
+        roomLabel.alpha = newAlpha
+        typeLabel.alpha = newAlpha
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -18,7 +18,6 @@ extension SectionsVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as! CourseCell
         cell.selectionStyle = .none
         cell.setup(course: sections[indexPath.row])
-        cell.setSelected(courseVC.badCRNs.contains(sections[indexPath.row]["crn"] as! String), animated: false)
         cell.updateAvailability(courseVC.badCRNs)
         cell.updateView()
         return cell
