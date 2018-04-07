@@ -13,8 +13,6 @@ class CoursePlannerUITests: XCTestCase {
     let username = "ios-test"
     let userPassword = "weU-2Q8-Nac-xmY"
     
-    var savedToken:String?
-    
     override func setUp() {
         super.setUp()
         
@@ -29,14 +27,6 @@ class CoursePlannerUITests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
-    }
-    
-    func testLoginPageHasUsernameField() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let app = XCUIApplication()
-        let usernameField = app.textFields["Username"]
-        XCTAssertNotNil(usernameField.exists)
     }
     
 }
