@@ -19,7 +19,7 @@ class Event: UIView {
         let back = UIBezierPath(rect: rect)
         tintColor.withAlphaComponent(0.5).setFill()
         back.fill()
-        UIColor.white.withAlphaComponent(0.3).setFill()
+        UIColor.white.withAlphaComponent(0.5).setFill()
         back.fill()
         
         let leftLine = UIBezierPath()
