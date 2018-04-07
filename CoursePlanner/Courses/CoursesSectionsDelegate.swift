@@ -28,5 +28,4 @@ extension CoursesVC: SectionsDelegate {
     func getBadCRNs() -> [String] {
         return badCRNs
     }
-    
 }
