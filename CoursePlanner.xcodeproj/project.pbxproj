@@ -17,12 +17,19 @@
 		1B27C6312075C8E000DBA833 /* QuickCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B27C62F2075C8E000DBA833 /* QuickCourseCell.xib */; };
 		1B31BC2920773B590013FC53 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B31BC2820773B590013FC53 /* BackButton.swift */; };
 		1B31BC2B20773B6A0013FC53 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B31BC2A20773B6A0013FC53 /* RoundedButton.swift */; };
-		1B37625220783902006C20D6 /* CoursePlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625120783902006C20D6 /* CoursePlannerTests.swift */; };
 		1B37625A20783981006C20D6 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C116B2071C00C001328E4 /* StringExtension.swift */; };
 		1B37625C20783AD4006C20D6 /* ReadableTermTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625B20783AD4006C20D6 /* ReadableTermTests.swift */; };
 		1B37625E20783B22006C20D6 /* ReadableRoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625D20783B22006C20D6 /* ReadableRoomTests.swift */; };
 		1B37626020783CAE006C20D6 /* RestAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625F20783CAE006C20D6 /* RestAPITests.swift */; };
-		1B37626120783D17006C20D6 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E362050EDAD00CA9264 /* RestAPI.swift */; };
+		1B37626220783E36006C20D6 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6A1974205C3C6C000AD3D5 /* APIError.swift */; };
+		1B37626420783E3D006C20D6 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
+		1B37626520783E41006C20D6 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C7F602065ABB9009911E0 /* Schedule.swift */; };
+		1B49AC3E207885650033C002 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E362050EDAD00CA9264 /* RestAPI.swift */; };
+		1B49AC4020788B700033C002 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B49AC3F20788B700033C002 /* Course.swift */; };
+		1B49AC4120788BAD0033C002 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B49AC3F20788B700033C002 /* Course.swift */; };
+		1B49AC4320788BE40033C002 /* CourseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B49AC4220788BE40033C002 /* CourseTests.swift */; };
+		1B49AC4520788BEF0033C002 /* ScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B49AC4420788BEF0033C002 /* ScheduleTests.swift */; };
+		1B49AC4720788D140033C002 /* SectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B49AC4620788D140033C002 /* SectionTests.swift */; };
 		1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
 		1B5C7F612065ABB9009911E0 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C7F602065ABB9009911E0 /* Schedule.swift */; };
 		1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E162050ED9F00CA9264 /* AppDelegate.swift */; };
@@ -76,11 +83,14 @@
 		1B31BC2820773B590013FC53 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		1B31BC2A20773B6A0013FC53 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		1B37624F20783902006C20D6 /* CoursePlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoursePlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B37625120783902006C20D6 /* CoursePlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePlannerTests.swift; sourceTree = "<group>"; };
 		1B37625320783902006C20D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B37625B20783AD4006C20D6 /* ReadableTermTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadableTermTests.swift; sourceTree = "<group>"; };
 		1B37625D20783B22006C20D6 /* ReadableRoomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadableRoomTests.swift; sourceTree = "<group>"; };
 		1B37625F20783CAE006C20D6 /* RestAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPITests.swift; sourceTree = "<group>"; };
+		1B49AC3F20788B700033C002 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		1B49AC4220788BE40033C002 /* CourseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTests.swift; sourceTree = "<group>"; };
+		1B49AC4420788BEF0033C002 /* ScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTests.swift; sourceTree = "<group>"; };
+		1B49AC4620788D140033C002 /* SectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTests.swift; sourceTree = "<group>"; };
 		1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
 		1B5C7F602065ABB9009911E0 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		1B644E132050ED9F00CA9264 /* CoursePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoursePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,10 +196,12 @@
 		1B37625020783902006C20D6 /* CoursePlannerTests */ = {
 			isa = PBXGroup;
 			children = (
-				1B37625120783902006C20D6 /* CoursePlannerTests.swift */,
 				1B37625B20783AD4006C20D6 /* ReadableTermTests.swift */,
 				1B37625D20783B22006C20D6 /* ReadableRoomTests.swift */,
 				1B37625F20783CAE006C20D6 /* RestAPITests.swift */,
+				1B49AC4220788BE40033C002 /* CourseTests.swift */,
+				1B49AC4420788BEF0033C002 /* ScheduleTests.swift */,
+				1B49AC4620788D140033C002 /* SectionTests.swift */,
 				1B37625320783902006C20D6 /* Info.plist */,
 			);
 			path = CoursePlannerTests;
@@ -234,7 +246,6 @@
 				1B209D3C2062ED7C00F701C6 /* Home */,
 				1B209D3D2062ED8100F701C6 /* Courses */,
 				1B5C7F5F2065A1D9009911E0 /* Schedules */,
-				1B644E362050EDAD00CA9264 /* RestAPI.swift */,
 				1BB2021A205A14C600A96619 /* Navigation */,
 				1B31BC2720773B320013FC53 /* Buttons */,
 				1BAB20A620586B5400C0D079 /* Supporting Files */,
@@ -246,7 +257,9 @@
 		1BAB20A620586B5400C0D079 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B644E362050EDAD00CA9264 /* RestAPI.swift */,
 				1B5C7F602065ABB9009911E0 /* Schedule.swift */,
+				1B49AC3F20788B700033C002 /* Course.swift */,
 				1B6A1974205C3C6C000AD3D5 /* APIError.swift */,
 				1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */,
 				1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */,
@@ -388,12 +401,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B37626120783D17006C20D6 /* RestAPI.swift in Sources */,
+				1B37626420783E3D006C20D6 /* URLRequestExtension.swift in Sources */,
 				1B37626020783CAE006C20D6 /* RestAPITests.swift in Sources */,
+				1B49AC4520788BEF0033C002 /* ScheduleTests.swift in Sources */,
+				1B49AC4120788BAD0033C002 /* Course.swift in Sources */,
+				1B49AC4720788D140033C002 /* SectionTests.swift in Sources */,
 				1B37625A20783981006C20D6 /* StringExtension.swift in Sources */,
-				1B37625220783902006C20D6 /* CoursePlannerTests.swift in Sources */,
+				1B49AC3E207885650033C002 /* RestAPI.swift in Sources */,
 				1B37625E20783B22006C20D6 /* ReadableRoomTests.swift in Sources */,
+				1B49AC4320788BE40033C002 /* CourseTests.swift in Sources */,
 				1B37625C20783AD4006C20D6 /* ReadableTermTests.swift in Sources */,
+				1B37626520783E41006C20D6 /* Schedule.swift in Sources */,
+				1B37626220783E36006C20D6 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +432,7 @@
 				1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */,
 				1B204475205E3E6A00615A4A /* CoverRightAnimation.swift in Sources */,
 				1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */,
+				1B49AC4020788B700033C002 /* Course.swift in Sources */,
 				1BFE30C02068629B0053C3B3 /* SchedulesVC.swift in Sources */,
 				1B76605C2059AF99000929D5 /* HomeVC.swift in Sources */,
 				1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */,

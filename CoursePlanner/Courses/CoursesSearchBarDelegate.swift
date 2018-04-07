@@ -18,7 +18,6 @@ extension CoursesVC: UISearchBarDelegate {
         
         if ((seacrhBar.text?.underestimatedCount)! >= 2) {
             RestAPI.searchCourseIDs(id: searchBar.text!, term: self.term, completion: { (result, err) in
-                self.isSearching = false
                 if (err != nil) {
                     DispatchQueue.main.async {
                         self.handleError(error: err!)
@@ -43,6 +42,7 @@ extension CoursesVC: UISearchBarDelegate {
                 DispatchQueue.main.async {
                     self.searchTable.reloadData()
                 }
+                self.isSearching = false
             })
         } else {
             self.searchedCourses = []

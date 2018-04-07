@@ -232,10 +232,7 @@ class RestAPI {
     
     static func getSchedules(term: String,
                              courses: Array<String>,
-                             earliest: String?=nil,
-                             latest: String?=nil,
-                             gapsAscending: Bool?=nil,
-                             daysAscending: Bool?=nil,
+                             openOnly: Bool=false,
                              completion: @escaping ([Schedule]?, APIError?) -> ()) {
         guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/schedule-search/") else {
             completion(nil, .InternalError)
@@ -244,19 +241,7 @@ class RestAPI {
         
         var request:URLRequest = URLRequest(url: url, type: .POST)
         var postContent = ["term": term, "course_list": courses] as [String : Any]
-        if (earliest != nil) {
-            postContent["earliest_time"] = earliest!
-        }
-        if (earliest != nil) {
-            postContent["latest_time"] = latest!
-        }
-        if (gapsAscending != nil) {
-            postContent["gaps"] = gapsAscending! ? "asc" : "desc"
-        }
-        if (daysAscending != nil) {
-            postContent["days"] = daysAscending! ? "asc" : "desc"
-        }
-        postContent["search_full"] = "true"
+        postContent["search_full"] = openOnly ? "false" : "true"
         guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
             completion(nil, .InternalError)
             return
