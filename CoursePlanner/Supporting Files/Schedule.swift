@@ -9,31 +9,21 @@
 import UIKit
 
 class Schedule: NSObject {
-    let info:Dictionary<String, Any>
-    let classes:Dictionary<String, Dictionary<String, Dictionary<String, Any?>>>
+    let earliest:Double
+    let latest:Double
+    let gaps:Int?
+    let days:Int?
     
-    required init(info: Dictionary<String, Any>, classes: Dictionary<String, Dictionary<String, Dictionary<String, Any?>>>) {
-        self.info = info
-        self.classes = classes
-    }
+    var sections:[Section] = []
     
-    override var description: String {
-        var desc = "Schedule"
-        desc += "\n\tInfo"
-        for i in info {
-            desc += "\n\t\t\(i)"
-        }
-        desc += "\n\tClasses"
-        for c in classes {
-            desc += "\n\t\t\(c.key)"
-            for a in c.value {
-                desc += "\n\t\t\t\(a.key)"
-                for b in a.value {
-                    desc += "\n\t\t\t\"\(b.key)\": \(String(describing: b.value))"
-                }
-            }
-        }
+    required init(info: Dictionary<String, Any>, courses: Dictionary<String, Dictionary<String, Any?>>) {
+        self.earliest = info["earliest"] as! Double
+        self.latest = info["latest"] as! Double
+        self.gaps = info["gaps"] as? Int
+        self.days = info["days"] as? Int
         
-        return desc + "\n"
+        for c in courses {
+            sections.append(Section([c.key: c.value]))
+        }
     }
 }

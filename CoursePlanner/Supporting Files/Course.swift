@@ -14,6 +14,22 @@ class Section: NSObject {
     var disc:Course?
     var lab:Course?
     
+    var courses:[Course] {
+        get {
+            var arr:[Course] = []
+            if (lect != nil) {
+                arr.append(lect!)
+            }
+            if (disc != nil) {
+                arr.append(disc!)
+            }
+            if (lab != nil) {
+                arr.append(lab!)
+            }
+            return arr
+        }
+    }
+    
     init(name: String, lect: Course?, disc: Course?, lab: Course?) {
         self.name = name
         self.lect = lect
