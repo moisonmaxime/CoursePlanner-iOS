@@ -55,8 +55,7 @@ class WeekCalendar: UIView {
                         let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Event
                         view.frame = frame
                         view.courseID.text! = course.courseID
-                        view.time.text = hours
-                        view.backgroundColor = color
+                        view.tintColor = color
                         insertSubview(view, at: 0)
                     }
                 }
