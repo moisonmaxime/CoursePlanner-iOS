@@ -18,7 +18,7 @@ class CourseCell: UITableViewCell {
     @IBOutlet weak var roomLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     
-    var course:[String:Any?]!
+    var course:Course!
     var isAvailable:Bool = true
     var neededCRN:String?
     
@@ -27,29 +27,28 @@ class CourseCell: UITableViewCell {
         // Initialization code
     }
     
-    func setup(course: [String: Any?]) {
+    func setup(course: Course) {
         self.course = course
-        courseIDLabel.text = course["course_id"] as? String
-        daysLabel.text = course["days"] as? String
-        hoursLabel.text = course["hours"] as? String
-        instructorLabel.text = course["instructor"] as? String
-        crnLabel.text = course["crn"] as? String
-        let room = course["room"] as? String ?? "TBD"
+        courseIDLabel.text = course.courseID
+        daysLabel.text = course.days
+        hoursLabel.text = course.hours
+        instructorLabel.text = course.instructor
+        crnLabel.text = course.crn
+        let room = course.room ?? "TBD"
         roomLabel.text = room.readableRoom()
-        typeLabel.text = course["type"] as? String
+        typeLabel.text = course.type
     }
     
     func updateAvailability(_ badCRNs: [String]) {
         
-        if badCRNs.contains(course["crn"] as? String ?? "") {
+        if badCRNs.contains(course.crn) {
             isAvailable = false
-            neededCRN = course["crn"] as? String
-        }else if badCRNs.contains(course["lecture_crn"] as? String ?? "") {
+        } else if badCRNs.contains(course.lecture ?? "") {
             isAvailable = false
-            neededCRN = course["lecture_crn"] as? String
-        } else if badCRNs.contains(course["attached_crn"] as? String ?? "") {
+            neededCRN = course.lecture
+        } else if badCRNs.contains(course.attachedCourse ?? "") {
             isAvailable = false
-            neededCRN = course["attached_crn"] as? String
+            neededCRN = course.attachedCourse
         } else {
             isAvailable = true
             neededCRN = nil

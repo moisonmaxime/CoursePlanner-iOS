@@ -12,9 +12,9 @@ extension SectionsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         sectionTable.deselectRow(at: indexPath, animated: false)
         
-        let crn = sections[indexPath.row]["crn"] as! String
-        let attached = sections[indexPath.row]["attached_crn"] as? String
-        let lecture = sections[indexPath.row]["lecture_crn"] as? String
+        let crn = courses[indexPath.row].crn
+        let attached = courses[indexPath.row].attachedCourse
+        let lecture = courses[indexPath.row].lecture
         
         var statusChanged = false
         

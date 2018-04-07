@@ -10,14 +10,14 @@ import UIKit
 
 extension SectionsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections.count
+        return courses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as! CourseCell
         cell.selectionStyle = .none
-        cell.setup(course: sections[indexPath.row])
+        cell.setup(course: courses[indexPath.row])
         cell.updateAvailability(courseVC.badCRNs)
         cell.updateView()
         return cell

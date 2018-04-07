@@ -11,7 +11,7 @@ import UIKit
 class SectionsVC: UIViewController {
     
     var courseVC:CoursesVC!
-    var sections:[[String: Any?]] = []
+    var courses:[Course] = []
     var course:[String: String]?
     var term:String?
     @IBOutlet weak var sectionTable: UITableView!
@@ -32,7 +32,7 @@ class SectionsVC: UIViewController {
                     self.handleError(error: err!)
                 }
             }
-            self.sections = response ?? []
+            self.courses = response ?? []
             DispatchQueue.main.async {
                 self.sectionTable.reloadData()
             }

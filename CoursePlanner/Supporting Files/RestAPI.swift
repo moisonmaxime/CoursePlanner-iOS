@@ -150,7 +150,7 @@ class RestAPI {
         }
     }
     
-    static func getSections(term: String, id: String, completion: @escaping (Array<[String: Any?]>?, APIError?) -> ()) {
+    static func getSections(term: String, id: String, completion: @escaping ([Course]?, APIError?) -> ()) {
         guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-match/") else {
             completion(nil, .InternalError)
             return
@@ -170,18 +170,25 @@ class RestAPI {
                 return
             } else {
                 // Save to application settings
-                guard var result = dict![id] as? Array<[String: Any?]> else {
+                guard let result = dict![id] as? Array<[String: Any?]> else {
                     completion(nil, .InternalError)
                     return
                 }
-                result.sort(by: { (d1, d2) -> Bool in
-                    let id1 = d1["course_id"] as? String
-                    let id2 = d2["course_id"] as? String
-                    let s1 = String((id1?.split(separator: "-")[2])!)
-                    let s2 = String((id2?.split(separator: "-")[2])!)
+                
+                var courses:[Course] = []
+                for courseDict in result {
+                    courses.append(Course(courseDict))
+                }
+                
+                courses.sort(by: { (c1, c2) -> Bool in
+                    let id1 = c1.courseID
+                    let id2 = c2.courseID
+                    let s1 = String(id1.split(separator: "-")[2])
+                    let s2 = String(id2.split(separator: "-")[2])
                     return s1 < s2
                 })
-                completion(result, nil)
+                
+                completion(courses, nil)
                 return
             }
         }
