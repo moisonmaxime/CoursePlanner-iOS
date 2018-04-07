@@ -19,25 +19,20 @@ extension SectionsVC: UITableViewDelegate {
         var statusChanged = false
         
         if (attached != nil) {
-            if let index = courseVC.badCRNs.index(of: attached!) {
-                courseVC.badCRNs.remove(at: index)
+            if sectionsDelegate.removeCRN(attached!) {
                 statusChanged = true
             }
         }
         
         if (lecture != nil) {
-            if let index = courseVC.badCRNs.index(of: lecture!) {
-                courseVC.badCRNs.remove(at: index)
+            if (sectionsDelegate.removeCRN(lecture!)) {
                 statusChanged = true
             }
         }
         
-        
-        if let index = courseVC.badCRNs.index(of: crn) {
-            courseVC.badCRNs.remove(at: index)
-        } else {
+        if !sectionsDelegate.removeCRN(crn) {
             if (!statusChanged) {
-                courseVC.badCRNs.append(crn)
+                sectionsDelegate.addCRN(crn)
             }
         }
         

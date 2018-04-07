@@ -6,7 +6,6 @@
 //  Copyright © 2018 Maxime Moison. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension CoursesVC: UITableViewDelegate {
@@ -18,10 +17,9 @@ extension CoursesVC: UITableViewDelegate {
                 selectedCourses.append(searchedCourses[indexPath.row])
             }
         } else {
-            //selectedCourses.remove(at: indexPath.row)
             let destination = (storyboard?.instantiateViewController(withIdentifier: "Sections"))! as! SectionsVC
             destination.course = selectedCourses[indexPath.row]
-            destination.courseVC = self
+            destination.sectionsDelegate = self
             destination.term = term
             self.navigationController?.pushViewController(destination, animated: true)
         }

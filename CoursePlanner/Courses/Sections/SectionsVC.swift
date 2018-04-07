@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol SectionsDelegate {
+    func addCRN(_ crn: String)
+    func removeCRN(_ crn: String) -> Bool
+    func removeCourse(_ course: [String:String])
+    func getBadCRNs() -> [String]
+}
+
 class SectionsVC: UIViewController {
     
-    var courseVC:CoursesVC!
+    var sectionsDelegate:SectionsDelegate!
     var courses:[Course] = []
-    var course:[String: String]?
+    var course:[String: String]!
     var term:String?
     @IBOutlet weak var sectionTable: UITableView!
     @IBOutlet weak var termLabel: UILabel!
@@ -41,9 +48,7 @@ class SectionsVC: UIViewController {
     }
     
     @IBAction func remove(_ sender: Any) {
-        let index = courseVC.selectedCourses.index(of: course!)!
-        courseVC.selectedCourses.remove(at: index)
-        courseVC.reloadTables()
+        sectionsDelegate.removeCourse(course)
         navigationController?.popViewController(animated: true)
     }
     
