@@ -11,7 +11,7 @@ import Foundation
 extension String {
     
     
-    func extractTime() -> [String: Double] {
+    func extractTime() -> (Double, Double) {
         let times = self.split(separator: "-")
         var startSubs = times[0].split(separator: ":")
         var endSubs = times[1].split(separator: ":")
@@ -41,7 +41,7 @@ extension String {
             startHour = String(Int(startHour)! - 12)
         }
         
-        return ["start": Double(startHour)! + startMin, "end": Double(endHour)! + endMin]
+        return (Double(startHour)! + startMin, Double(endHour)! + endMin)
     }
     
     

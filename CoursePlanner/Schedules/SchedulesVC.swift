@@ -48,9 +48,9 @@ class SchedulesVC: UIViewController {
             }
             DispatchQueue.main.async {
                 self.schedules = response!.filter({ (schedule) -> Bool in
-                    for section in schedule.classes {
-                        for course in section.value {
-                            if (self.badCRNs.contains(course.value["crn"]! as! String)) {
+                    for section in schedule.sections {
+                        for course in section.courses {
+                            if (self.badCRNs.contains(course.crn)) {
                                 return false
                             }
                         }

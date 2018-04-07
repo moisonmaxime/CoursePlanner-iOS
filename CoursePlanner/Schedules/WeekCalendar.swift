@@ -30,31 +30,31 @@ class WeekCalendar: UIView {
         
         var colors = COLORS
         
-        var start = schedule.info["earliest"] as! Double
-        var end = schedule.info["latest"] as! Double
+        var start = schedule.earliest
+        var end = schedule.latest
         start = Double(Int(start/100)) + Double(Int(start) % 100)/60
         end = Double(Int(end/100)) + Double(Int(end) % 100)/60
         
         let hourHeight:CGFloat = self.frame.height / CGFloat(end-start)
         let dayWidth = self.frame.width / 5
         
-        for subject in schedule.classes.values {
+        for section in schedule.sections {
             let color = colors.popLast() ?? .lightGray
-            for course in subject.values {
-                let hours = course["hours"] as! String
-                let days = course["days"] as! String
-                if (hours != "TBD-TBD") {
-                    for d in days {
+            for course in section.courses {
+                let hours = course.hours
+                let days = course.days
+                if (hours != nil && hours != "TBD-TBD") {
+                    for d in days! {
                         let dayOffset = DAYS[d]
-                        let times = hours.extractTime()
+                        let times = hours!.extractTime()
                         let frame = CGRect(
                             x: 1 + CGFloat(dayOffset!) * (dayWidth),
-                            y: hourHeight * CGFloat(times["start"]! - start),
+                            y: hourHeight * CGFloat(times.0 - start),
                             width: dayWidth-2,
-                            height: hourHeight * CGFloat(times["end"]! - times["start"]!))
+                            height: hourHeight * CGFloat(times.1 - times.0))
                         let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Event
                         view.frame = frame
-                        view.courseID.text! = course["course_id"] as! String
+                        view.courseID.text! = course.courseID
                         view.time.text = hours
                         view.backgroundColor = color
                         insertSubview(view, at: 0)

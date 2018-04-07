@@ -267,13 +267,13 @@ class RestAPI {
                         return
                     }
                     info = tempInfo
-                    let classes:Dictionary<String, Dictionary<String, Dictionary<String, Any?>>>
+                    let courses:Dictionary<String, Dictionary<String, Dictionary<String, Any?>>>
                     guard let tempClasses = result[i]["schedule"] as? Dictionary<String, Dictionary<String, Dictionary<String, Any?>>> else {
                         completion(nil, .InternalError)
                         return
                     }
-                    classes = tempClasses
-                    let newSchedule = Schedule(info: info, classes: classes)
+                    courses = tempClasses
+                    let newSchedule = Schedule(info: info, courses: courses)
                     schedules.append(newSchedule)
                 }
                 completion(schedules, nil)
