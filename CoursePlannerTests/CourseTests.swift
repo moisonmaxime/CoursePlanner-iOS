@@ -20,71 +20,17 @@ class CourseTests: XCTestCase {
         super.tearDown()
     }
     
-    let testDictionary:[String:Any?] = [
-        "crn": "15912",
-        "subject": "Computer Science & Engineering",
-        "course_id": "CSE-120-03L",
-        "course_name": "Software Engineering",
-        "units": 0,
-        "type": "LAB",
-        "days": "M",
-        "hours": "10:30-1:20pm",
-        "room": "CLSSRM 281",
-        "dates": "16-JAN 04-MAY",
-        "instructor": "Rakhmetulla",
-        "lecture_crn": "15910",
-        "attached_crn": nil,
-        "term": "201810",
-        "capacity": 20,
-        "enrolled": 6,
-        "available": 14,
-        "final_type": nil,
-        "final_days": nil,
-        "final_hours": nil,
-        "final_room": nil,
-        "final_dates": nil,
-        "final_type_2": nil,
-        "final_days_2": nil,
-        "final_hours_2": nil,
-        "final_room_2": nil,
-        "final_dates_2": nil,
-        "simple_name": "CSE-120",
-        "lecture": "15910",
-        "discussion": nil
-    ]
+    let testDictionary:[String:Any?] = [ "crn": "15912", "subject": "Computer Science & Engineering", "course_id": "CSE-120-03L", "course_name": "Software Engineering",
+        "units": 0, "type": "LAB", "days": "M", "hours": "10:30-1:20pm", "room": "CLSSRM 281", "dates": "16-JAN 04-MAY", "instructor": "Rakhmetulla", "lecture_crn": "15910",
+        "attached_crn": nil, "term": "201810", "capacity": 20, "enrolled": 6, "available": 14, "final_type": nil, "final_days": nil, "final_hours": nil, "final_room": nil,
+        "final_dates": nil, "final_type_2": nil, "final_days_2": nil, "final_hours_2": nil, "final_room_2": nil, "final_dates_2": nil, "simple_name": "CSE-120",
+        "lecture": "15910", "discussion": nil ]
     
-    let testFullDictionary:[String:Any?] = [
-        "crn": "15912",
-        "subject": "Computer Science & Engineering",
-        "course_id": "CSE-120-03L",
-        "course_name": "Software Engineering",
-        "units": 0,
-        "type": "LAB",
-        "days": "M",
-        "hours": "10:30-1:20pm",
-        "room": "CLSSRM 281",
-        "dates": "16-JAN 04-MAY",
-        "instructor": "Rakhmetulla",
-        "lecture_crn": "15910",
-        "attached_crn": nil,
-        "term": "201810",
-        "capacity": 20,
-        "enrolled": 21,
-        "available": -1,
-        "final_type": nil,
-        "final_days": nil,
-        "final_hours": nil,
-        "final_room": nil,
-        "final_dates": nil,
-        "final_type_2": nil,
-        "final_days_2": nil,
-        "final_hours_2": nil,
-        "final_room_2": nil,
-        "final_dates_2": nil,
-        "simple_name": "CSE-120",
-        "lecture": "15910",
-        "discussion": nil
-    ]
+    let testFullDictionary:[String:Any?] = [ "crn": "15912", "subject": "Computer Science & Engineering", "course_id": "CSE-120-03L", "course_name": "Software Engineering",
+        "units": 0, "type": "LAB", "days": "M", "hours": "10:30-1:20pm", "room": "CLSSRM 281", "dates": "16-JAN 04-MAY", "instructor": "Rakhmetulla", "lecture_crn": "15910",
+        "attached_crn": nil, "term": "201810", "capacity": 20, "enrolled": 21, "available": -1, "final_type": nil, "final_days": nil, "final_hours": nil, "final_room": nil,
+        "final_dates": nil, "final_type_2": nil, "final_days_2": nil, "final_hours_2": nil, "final_room_2": nil, "final_dates_2": nil, "simple_name": "CSE-120", "lecture": "15910",
+        "discussion": nil ]
     
     func testInitializationFromDictionary() {
         let testCourse = Course(testDictionary)

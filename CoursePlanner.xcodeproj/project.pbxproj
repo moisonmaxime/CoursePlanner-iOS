@@ -28,8 +28,6 @@
 		1B49AC4020788B700033C002 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B49AC3F20788B700033C002 /* Course.swift */; };
 		1B49AC4120788BAD0033C002 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B49AC3F20788B700033C002 /* Course.swift */; };
 		1B49AC4320788BE40033C002 /* CourseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B49AC4220788BE40033C002 /* CourseTests.swift */; };
-		1B49AC4520788BEF0033C002 /* ScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B49AC4420788BEF0033C002 /* ScheduleTests.swift */; };
-		1B49AC4720788D140033C002 /* SectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B49AC4620788D140033C002 /* SectionTests.swift */; };
 		1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
 		1B5C7F612065ABB9009911E0 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C7F602065ABB9009911E0 /* Schedule.swift */; };
 		1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E162050ED9F00CA9264 /* AppDelegate.swift */; };
@@ -89,8 +87,6 @@
 		1B37625F20783CAE006C20D6 /* RestAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPITests.swift; sourceTree = "<group>"; };
 		1B49AC3F20788B700033C002 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		1B49AC4220788BE40033C002 /* CourseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTests.swift; sourceTree = "<group>"; };
-		1B49AC4420788BEF0033C002 /* ScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTests.swift; sourceTree = "<group>"; };
-		1B49AC4620788D140033C002 /* SectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTests.swift; sourceTree = "<group>"; };
 		1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
 		1B5C7F602065ABB9009911E0 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		1B644E132050ED9F00CA9264 /* CoursePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoursePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,8 +196,6 @@
 				1B37625D20783B22006C20D6 /* ReadableRoomTests.swift */,
 				1B37625F20783CAE006C20D6 /* RestAPITests.swift */,
 				1B49AC4220788BE40033C002 /* CourseTests.swift */,
-				1B49AC4420788BEF0033C002 /* ScheduleTests.swift */,
-				1B49AC4620788D140033C002 /* SectionTests.swift */,
 				1B37625320783902006C20D6 /* Info.plist */,
 			);
 			path = CoursePlannerTests;
@@ -403,9 +397,7 @@
 			files = (
 				1B37626420783E3D006C20D6 /* URLRequestExtension.swift in Sources */,
 				1B37626020783CAE006C20D6 /* RestAPITests.swift in Sources */,
-				1B49AC4520788BEF0033C002 /* ScheduleTests.swift in Sources */,
 				1B49AC4120788BAD0033C002 /* Course.swift in Sources */,
-				1B49AC4720788D140033C002 /* SectionTests.swift in Sources */,
 				1B37625A20783981006C20D6 /* StringExtension.swift in Sources */,
 				1B49AC3E207885650033C002 /* RestAPI.swift in Sources */,
 				1B37625E20783B22006C20D6 /* ReadableRoomTests.swift in Sources */,
