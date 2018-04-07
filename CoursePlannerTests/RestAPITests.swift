@@ -78,7 +78,7 @@ class RestAPITests: XCTestCase {
         RestAPI.getSections(term: "201810", id: testID) { (courses, error) in
             XCTAssertNil(error)
             for course in courses! {
-                XCTAssert((course["course_id"] as! String).contains(testID), "Search results are incorrect")
+                XCTAssert(course.courseID.contains(testID), "Search results are incorrect")
             }
             expect.fulfill()
         }
