@@ -40,14 +40,13 @@ class SchedulesVC: UIViewController {
         super.viewDidLoad()
         termLabel.text = term?.readableTerm()
         checkButtonStates()
-        
+        (self.navigationController as! NavigationController).didStartLoading(immediately: true)
         RestAPI.getSchedules(term: term, courses: courses, completion: { (response, error) in
-            if (error != nil) {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                (self.navigationController as! NavigationController).didFinishLoading()
+                if (error != nil) {
                     self.handleError(error: error!)
                 }
-            }
-            DispatchQueue.main.async {
                 self.schedules = response!.filter({ (schedule) -> Bool in
                     for section in schedule.sections {
                         for course in section.courses {
@@ -62,6 +61,7 @@ class SchedulesVC: UIViewController {
                 if (self.schedules.count == 0) {
                     print("No schedule!")
                 }
+                self.currentScheduleLbl.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
                 self.weekDisplay.schedule = self.schedules.first
                 self.checkButtonStates()
                 self.weekDisplay.setNeedsDisplay()

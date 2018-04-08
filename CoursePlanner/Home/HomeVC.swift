@@ -26,6 +26,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         termTable.dataSource = self
         termTable.delegate = self
+        (self.navigationController as! NavigationController).didFinishLoading()
         
         let nib = UINib.init(nibName: "TermCell", bundle: nil)
         termTable.register(nib, forCellReuseIdentifier: "TermCell")

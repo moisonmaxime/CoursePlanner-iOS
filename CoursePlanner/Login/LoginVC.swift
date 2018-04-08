@@ -25,10 +25,12 @@ class LoginVC: UIViewController {
     
     @IBAction func loginClick(_ sender: Any) {
         self.view.isUserInteractionEnabled = false
+        (self.navigationController as! NavigationController).didStartLoading()
         RestAPI.login(user: userField.text!, password: passwordField.text!) { error in
             DispatchQueue.main.async {
                 self.view.isUserInteractionEnabled = true
                 if (error != nil) {
+                    (self.navigationController as! NavigationController).didFinishLoading()
                     self.handleError(error: error!)
                 } else {
                     (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)

@@ -58,12 +58,11 @@ class RegisterVC: UIViewController, UIGestureRecognizerDelegate {
         let email:String? = (emailField.text == "") ? nil : emailField.text
         
         self.view.isUserInteractionEnabled = false
-        
+        (self.navigationController as! NavigationController).didStartLoading()
         RestAPI.register(user: username, password: password, first: firstName, last: lastName, email: email) { (error) in
             DispatchQueue.main.async {
-                
+                (self.navigationController as! NavigationController).didFinishLoading()
                 self.view.isUserInteractionEnabled = true
-                //self.activityIndicator.stopAnimating()
                 
                 if (error != nil) {
                     self.handleError(error: error!)

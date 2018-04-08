@@ -16,6 +16,8 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     
     var interactor:InteractiveTransition!
     
+    var loadingViews:[UIView] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -61,6 +63,43 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
         }
         animationType = type
         willRevert = !isRepeating
+    }
+    
+    func didStartLoading(immediately: Bool=false) {
+        let loadingView = UIView(frame: self.view.frame)
+        
+        let loadingLabel = UILabel(frame: CGRect(x: 32, y: self.view.frame.height/2-50, width: self.view.frame.width-64, height: 100))
+        loadingLabel.text = "Loading..."
+        loadingLabel.textColor = .lightGray
+        loadingLabel.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
+        loadingLabel.adjustsFontSizeToFitWidth = true
+        loadingLabel.textAlignment = .center
+        
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.frame
+        loadingView.addSubview(blurEffectView)
+        loadingView.addSubview(loadingLabel)
+        
+        topViewController?.view.addSubview(loadingView)
+        loadingViews.append(loadingView)
+        
+        if (!immediately) {
+            loadingView.alpha = 0
+            UIView.animate(withDuration: 0.5) {
+                loadingView.alpha = 1
+            }
+        }
+    }
+    
+    func didFinishLoading() {
+        for v in loadingViews {
+            UIView.animate(withDuration: 0.5, animations: {
+                v.alpha = 0
+            }, completion: { _ in
+                v.removeFromSuperview()
+            })
+        }
     }
     
     /*

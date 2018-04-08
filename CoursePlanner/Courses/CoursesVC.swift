@@ -11,12 +11,20 @@ import UIKit
 class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var searchTable: UITableView!
     @IBOutlet weak var selectedTable: UITableView!
-    @IBOutlet weak var seacrhBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var termLabel: UILabel!
+    @IBOutlet weak var selectionLabel: UILabel!
     
     var term:String?
     
-    var selectedCourses:Array<[String: String]> = []
+    var selectedCourses:Array<[String: String]> = [] {
+        didSet {
+            let count = selectedCourses.count
+            selectionLabel.isHidden = !(count > 0)
+            selectionLabel.text = "\(count) course\(count > 1 ? "s" : "") selected"
+            searchTable.contentInset.top = count > 0 ? 24 : 0
+        }
+    }
     var searchedCourses:Array<[String: String]> = []
     
     var badCRNs:[String] = []
@@ -29,7 +37,7 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
         searchTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
         selectedTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
         
-        seacrhBar.delegate = self
+        searchBar.delegate = self
         searchTable.dataSource = self
         searchTable.delegate = self
         selectedTable.dataSource = self
@@ -66,12 +74,12 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
         if (segue.identifier == "showSchedules") {
             let VC = segue.destination as! SchedulesVC
             var selectedIDs:[String] = []
@@ -82,5 +90,5 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
             VC.term = term!
             VC.badCRNs = badCRNs
         }
-     }
+    }
 }
