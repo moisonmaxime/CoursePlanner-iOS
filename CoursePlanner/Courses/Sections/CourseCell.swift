@@ -17,6 +17,7 @@ class CourseCell: UITableViewCell {
     @IBOutlet weak var crnLabel: UILabel!
     @IBOutlet weak var roomLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var seatsLabel: UILabel!
     
     var course:Course!
     var isAvailable:Bool = true
@@ -37,6 +38,11 @@ class CourseCell: UITableViewCell {
         let room = course.room ?? "TBD"
         roomLabel.text = room.readableRoom()
         typeLabel.text = course.type
+        seatsLabel.text = course.isFull ?
+            "FULL\(course.availableSeats < 0 ? " (\(-course.availableSeats) over enrolled)" : "")"
+            : "\(course.availableSeats) seat\(course.availableSeats < 2 ? "" : "s") available (Out of \(course.capacity))"
+        seatsLabel.textColor = course.isFull ? UIColor.red.darker() : .black
+        seatsLabel.font = UIFont.systemFont(ofSize: seatsLabel.font.pointSize, weight: course.isFull ? .bold : .regular)
     }
     
     func updateAvailability(_ badCRNs: [String]) {
