@@ -10,49 +10,32 @@ import UIKit
 
 class Section: NSObject {
     var name:String
-    var lect:Course?
-    var sem:Course?
-    var disc:Course?
-    var lab:Course?
     
-    var courses:[Course] {
-        get {
-            var arr:[Course] = []
-            if (lect != nil) {
-                arr.append(lect!)
-            }
-            if (disc != nil) {
-                arr.append(disc!)
-            }
-            if (lab != nil) {
-                arr.append(lab!)
-            }
-            if (sem != nil) {
-                arr.append(sem!)
-            }
-            return arr
-        }
-    }
+    var courses:[Course] = []
     
-    init(name: String, lect: Course?, disc: Course?, lab: Course?) {
+    init(name: String, lect: Course?=nil, disc: Course?=nil, lab: Course?=nil) {
         self.name = name
-        self.lect = lect
-        self.disc = disc
-        self.lab = lab
+        if (lect != nil) {
+            self.courses.append(lect!)
+        }
+        if (disc != nil) {
+            self.courses.append(disc!)
+        }
+        if (lab != nil){
+            self.courses.append(lab!)
+        }
     }
     
     init(_ dictionary: [String:[String:Any?]]) {
         let name = dictionary.keys.first?.uppercased()
         self.name = name != nil ? name! : "UNKNOWN"
         
-        let lecture = dictionary.values.first?["LECT"] as? [String:Any?]
-        let discussion = dictionary.values.first?["DISC"] as? [String:Any?]
-        let laboratory = dictionary.values.first?["LAB"] as? [String:Any?]
-        let seminar = dictionary.values.first?["SEM"] as? [String:Any?]
-        self.lect = lecture != nil ? Course(lecture!) : nil
-        self.disc = discussion != nil ? Course(discussion!) : nil
-        self.lab = laboratory != nil ? Course(laboratory!) : nil
-        self.sem = seminar != nil ? Course(seminar!) : nil
+        for (_, section) in dictionary {
+            let section = section as! [String: [String: Any?]]
+            for (_, course) in section {
+                self.courses.append(Course(course))
+            }
+        }
     }
 }
 

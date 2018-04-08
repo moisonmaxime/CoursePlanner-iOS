@@ -16,7 +16,7 @@ class Schedule: NSObject {
     
     var sections:[Section] = []
     
-    required init(info: Dictionary<String, Any>, courses: Dictionary<String, Dictionary<String, Any?>>) {
+    required init(info: Dictionary<String, Any>, courses: [String:[String:Any?]]) {
         self.earliest = info["earliest"] as! Double
         self.latest = info["latest"] as! Double
         self.gaps = info["gaps"] as? Int

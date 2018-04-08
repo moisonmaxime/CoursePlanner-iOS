@@ -613,6 +613,9 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="eoI-jR-vgg" kind="presentation" id="yrn-Fd-Px6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -650,6 +653,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZS-2C-ULa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1048.8" y="1613.3433283358322"/>
+        </scene>
+        <!--Schedule DetailsVC-->
+        <scene sceneID="Xdh-Id-RFL">
+            <objects>
+                <viewController id="eoI-jR-vgg" customClass="ScheduleDetailsVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d8z-xh-VZZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lc-TH-eHA" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                <rect key="frame" x="16" y="607" width="155.5" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fDV-FZ-5KW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Dismiss"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dismiss:" destination="eoI-jR-vgg" eventType="touchUpInside" id="I1m-2H-Hf6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0m-ba-p2A" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                <rect key="frame" x="203.5" y="607" width="155.5" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="rGx-jN-csI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Save Schedule"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveSchedule:" destination="eoI-jR-vgg" eventType="touchUpInside" id="Ckx-fY-LE8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpX-GK-cjp" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                <rect key="frame" x="137.5" y="559" width="100" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="sPu-uT-68Z"/>
+                                    <constraint firstAttribute="height" constant="40" id="zHy-7J-XEM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Register"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="register:" destination="eoI-jR-vgg" eventType="touchUpInside" id="k7w-EY-nkT"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EBa-7T-v3B">
+                                <rect key="frame" x="0.0" y="20" width="375" height="531"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OdF-TR-DAg" firstAttribute="trailing" secondItem="EBa-7T-v3B" secondAttribute="trailing" id="1Bq-9j-EdC"/>
+                            <constraint firstItem="EBa-7T-v3B" firstAttribute="leading" secondItem="OdF-TR-DAg" secondAttribute="leading" id="7lq-fJ-GLS"/>
+                            <constraint firstItem="9lc-TH-eHA" firstAttribute="leading" secondItem="OdF-TR-DAg" secondAttribute="leading" constant="16" id="AYU-En-1Kz"/>
+                            <constraint firstItem="OdF-TR-DAg" firstAttribute="bottom" secondItem="9lc-TH-eHA" secondAttribute="bottom" constant="20" id="ApK-Uf-rh1"/>
+                            <constraint firstItem="OdF-TR-DAg" firstAttribute="trailing" secondItem="z0m-ba-p2A" secondAttribute="trailing" constant="16" id="VT0-6B-gua"/>
+                            <constraint firstItem="9lc-TH-eHA" firstAttribute="width" secondItem="z0m-ba-p2A" secondAttribute="width" id="Ydo-Gq-45R"/>
+                            <constraint firstItem="z0m-ba-p2A" firstAttribute="leading" secondItem="9lc-TH-eHA" secondAttribute="trailing" constant="32" id="dEZ-E8-rGW"/>
+                            <constraint firstItem="OpX-GK-cjp" firstAttribute="centerX" secondItem="OdF-TR-DAg" secondAttribute="centerX" id="jAJ-af-n7a"/>
+                            <constraint firstItem="OpX-GK-cjp" firstAttribute="top" secondItem="EBa-7T-v3B" secondAttribute="bottom" constant="8" id="k6x-Bv-sl1"/>
+                            <constraint firstItem="EBa-7T-v3B" firstAttribute="top" secondItem="OdF-TR-DAg" secondAttribute="top" id="mPK-rf-ldY"/>
+                            <constraint firstItem="z0m-ba-p2A" firstAttribute="top" secondItem="OpX-GK-cjp" secondAttribute="bottom" constant="8" id="oYR-bg-EFC"/>
+                            <constraint firstItem="OdF-TR-DAg" firstAttribute="bottom" secondItem="z0m-ba-p2A" secondAttribute="bottom" constant="20" id="zp2-zd-6A9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OdF-TR-DAg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UX3-M9-MDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784.8" y="1611.5442278860571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vg1-vK-hXI">
