@@ -37,16 +37,11 @@
                BlueprintName = "CoursePlannerUITests"
                ReferencedContainer = "container:CoursePlanner.xcodeproj">
             </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1B37624E20783902006C20D6"
-               BuildableName = "CoursePlannerTests.xctest"
-               BlueprintName = "CoursePlannerTests"
-               ReferencedContainer = "container:CoursePlanner.xcodeproj">
-            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "CoursePlannerUITests/testSchedule()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

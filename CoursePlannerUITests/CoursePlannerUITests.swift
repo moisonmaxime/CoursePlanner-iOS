@@ -13,6 +13,18 @@ class CoursePlannerUITests: XCTestCase {
     let username = "ios-test"
     let userPassword = "weU-2Q8-Nac-xmY"
     
+    let term = "Spring 2018"
+    
+    let testCourses = ["CSE-120": ["03L"],
+                       "CSE-140": ["02L", "03L"],
+                       "CSE-150": ["02L", "03L"],
+                       "CSE-165": ["02L", "03L", "05L"],
+                       "ENGR-191": []]
+    
+    let expectedSchedule = ["CSE-120-01", "CSE-120-02L", "CSE-140-01", "CSE-140-04L",
+                            "CSE-150-01", "CSE-150-04L", "CSE-165-01", "CSE-165-04L",
+                            "ENGR-191-01"]
+    
     override func setUp() {
         super.setUp()
         
@@ -31,7 +43,7 @@ class CoursePlannerUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testSpringSchedule() {
+    func testSchedule() {
         let app = XCUIApplication()
         
         let userField = app.textFields["Username"]
@@ -45,55 +57,58 @@ class CoursePlannerUITests: XCTestCase {
             XCTAssertTrue(app.buttons["Build New Schedule"].waitForExistence(timeout: 10))
         }
         
-        app.tables/*@START_MENU_TOKEN@*/.staticTexts["Spring 2018"]/*[[".cells.staticTexts[\"Spring 2018\"]",".staticTexts[\"Spring 2018\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        XCTAssertTrue(app.tables.staticTexts[term].waitForExistence(timeout: 3))
+        app.tables.staticTexts[term].tap()
         app.buttons["Build New Schedule"].tap()
         
         let searchField = app.searchFields["Search For Classes"]
         searchField.tap()
         
-        searchField.typeText("cse1")
-        app.tables.staticTexts["CSE-120"].tap()
-        app.tables.staticTexts["CSE-140"].tap()
-        app.tables.staticTexts["CSE-150"].tap()
-        app.tables.staticTexts["CSE-165"].tap()
-        searchField.buttons["Clear text"].tap()
-        searchField.typeText("Engr191")
-        app.tables.staticTexts["ENGR-191"].tap()
+        for courseID in testCourses.keys {
+            searchField.typeText(courseID)
+            XCTAssertTrue(app.tables.staticTexts[courseID].waitForExistence(timeout: 3), "Search failed to find \(courseID)")
+            app.tables.staticTexts[courseID].tap()
+            searchField.buttons["Clear text"].tap()
+        }
         searchField.typeText("\n")
         
-        app.tables.staticTexts["CSE-120"].tap()
-        app.tables.staticTexts["CSE-120-03L"].tap()
-        app.buttons["◀︎"].tap()
-        
-        app.tables.staticTexts["CSE-140"].tap()
-        app.tables.staticTexts["CSE-140-02L"].tap()
-        app.tables.staticTexts["CSE-140-03L"].tap()
-        app.buttons["◀︎"].tap()
-        
-        app.tables.staticTexts["CSE-150"].tap()
-        app.tables.staticTexts["CSE-150-02L"].tap()
-        app.tables.staticTexts["CSE-150-03L"].tap()
-        app.buttons["◀︎"].tap()
-        
-        app.tables.staticTexts["CSE-165"].tap()
-        app.tables.staticTexts["CSE-165-02L"].tap()
-        app.tables.staticTexts["CSE-165-03L"].tap()
-        app.tables.staticTexts["CSE-165-05L"].tap()
-        app.buttons["◀︎"].tap()
+        for (key, filters) in testCourses {
+            app.tables.staticTexts[key].tap()
+            for filter in filters {
+                app.tables.staticTexts["\(key)-\(filter)"].tap()
+            }
+            app.buttons["◀︎"].tap()
+        }
         
         app.buttons["Build"].tap()
         XCTAssertTrue(app.staticTexts["1/1"].waitForExistence(timeout: 3))
         
-        XCTAssertTrue(app.staticTexts["CSE-120-01"].exists)
-        XCTAssertTrue(app.staticTexts["CSE-120-02L"].exists)
-        XCTAssertTrue(app.staticTexts["CSE-140-01"].exists)
-        XCTAssertTrue(app.staticTexts["CSE-140-04L"].exists)
-        XCTAssertTrue(app.staticTexts["CSE-150-01"].exists)
-        XCTAssertTrue(app.staticTexts["CSE-150-04L"].exists)
-        XCTAssertTrue(app.staticTexts["CSE-165-01"].exists)
-        XCTAssertTrue(app.staticTexts["CSE-165-04L"].exists)
-        XCTAssertTrue(app.staticTexts["ENGR-191-01"].exists)
+        for course in expectedSchedule {
+            XCTAssertTrue(app.staticTexts[course].exists, "\(course) is missing")
+        }
     }
     
     
+    func testEmptySchedule() {
+        let app = XCUIApplication()
+        
+        let userField = app.textFields["Username"]
+        if (userField.exists) {
+            userField.tap()
+            userField.typeText(username)
+            let passField = app.secureTextFields["Password"]
+            passField.tap()
+            passField.typeText(userPassword)
+            app.buttons["Login"].tap()
+            XCTAssertTrue(app.buttons["Build New Schedule"].waitForExistence(timeout: 3))
+        }
+        
+        XCTAssertTrue(app.tables.staticTexts[term].waitForExistence(timeout: 3))
+        app.tables.staticTexts[term].tap()
+        app.buttons["Build New Schedule"].tap()
+        
+        app.buttons["Build"].tap()
+        XCTAssertTrue(app.staticTexts["No Schedule"].waitForExistence(timeout: 3), "Does not display a message when no schedule was found")
+        
+    }
 }

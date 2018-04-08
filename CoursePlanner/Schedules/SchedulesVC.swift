@@ -18,6 +18,7 @@ class SchedulesVC: UIViewController {
         didSet {
             currentScheduleLbl.text! = "\(index + 1)/\(schedules.count)"
             checkButtonStates()
+            currentScheduleLbl.isHidden = schedules.first == nil || schedules[index].sections.count == 0
             weekDisplay.schedule = schedules[index]
             weekDisplay.setNeedsDisplay()
         }

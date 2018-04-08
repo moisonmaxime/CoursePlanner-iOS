@@ -20,12 +20,20 @@ class WeekCalendar: UIView {
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
-        if (schedule == nil) {
-            return
-        }
         
         for v in subviews {
             v.removeFromSuperview()
+        }
+        
+        if (schedule == nil || schedule.sections.count == 0) {
+            let noScheduleLabel = UILabel(frame: CGRect(x: 32, y: rect.height/2-50, width: rect.width-64, height: 100))
+            noScheduleLabel.text = "No Schedule"
+            noScheduleLabel.textColor = .lightGray
+            noScheduleLabel.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
+            noScheduleLabel.adjustsFontSizeToFitWidth = true
+            noScheduleLabel.textAlignment = .center
+            insertSubview(noScheduleLabel, at: 0)
+            return
         }
         
         let daysFrame = CGRect(x: 42, y: 10, width: rect.width - 52, height: 20)
