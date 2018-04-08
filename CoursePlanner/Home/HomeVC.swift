@@ -49,17 +49,17 @@ class HomeVC: UIViewController {
         RestAPI.getTerms { (terms, error) in
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
-            }
-            if (error != nil) {
-                DispatchQueue.main.async {
-                    self.handleError(error: error!)
-                }
-            } else {
-                self.terms = terms!
-                DispatchQueue.main.async {
+                if (error != nil) {
+                    DispatchQueue.main.async {
+                        self.handleError(error: error!)
+                    }
+                } else {
+                    self.terms = terms!.sorted()
                     self.termTable.reloadData();
                 }
+                
             }
+            
         }
     }
     
