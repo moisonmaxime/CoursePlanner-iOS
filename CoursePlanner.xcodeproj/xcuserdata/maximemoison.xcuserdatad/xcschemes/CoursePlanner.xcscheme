@@ -32,14 +32,47 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1B99D454207983D8003BE359"
-               BuildableName = "CoursePlannerUITests.xctest"
-               BlueprintName = "CoursePlannerUITests"
+               BlueprintIdentifier = "1B37624E20783902006C20D6"
+               BuildableName = "CoursePlannerTests.xctest"
+               BlueprintName = "CoursePlannerTests"
                ReferencedContainer = "container:CoursePlanner.xcodeproj">
             </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "CoursePlannerUITests/testSchedule()">
+                  Identifier = "CourseTests">
+               </Test>
+               <Test
+                  Identifier = "HoursTests">
+               </Test>
+               <Test
+                  Identifier = "ReadableRoomTests">
+               </Test>
+               <Test
+                  Identifier = "ReadableTermTests">
+               </Test>
+               <Test
+                  Identifier = "RestAPITests/testCheckAPIKey()">
+               </Test>
+               <Test
+                  Identifier = "RestAPITests/testDumpSchedules()">
+               </Test>
+               <Test
+                  Identifier = "RestAPITests/testGetSchedules()">
+               </Test>
+               <Test
+                  Identifier = "RestAPITests/testGetSections()">
+               </Test>
+               <Test
+                  Identifier = "RestAPITests/testGetTerms()">
+               </Test>
+               <Test
+                  Identifier = "RestAPITests/testLogin()">
+               </Test>
+               <Test
+                  Identifier = "RestAPITests/testSaveSchedule()">
+               </Test>
+               <Test
+                  Identifier = "RestAPITests/testSearchCourseID()">
                </Test>
             </SkippedTests>
          </TestableReference>

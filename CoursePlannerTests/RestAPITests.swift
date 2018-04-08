@@ -111,15 +111,38 @@ class RestAPITests: XCTestCase {
     }
     
     func testSaveSchedule() {
-        
+        testLogin()
+        let expect = expectation(description: "API Call - Save Schedule")
+        let testTerm = "201830"
+        let testCRNs = ["36539", "36537", "35094", "35093", "36149", "35720"]
+        RestAPI.saveSchedule(term: testTerm, crns: testCRNs) { (error) in
+            XCTAssertNil(error)
+            expect.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)
     }
     
     func testDeleteSchedule() {
-        
+        testLogin()
+        let expect = expectation(description: "API Call - Delete Schedule")
+        let testTerm = "201830"
+        let testCRNs = ["36539", "36537", "35094", "35093", "36149", "35720"]
+        RestAPI.deleteSchedule(term: testTerm, crns: testCRNs) { (error) in
+            XCTAssertNil(error)
+            expect.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)
     }
     
     func testDumpSchedules() {
-        
+        testLogin()
+        let expect = expectation(description: "API Call - Get Saved Schedules")
+        RestAPI.getSavedSchedule { (schedules, error) in
+            print(schedules?.count)
+            XCTAssertNil(error)
+            expect.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)
     }
     
 }

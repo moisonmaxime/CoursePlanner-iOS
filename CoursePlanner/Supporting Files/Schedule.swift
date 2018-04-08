@@ -16,6 +16,28 @@ class Schedule: NSObject {
     
     var sections:[Section] = []
     
+    var courses:[Course] {
+        get {
+            var arr:[Course] = []
+            for s in sections {
+                arr += s.courses
+            }
+            return arr
+        }
+    }
+    
+    var crns:[String] {
+        get {
+            var arr:[String] = []
+            for s in sections {
+                for c in s.courses {
+                    arr.append(c.crn)
+                }
+            }
+            return arr
+        }
+    }
+    
     required init(info: Dictionary<String, Any>, courses: [String:[String:Any?]]) {
         self.earliest = info["earliest"] as! Double
         self.latest = info["latest"] as! Double

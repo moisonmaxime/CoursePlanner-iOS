@@ -47,6 +47,12 @@ extension UIViewController {
         case .NetworkError:
             message = "Network Error"
             break
+        case .NotFound:
+            message = "Could not delete schedule"
+            break
+        case .OutOfSpace:
+            message = "You reached the limit of 20 saved schedules"
+            break
         }
         
         // debugPrint("Error")

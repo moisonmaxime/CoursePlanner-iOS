@@ -260,7 +260,6 @@ class RestAPI {
                 completion(nil, err!)
                 return
             } else {
-                // Save to application settings
                 guard let result = dict!["result"] as? Array<Dictionary<String, Any>> else {
                     completion(nil, .InternalError)
                     return
@@ -284,6 +283,103 @@ class RestAPI {
                     schedules.append(newSchedule)
                 }
                 completion(schedules, nil)
+                return
+            }
+        }
+    }
+    
+    static func getSavedSchedule(completion: @escaping ([Schedule]?, APIError?)->()) {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/users/schedule-dump/") else {
+            completion(nil, .InternalError)
+            return
+        }
+        let request:URLRequest = URLRequest(url: url, type: .GET)
+        request.getJsonData { (dict, err) in
+            if (err != nil) {
+                completion(nil, err!)
+                return
+            } else {
+                guard let result = dict!["result"] as? Array<Dictionary<String, Any>> else {
+                    completion(nil, .InternalError)
+                    return
+                }
+                
+                var schedules:[Schedule] = []
+                for i in 0..<result.count {
+                    let info:Dictionary<String, Any>
+                    guard let tempInfo = result[i]["info"]! as? Dictionary<String, Any> else {
+                        completion(nil, .InternalError)
+                        return
+                    }
+                    info = tempInfo
+                    let courses:Dictionary<String, Dictionary<String, Dictionary<String, Any?>>>
+                    guard let tempClasses = result[i]["schedule"] as? Dictionary<String, Dictionary<String, Dictionary<String, Any?>>> else {
+                        completion(nil, .InternalError)
+                        return
+                    }
+                    courses = tempClasses
+                    let newSchedule = Schedule(info: info, courses: courses)
+                    schedules.append(newSchedule)
+                }
+                completion(schedules, nil)
+                return
+            }
+        }
+    }
+    
+    static func saveSchedule(term: String, crns: [String], completion: @escaping (APIError?)->()) {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/users/save-schedule/") else {
+            completion(.InternalError)
+            return
+        }
+        let postContent = ["term": term, "crns": crns] as [String: Any]
+        var request:URLRequest = URLRequest(url: url, type: .POST)
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
+            completion(.InternalError)
+            return
+        }
+        request.httpBody = jsonData
+        request.getJsonData { (dict, err) in
+            if (err != nil) {
+                completion(err!)
+                return
+            } else {
+                guard dict!.contains(where: { (key, _) -> Bool in
+                    return key == "success"
+                }) else {
+                    completion(.OutOfSpace)
+                    return
+                }
+                completion(nil)
+                return
+            }
+        }
+    }
+    
+    static func deleteSchedule(term: String, crns: [String], completion: @escaping (APIError?)->()) {
+        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/users/delete-schedule/") else {
+            completion(.InternalError)
+            return
+        }
+        let postContent = ["term": term, "crns": crns] as [String: Any]
+        var request:URLRequest = URLRequest(url: url, type: .POST)
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
+            completion(.InternalError)
+            return
+        }
+        request.httpBody = jsonData
+        request.getJsonData { (dict, err) in
+            if (err != nil) {
+                completion(err!)
+                return
+            } else {
+                guard dict!.contains(where: { (key, _) -> Bool in
+                    return key == "success"
+                }) else {
+                    completion(.NotFound)
+                    return
+                }
+                completion(nil)
                 return
             }
         }
