@@ -42,7 +42,7 @@ class Schedule: NSObject {
         self.earliest = info["earliest"] as! Double
         self.latest = info["latest"] as! Double
         self.gaps = info["gaps"] as? Int
-        self.days = info["days"] as? Int
+        self.days = info["number_of_days"] as? Int
         
         for c in courses {
             sections.append(Section([c.key: c.value]))
