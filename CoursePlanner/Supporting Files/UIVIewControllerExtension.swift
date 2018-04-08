@@ -13,8 +13,8 @@ extension UIViewController {
     
     
     // Display PopUp Alert
-    func displayAlert(message: String, handler: ((UIAlertAction) -> ())? = nil) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+    func displayAlert(title: String="Error", message: String, handler: ((UIAlertAction) -> ())? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: handler))
         // debugPrint(message)
         self.present(alert, animated: true, completion: nil)

@@ -89,6 +89,9 @@ class HomeVC: UIViewController {
         if (segue.identifier == "showBuilder") {
             let dest = segue.destination as! CoursesVC
             dest.term = selectedRow
+        } else if (segue.identifier == "showSaved") {
+            let dest = segue.destination as! SavedSchedulesVC
+            dest.term = selectedRow
         }
     }
     

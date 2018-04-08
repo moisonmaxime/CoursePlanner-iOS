@@ -13,4 +13,10 @@ extension SchedulesVC: ScheduleDetailsDelegate {
     func getTerm() -> String {
         return self.term
     }
+    func isSaved() -> Bool {
+        return type(of: self) == SavedSchedulesVC.self
+    }
+    func removeScheduleLocally() {
+        getInitialData()
+    }
 }

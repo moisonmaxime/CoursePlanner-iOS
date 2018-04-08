@@ -29,6 +29,7 @@ class SchedulesVC: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var currentScheduleLbl: UILabel!
     @IBOutlet weak var termLabel: UILabel!
+    @IBOutlet weak var detailssButton: UIButton!
     
     var schedules:[Schedule] = [] {
         didSet {
@@ -40,6 +41,10 @@ class SchedulesVC: UIViewController {
         super.viewDidLoad()
         termLabel.text = term?.readableTerm()
         checkButtonStates()
+        getInitialData()
+    }
+    
+    func getInitialData() {
         (self.navigationController as! NavigationController).didStartLoading(immediately: true)
         RestAPI.getSchedules(term: term, courses: courses, completion: { (response, error) in
             DispatchQueue.main.async {
@@ -57,18 +62,16 @@ class SchedulesVC: UIViewController {
                     }
                     return true
                 })
-                // print(self.schedules)
                 if (self.schedules.count == 0) {
                     print("No schedule!")
                 }
                 self.currentScheduleLbl.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
+                self.detailssButton.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
                 self.weekDisplay.schedule = self.schedules.first
                 self.checkButtonStates()
                 self.weekDisplay.setNeedsDisplay()
             }
         })
-        
-        // Do any additional setup after loading the view.
     }
     
     func checkButtonStates() {
