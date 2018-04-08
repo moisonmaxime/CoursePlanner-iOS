@@ -20,6 +20,12 @@ class SavedSchedulesVC: SchedulesVC {
                 } else {
                     self.schedules = response!
                 }
+                self.schedules.sort(by: { (s1, s2) -> Bool in
+                    if (s1.days! == s2.days!) {
+                        return s1.gaps! < s2.gaps!
+                    }
+                    return s1.days! < s2.days!
+                })
                 self.currentScheduleLbl.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
                 self.detailssButton.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
                 self.weekDisplay.schedule = self.schedules.first
