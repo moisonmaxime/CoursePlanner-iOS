@@ -16,8 +16,6 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
     
     var term:String?
     
-    var isSearching:Bool = false
-    
     var selectedCourses:Array<[String: String]> = []
     var searchedCourses:Array<[String: String]> = []
     

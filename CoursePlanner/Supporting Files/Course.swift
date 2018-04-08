@@ -11,6 +11,7 @@ import UIKit
 class Section: NSObject {
     var name:String
     var lect:Course?
+    var sem:Course?
     var disc:Course?
     var lab:Course?
     
@@ -25,6 +26,9 @@ class Section: NSObject {
             }
             if (lab != nil) {
                 arr.append(lab!)
+            }
+            if (sem != nil) {
+                arr.append(sem!)
             }
             return arr
         }
@@ -44,9 +48,11 @@ class Section: NSObject {
         let lecture = dictionary.values.first?["LECT"] as? [String:Any?]
         let discussion = dictionary.values.first?["DISC"] as? [String:Any?]
         let laboratory = dictionary.values.first?["LAB"] as? [String:Any?]
+        let seminar = dictionary.values.first?["SEM"] as? [String:Any?]
         self.lect = lecture != nil ? Course(lecture!) : nil
         self.disc = discussion != nil ? Course(discussion!) : nil
         self.lab = laboratory != nil ? Course(laboratory!) : nil
+        self.sem = seminar != nil ? Course(seminar!) : nil
     }
 }
 

@@ -286,7 +286,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="xbo-VZ-sZ4">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search For Classes" translatesAutoresizingMaskIntoConstraints="NO" id="xbo-VZ-sZ4">
                                 <rect key="frame" x="0.0" y="57" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                             </searchBar>
