@@ -39,40 +39,10 @@
             </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "CourseTests">
-               </Test>
-               <Test
-                  Identifier = "HoursTests">
-               </Test>
-               <Test
-                  Identifier = "ReadableRoomTests">
-               </Test>
-               <Test
-                  Identifier = "ReadableTermTests">
-               </Test>
-               <Test
-                  Identifier = "RestAPITests/testCheckAPIKey()">
-               </Test>
-               <Test
-                  Identifier = "RestAPITests/testDumpSchedules()">
-               </Test>
-               <Test
-                  Identifier = "RestAPITests/testGetSchedules()">
-               </Test>
-               <Test
-                  Identifier = "RestAPITests/testGetSections()">
-               </Test>
-               <Test
-                  Identifier = "RestAPITests/testGetTerms()">
-               </Test>
-               <Test
-                  Identifier = "RestAPITests/testLogin()">
+                  Identifier = "RestAPITests/testDeleteSchedule()">
                </Test>
                <Test
                   Identifier = "RestAPITests/testSaveSchedule()">
-               </Test>
-               <Test
-                  Identifier = "RestAPITests/testSearchCourseID()">
                </Test>
             </SkippedTests>
          </TestableReference>
