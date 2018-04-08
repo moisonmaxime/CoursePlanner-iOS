@@ -1,25 +1,22 @@
 //
-//  SectionsTableDataSource.swift
+//  ScheduleDetailsDataSource.swift
 //  CoursePlanner
 //
-//  Created by Maxime Moison on 4/3/18.
+//  Created by Maxime Moison on 4/7/18.
 //  Copyright © 2018 Maxime Moison. All rights reserved.
 //
 
 import UIKit
 
-extension SectionsVC: UITableViewDataSource {
+extension ScheduleDetailsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.count
+        return detailDelegate.getSchedule().courses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as! CourseCell
         cell.selectionStyle = .none
-        cell.setup(course: courses[indexPath.row])
-        cell.updateAvailability(sectionsDelegate.getBadCRNs())
-        cell.updateView()
+        cell.setup(course: detailDelegate.getSchedule().courses[indexPath.row])
         return cell
     }
 }

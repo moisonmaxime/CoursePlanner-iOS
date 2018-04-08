@@ -50,6 +50,9 @@
 		1B88D139207569EA00F5B555 /* TermCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B88D137207569EA00F5B555 /* TermCell.swift */; };
 		1B88D13A207569EA00F5B555 /* TermCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B88D138207569EA00F5B555 /* TermCell.xib */; };
 		1B8F68D52079CCDC00F0D14D /* ScheduleDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F68D42079CCDC00F0D14D /* ScheduleDetailsVC.swift */; };
+		1B8F68D72079DDF900F0D14D /* ScheduleDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F68D62079DDF900F0D14D /* ScheduleDetailsDataSource.swift */; };
+		1B8F68D92079DF0300F0D14D /* ScheduleDetailsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F68D82079DF0300F0D14D /* ScheduleDetailsDelegate.swift */; };
+		1B8F68DB2079E14B00F0D14D /* ScheduleDetailsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F68DA2079E14B00F0D14D /* ScheduleDetailsTableDelegate.swift */; };
 		1B99D458207983D8003BE359 /* CoursePlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B99D457207983D8003BE359 /* CoursePlannerUITests.swift */; };
 		1BB2021C205A198A00A96619 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2021B205A198A00A96619 /* Animation.swift */; };
 		1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */; };
@@ -123,6 +126,9 @@
 		1B88D137207569EA00F5B555 /* TermCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermCell.swift; sourceTree = "<group>"; };
 		1B88D138207569EA00F5B555 /* TermCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermCell.xib; sourceTree = "<group>"; };
 		1B8F68D42079CCDC00F0D14D /* ScheduleDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailsVC.swift; sourceTree = "<group>"; };
+		1B8F68D62079DDF900F0D14D /* ScheduleDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailsDataSource.swift; sourceTree = "<group>"; };
+		1B8F68D82079DF0300F0D14D /* ScheduleDetailsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailsDelegate.swift; sourceTree = "<group>"; };
+		1B8F68DA2079E14B00F0D14D /* ScheduleDetailsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailsTableDelegate.swift; sourceTree = "<group>"; };
 		1B99D455207983D8003BE359 /* CoursePlannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoursePlannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B99D457207983D8003BE359 /* CoursePlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePlannerUITests.swift; sourceTree = "<group>"; };
 		1B99D459207983D8003BE359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -234,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				1BFE30BF2068629B0053C3B3 /* SchedulesVC.swift */,
+				1B8F68D82079DF0300F0D14D /* ScheduleDetailsDelegate.swift */,
 				1B7C11692071BC32001328E4 /* WeekCalendar.swift */,
 				1B7C11772071F967001328E4 /* Event.swift */,
 				1B7C11752071F833001328E4 /* Event.xib */,
@@ -284,6 +291,8 @@
 			isa = PBXGroup;
 			children = (
 				1B8F68D42079CCDC00F0D14D /* ScheduleDetailsVC.swift */,
+				1B8F68D62079DDF900F0D14D /* ScheduleDetailsDataSource.swift */,
+				1B8F68DA2079E14B00F0D14D /* ScheduleDetailsTableDelegate.swift */,
 			);
 			path = ScheduleDetails;
 			sourceTree = "<group>";
@@ -495,9 +504,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B8F68D92079DF0300F0D14D /* ScheduleDetailsDelegate.swift in Sources */,
 				1B209D3F2062EDAC00F701C6 /* HomeTableDatasource.swift in Sources */,
 				1BBFDB482074514E003FBADE /* SectionsTableDelegate.swift in Sources */,
 				1B644E372050EDAD00CA9264 /* RestAPI.swift in Sources */,
+				1B8F68DB2079E14B00F0D14D /* ScheduleDetailsTableDelegate.swift in Sources */,
 				1B88D139207569EA00F5B555 /* TermCell.swift in Sources */,
 				1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */,
 				1BB93B46205D8DF20042B021 /* InteractiveTransitioner.swift in Sources */,
@@ -512,6 +523,7 @@
 				1B76605C2059AF99000929D5 /* HomeVC.swift in Sources */,
 				1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */,
 				1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */,
+				1B8F68D72079DDF900F0D14D /* ScheduleDetailsDataSource.swift in Sources */,
 				1B30D0882079643E0035158C /* UIColorExtension.swift in Sources */,
 				1B7C116A2071BC32001328E4 /* WeekCalendar.swift in Sources */,
 				1B5C7F612065ABB9009911E0 /* Schedule.swift in Sources */,

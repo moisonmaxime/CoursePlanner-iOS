@@ -138,7 +138,6 @@ class RestAPITests: XCTestCase {
         testLogin()
         let expect = expectation(description: "API Call - Get Saved Schedules")
         RestAPI.getSavedSchedule { (schedules, error) in
-            print(schedules?.count)
             XCTAssertNil(error)
             expect.fulfill()
         }

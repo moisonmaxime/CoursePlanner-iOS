@@ -38,4 +38,8 @@ extension SectionsVC: UITableViewDelegate {
         
         self.sectionTable.reloadData()
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }

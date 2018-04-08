@@ -8,12 +8,25 @@
 
 import UIKit
 
-class ScheduleDetailsVC: UIViewController {
+protocol ScheduleDetailsDelegate {
+    func getSchedule() -> Schedule
+    func getTerm() -> String
+}
 
+class ScheduleDetailsVC: UIViewController {
+    
+    @IBOutlet weak var coursesTable: UITableView!
+    var detailDelegate:ScheduleDetailsDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let nib = UINib.init(nibName: "CourseCell", bundle: nil)
+        self.coursesTable.register(nib, forCellReuseIdentifier: "CourseCell")
         // Do any additional setup after loading the view.
+        coursesTable.dataSource = self
+        coursesTable.delegate = self
+        coursesTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,7 +38,11 @@ class ScheduleDetailsVC: UIViewController {
     }
     
     @IBAction func saveSchedule(_ sender: Any) {
-        
+        RestAPI.saveSchedule(term: detailDelegate.getTerm(), crns: detailDelegate.getSchedule().crns) { (err) in
+            DispatchQueue.main.async {
+                self.handleError(error: err!)
+            }
+        }
     }
     
     @IBAction func dismiss(_ sender: Any) {

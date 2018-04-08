@@ -32,6 +32,7 @@ class SectionsVC: UIViewController {
         
         let nib = UINib.init(nibName: "CourseCell", bundle: nil)
         self.sectionTable.register(nib, forCellReuseIdentifier: "CourseCell")
+        
         (self.navigationController as! NavigationController).didStartLoading(immediately: true)
         RestAPI.getSections(term: term!, id: course!["name"]!) { (response, err) in
             DispatchQueue.main.async {

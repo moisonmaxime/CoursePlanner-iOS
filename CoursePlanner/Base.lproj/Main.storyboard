@@ -614,7 +614,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="eoI-jR-vgg" kind="presentation" id="yrn-Fd-Px6"/>
+                                    <segue destination="eoI-jR-vgg" kind="presentation" identifier="showScheduleDetails" id="yrn-Fd-Px6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -739,6 +739,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OdF-TR-DAg"/>
                     </view>
+                    <connections>
+                        <outlet property="coursesTable" destination="EBa-7T-v3B" id="vvC-do-1e2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX3-M9-MDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
