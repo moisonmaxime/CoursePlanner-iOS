@@ -49,7 +49,7 @@ class RestAPI {
         }
     }
     
-    static func checkAPIKey(completion: @escaping (APIError?) -> ()) {
+    static func getUniqueID(completion: @escaping (APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)users/user-info/") else {
             return
         }

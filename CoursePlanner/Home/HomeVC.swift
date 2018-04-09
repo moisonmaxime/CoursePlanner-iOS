@@ -34,17 +34,6 @@ class HomeVC: UIViewController {
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
         termTable.addSubview(refreshControl)
-        RestAPI.checkAPIKey { (error) in
-            if (error != nil) {
-                RestAPI.refreshAPIKey(completion: { (error) in
-                    if (error != nil) {
-                        DispatchQueue.main.async {
-                            self.handleError(error: error!)
-                        }
-                    }
-                })
-            }
-        }
         refresh()
     }
     

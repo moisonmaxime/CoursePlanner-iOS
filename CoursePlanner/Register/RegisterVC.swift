@@ -62,6 +62,7 @@ class RegisterVC: UIViewController {
                 if (error != nil) {
                     self.handleError(error: error!)
                 } else {
+                    RestAPI.getUniqueID { _ in }
                     (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
                     let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.navigationController?.setViewControllers([home!], animated: true)
