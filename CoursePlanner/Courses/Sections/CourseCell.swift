@@ -70,6 +70,7 @@ class CourseCell: UITableViewCell {
         crnLabel.alpha = newAlpha
         roomLabel.alpha = newAlpha
         typeLabel.alpha = newAlpha
+        seatsLabel.alpha = newAlpha
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
