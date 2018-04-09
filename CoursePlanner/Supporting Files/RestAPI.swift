@@ -93,17 +93,18 @@ class RestAPI {
                 completion(err!)
                 return
             } else {
-                // Save to application settings
+                /*
                 guard let refresh = dict!["refresh"] as? String else {
                     completion(.InternalError)
                     return
                 }
+                 */
                 guard let access = dict!["access"] as? String else {
                     completion(.InternalError)
                     return
                 }
                 UserDefaults.standard.set(access, forKey: "api_token")
-                UserDefaults.standard.set(refresh, forKey: "refresh_token")
+                // UserDefaults.standard.set(refresh, forKey: "refresh_token")
                 completion(nil)
                 return
             }

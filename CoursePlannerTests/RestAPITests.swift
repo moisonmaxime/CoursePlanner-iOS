@@ -50,20 +50,31 @@ class RestAPITests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
     }
     
-    // ### - Test CheckAPIKey
-    func testCheckAPIKey() {
+    // ### - Test GetUniqueID
+    func testGetUniqueID() {
         testLogin()
-        let expectCheck = expectation(description: "API Call - Check API Key")
-        RestAPI.checkAPIKey { (error) in
+        let expectCheck = expectation(description: "API Call - Get unique ID")
+        RestAPI.getUniqueID { (error) in
             XCTAssertNil(error)
             expectCheck.fulfill()
         }
         wait(for: [expectCheck], timeout: 5)
     }
     
+    // ### - Test RefreshToken
+    func testRefreshAPIKey() {
+        testLogin()
+        let expect = expectation(description: "API Call - Refresh API key")
+        RestAPI.refreshAPIKey { (error) in
+            XCTAssertNil(error)
+            expect.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
     // ### Test GetTerms
     func testGetTerms() {
-        let expect = expectation(description: "API Call - Get Terms")
+        let expect = expectation(description: "API Call - Get terms")
         RestAPI.getTerms { (terms, error) in
             XCTAssertNil(error)
             expect.fulfill()
