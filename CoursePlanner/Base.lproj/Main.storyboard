@@ -186,7 +186,7 @@
                                 <rect key="frame" x="148" y="407.5" width="80" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="c8B-Ox-1Vi"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="c8B-Ox-1Vi"/>
                                     <constraint firstAttribute="height" constant="32" id="lbg-du-Z0v"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
