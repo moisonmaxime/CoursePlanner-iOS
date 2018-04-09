@@ -89,6 +89,7 @@ extension UIViewController {
         }
         if let index = fields.index(of: sender) {
             if (index+1 < fields.count) {
+                sender.resignFirstResponder()
                 fields[index+1].becomeFirstResponder()
             }
         }
