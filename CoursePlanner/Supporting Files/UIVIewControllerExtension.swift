@@ -53,6 +53,8 @@ extension UIViewController {
         case .OutOfSpace:
             message = "You reached the limit of 20 saved schedules"
             break
+        case .ServiceUnavailable:
+            message = "Oops! Seems like our server is down!"
         }
         
         // debugPrint("Error")

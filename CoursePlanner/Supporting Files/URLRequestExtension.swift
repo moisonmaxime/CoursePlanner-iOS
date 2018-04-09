@@ -45,6 +45,9 @@ extension URLRequest {
                 } else if (httpStatus.statusCode == 500) {
                     completion(nil, .ServerError)
                     return
+                } else if (httpStatus.statusCode == 500) {
+                    completion(nil, .ServiceUnavailable)
+                    return
                 }
             }
             

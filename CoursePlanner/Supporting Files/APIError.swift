@@ -14,6 +14,7 @@ enum APIError: Error {
     case InvalidAPIKey
     case InvalidCredentials
     case InternalError
+    case ServiceUnavailable
     case NotFound
     case OutOfSpace
 }
