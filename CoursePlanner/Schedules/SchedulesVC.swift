@@ -48,28 +48,30 @@ class SchedulesVC: UIViewController {
         (self.navigationController as! NavigationController).didStartLoading(immediately: true)
         RestAPI.getSchedules(term: term, courses: courses, completion: { (response, error) in
             DispatchQueue.main.async {
-                (self.navigationController as! NavigationController).didFinishLoading()
-                if (error != nil) {
-                    self.handleError(error: error!)
-                }
-                self.schedules = response!.filter({ (schedule) -> Bool in
-                    for section in schedule.sections {
-                        for course in section.courses {
-                            if (self.badCRNs.contains(course.crn)) {
-                                return false
+                if let nav = self.navigationController as? NavigationController {
+                    nav.didFinishLoading()
+                    if (error != nil) {
+                        self.handleError(error: error!)
+                    }
+                    self.schedules = response!.filter({ (schedule) -> Bool in
+                        for section in schedule.sections {
+                            for course in section.courses {
+                                if (self.badCRNs.contains(course.crn)) {
+                                    return false
+                                }
                             }
                         }
+                        return true
+                    })
+                    if (self.schedules.count == 0) {
+                        print("No schedule!")
                     }
-                    return true
-                })
-                if (self.schedules.count == 0) {
-                    print("No schedule!")
+                    self.currentScheduleLbl.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
+                    self.detailssButton.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
+                    self.weekDisplay.schedule = self.schedules.first
+                    self.checkButtonStates()
+                    self.weekDisplay.setNeedsDisplay()
                 }
-                self.currentScheduleLbl.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
-                self.detailssButton.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
-                self.weekDisplay.schedule = self.schedules.first
-                self.checkButtonStates()
-                self.weekDisplay.setNeedsDisplay()
             }
         })
     }

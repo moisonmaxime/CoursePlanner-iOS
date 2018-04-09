@@ -120,8 +120,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="IPF-Xd-VRn">
-                                <rect key="frame" x="87.5" y="115.5" width="200" height="260"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="IPF-Xd-VRn">
+                                <rect key="frame" x="87.5" y="81" width="200" height="294.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-s4-ua9">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
@@ -133,7 +133,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0SH-lL-cZ6">
-                                        <rect key="frame" x="0.0" y="46" width="200" height="30"/>
+                                        <rect key="frame" x="0.0" y="53" width="200" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="family-name"/>
@@ -142,7 +142,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-xK-8ox">
-                                        <rect key="frame" x="0.0" y="92" width="200" height="30"/>
+                                        <rect key="frame" x="0.0" y="106" width="200" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="username"/>
@@ -151,7 +151,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSV-PB-Zoe">
-                                        <rect key="frame" x="0.0" y="138" width="200" height="30"/>
+                                        <rect key="frame" x="0.0" y="158.5" width="200" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -160,7 +160,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-Type Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmG-90-lIL">
-                                        <rect key="frame" x="0.0" y="184" width="200" height="30"/>
+                                        <rect key="frame" x="0.0" y="211.5" width="200" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -169,7 +169,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bya-8z-s0b">
-                                        <rect key="frame" x="0.0" y="230" width="200" height="30"/>
+                                        <rect key="frame" x="0.0" y="264.5" width="200" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
@@ -179,10 +179,7 @@
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="KhQ-xK-8ox" firstAttribute="top" secondItem="0SH-lL-cZ6" secondAttribute="bottom" id="IVg-1G-STO"/>
-                                    <constraint firstItem="cSV-PB-Zoe" firstAttribute="top" secondItem="KhQ-xK-8ox" secondAttribute="bottom" id="ZEx-uY-cjb"/>
                                     <constraint firstAttribute="width" constant="200" id="kUU-oR-Uk3"/>
-                                    <constraint firstItem="0SH-lL-cZ6" firstAttribute="top" secondItem="RuB-s4-ua9" secondAttribute="bottom" id="lqY-YY-o9W"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaS-PG-6tb" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
@@ -231,6 +228,7 @@
                             <constraint firstItem="1Zy-YG-TcO" firstAttribute="centerX" secondItem="iBq-WP-yc7" secondAttribute="centerX" id="eOg-rd-dly"/>
                             <constraint firstItem="1Zy-YG-TcO" firstAttribute="top" secondItem="iBq-WP-yc7" secondAttribute="top" id="ibL-lw-bmP"/>
                             <constraint firstItem="GvI-4i-YcL" firstAttribute="leading" secondItem="iBq-WP-yc7" secondAttribute="leading" constant="16" id="j26-1c-Pwr"/>
+                            <constraint firstItem="IPF-Xd-VRn" firstAttribute="top" secondItem="1Zy-YG-TcO" secondAttribute="bottom" constant="32" id="qJP-OV-pQp"/>
                             <constraint firstItem="IaS-PG-6tb" firstAttribute="centerX" secondItem="iBq-WP-yc7" secondAttribute="centerX" id="t6E-dO-Ij2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iBq-WP-yc7"/>
