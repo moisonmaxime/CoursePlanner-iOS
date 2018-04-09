@@ -36,9 +36,13 @@ class HomeVC: UIViewController {
         termTable.addSubview(refreshControl)
         RestAPI.checkAPIKey { (error) in
             if (error != nil) {
-                DispatchQueue.main.async {
-                    self.handleError(error: error!)
-                }
+                RestAPI.refreshAPIKey(completion: { (error) in
+                    if (error != nil) {
+                        DispatchQueue.main.async {
+                            self.handleError(error: error!)
+                        }
+                    }
+                })
             }
         }
         refresh()

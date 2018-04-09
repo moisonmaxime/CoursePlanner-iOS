@@ -10,10 +10,12 @@ import Foundation
 
 class RestAPI {
     
+    static let apiURL = "https://cse120-course-planner.herokuapp.com/api/"
+    
     static func login(user: String,
                       password: String,
                       completion: @escaping (APIError?) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/auth/token/obtain") else {
+        guard let url = URL(string: "\(apiURL)auth/token/obtain") else {
             completion(.InternalError)
             return
         }
@@ -48,7 +50,7 @@ class RestAPI {
     }
     
     static func checkAPIKey(completion: @escaping (APIError?) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/users/user-info/") else {
+        guard let url = URL(string: "\(apiURL)users/user-info/") else {
             return
         }
         
@@ -72,9 +74,45 @@ class RestAPI {
         }
     }
     
+    static func refreshAPIKey(completion: @escaping (APIError?) -> ()) {
+        guard let url = URL(string: "\(apiURL)auth/token/refresh") else {
+            completion(.InternalError)
+            return
+        }
+        
+        var request:URLRequest = URLRequest(url: url, type: .POST)
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: ["refresh": UserDefaults.standard.string(forKey: "refresh_token")], options: .prettyPrinted) else {
+            completion(.InternalError)
+            return
+        }
+        request.httpBody = jsonData
+        
+        request.getJsonData { (dict, err) in
+            if (err != nil) {
+                completion(err!)
+                return
+            } else {
+                // Save to application settings
+                guard let refresh = dict!["refresh"] as? String else {
+                    completion(.InternalError)
+                    return
+                }
+                guard let access = dict!["access"] as? String else {
+                    completion(.InternalError)
+                    return
+                }
+                UserDefaults.standard.set(access, forKey: "api_token")
+                UserDefaults.standard.set(refresh, forKey: "refresh_token")
+                completion(nil)
+                return
+            }
+        }
+    }
+    
     /*
      static func refreshApplicationKey(completion: @escaping (APIError?) -> ()) {
-     guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/auth/token/refresh") else {
+     guard let url = URL(string: "\(apiURL)auth/token/refresh") else {
      completion(.InternalError)
      return
      }
@@ -109,7 +147,7 @@ class RestAPI {
                          last: String,
                          email: String?,
                          completion: @escaping (APIError?) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/register/") else {
+        guard let url = URL(string: "\(apiURL)register/") else {
             completion(.InternalError)
             return
         }
@@ -151,7 +189,7 @@ class RestAPI {
     }
     
     static func getSections(term: String, id: String, completion: @escaping ([Course]?, APIError?) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-match/") else {
+        guard let url = URL(string: "\(apiURL)courses/course-match/") else {
             completion(nil, .InternalError)
             return
         }
@@ -195,7 +233,7 @@ class RestAPI {
     }
     
     static func searchCourseIDs(id: String, term: String?, completion: @escaping (Array<[String: String]>?, APIError?) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-search?course=\(id.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)&term=\(term ?? "201810")") else {
+        guard let url = URL(string: "\(apiURL)courses/course-search?course=\(id.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)&term=\(term ?? "201810")") else {
             completion(nil, .InternalError)
             return
         }
@@ -216,7 +254,7 @@ class RestAPI {
     }
     
     static func getTerms(completion: @escaping (Array<String>?, APIError?) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/get-terms/") else {
+        guard let url = URL(string: "\(apiURL)courses/get-terms/") else {
             completion(nil, .InternalError)
             return
         }
@@ -241,7 +279,7 @@ class RestAPI {
                              courses: Array<String>,
                              openOnly: Bool=false,
                              completion: @escaping ([Schedule]?, APIError?) -> ()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/schedule-search/") else {
+        guard let url = URL(string: "\(apiURL)courses/schedule-search/") else {
             completion(nil, .InternalError)
             return
         }
@@ -289,7 +327,7 @@ class RestAPI {
     }
     
     static func getSavedSchedule(completion: @escaping ([Schedule]?, APIError?)->()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/users/schedule-dump/") else {
+        guard let url = URL(string: "\(apiURL)users/schedule-dump/") else {
             completion(nil, .InternalError)
             return
         }
@@ -328,7 +366,7 @@ class RestAPI {
     }
     
     static func saveSchedule(term: String, crns: [String], completion: @escaping (APIError?)->()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/users/save-schedule/") else {
+        guard let url = URL(string: "\(apiURL)users/save-schedule/") else {
             completion(.InternalError)
             return
         }
@@ -355,7 +393,7 @@ class RestAPI {
     }
     
     static func deleteSchedule(term: String, crns: [String], completion: @escaping (APIError?)->()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/users/delete-schedule/") else {
+        guard let url = URL(string: "\(apiURL)users/delete-schedule/") else {
             completion(.InternalError)
             return
         }
@@ -382,7 +420,7 @@ class RestAPI {
     }
     
     static func register(username: String, password: String, term: String, crns: [String], completion: @escaping (APIError?, String?)->()) {
-        guard let url = URL(string: "https://cse120-course-planner.herokuapp.com/api/courses/course-register/") else {
+        guard let url = URL(string: "\(apiURL)courses/course-register/") else {
             completion(.InternalError, nil)
             return
         }
