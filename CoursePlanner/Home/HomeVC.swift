@@ -55,8 +55,8 @@ class HomeVC: UIViewController {
                     }
                 } else {
                     self.terms = terms!.sorted(by: { (s1, s2) -> Bool in
-                        let t1 = s1.split(separator: " ")
-                        let t2 = s2.split(separator: " ")
+                        let t1 = s1.readableTerm().split(separator: " ")
+                        let t2 = s2.readableTerm().split(separator: " ")
                         if (t1[1] == t2[1]) {
                             return t1[0] < t2[0]
                         }
