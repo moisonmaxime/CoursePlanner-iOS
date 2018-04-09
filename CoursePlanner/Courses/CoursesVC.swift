@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
+class CoursesVC: UIViewController {
     @IBOutlet weak var searchTable: UITableView!
     @IBOutlet weak var selectedTable: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -42,7 +42,6 @@ class CoursesVC: UIViewController, UIGestureRecognizerDelegate {
         searchTable.delegate = self
         selectedTable.dataSource = self
         selectedTable.delegate = self
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         NotificationCenter.default.addObserver(
             self,

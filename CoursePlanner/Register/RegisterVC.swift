@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterVC: UIViewController, UIGestureRecognizerDelegate {
+class RegisterVC: UIViewController {
     @IBOutlet weak var firstField: UITextField!
     @IBOutlet weak var lastField: UITextField!
     @IBOutlet weak var userField: UITextField!
@@ -20,16 +20,11 @@ class RegisterVC: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func backPressed(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func registerPressed(_ sender: Any) {

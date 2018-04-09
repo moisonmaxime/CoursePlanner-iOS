@@ -92,6 +92,17 @@ class SchedulesVC: UIViewController {
         index = index + 1
     }
     
+    @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) {
+        if (index > 0) {
+            previous(sender);
+        }
+    }
+    
+    @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
+        if (index < schedules.count-1) {
+            next(sender);
+        }
+    }
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationController: UINavigationController, UINavigationControllerDelegate {
+class NavigationController: UINavigationController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
     var animationType:Animation.Type?
     var defaultAnimationType:Animation.Type?
@@ -22,6 +22,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
         super.viewDidLoad()
         self.delegate = self
         self.view.backgroundColor = .clear
+        interactivePopGestureRecognizer?.delegate = self
         // Do any additional setup after loading the view.
     }
     
