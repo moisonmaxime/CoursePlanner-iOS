@@ -54,7 +54,14 @@ class HomeVC: UIViewController {
                         self.handleError(error: error!)
                     }
                 } else {
-                    self.terms = terms!.sorted()
+                    self.terms = terms!.sorted(by: { (s1, s2) -> Bool in
+                        let t1 = s1.split(separator: " ")
+                        let t2 = s2.split(separator: " ")
+                        if (t1[1] == t2[1]) {
+                            return t1[0] < t2[0]
+                        }
+                        return t1[1] < t2[1]
+                    })
                     self.termTable.reloadData();
                 }
                 

@@ -68,7 +68,9 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     func didStartLoading(immediately: Bool=false) {
         let loadingView = UIView(frame: self.view.frame)
         
-        let loadingLabel = UILabel(frame: CGRect(x: 32, y: self.view.frame.height/2-50, width: self.view.frame.width-64, height: 100))
+        let screen = UIApplication.shared.keyWindow!.frame
+        
+        let loadingLabel = UILabel(frame: CGRect(x: 32, y: screen.height/2-50, width: screen.width-64, height: 100))
         loadingLabel.text = "Loading..."
         loadingLabel.textColor = .lightGray
         loadingLabel.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
