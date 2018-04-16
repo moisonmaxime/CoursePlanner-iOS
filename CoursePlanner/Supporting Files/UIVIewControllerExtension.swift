@@ -68,6 +68,19 @@ extension UIViewController {
     }
     
     
+    func selectTerm(completion: @escaping (String)->()) {
+        let terms = UserDefaults.standard.object(forKey: "terms") as! [String]
+        
+        let termSelector = UIAlertController(title: "Choose a term", message: nil, preferredStyle: .actionSheet)
+        for term in terms {
+            termSelector.addAction(.init(title: term.readableTerm(), style: .default, handler: { (action) in
+                completion(action.title!)
+            }))
+        }
+        
+        termSelector.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
+        self.present(termSelector, animated: true, completion: nil)
+    }
     
     
     // ### - Tap to dismiss keyboard

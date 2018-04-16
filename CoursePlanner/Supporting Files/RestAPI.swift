@@ -265,10 +265,19 @@ class RestAPI {
                 return
             } else {
                 // Save to application settings
-                guard let result = dict!["result"] as? Array<String> else {
+                guard var result = dict!["result"] as? Array<String> else {
                     completion(nil, .InternalError)
                     return
                 }
+                result.sort(by: { (s1, s2) -> Bool in
+                    let t1 = s1.readableTerm().split(separator: " ")
+                    let t2 = s2.readableTerm().split(separator: " ")
+                    if (t1[1] == t2[1]) {
+                        return t1[0] < t2[0]
+                    }
+                    return t1[1] > t2[1]
+                })
+                UserDefaults.standard.set(result, forKey: "terms")
                 completion(result, nil)
                 return
             }

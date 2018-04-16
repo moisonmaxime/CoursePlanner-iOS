@@ -12,7 +12,7 @@ class SavedSchedulesVC: SchedulesVC {
     
     override func getInitialData() {
         (self.navigationController as! NavigationController).didStartLoading(immediately: true)
-        RestAPI.getSavedSchedule(completion: { (response, error) in
+        RestAPI.getSavedSchedule(term: term, completion: { (response, error) in
             DispatchQueue.main.async {
                 if let nav = (self.navigationController as? NavigationController) {
                     nav.didFinishLoading()

@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let _ = UserDefaults.standard.string(forKey: "api_token") {
             // Load Home View
             RestAPI.refreshAPIKey(completion: { _ in })
+            RestAPI.getTerms(completion: { _, _ in })
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialVC:UIViewController
@@ -46,11 +47,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         RestAPI.refreshAPIKey(completion: { _ in })
+        RestAPI.getTerms(completion: { _, _ in })
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         RestAPI.refreshAPIKey(completion: { _ in })
+        RestAPI.getTerms(completion: { _, _ in })
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
