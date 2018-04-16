@@ -335,11 +335,12 @@ class RestAPI {
         }
     }
     
-    static func getSavedSchedule(completion: @escaping ([Schedule]?, APIError?)->()) {
-        guard let url = URL(string: "\(apiURL)users/schedule-dump/") else {
+    static func getSavedSchedule(term: String, completion: @escaping ([Schedule]?, APIError?)->()) {
+        guard let url = URL(string: "\(apiURL)users/schedule-dump/?term=\(term)") else {
             completion(nil, .InternalError)
             return
         }
+        debugPrint(term)
         let request:URLRequest = URLRequest(url: url, type: .GET)
         request.getJsonData { (dict, err) in
             if (err != nil) {
