@@ -340,7 +340,6 @@ class RestAPI {
             completion(nil, .InternalError)
             return
         }
-        debugPrint(term)
         let request:URLRequest = URLRequest(url: url, type: .GET)
         request.getJsonData { (dict, err) in
             if (err != nil) {
