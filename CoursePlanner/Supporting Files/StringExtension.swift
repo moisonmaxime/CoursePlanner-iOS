@@ -44,6 +44,10 @@ extension String {
         return (Double(startHour)! + startMin, Double(endHour)! + endMin)
     }
     
+    func termID() -> String {
+        let splitted  = self.split(separator: " ")
+        return String(splitted[1]) + String(splitted[0] == "Fall" ? 30 : 10)
+    }
     
     func readableTerm() -> String {
         let year = self.prefix(4)

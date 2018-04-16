@@ -110,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="238" y="116"/>
+            <point key="canvasLocation" x="-2417" y="833"/>
         </scene>
         <!--Register-->
         <scene sceneID="4Qq-Gy-GLJ">
@@ -244,127 +244,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqO-rx-ZUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048.8" y="115.59220389805098"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="0Vh-uo-zse">
-            <objects>
-                <viewController storyboardIdentifier="Home" title="Home" id="Bqd-8e-Rac" customClass="HomeVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Wgx-aH-fPI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd5-0c-40B" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="597" width="200" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="AhD-UY-Q9m"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="QWS-Fz-ZIq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Build New Schedule"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="tN9-yH-7gg" kind="show" identifier="showBuilder" id="u7t-LL-TZK"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8mg-Er-QeP">
-                                <rect key="frame" x="16" y="81" width="343" height="464"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf1-en-7nQ" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="299" y="24" width="60" height="20"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="3c1-KV-bHc"/>
-                                    <constraint firstAttribute="height" constant="20" id="JfG-hO-by6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Logout"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="logout:" destination="Bqd-8e-Rac" eventType="touchUpInside" id="GNO-Nk-gFi"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Term" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyu-M8-R8R">
-                                <rect key="frame" x="129.5" y="20" width="116.5" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdO-VT-e3o" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="112.5" y="565" width="150" height="24"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="CBo-2G-JEb"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="bWd-qk-L5h"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="View Saved Schedules"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="dMr-rB-oXv" kind="show" identifier="showSaved" id="J8H-BK-2Hh"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="8mg-Er-QeP" firstAttribute="leading" secondItem="dLY-Bc-dgi" secondAttribute="leading" constant="16" id="72o-mh-Zfl"/>
-                            <constraint firstItem="Bf1-en-7nQ" firstAttribute="centerY" secondItem="Qyu-M8-R8R" secondAttribute="centerY" id="7Zz-Tz-eCV"/>
-                            <constraint firstItem="dLY-Bc-dgi" firstAttribute="bottom" secondItem="Dd5-0c-40B" secondAttribute="bottom" constant="20" id="DAi-jx-m95"/>
-                            <constraint firstItem="pdO-VT-e3o" firstAttribute="centerX" secondItem="dLY-Bc-dgi" secondAttribute="centerX" id="M7Y-6S-xGr"/>
-                            <constraint firstItem="Dd5-0c-40B" firstAttribute="top" secondItem="pdO-VT-e3o" secondAttribute="bottom" constant="8" id="NeO-NI-S3v"/>
-                            <constraint firstItem="8mg-Er-QeP" firstAttribute="top" secondItem="Qyu-M8-R8R" secondAttribute="bottom" constant="32" id="O8n-g3-787"/>
-                            <constraint firstItem="dLY-Bc-dgi" firstAttribute="trailing" secondItem="Bf1-en-7nQ" secondAttribute="trailing" constant="16" id="Rhp-zM-dL3"/>
-                            <constraint firstItem="pdO-VT-e3o" firstAttribute="top" secondItem="8mg-Er-QeP" secondAttribute="bottom" constant="20" id="YSf-uM-Cmz"/>
-                            <constraint firstItem="Dd5-0c-40B" firstAttribute="centerX" secondItem="dLY-Bc-dgi" secondAttribute="centerX" id="Yg4-vT-eWo"/>
-                            <constraint firstItem="8mg-Er-QeP" firstAttribute="centerX" secondItem="dLY-Bc-dgi" secondAttribute="centerX" id="bDl-cw-kmr"/>
-                            <constraint firstItem="Qyu-M8-R8R" firstAttribute="top" secondItem="dLY-Bc-dgi" secondAttribute="top" id="mdb-4n-hEB"/>
-                            <constraint firstItem="dLY-Bc-dgi" firstAttribute="trailing" secondItem="8mg-Er-QeP" secondAttribute="trailing" constant="16" id="oNK-gI-qah"/>
-                            <constraint firstItem="Qyu-M8-R8R" firstAttribute="centerX" secondItem="dLY-Bc-dgi" secondAttribute="centerX" id="xq3-su-Sox"/>
-                            <constraint firstItem="Bf1-en-7nQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qyu-M8-R8R" secondAttribute="trailing" constant="4" id="yoQ-Ri-Cnm"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="dLY-Bc-dgi"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="TI0-yM-K6i"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="O3Q-Pl-DTt" id="U8p-aV-qIu"/>
-                        <outlet property="termTable" destination="8mg-Er-QeP" id="ASn-Lj-dqI"/>
-                        <outletCollection property="displayButtons" destination="pdO-VT-e3o" collectionClass="NSMutableArray" id="lak-Td-jWq"/>
-                        <outletCollection property="displayButtons" destination="Dd5-0c-40B" collectionClass="NSMutableArray" id="9c4-GM-zbM"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R6J-AH-s7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="O3Q-Pl-DTt">
-                    <connections>
-                        <outlet property="delegate" destination="Bqd-8e-Rac" id="yGV-vp-jaq"/>
-                        <outlet property="searchContentsController" destination="Bqd-8e-Rac" id="8HO-dp-Wdi"/>
-                        <outlet property="searchResultsDataSource" destination="Bqd-8e-Rac" id="NF9-AO-AjO"/>
-                        <outlet property="searchResultsDelegate" destination="Bqd-8e-Rac" id="MGB-XU-Wxh"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="237.59999999999999" y="833.43328335832086"/>
+            <point key="canvasLocation" x="-1606" y="833"/>
         </scene>
         <!--CoursesVC-->
         <scene sceneID="qiq-4w-G1f">
             <objects>
-                <viewController id="tN9-yH-7gg" customClass="CoursesVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="tN9-yH-7gg" customClass="CoursesVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QE0-S8-wJs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,7 +260,7 @@
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-bX-7p5">
                                 <rect key="frame" x="0.0" y="113" width="375" height="462"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaZ-ol-ppf" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
                                 <rect key="frame" x="155" y="607" width="64" height="40"/>
@@ -405,12 +290,15 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Sorting"/>
+                                <state key="normal" title="Saved"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="dMr-rB-oXv" kind="show" identifier="showSaved" id="Irv-we-sxW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo1-dZ-FVa" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
                                 <rect key="frame" x="287" y="607" width="72" height="40"/>
@@ -438,22 +326,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fall 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oG-Ic-0d5">
-                                <rect key="frame" x="309.5" y="34.5" width="49.5" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0Q-HJ-UGx">
-                                <rect key="frame" x="22" y="15" width="30" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="◀︎">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="goBack" destination="tN9-yH-7gg" eventType="touchUpInside" id="I6W-6p-0E9"/>
-                                </connections>
-                            </button>
                             <label hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 courses selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3m-Et-Lam">
                                 <rect key="frame" x="0.0" y="113" width="375" height="24"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -464,52 +336,87 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiT-ki-RXk" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                <rect key="frame" x="288.5" y="27" width="70" height="24"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="MwZ-IS-l1m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Spring 2020"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="termPress:" destination="tN9-yH-7gg" eventType="touchUpInside" id="vob-Z8-053"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMF-pn-q2m" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                <rect key="frame" x="16" y="27" width="70" height="24"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="N3y-Lv-yqf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Settings"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Bo1-dZ-FVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QE0-S8-wJs" secondAttribute="leading" constant="20" symbolic="YES" id="0vs-rb-w7I"/>
                             <constraint firstItem="xbo-VZ-sZ4" firstAttribute="top" secondItem="cwe-Ha-hRj" secondAttribute="bottom" constant="4" id="7EM-tj-CQ9"/>
+                            <constraint firstItem="yiT-ki-RXk" firstAttribute="centerY" secondItem="cwe-Ha-hRj" secondAttribute="centerY" id="7Pv-gF-Ghp"/>
                             <constraint firstItem="7j9-vT-Qo6" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" id="7ad-Si-4l6"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="TaZ-ol-ppf" secondAttribute="bottom" constant="20" id="9F7-EI-bwa"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MMF-pn-q2m" secondAttribute="trailing" constant="20" symbolic="YES" id="GGg-ZD-bvE"/>
                             <constraint firstItem="RZK-bX-7p5" firstAttribute="top" secondItem="xbo-VZ-sZ4" secondAttribute="bottom" id="HAs-Nk-wpo"/>
+                            <constraint firstItem="MMF-pn-q2m" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" constant="16" id="I8W-mN-CvS"/>
                             <constraint firstItem="cwe-Ha-hRj" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="J75-aA-JT9"/>
                             <constraint firstItem="TaZ-ol-ppf" firstAttribute="top" secondItem="RZK-bX-7p5" secondAttribute="bottom" constant="32" id="JWh-1f-Qdo"/>
                             <constraint firstItem="p3m-Et-Lam" firstAttribute="top" secondItem="7j9-vT-Qo6" secondAttribute="top" id="KrN-Bq-vKx"/>
                             <constraint firstItem="RZK-bX-7p5" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" id="L2X-FG-6Ce"/>
-                            <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="3oG-Ic-0d5" secondAttribute="trailing" constant="16" id="MHi-Iv-kNt"/>
                             <constraint firstItem="cwe-Ha-hRj" firstAttribute="top" secondItem="Dug-H3-JDK" secondAttribute="top" constant="4" id="MdJ-tc-obq"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="RZK-bX-7p5" secondAttribute="trailing" id="NAe-gf-Nsr"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="Bo1-dZ-FVa" secondAttribute="bottom" constant="20" id="Of6-Kh-pim"/>
+                            <constraint firstItem="MMF-pn-q2m" firstAttribute="centerY" secondItem="cwe-Ha-hRj" secondAttribute="centerY" id="Olx-Xz-HMk"/>
                             <constraint firstItem="mud-R2-aON" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" constant="16" id="RJj-Gu-Ado"/>
                             <constraint firstItem="xbo-VZ-sZ4" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="UzP-hZ-vf7"/>
                             <constraint firstItem="7j9-vT-Qo6" firstAttribute="top" secondItem="xbo-VZ-sZ4" secondAttribute="bottom" id="V87-DC-YFd"/>
                             <constraint firstItem="7j9-vT-Qo6" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="XDq-bc-6g6"/>
-                            <constraint firstItem="3oG-Ic-0d5" firstAttribute="centerY" secondItem="cwe-Ha-hRj" secondAttribute="centerY" constant="3" id="YDh-nE-XlU"/>
                             <constraint firstItem="p3m-Et-Lam" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="Z0R-a0-vfs"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="7j9-vT-Qo6" secondAttribute="bottom" id="eMj-yq-tlt"/>
+                            <constraint firstItem="yiT-ki-RXk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QE0-S8-wJs" secondAttribute="leading" constant="20" symbolic="YES" id="enh-l8-8VY"/>
+                            <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="yiT-ki-RXk" secondAttribute="trailing" constant="16" id="f3B-4e-36x"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mud-R2-aON" secondAttribute="trailing" constant="20" symbolic="YES" id="fBN-dl-CtT"/>
                             <constraint firstItem="p3m-Et-Lam" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" id="gxz-Q9-0LI"/>
                             <constraint firstItem="TaZ-ol-ppf" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="iEK-Wp-OFe"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="mud-R2-aON" secondAttribute="bottom" constant="20" id="jph-6I-Whl"/>
-                            <constraint firstItem="g0Q-HJ-UGx" firstAttribute="centerY" secondItem="cwe-Ha-hRj" secondAttribute="centerY" id="mOZ-ew-9CA"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="Bo1-dZ-FVa" secondAttribute="trailing" constant="16" id="ms3-r5-L8z"/>
-                            <constraint firstItem="3oG-Ic-0d5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cwe-Ha-hRj" secondAttribute="trailing" constant="4" id="n9b-Pm-lj1"/>
-                            <constraint firstItem="g0Q-HJ-UGx" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" constant="22" id="nu1-aa-3tV"/>
                             <constraint firstItem="xbo-VZ-sZ4" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" id="sIi-Fp-kLA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dug-H3-JDK"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tNi-SO-2U1"/>
                     <connections>
                         <outlet property="searchBar" destination="xbo-VZ-sZ4" id="xcX-uk-YF4"/>
                         <outlet property="searchTable" destination="7j9-vT-Qo6" id="mdZ-nl-ez4"/>
                         <outlet property="selectedTable" destination="RZK-bX-7p5" id="s5a-yT-bOB"/>
                         <outlet property="selectionLabel" destination="p3m-Et-Lam" id="Sjk-Mo-jJ8"/>
-                        <outlet property="termLabel" destination="3oG-Ic-0d5" id="UEe-HN-CLE"/>
+                        <outlet property="termButton" destination="yiT-ki-RXk" id="OS2-zf-cN5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0k-l5-kgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048.8" y="833.43328335832086"/>
+            <point key="canvasLocation" x="237.59999999999999" y="832.53373313343332"/>
         </scene>
         <!--SectionsVC-->
         <scene sceneID="dKO-8h-C4j">
@@ -585,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6r-sG-EN9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785" y="833"/>
+            <point key="canvasLocation" x="1049" y="833"/>
         </scene>
         <!--SchedulesVC-->
         <scene sceneID="bzG-ke-CBr">
@@ -832,7 +739,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX3-M9-MDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="2398"/>
+            <point key="canvasLocation" x="238" y="2391"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vg1-vK-hXI">
@@ -849,7 +756,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9d-cj-6xz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-633" y="116"/>
+            <point key="canvasLocation" x="-3289" y="833"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BGg-BF-LVc">
@@ -861,7 +768,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Bqd-8e-Rac" kind="relationship" relationship="rootViewController" id="pyY-DY-uww"/>
+                        <segue destination="tN9-yH-7gg" kind="relationship" relationship="rootViewController" id="RIb-a3-ECi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxX-Ot-A0F" userLabel="First Responder" sceneMemberID="firstResponder"/>

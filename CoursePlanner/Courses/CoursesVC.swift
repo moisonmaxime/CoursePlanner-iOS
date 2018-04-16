@@ -12,15 +12,26 @@ class CoursesVC: UIViewController {
     @IBOutlet weak var searchTable: UITableView!
     @IBOutlet weak var selectedTable: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var termLabel: UILabel!
     @IBOutlet weak var selectionLabel: UILabel!
+    @IBOutlet weak var termButton: UIButton!
     
-    var term:String?
+    var term:String? {
+        didSet {
+            DispatchQueue.main.async {
+                self.selectedCourses = []
+                self.searchedCourses = []
+                self.badCRNs = []
+                self.termButton.setTitle(self.term?.readableTerm(), for: .normal)
+                self.reloadTables()
+                self.searchBar.text = ""
+            }
+        }
+    }
     
     var selectedCourses:Array<[String: String]> = [] {
         didSet {
             let count = selectedCourses.count
-            selectionLabel.isHidden = !(count > 0) && !searchTable.isHidden
+            selectionLabel.isHidden = !((count > 0) && !searchTable.isHidden)
             selectionLabel.text = "\(count) course\(count > 1 ? "s" : "") selected"
             searchTable.contentInset.top = count > 0 ? 24 : 0
         }
@@ -31,7 +42,9 @@ class CoursesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        termLabel.text = term?.readableTerm()
+        
+        term = (UserDefaults.standard.object(forKey: "terms") as! [String]).first
+        termButton.setTitle(term?.readableTerm(), for: .normal)
         
         let nib = UINib.init(nibName: "QuickCourseCell", bundle: nil)
         searchTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
@@ -73,6 +86,14 @@ class CoursesVC: UIViewController {
         }
     }
     
+    @IBAction func termPress(_ sender: Any) {
+        selectTerm { (termSelected) in
+            if (termSelected != self.term) {
+                self.term = termSelected
+            }
+        }
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -88,6 +109,9 @@ class CoursesVC: UIViewController {
             VC.courses = selectedIDs
             VC.term = term!
             VC.badCRNs = badCRNs
+        } else if (segue.identifier == "showSaved") {
+            let dest = segue.destination as! SavedSchedulesVC
+            dest.term = term
         }
     }
 }

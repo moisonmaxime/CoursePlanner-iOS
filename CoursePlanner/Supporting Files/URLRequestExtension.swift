@@ -15,13 +15,13 @@ extension URLRequest {
         case GET = "GET"
     }
     
-    init(url: URL, type: RequestType) {
+    init(url: URL, type: RequestType, forceUnauthorized: Bool=false) {
         self.init(url: url)
         self.setValue("application/json", forHTTPHeaderField: "Content-Type")
         self.httpMethod = type.rawValue
         
         let token = UserDefaults.standard.string(forKey: "api_token")
-        if (token != nil) {
+        if (token != nil && !forceUnauthorized) {
             self.addValue("Bearer \(token!)", forHTTPHeaderField: "Authorization")
         }
     }

@@ -258,7 +258,7 @@ class RestAPI {
             completion(nil, .InternalError)
             return
         }
-        let request:URLRequest = URLRequest(url: url, type: .GET)
+        let request:URLRequest = URLRequest(url: url, type: .GET, forceUnauthorized: true)
         request.getJsonData { (dict, err) in
             if (err != nil) {
                 completion(nil, err!)
@@ -270,12 +270,10 @@ class RestAPI {
                     return
                 }
                 result.sort(by: { (s1, s2) -> Bool in
-                    let t1 = s1.readableTerm().split(separator: " ")
-                    let t2 = s2.readableTerm().split(separator: " ")
-                    if (t1[1] == t2[1]) {
-                        return t1[0] < t2[0]
+                    if (s1.prefix(4) == s2.prefix(4)) {
+                        return s1.suffix(2) > s2.suffix(2)
                     }
-                    return t1[1] > t2[1]
+                    return s1.prefix(4) > s2.prefix(4)
                 })
                 UserDefaults.standard.set(result, forKey: "terms")
                 completion(result, nil)

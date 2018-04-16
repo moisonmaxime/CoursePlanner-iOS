@@ -74,7 +74,7 @@ extension UIViewController {
         let termSelector = UIAlertController(title: "Choose a term", message: nil, preferredStyle: .actionSheet)
         for term in terms {
             termSelector.addAction(.init(title: term.readableTerm(), style: .default, handler: { (action) in
-                completion(action.title!)
+                completion(action.title!.termID())
             }))
         }
         
