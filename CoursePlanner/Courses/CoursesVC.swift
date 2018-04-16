@@ -20,7 +20,7 @@ class CoursesVC: UIViewController {
     var selectedCourses:Array<[String: String]> = [] {
         didSet {
             let count = selectedCourses.count
-            selectionLabel.isHidden = !(count > 0)
+            selectionLabel.isHidden = !(count > 0) && !searchTable.isHidden
             selectionLabel.text = "\(count) course\(count > 1 ? "s" : "") selected"
             searchTable.contentInset.top = count > 0 ? 24 : 0
         }

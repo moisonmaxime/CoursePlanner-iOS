@@ -14,7 +14,6 @@ class SavedSchedulesVC: SchedulesVC {
         (self.navigationController as! NavigationController).didStartLoading(immediately: true)
         RestAPI.getSavedSchedule(completion: { (response, error) in
             DispatchQueue.main.async {
-                print(self.schedules)
                 if let nav = (self.navigationController as? NavigationController) {
                     nav.didFinishLoading()
                     if (error != nil) {

@@ -131,6 +131,7 @@ class RestAPITests: XCTestCase {
             expect.fulfill()
         }
         waitForExpectations(timeout: 5, handler: nil)
+        testDeleteSchedule()
     }
     
     func testDeleteSchedule() {

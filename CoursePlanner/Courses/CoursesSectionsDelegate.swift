@@ -22,6 +22,9 @@ extension CoursesVC: SectionsDelegate {
     func removeCourse(_ course: [String : String]) {
         if let index = selectedCourses.index(of: course) {
             selectedCourses.remove(at: index)
+            selectedTable.reloadData()
+            searchTable.reloadData()
+            selectionLabel.isHidden = true
         }
     }
     

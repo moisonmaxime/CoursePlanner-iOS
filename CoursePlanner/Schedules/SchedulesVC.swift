@@ -16,6 +16,9 @@ class SchedulesVC: UIViewController {
     
     var index:Int = 0 {
         didSet {
+            if index < 0 {
+                index = index + 1
+            }
             currentScheduleLbl.text! = "\(index + 1)/\(schedules.count)"
             checkButtonStates()
             currentScheduleLbl.isHidden = schedules.first == nil || schedules[index].sections.count == 0
@@ -64,7 +67,7 @@ class SchedulesVC: UIViewController {
                         return true
                     })
                     if (self.schedules.count == 0) {
-                        print("No schedule!")
+                        debugPrint("No schedule!")
                     }
                     self.currentScheduleLbl.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
                     self.detailssButton.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
@@ -77,8 +80,8 @@ class SchedulesVC: UIViewController {
     }
     
     func checkButtonStates() {
-        previousButton.isEnabled = (index != 0)
-        nextButton.isEnabled = (index < schedules.count - 1)
+        previousButton.isEnabled = (index != 0) && (schedules.count > 1)
+        nextButton.isEnabled = (index < schedules.count - 1) && (schedules.count > 1)
     }
     
     override func didReceiveMemoryWarning() {

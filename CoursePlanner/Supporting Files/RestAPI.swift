@@ -124,7 +124,6 @@ class RestAPI {
      return
      } else {
      // Save to application settings
-     print(dict)
      //                guard let refresh = dict!["refresh"] as? String else {
      //                    completion(.InternalError)
      //                    return
