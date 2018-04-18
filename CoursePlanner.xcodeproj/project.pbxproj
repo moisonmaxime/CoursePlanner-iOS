@@ -187,7 +187,7 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
-		1B209D3C2062ED7C00F701C6 /* Home */ = {
+		1B209D3C2062ED7C00F701C6 /* Home - Retired */ = {
 			isa = PBXGroup;
 			children = (
 				1B76605B2059AF99000929D5 /* HomeVC.swift */,
@@ -196,7 +196,7 @@
 				1B88D137207569EA00F5B555 /* TermCell.swift */,
 				1B88D138207569EA00F5B555 /* TermCell.xib */,
 			);
-			path = Home;
+			path = "Home - Retired";
 			sourceTree = "<group>";
 		};
 		1B209D3D2062ED8100F701C6 /* Courses */ = {
@@ -233,6 +233,14 @@
 				1B37625320783902006C20D6 /* Info.plist */,
 			);
 			path = CoursePlannerTests;
+			sourceTree = "<group>";
+		};
+		1B39B5852087DAB500488880 /* RETIRED */ = {
+			isa = PBXGroup;
+			children = (
+				1B209D3C2062ED7C00F701C6 /* Home - Retired */,
+			);
+			path = RETIRED;
 			sourceTree = "<group>";
 		};
 		1B5C7F5F2065A1D9009911E0 /* Schedules */ = {
@@ -276,13 +284,13 @@
 				1B644E1A2050ED9F00CA9264 /* Main.storyboard */,
 				1B209D3A2062ED7000F701C6 /* Login */,
 				1B209D3B2062ED7700F701C6 /* Register */,
-				1B209D3C2062ED7C00F701C6 /* Home */,
 				1B209D3D2062ED8100F701C6 /* Courses */,
 				1B5C7F5F2065A1D9009911E0 /* Schedules */,
 				1BB2021A205A14C600A96619 /* Navigation */,
 				1B31BC2720773B320013FC53 /* Buttons */,
 				1BAB20A620586B5400C0D079 /* Supporting Files */,
 				1B644E222050ED9F00CA9264 /* Info.plist */,
+				1B39B5852087DAB500488880 /* RETIRED */,
 			);
 			path = CoursePlanner;
 			sourceTree = "<group>";

@@ -94,6 +94,13 @@ class CoursesVC: UIViewController {
         }
     }
     
+    @IBAction func logout(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "api_token") // Clear token
+        (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
+        let login = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+        self.navigationController?.setViewControllers([login!], animated: true)
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
