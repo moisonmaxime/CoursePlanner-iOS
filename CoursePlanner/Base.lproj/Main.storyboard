@@ -276,11 +276,29 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6n-8s-0Vr" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                <rect key="frame" x="24" y="39.5" width="64" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="0l6-xI-egb"/>
+                                    <constraint firstAttribute="width" constant="64" id="Kwl-xt-8mJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Done"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZJC-rO-D1a" firstAttribute="top" secondItem="PiO-5w-B1A" secondAttribute="top" constant="16" id="1r2-9c-IOP"/>
+                            <constraint firstItem="q6n-8s-0Vr" firstAttribute="leading" secondItem="PiO-5w-B1A" secondAttribute="leading" constant="24" id="MaK-54-5RH"/>
                             <constraint firstItem="ZJC-rO-D1a" firstAttribute="centerX" secondItem="PiO-5w-B1A" secondAttribute="centerX" id="UsD-aF-IyS"/>
+                            <constraint firstItem="q6n-8s-0Vr" firstAttribute="centerY" secondItem="ZJC-rO-D1a" secondAttribute="centerY" id="mFp-bN-TSu"/>
                             <constraint firstItem="A9X-Mu-Kd8" firstAttribute="centerX" secondItem="PiO-5w-B1A" secondAttribute="centerX" id="mHX-Qu-fl7"/>
                             <constraint firstItem="PiO-5w-B1A" firstAttribute="bottom" secondItem="A9X-Mu-Kd8" secondAttribute="bottom" constant="9" id="pAK-Vo-vFg"/>
                         </constraints>
@@ -289,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUB-lz-3hY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="29"/>
+            <point key="canvasLocation" x="1048.8" y="28.335832083958024"/>
         </scene>
         <!--CoursesVC-->
         <scene sceneID="qiq-4w-G1f">
