@@ -387,11 +387,11 @@
                                     <constraint firstItem="TaZ-ol-ppf" firstAttribute="width" secondItem="Njc-oS-2sd" secondAttribute="width" multiplier="0.3" id="p4i-hX-mP7"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="osP-WH-Dtd">
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="osP-WH-Dtd">
                                 <rect key="frame" x="16" y="24" width="382" height="51"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiT-ki-RXk" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="286" height="51"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="318" height="51"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <color key="tintColor" name="ButtonColor"/>
