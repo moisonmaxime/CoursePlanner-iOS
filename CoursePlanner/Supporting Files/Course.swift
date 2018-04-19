@@ -31,9 +31,11 @@ class Section: NSObject {
         self.name = name != nil ? name! : "UNKNOWN"
         
         for (_, section) in dictionary {
-            let section = section as! [String: [String: Any?]]
+            let section = section as! [String: [String: Any?]?]
             for (_, course) in section {
-                self.courses.append(Course(course))
+                if (course != nil) {
+                    self.courses.append(Course(course!))
+                }
             }
         }
     }

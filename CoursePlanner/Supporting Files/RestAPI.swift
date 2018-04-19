@@ -285,6 +285,7 @@ class RestAPI {
     static func getSchedules(term: String,
                              courses: Array<String>,
                              openOnly: Bool=false,
+                             badCRNs: [String]?=nil,
                              completion: @escaping ([Schedule]?, APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)courses/schedule-search/") else {
             completion(nil, .InternalError)
@@ -294,6 +295,9 @@ class RestAPI {
         var request:URLRequest = URLRequest(url: url, type: .POST)
         var postContent = ["term": term, "course_list": courses] as [String : Any]
         postContent["search_full"] = openOnly ? "false" : "true"
+        if (badCRNs != nil) {
+            postContent["bad_crns"] = badCRNs!
+        }
         guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
             completion(nil, .InternalError)
             return
@@ -312,18 +316,15 @@ class RestAPI {
                 
                 var schedules:[Schedule] = []
                 for i in 0..<result.count {
-                    let info:Dictionary<String, Any>
-                    guard let tempInfo = result[i]["info"]! as? Dictionary<String, Any> else {
+                    guard let info = result[i]["info"]! as? [String: Any] else {
                         completion(nil, .InternalError)
                         return
                     }
-                    info = tempInfo
-                    let courses:Dictionary<String, Dictionary<String, Dictionary<String, Any?>>>
-                    guard let tempClasses = result[i]["schedule"] as? Dictionary<String, Dictionary<String, Dictionary<String, Any?>>> else {
+                    guard let courses = result[i]["schedule"] as? [String: [String: Any?]?] else {
+                        debugPrint("Could not get the Lect: nil")
                         completion(nil, .InternalError)
                         return
                     }
-                    courses = tempClasses
                     let newSchedule = Schedule(info: info, courses: courses)
                     schedules.append(newSchedule)
                 }
@@ -357,12 +358,10 @@ class RestAPI {
                         return
                     }
                     info = tempInfo
-                    let courses:Dictionary<String, Dictionary<String, Dictionary<String, Any?>>>
-                    guard let tempClasses = result[i]["schedule"] as? Dictionary<String, Dictionary<String, Dictionary<String, Any?>>> else {
+                    guard let courses = result[i]["schedule"] as? Dictionary<String, Dictionary<String, Dictionary<String, Any?>>> else {
                         completion(nil, .InternalError)
                         return
                     }
-                    courses = tempClasses
                     let newSchedule = Schedule(info: info, courses: courses)
                     schedules.append(newSchedule)
                 }

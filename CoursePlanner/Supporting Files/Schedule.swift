@@ -38,14 +38,17 @@ class Schedule: NSObject {
         }
     }
     
-    required init(info: Dictionary<String, Any>, courses: [String:[String:Any?]]) {
+    required init(info: Dictionary<String, Any>, courses: [String:[String:Any?]?]) {
         self.earliest = info["earliest"] as! Double
         self.latest = info["latest"] as! Double
         self.gaps = info["gaps"] as? Int
         self.days = info["number_of_days"] as? Int
         
         for c in courses {
-            sections.append(Section([c.key: c.value]))
+            if (c.value == nil) {
+                continue
+            }
+            sections.append(Section([c.key: c.value!]))
         }
     }
 }
