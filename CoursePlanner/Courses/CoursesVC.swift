@@ -21,7 +21,7 @@ class CoursesVC: UIViewController {
                 self.selectedCourses = []
                 self.searchedCourses = []
                 self.badCRNs = []
-                self.termButton.setTitle(self.term?.readableTerm(), for: .normal)
+                self.termButton.setTitle((self.term?.readableTerm())! + " ▼", for: .normal)
                 self.reloadTables()
                 self.searchBar.text = ""
             }
