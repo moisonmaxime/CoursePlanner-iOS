@@ -16,24 +16,19 @@ extension SectionsVC: UITableViewDelegate {
         let attached = courses[indexPath.row].attachedCourse
         let lecture = courses[indexPath.row].lecture
         
-        var statusChanged = false
-        
         if (attached != nil) {
             if sectionsDelegate.removeCRN(attached!) {
-                statusChanged = true
+            } else {
+                sectionsDelegate.addCRN(attached!)
             }
         }
         
         if (lecture != nil) {
-            if (sectionsDelegate.removeCRN(lecture!)) {
-                statusChanged = true
-            }
+            _ = sectionsDelegate.removeCRN(lecture!)
         }
         
         if !sectionsDelegate.removeCRN(crn) {
-            if (!statusChanged) {
                 sectionsDelegate.addCRN(crn)
-            }
         }
         
         self.sectionTable.reloadData()

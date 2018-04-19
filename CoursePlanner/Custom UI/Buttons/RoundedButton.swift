@@ -20,11 +20,15 @@ import UIKit
         super.init(frame: frame)
         self.layer.cornerRadius = cornerRadius
         self.layer.masksToBounds = true
+        self.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.titleLabel?.minimumScaleFactor = 0.75
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.layer.cornerRadius = cornerRadius
         self.layer.masksToBounds = true
+        self.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.titleLabel?.minimumScaleFactor = 0.75
     }
 }

@@ -52,9 +52,6 @@ class CourseCell: UITableViewCell {
         } else if badCRNs.contains(course.lecture ?? "") {
             isAvailable = false
             neededCRN = course.lecture
-        } else if badCRNs.contains(course.attachedCourse ?? "") {
-            isAvailable = false
-            neededCRN = course.attachedCourse
         } else {
             isAvailable = true
             neededCRN = nil
