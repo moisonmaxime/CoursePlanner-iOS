@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // UserDefaults.standard.removeObject(forKey: "api_token") // Clear token
+        // UserDefaults.standard.removeObject(forKey: "terms") // Clear terms
         
         if let _ = UserDefaults.standard.string(forKey: "api_token") {
             // Load Home View
