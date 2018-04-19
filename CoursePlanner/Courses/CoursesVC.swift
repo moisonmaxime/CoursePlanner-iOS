@@ -43,8 +43,19 @@ class CoursesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        term = (UserDefaults.standard.object(forKey: "terms") as! [String]).first
-        termButton.setTitle(term?.readableTerm(), for: .normal)
+        if let terms = UserDefaults.standard.object(forKey: "terms") {
+            term = (terms as! [String]).first
+        } else {
+            RestAPI.getTerms { (terms, err) in
+                DispatchQueue.main.async {
+                    if (err != nil) {
+                        self.handleError(error: err!)
+                    } else {
+                        self.term = terms?.first
+                    }
+                }
+            }
+        }
         
         let nib = UINib.init(nibName: "QuickCourseCell", bundle: nil)
         searchTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
