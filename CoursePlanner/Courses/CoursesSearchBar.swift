@@ -1,5 +1,5 @@
 //
-//  CoursesSearchBarDelegate.swift
+//  CoursesSearchBar.swift
 //  CoursePlanner
 //
 //  Created by Maxime Moison on 3/21/18.
@@ -8,18 +8,24 @@
 
 import UIKit
 
-extension CoursesVC: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        if ((searchBar.text?.underestimatedCount)! >= 2) {
-            let searchPrompt = searchBar.text!
-            RestAPI.searchCourseIDs(id: searchBar.text!, term: self.term, completion: { (result, err) in
+extension CoursesVC {
+    @IBAction func searchDidBegin(_ sender: Any) {
+        searchTable.isHidden = false
+        selectionLabel.isHidden = !(selectedCourses.count > 0)
+        updateSearchStatus()
+    }
+    
+    @IBAction func searchDidChanged(_ sender: Any) {
+        updateSearchStatus()
+        if ((searchField.text?.underestimatedCount)! >= 2) {
+            let searchPrompt = searchField.text!
+            RestAPI.searchCourseIDs(id: searchField.text!, term: self.term, completion: { (result, err) in
                 DispatchQueue.main.sync {
                     if (err != nil) {
                         self.handleError(error: err!)
                         return
                     }
-                    if (searchPrompt == self.searchBar.text!) {
+                    if (searchPrompt == self.searchField.text!) {
                         if (result != nil) {
                             self.searchedCourses = result!.sorted(by: { (c1, c2) -> Bool in
                                 let s1 = c1["name"]!.split(separator: "-")
@@ -44,18 +50,24 @@ extension CoursesVC: UISearchBarDelegate {
             self.searchTable.reloadData()
         }
     }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchTable.isHidden = false
-        selectionLabel.isHidden = !(selectedCourses.count > 0)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    @IBAction func searchDidEnd(_ sender: Any) {
         searchTable.isHidden = true
         selectionLabel.isHidden = true
+        updateSearchStatus()
+    }
+    @IBAction func searchDidReturn(_ sender: Any) {
+        searchField.endEditing(true)
+    }
+    
+    @IBAction func clearField(_ sender: Any) {
+        searchField.text = ""
+        updateSearchStatus()
+        searchedCourses = []
+        searchTable.reloadData()
+    }
+    
+    func updateSearchStatus() {
+        clearSearchButton.isHidden = (searchField.text == "" || !searchField.isEditing)
+        searchIcon.alpha = searchField.isEditing ? 1 : 0.4
     }
 }

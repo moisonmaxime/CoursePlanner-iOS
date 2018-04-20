@@ -30,6 +30,7 @@ extension CoursesVC: UITableViewDataSource {
             let course = selectedCourses[indexPath.row]
             cell.nameLabel.text = course["name"]
             cell.descriptionLabel.text = course["description"]
+            cell.updateView()
         }
         return cell
     }

@@ -11,9 +11,12 @@ import UIKit
 class CoursesVC: UIViewController {
     @IBOutlet weak var searchTable: UITableView!
     @IBOutlet weak var selectedTable: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var selectionLabel: UILabel!
     @IBOutlet weak var termButton: UIButton!
+    
+    @IBOutlet weak var searchIcon: UIImageView!
+    @IBOutlet weak var clearSearchButton: UIButton!
+    @IBOutlet weak var searchField: UITextField!
     
     var term:String? {
         didSet {
@@ -23,7 +26,7 @@ class CoursesVC: UIViewController {
                 self.badCRNs = []
                 self.termButton.setTitle((self.term?.readableTerm())! + " ▼", for: .normal)
                 self.reloadTables()
-                self.searchBar.text = ""
+                self.searchField.text = ""
             }
         }
     }
@@ -61,7 +64,6 @@ class CoursesVC: UIViewController {
         searchTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
         selectedTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
         
-        searchBar.delegate = self
         searchTable.dataSource = self
         searchTable.delegate = self
         selectedTable.dataSource = self
@@ -103,13 +105,6 @@ class CoursesVC: UIViewController {
                 self.term = termSelected
             }
         }
-    }
-    
-    @IBAction func logout(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: "api_token") // Clear token
-        (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
-        let login = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-        self.navigationController?.setViewControllers([login!], animated: true)
     }
     
     // MARK: - Navigation
