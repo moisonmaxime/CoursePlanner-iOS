@@ -19,9 +19,10 @@ class QuickCourseCell: UITableViewCell {
     }
 
     func updateView() {
-        nameLabel.textColor = isSelected ? .white : .black
-        descriptionLabel.textColor = isSelected ? .white : .black
-        backgroundColor = isSelected ? .black : .white
+        let highlightColor = #colorLiteral(red: 0.07450980392, green: 0.2352941176, blue: 0.3333333333, alpha: 1)
+        nameLabel.textColor = isSelected ? .white : highlightColor
+        descriptionLabel.textColor = isSelected ? .white : highlightColor
+        backgroundColor = isSelected ? highlightColor : .white
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
