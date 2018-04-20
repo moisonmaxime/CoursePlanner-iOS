@@ -615,46 +615,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Y1-yb-OuQ" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="15.999999999999993" y="690" width="124.33333333333331" height="30"/>
-                                <color key="backgroundColor" name="LabelColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                <state key="normal" title="Previous"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="previous:" destination="Yh2-kt-Ah4" eventType="touchUpInside" id="Y2O-Oc-YiA"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5T-lc-Kj7">
-                                <rect key="frame" x="194" y="695" width="26" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="LabelColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedules" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROu-Bu-h8O">
+                                <rect key="frame" x="150" y="24" width="115" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="textColor" name="ButtonColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcS-Ag-n6N" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="273.66666666666669" y="690" width="124.33333333333331" height="30"/>
-                                <color key="backgroundColor" name="LabelColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                <state key="normal" title="Next"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fall 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPe-wy-pnV">
+                                <rect key="frame" x="344.66666666666669" y="30.666666666666668" width="53" height="15.666666666666668"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                <color key="textColor" name="ButtonColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDB-d3-QtD">
+                                <rect key="frame" x="16" y="14.333333333333336" width="30" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="◀︎">
+                                    <color key="titleColor" name="ButtonColor"/>
+                                </state>
                                 <connections>
-                                    <action selector="next:" destination="Yh2-kt-Ah4" eventType="touchUpInside" id="0dK-n2-riJ"/>
+                                    <action selector="goBack" destination="Yh2-kt-Ah4" eventType="touchUpInside" id="FIf-zn-iPi"/>
+                                    <action selector="goBack" destination="tN9-yH-7gg" eventType="touchUpInside" id="q8F-dR-VCn"/>
                                 </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QG1-qZ-wHJ" customClass="WeekCalendar" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="16" y="56.666666666666686" width="382" height="576.33333333333326"/>
+                                <rect key="frame" x="16" y="56.666666666666686" width="382" height="603.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -662,80 +647,98 @@
                                     <outletCollection property="gestureRecognizers" destination="vmb-om-w1q" appends="YES" id="rrv-50-GGn"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedules" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROu-Bu-h8O">
-                                <rect key="frame" x="150" y="24" width="115" height="28.666666666666671"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                <color key="textColor" name="LabelColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fall 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPe-wy-pnV">
-                                <rect key="frame" x="344.66666666666669" y="30.666666666666668" width="53" height="15.666666666666668"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
-                                <color key="textColor" name="LabelColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDB-d3-QtD">
-                                <rect key="frame" x="16" y="14.333333333333336" width="30" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="◀︎">
-                                    <color key="titleColor" name="LabelColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="goBack" destination="Yh2-kt-Ah4" eventType="touchUpInside" id="FIf-zn-iPi"/>
-                                    <action selector="goBack" destination="tN9-yH-7gg" eventType="touchUpInside" id="q8F-dR-VCn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKs-84-lpV" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="127" y="649" width="160" height="30"/>
-                                <color key="backgroundColor" name="LabelColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qq-42-Etl">
+                                <rect key="frame" x="194" y="664" width="26" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="ZOu-PZ-eUs"/>
+                                    <constraint firstAttribute="height" constant="24" id="7Be-0L-bRh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                <state key="normal" title="See Details"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="eoI-jR-vgg" kind="presentation" identifier="showScheduleDetails" id="yrn-Fd-Px6"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="LabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V1L-Cb-tMW">
+                                <rect key="frame" x="16" y="688" width="382" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trN-cw-wGm">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.33333333333333" height="32"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="tintColor" name="ButtonColor"/>
+                                        <state key="normal" title="◀︎"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="previous:" destination="dMr-rB-oXv" eventType="touchUpInside" id="52w-WG-tN9"/>
+                                            <action selector="previous:" destination="Yh2-kt-Ah4" eventType="touchUpInside" id="H0U-39-rZi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuZ-qd-Udg">
+                                        <rect key="frame" x="127.33333333333334" y="0.0" width="127.33333333333334" height="32"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <color key="tintColor" name="ButtonColor"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Details"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="eoI-jR-vgg" kind="presentation" identifier="showScheduleDetails" id="6Fe-fm-CgP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBx-YX-Nf7">
+                                        <rect key="frame" x="254.66666666666671" y="0.0" width="127.33333333333334" height="32"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="tintColor" name="ButtonColor"/>
+                                        <state key="normal" title="▶"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="next:" destination="dMr-rB-oXv" eventType="touchUpInside" id="QBI-sg-AP8"/>
+                                            <action selector="next:" destination="Yh2-kt-Ah4" eventType="touchUpInside" id="trf-wx-jiM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Iwi-gk-zdu"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="JcS-Ag-n6N" firstAttribute="width" secondItem="NMa-1y-u3e" secondAttribute="width" multiplier="0.3" id="6Ok-Vp-suS"/>
+                            <constraint firstItem="V1L-Cb-tMW" firstAttribute="leading" secondItem="FNj-Bg-LKw" secondAttribute="leading" constant="16" id="36V-4Y-aQe"/>
                             <constraint firstItem="hPe-wy-pnV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ROu-Bu-h8O" secondAttribute="trailing" constant="4" id="6gR-cB-Ipn"/>
-                            <constraint firstItem="7Y1-yb-OuQ" firstAttribute="leading" secondItem="FNj-Bg-LKw" secondAttribute="leading" constant="16" id="6vZ-MI-AI9"/>
                             <constraint firstItem="FNj-Bg-LKw" firstAttribute="trailing" secondItem="QG1-qZ-wHJ" secondAttribute="trailing" constant="16" id="8u8-QT-Qkd"/>
                             <constraint firstItem="TDB-d3-QtD" firstAttribute="centerY" secondItem="ROu-Bu-h8O" secondAttribute="centerY" id="DWa-kC-DN5"/>
                             <constraint firstItem="QG1-qZ-wHJ" firstAttribute="top" secondItem="ROu-Bu-h8O" secondAttribute="bottom" constant="4" id="L67-Yg-k4z"/>
                             <constraint firstItem="ROu-Bu-h8O" firstAttribute="centerX" secondItem="FNj-Bg-LKw" secondAttribute="centerX" id="P4z-yO-zel"/>
-                            <constraint firstItem="yKs-84-lpV" firstAttribute="top" secondItem="QG1-qZ-wHJ" secondAttribute="bottom" constant="16" id="Uew-Bo-Qiw"/>
                             <constraint firstItem="hPe-wy-pnV" firstAttribute="centerY" secondItem="ROu-Bu-h8O" secondAttribute="centerY" id="V1T-Ar-mCK"/>
-                            <constraint firstItem="FNj-Bg-LKw" firstAttribute="bottom" secondItem="C5T-lc-Kj7" secondAttribute="bottom" constant="20" id="bp2-AP-LMI"/>
-                            <constraint firstItem="C5T-lc-Kj7" firstAttribute="centerX" secondItem="FNj-Bg-LKw" secondAttribute="centerX" id="ei5-2M-htS"/>
+                            <constraint firstItem="V1L-Cb-tMW" firstAttribute="top" secondItem="QG1-qZ-wHJ" secondAttribute="bottom" constant="28" id="Xy8-AB-e1W"/>
+                            <constraint firstItem="MuZ-qd-Udg" firstAttribute="top" secondItem="0Qq-42-Etl" secondAttribute="bottom" id="aBB-IE-hjd"/>
                             <constraint firstItem="FNj-Bg-LKw" firstAttribute="trailing" secondItem="hPe-wy-pnV" secondAttribute="trailing" constant="16.5" id="fed-lx-3Yo"/>
                             <constraint firstItem="TDB-d3-QtD" firstAttribute="leading" secondItem="FNj-Bg-LKw" secondAttribute="leading" constant="16" id="hbO-54-b54"/>
-                            <constraint firstItem="yKs-84-lpV" firstAttribute="centerX" secondItem="FNj-Bg-LKw" secondAttribute="centerX" id="jdK-y4-LUJ"/>
                             <constraint firstItem="QG1-qZ-wHJ" firstAttribute="leading" secondItem="FNj-Bg-LKw" secondAttribute="leading" constant="16" id="lnN-Yh-DMe"/>
-                            <constraint firstItem="FNj-Bg-LKw" firstAttribute="bottom" secondItem="7Y1-yb-OuQ" secondAttribute="bottom" constant="16" id="mBG-ZF-9rl"/>
+                            <constraint firstItem="FNj-Bg-LKw" firstAttribute="bottom" secondItem="V1L-Cb-tMW" secondAttribute="bottom" constant="16" id="lxN-nJ-cGW"/>
                             <constraint firstItem="ROu-Bu-h8O" firstAttribute="top" secondItem="FNj-Bg-LKw" secondAttribute="top" constant="4" id="r4J-40-fpi"/>
-                            <constraint firstItem="7Y1-yb-OuQ" firstAttribute="width" secondItem="NMa-1y-u3e" secondAttribute="width" multiplier="0.3" id="r9p-XK-1U3"/>
-                            <constraint firstItem="C5T-lc-Kj7" firstAttribute="top" secondItem="yKs-84-lpV" secondAttribute="bottom" constant="16" id="snJ-BN-CzY"/>
-                            <constraint firstItem="FNj-Bg-LKw" firstAttribute="bottom" secondItem="JcS-Ag-n6N" secondAttribute="bottom" constant="16" id="t2A-l1-yqk"/>
-                            <constraint firstItem="FNj-Bg-LKw" firstAttribute="trailing" secondItem="JcS-Ag-n6N" secondAttribute="trailing" constant="16" id="tJm-FG-qvf"/>
+                            <constraint firstItem="0Qq-42-Etl" firstAttribute="centerX" secondItem="FNj-Bg-LKw" secondAttribute="centerX" id="t1J-Ao-rpL"/>
+                            <constraint firstItem="FNj-Bg-LKw" firstAttribute="trailing" secondItem="V1L-Cb-tMW" secondAttribute="trailing" constant="16" id="z2Y-BX-cv9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FNj-Bg-LKw"/>
                     </view>
                     <connections>
-                        <outlet property="currentScheduleLbl" destination="C5T-lc-Kj7" id="Qn7-yE-bQe"/>
-                        <outlet property="detailssButton" destination="yKs-84-lpV" id="yo3-Qn-0eO"/>
-                        <outlet property="nextButton" destination="JcS-Ag-n6N" id="xSP-lD-75R"/>
-                        <outlet property="previousButton" destination="7Y1-yb-OuQ" id="DC0-jq-DWu"/>
+                        <outlet property="currentScheduleLbl" destination="0Qq-42-Etl" id="QRY-Wk-cPS"/>
+                        <outlet property="detailssButton" destination="MuZ-qd-Udg" id="FcA-cc-gxz"/>
+                        <outlet property="nextButton" destination="wBx-YX-Nf7" id="SWk-g8-MTQ"/>
+                        <outlet property="previousButton" destination="trN-cw-wGm" id="4C6-4q-7dh"/>
                         <outlet property="termLabel" destination="hPe-wy-pnV" id="3Ou-vR-QAo"/>
                         <outlet property="weekDisplay" destination="QG1-qZ-wHJ" id="w8W-56-REy"/>
                     </connections>
@@ -767,7 +770,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lc-TH-eHA" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="159" height="30"/>
-                                        <color key="backgroundColor" name="LabelColor"/>
+                                        <color key="backgroundColor" name="ButtonColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
@@ -783,7 +786,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0m-ba-p2A" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
                                         <rect key="frame" x="223" y="0.0" width="159" height="30"/>
-                                        <color key="backgroundColor" name="LabelColor"/>
+                                        <color key="backgroundColor" name="ButtonColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
@@ -805,7 +808,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpX-GK-cjp" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
                                 <rect key="frame" x="127" y="644" width="160" height="30"/>
-                                <color key="backgroundColor" name="LabelColor"/>
+                                <color key="backgroundColor" name="ButtonColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="gwu-Mb-Kve"/>
                                 </constraints>
@@ -888,30 +891,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpI-dA-QMG">
-                                <rect key="frame" x="194" y="695" width="26" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="LabelColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GT5-3K-FkZ" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="273.66666666666669" y="690" width="124.33333333333331" height="30"/>
-                                <color key="backgroundColor" name="LabelColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                <state key="normal" title="Next"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="next:" destination="dMr-rB-oXv" eventType="touchUpInside" id="Tbu-W0-VxS"/>
-                                </connections>
-                            </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPN-YC-Q5I" customClass="WeekCalendar" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="16" y="57" width="382" height="576"/>
+                                <rect key="frame" x="16" y="57" width="382" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -920,9 +901,9 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved Schedules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Wc-yP-iRV">
-                                <rect key="frame" x="113.00000000000001" y="24" width="188.33333333333337" height="29"/>
+                                <rect key="frame" x="113.00000000000001" y="24" width="188.33333333333337" height="28.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                <color key="textColor" name="LabelColor"/>
+                                <color key="textColor" name="ButtonColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fall 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="lAk-fX-6UM">
@@ -931,78 +912,101 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="4vW-OX-RDM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
-                                <color key="textColor" name="LabelColor"/>
+                                <color key="textColor" name="ButtonColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bme-8F-P3J">
                                 <rect key="frame" x="16" y="14.666666666666664" width="30" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="◀︎">
-                                    <color key="titleColor" name="LabelColor"/>
+                                    <color key="titleColor" name="ButtonColor"/>
                                 </state>
                                 <connections>
                                     <action selector="goBack" destination="dMr-rB-oXv" eventType="touchUpInside" id="eHE-7I-eEy"/>
                                     <action selector="goBack" destination="tN9-yH-7gg" eventType="touchUpInside" id="iQt-As-4lx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXF-UB-aEP" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="127" y="649" width="160" height="30"/>
-                                <color key="backgroundColor" name="LabelColor"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IgX-8Z-Bq6">
+                                <rect key="frame" x="16" y="688" width="382" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7SZ-cl-zoZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.33333333333333" height="32"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="tintColor" name="ButtonColor"/>
+                                        <state key="normal" title="◀︎"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="previous:" destination="dMr-rB-oXv" eventType="touchUpInside" id="Acp-Qx-Ai3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXF-UB-aEP">
+                                        <rect key="frame" x="127.33333333333334" y="0.0" width="127.33333333333334" height="32"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <color key="tintColor" name="ButtonColor"/>
+                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Details"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="eoI-jR-vgg" kind="presentation" identifier="showScheduleDetails" id="Yw0-g4-zbT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GT5-3K-FkZ">
+                                        <rect key="frame" x="254.66666666666671" y="0.0" width="127.33333333333334" height="32"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="tintColor" name="ButtonColor"/>
+                                        <state key="normal" title="▶"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="next:" destination="dMr-rB-oXv" eventType="touchUpInside" id="Tbu-W0-VxS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="tat-lk-0rJ"/>
+                                    <constraint firstAttribute="height" constant="32" id="1Ym-dX-HZe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                <state key="normal" title="See Details"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="eoI-jR-vgg" kind="presentation" identifier="showScheduleDetails" id="Yw0-g4-zbT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7SZ-cl-zoZ" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="15.999999999999993" y="690" width="124.33333333333331" height="30"/>
-                                <color key="backgroundColor" name="LabelColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                <state key="normal" title="Previous"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="previous:" destination="dMr-rB-oXv" eventType="touchUpInside" id="Acp-Qx-Ai3"/>
-                                </connections>
-                            </button>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpI-dA-QMG">
+                                <rect key="frame" x="194" y="664" width="26" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Rrj-ax-Dfr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="LabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="GT5-3K-FkZ" firstAttribute="width" secondItem="psP-yU-sg1" secondAttribute="width" multiplier="0.3" id="72c-dH-d94"/>
+                            <constraint firstItem="NpI-dA-QMG" firstAttribute="centerX" secondItem="qxU-EE-HiE" secondAttribute="centerX" id="3As-dO-eAD"/>
+                            <constraint firstItem="IgX-8Z-Bq6" firstAttribute="leading" secondItem="qxU-EE-HiE" secondAttribute="leading" constant="16" id="9AX-Gm-flX"/>
                             <constraint firstItem="lAk-fX-6UM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Wc-yP-iRV" secondAttribute="trailing" constant="16" id="CzG-es-e4o"/>
-                            <constraint firstItem="yXF-UB-aEP" firstAttribute="centerX" secondItem="qxU-EE-HiE" secondAttribute="centerX" id="E25-6w-aC4"/>
                             <constraint firstItem="qxU-EE-HiE" firstAttribute="trailing" secondItem="lAk-fX-6UM" secondAttribute="trailing" constant="16.5" id="FLv-Bi-jlz"/>
-                            <constraint firstItem="NpI-dA-QMG" firstAttribute="top" secondItem="yXF-UB-aEP" secondAttribute="bottom" constant="16" id="Jrg-pn-3zA"/>
-                            <constraint firstItem="qxU-EE-HiE" firstAttribute="bottom" secondItem="NpI-dA-QMG" secondAttribute="bottom" constant="20" id="LtS-yz-PqW"/>
-                            <constraint firstItem="qxU-EE-HiE" firstAttribute="bottom" secondItem="7SZ-cl-zoZ" secondAttribute="bottom" constant="16" id="MhF-fa-sLt"/>
+                            <constraint firstItem="yXF-UB-aEP" firstAttribute="top" secondItem="NpI-dA-QMG" secondAttribute="bottom" id="RMc-TX-dyX"/>
+                            <constraint firstItem="qxU-EE-HiE" firstAttribute="bottom" secondItem="IgX-8Z-Bq6" secondAttribute="bottom" constant="16" id="SJi-vI-9df"/>
                             <constraint firstItem="lAk-fX-6UM" firstAttribute="centerY" secondItem="5Wc-yP-iRV" secondAttribute="centerY" id="WOW-Uo-egC"/>
                             <constraint firstItem="bme-8F-P3J" firstAttribute="leading" secondItem="qxU-EE-HiE" secondAttribute="leading" constant="16" id="Z2O-V9-5Ch"/>
                             <constraint firstItem="IPN-YC-Q5I" firstAttribute="leading" secondItem="qxU-EE-HiE" secondAttribute="leading" constant="16" id="c44-nq-Yp0"/>
-                            <constraint firstItem="7SZ-cl-zoZ" firstAttribute="leading" secondItem="qxU-EE-HiE" secondAttribute="leading" constant="16" id="de4-WA-avc"/>
-                            <constraint firstItem="qxU-EE-HiE" firstAttribute="trailing" secondItem="GT5-3K-FkZ" secondAttribute="trailing" constant="16" id="ezc-rD-97C"/>
-                            <constraint firstItem="yXF-UB-aEP" firstAttribute="top" secondItem="IPN-YC-Q5I" secondAttribute="bottom" constant="16" id="if6-Fe-ZYl"/>
-                            <constraint firstItem="qxU-EE-HiE" firstAttribute="bottom" secondItem="GT5-3K-FkZ" secondAttribute="bottom" constant="16" id="laP-iV-0HP"/>
+                            <constraint firstItem="qxU-EE-HiE" firstAttribute="trailing" secondItem="IgX-8Z-Bq6" secondAttribute="trailing" constant="16" id="eKg-zR-NcT"/>
                             <constraint firstItem="5Wc-yP-iRV" firstAttribute="top" secondItem="qxU-EE-HiE" secondAttribute="top" constant="4" id="mEF-hy-Miv"/>
                             <constraint firstItem="bme-8F-P3J" firstAttribute="centerY" secondItem="5Wc-yP-iRV" secondAttribute="centerY" id="qX1-FK-bde"/>
-                            <constraint firstItem="NpI-dA-QMG" firstAttribute="centerX" secondItem="qxU-EE-HiE" secondAttribute="centerX" id="tEz-hW-ghR"/>
+                            <constraint firstItem="IgX-8Z-Bq6" firstAttribute="top" secondItem="IPN-YC-Q5I" secondAttribute="bottom" constant="28" id="rqY-BY-6N2"/>
                             <constraint firstItem="qxU-EE-HiE" firstAttribute="trailing" secondItem="IPN-YC-Q5I" secondAttribute="trailing" constant="16" id="tQ8-vK-vG8"/>
                             <constraint firstItem="IPN-YC-Q5I" firstAttribute="top" secondItem="5Wc-yP-iRV" secondAttribute="bottom" constant="4" id="vMq-7R-rY4"/>
-                            <constraint firstItem="7SZ-cl-zoZ" firstAttribute="width" secondItem="psP-yU-sg1" secondAttribute="width" multiplier="0.3" id="yNy-kA-JhF"/>
                             <constraint firstItem="5Wc-yP-iRV" firstAttribute="centerX" secondItem="qxU-EE-HiE" secondAttribute="centerX" id="zWq-hR-IQ5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qxU-EE-HiE"/>
@@ -1040,19 +1044,16 @@
             <color red="0.95686274509803926" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ButtonColor">
-            <color red="0.34901960784313724" green="0.6470588235294118" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34901960780000002" green="0.64705882349999999" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HighlightColor">
             <color red="0.21568627450980393" green="0.43529411764705883" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LabelColor">
-            <color red="0.074509803921568626" green="0.23529411764705882" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="LabelColor">
-            <color red="0.074509803921568626" green="0.23529411764705882" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.074509803920000006" green="0.23529411759999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yw0-g4-zbT"/>
+        <segue reference="6Fe-fm-CgP"/>
     </inferredMetricsTieBreakers>
 </document>

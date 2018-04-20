@@ -27,8 +27,11 @@ class SavedSchedulesVC: SchedulesVC {
                         }
                         return s1.days! < s2.days!
                     })
-                    self.currentScheduleLbl.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
-                    self.detailssButton.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
+                    let noSchedule = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
+                    self.currentScheduleLbl.isHidden = noSchedule
+                    self.detailssButton.isHidden = noSchedule
+                    self.nextButton.isHidden = noSchedule
+                    self.previousButton.isHidden = noSchedule
                     self.weekDisplay.schedule = self.schedules.first
                     self.weekDisplay.setNeedsDisplay()
                 }

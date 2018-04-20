@@ -11,6 +11,7 @@ import UIKit
 class Event: UIView {
 
     @IBOutlet weak var courseID: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -30,6 +31,7 @@ class Event: UIView {
         leftLine.stroke()
         
         courseID.textColor = tintColor.darker()
+        typeLabel.textColor = tintColor.darker()
     }
     
 

@@ -73,6 +73,19 @@ class Course: NSObject {
         }
     }
     
+    var sectionID:String {
+        get {
+            return String((courseID.split(separator: "-").last?.prefix(2))!)
+        }
+    }
+    
+    var courseName:String {
+        get {
+            let split = courseID.split(separator: "-")
+            return "\(split[0])-\(split[1])"
+        }
+    }
+    
     init(_ dict: [String:Any?]) {
         self.crn = dict["crn"] as! String
         self.courseID = dict["course_id"] as! String

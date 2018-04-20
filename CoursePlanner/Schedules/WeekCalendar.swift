@@ -120,7 +120,8 @@ class WeekCalendar: UIView {
                             height: hourHeight * CGFloat(times.1 - times.0))
                         let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Event
                         view.frame = frame
-                        view.courseID.text! = course.courseID
+                        view.courseID.text = course.courseName
+                        view.typeLabel.text = "\(course.type) \(course.sectionID)"
                         view.tintColor = color
                         insertSubview(view, at: 0)
                     }
