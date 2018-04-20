@@ -16,11 +16,9 @@ class SchedulesVC: UIViewController {
     
     var index:Int = 0 {
         didSet {
-            if index < 0 {
-                index = index + 1
-            }
+            index = index % schedules.count
+            index = index < 0 ? index + schedules.count : index
             currentScheduleLbl.text! = "\(index + 1)/\(schedules.count)"
-            checkButtonStates()
             currentScheduleLbl.isHidden = schedules.first == nil || schedules[index].sections.count == 0
             weekDisplay.schedule = schedules[index]
             weekDisplay.setNeedsDisplay()
@@ -43,7 +41,6 @@ class SchedulesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         termLabel.text = term?.readableTerm()
-        checkButtonStates()
         getInitialData()
     }
     
@@ -61,20 +58,18 @@ class SchedulesVC: UIViewController {
                         if (self.schedules.count == 0) {
                             debugPrint("No schedule!")
                         }
-                        self.currentScheduleLbl.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
-                        self.detailssButton.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
+                        let noSchedule = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
+                        
+                        self.currentScheduleLbl.isHidden = noSchedule
+                        self.detailssButton.isHidden = noSchedule
+                        self.nextButton.isHidden = noSchedule
+                        self.previousButton.isHidden = noSchedule
                         self.weekDisplay.schedule = self.schedules.first
-                        self.checkButtonStates()
                         self.weekDisplay.setNeedsDisplay()
                     }
                 }
             }
         })
-    }
-    
-    func checkButtonStates() {
-        previousButton.isEnabled = (index != 0) && (schedules.count > 1)
-        nextButton.isEnabled = (index < schedules.count - 1) && (schedules.count > 1)
     }
     
     override func didReceiveMemoryWarning() {

@@ -30,7 +30,6 @@ class SavedSchedulesVC: SchedulesVC {
                     self.currentScheduleLbl.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
                     self.detailssButton.isHidden = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
                     self.weekDisplay.schedule = self.schedules.first
-                    self.checkButtonStates()
                     self.weekDisplay.setNeedsDisplay()
                 }
             }

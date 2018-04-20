@@ -64,6 +64,8 @@ class CoursesVC: UIViewController {
         searchTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
         selectedTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
         
+        updateClearButton()
+        
         searchTable.dataSource = self
         searchTable.delegate = self
         selectedTable.dataSource = self

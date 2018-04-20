@@ -13,10 +13,12 @@ extension CoursesVC {
         searchTable.isHidden = false
         selectionLabel.isHidden = !(selectedCourses.count > 0)
         updateSearchStatus()
+        updateClearButton()
     }
     
     @IBAction func searchDidChanged(_ sender: Any) {
-        updateSearchStatus()
+        
+        updateClearButton()
         if ((searchField.text?.underestimatedCount)! >= 2) {
             let searchPrompt = searchField.text!
             RestAPI.searchCourseIDs(id: searchField.text!, term: self.term, completion: { (result, err) in
@@ -54,6 +56,7 @@ extension CoursesVC {
         searchTable.isHidden = true
         selectionLabel.isHidden = true
         updateSearchStatus()
+        updateClearButton()
     }
     @IBAction func searchDidReturn(_ sender: Any) {
         searchField.endEditing(true)
@@ -62,12 +65,34 @@ extension CoursesVC {
     @IBAction func clearField(_ sender: Any) {
         searchField.text = ""
         updateSearchStatus()
+        updateClearButton()
         searchedCourses = []
         searchTable.reloadData()
     }
     
+    func updateClearButton() {
+        let willHide = searchField.text == "" || !searchField.isEditing
+        
+        if ((!willHide && clearSearchButton.alpha == 1) || (willHide && clearSearchButton.alpha == 0)) {
+            return
+        }
+        
+        clearSearchButton.transform = CGAffineTransform(translationX: willHide ? 0 : 64, y: 0)
+        clearSearchButton.alpha = willHide ? 1 : 0
+        UIView.animate(withDuration: 0.5) {
+            self.clearSearchButton.transform = CGAffineTransform(translationX: willHide ? 64 : 0, y: 0)
+            self.clearSearchButton.alpha = willHide ? 0 : 1
+        }
+    }
+    
     func updateSearchStatus() {
-        clearSearchButton.isHidden = (searchField.text == "" || !searchField.isEditing)
-        searchIcon.alpha = searchField.isEditing ? 1 : 0.4
+        UIView.animate(withDuration: 0.2, animations: {
+            self.searchIcon.transform = self.searchField.isEditing ? CGAffineTransform(scaleX: 1.2, y: 1.2) : CGAffineTransform(scaleX: 0.8, y: 0.8)
+        }) { (finished) in
+            UIView.animate(withDuration: 0.2, animations: {
+                self.searchIcon.alpha = self.searchField.isEditing ? 1 : 0.4
+                self.searchIcon.transform = CGAffineTransform(scaleX: 1, y: 1)
+            })
+        }
     }
 }
