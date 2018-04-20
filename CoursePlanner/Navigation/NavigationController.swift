@@ -31,6 +31,15 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
         // Dispose of any resources that can be recreated.
     }
     
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if (gestureRecognizer == interactivePopGestureRecognizer) {
+            if (viewControllers.count <= 1) {
+                return false
+            }
+        }
+        return true
+    }
+    
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         guard let currentAnimationType:Animation.Type = animationType, animationType != nil  else {
@@ -73,7 +82,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
         
         let loadingLabel = UILabel(frame: CGRect(x: 32, y: screen.height/2-50, width: screen.width-64, height: 100))
         loadingLabel.text = "Loading..."
-        loadingLabel.textColor = .lightGray
+        loadingLabel.textColor = #colorLiteral(red: 0.2156862745, green: 0.4352941176, blue: 0.6470588235, alpha: 1)
         loadingLabel.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
         loadingLabel.adjustsFontSizeToFitWidth = true
         loadingLabel.textAlignment = .center
