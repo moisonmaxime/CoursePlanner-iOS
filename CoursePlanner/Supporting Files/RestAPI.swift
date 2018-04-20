@@ -309,7 +309,7 @@ class RestAPI {
                 completion(nil, err!)
                 return
             } else {
-                guard let result = dict!["result"] as? Array<Dictionary<String, Any>> else {
+                guard let result = dict!["result"] as? [[String: Any]] else {
                     completion(nil, .InternalError)
                     return
                 }
@@ -320,8 +320,7 @@ class RestAPI {
                         completion(nil, .InternalError)
                         return
                     }
-                    guard let courses = result[i]["schedule"] as? [String: [String: Any?]?] else {
-                        debugPrint("Could not get the Lect: nil")
+                    guard let courses = result[i]["schedule"] as? [String: [String: Any?]] else {
                         completion(nil, .InternalError)
                         return
                     }
@@ -352,12 +351,10 @@ class RestAPI {
                 
                 var schedules:[Schedule] = []
                 for i in 0..<result.count {
-                    let info:Dictionary<String, Any>
-                    guard let tempInfo = result[i]["info"]! as? Dictionary<String, Any> else {
+                    guard let info = result[i]["info"]! as? Dictionary<String, Any> else {
                         completion(nil, .InternalError)
                         return
                     }
-                    info = tempInfo
                     guard let courses = result[i]["schedule"] as? Dictionary<String, Dictionary<String, Dictionary<String, Any?>>> else {
                         completion(nil, .InternalError)
                         return

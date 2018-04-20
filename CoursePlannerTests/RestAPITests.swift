@@ -118,7 +118,6 @@ class RestAPITests: XCTestCase {
         RestAPI.getSchedules(term: testTerm, courses: testCourses) { (schedules, error) in
             XCTAssertNil(error)
             //XCTAssertTrue(schedules!.count == 18)
-            debugPrint("Schedules: \(schedules!.count)")
             expect.fulfill()
         }
         waitForExpectations(timeout: 5, handler: nil)

@@ -29,12 +29,11 @@ class Section: NSObject {
     init(_ dictionary: [String:[String:Any?]]) {
         let name = dictionary.keys.first?.uppercased()
         self.name = name != nil ? name! : "UNKNOWN"
-        
         for (_, section) in dictionary {
             let section = section as! [String: [String: Any?]?]
             for (_, course) in section {
-                if (course != nil) {
-                    self.courses.append(Course(course!))
+                if let courseToAdd = course {
+                    self.courses.append(Course(courseToAdd))
                 }
             }
         }
