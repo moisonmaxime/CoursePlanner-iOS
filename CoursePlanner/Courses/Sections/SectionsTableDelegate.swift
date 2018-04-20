@@ -10,7 +10,6 @@ import UIKit
 
 extension SectionsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        sectionTable.deselectRow(at: indexPath, animated: false)
         
         let crn = courses[indexPath.row].crn
         let attached = courses[indexPath.row].attachedCourse

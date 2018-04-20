@@ -25,6 +25,7 @@ extension CoursesVC: SectionsDelegate {
             selectedTable.reloadData()
             searchTable.reloadData()
             selectionLabel.isHidden = true
+            badCRNs = []
         }
     }
     
