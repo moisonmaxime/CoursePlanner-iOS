@@ -28,7 +28,8 @@ class HoursTests: XCTestCase {
         "8:00-7:00pm": (8, 19),
         "8:15-10:15am": (8.25, 10.25),
         "8:30-10:30am": (8.5, 10.5),
-        "8:45-10:45am": (8.75, 10.75)
+        "8:45-10:45am": (8.75, 10.75),
+        "3:00-3:50pm": (15, 15.833333333333334)
     ]
     
     func testNoonPM() {
@@ -82,6 +83,13 @@ class HoursTests: XCTestCase {
     
     func testQuarterTo() {
         let test = "8:45-10:45am"
+        let result = test.extractTime()
+        XCTAssertEqual(result.0, expectedResults[test]?.0)
+        XCTAssertEqual(result.1, expectedResults[test]?.1)
+    }
+    
+    func test300to350pm() {
+        let test = "3:00-3:50pm"
         let result = test.extractTime()
         XCTAssertEqual(result.0, expectedResults[test]?.0)
         XCTAssertEqual(result.1, expectedResults[test]?.1)

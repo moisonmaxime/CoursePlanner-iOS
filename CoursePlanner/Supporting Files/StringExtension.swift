@@ -37,7 +37,7 @@ extension String {
             endHour = String(endSubs[0])
         }
         
-        if (Int(startHour)! >= Int(endHour)!) {
+        if ((Double(startHour)! + startMin) > (Double(endHour)! + endMin)) {
             startHour = String(Int(startHour)! - 12)
         }
         
