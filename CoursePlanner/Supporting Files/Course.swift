@@ -60,6 +60,7 @@ class Course: NSObject {
     var finalDays:String?
     var finalHours:String?
     var finalRoom:String?
+    var dependents:[String]?
     
     var availableSeats:Int {
         get {
@@ -90,6 +91,7 @@ class Course: NSObject {
         
         self.lecture = dict["lecture_crn"] as? String
         self.attachedCourse = dict["attached_crn"] as? String
+        self.dependents = dict["linked_courses"] as? [String]
         
         self.finalDays = dict["final_days"] as? String
         self.finalHours = dict["final_hours"] as? String

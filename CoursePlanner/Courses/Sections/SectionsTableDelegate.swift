@@ -14,6 +14,7 @@ extension SectionsVC: UITableViewDelegate {
         let crn = courses[indexPath.row].crn
         let attached = courses[indexPath.row].attachedCourse
         let lecture = courses[indexPath.row].lecture
+        let dependents = courses[indexPath.row].dependents
         
         if (attached != nil) {
             if sectionsDelegate.removeCRN(attached!) {
@@ -26,8 +27,20 @@ extension SectionsVC: UITableViewDelegate {
             _ = sectionsDelegate.removeCRN(lecture!)
         }
         
+        
         if !sectionsDelegate.removeCRN(crn) {
-                sectionsDelegate.addCRN(crn)
+            sectionsDelegate.addCRN(crn)
+            if (dependents != nil) {
+                for dependent in dependents! {
+                    sectionsDelegate.addCRN(dependent)
+                }
+            }
+        } else {
+            if (dependents != nil) {
+                for dependent in dependents! {
+                    _ = sectionsDelegate.removeCRN(dependent)
+                }
+            }
         }
         
         self.sectionTable.reloadData()

@@ -8,7 +8,9 @@
 
 extension CoursesVC: SectionsDelegate {
     func addCRN(_ crn: String) {
-        badCRNs.append(crn)
+        if (badCRNs.index(of: crn) == nil) {
+            badCRNs.append(crn)
+        }
     }
     
     func removeCRN(_ crn: String) -> Bool {
