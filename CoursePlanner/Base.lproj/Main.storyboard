@@ -67,13 +67,12 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaN-ee-FmA" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
                                 <rect key="frame" x="107" y="696" width="200" height="20"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Axp-7K-1PX"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="umV-dl-yWH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="tintColor" name="ButtonColor"/>
                                 <state key="normal" title="Don't have an account? Register"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -85,9 +84,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tF-4h-KUf">
-                                <rect key="frame" x="180" y="20" width="54" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="176" y="20" width="62.333333333333343" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" name="ButtonColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -198,9 +197,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zy-YG-TcO">
-                                <rect key="frame" x="167.33333333333334" y="20" width="79.666666666666657" height="28.666666666666671"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="160" y="20" width="94.333333333333314" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" name="ButtonColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaS-PG-6tb" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
@@ -337,14 +336,15 @@
                                 <rect key="frame" x="0.0" y="139" width="414" height="510"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mud-R2-aON" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="20" y="680" width="32" height="32"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mud-R2-aON">
+                                <rect key="frame" x="20" y="672" width="48" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="5fu-e0-Zs2"/>
+                                    <constraint firstAttribute="width" constant="48" id="5fu-e0-Zs2"/>
                                     <constraint firstAttribute="width" secondItem="mud-R2-aON" secondAttribute="height" multiplier="1:1" id="WOX-ml-N4C"/>
                                 </constraints>
                                 <color key="tintColor" name="ButtonColor"/>
+                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                 <state key="normal" image="Bookmark"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -374,11 +374,11 @@
                                     <segue destination="Yh2-kt-Ah4" kind="show" identifier="showSchedules" id="UY1-Ah-3Wt"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="osP-WH-Dtd">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="osP-WH-Dtd">
                                 <rect key="frame" x="16" y="24" width="382" height="51"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiT-ki-RXk" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="318" height="51"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="222" height="51"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <color key="tintColor" name="ButtonColor"/>
@@ -419,7 +419,7 @@
                                 </constraints>
                             </stackView>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-vT-Qo6">
-                                <rect key="frame" x="0.0" y="147" width="414" height="494"/>
+                                <rect key="frame" x="0.0" y="131" width="414" height="518"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 courses selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3m-Et-Lam">
@@ -443,7 +443,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for classes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rxd-Qk-4x2">
-                                        <rect key="frame" x="40.333333333333343" y="0.0" width="341" height="48"/>
+                                        <rect key="frame" x="40.333333333333343" y="0.0" width="321.66666666666663" height="48"/>
                                         <color key="tintColor" name="HighlightColor"/>
                                         <color key="textColor" name="LabelColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
@@ -456,11 +456,12 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZB-Ez-4jl">
-                                        <rect key="frame" x="381.33333333333331" y="15.666666666666673" width="16.666666666666686" height="16.666666666666671"/>
+                                        <rect key="frame" x="362" y="6" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="wZB-Ez-4jl" secondAttribute="height" multiplier="1:1" id="HUz-HR-ifP"/>
                                         </constraints>
                                         <color key="tintColor" name="HighlightColor"/>
+                                        <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                         <state key="normal" image="Cross"/>
                                         <connections>
                                             <action selector="clearField:" destination="tN9-yH-7gg" eventType="touchUpInside" id="urR-kV-AC1"/>
@@ -474,7 +475,7 @@
                                     <constraint firstItem="rxd-Qk-4x2" firstAttribute="leading" secondItem="OGL-AQ-jvc" secondAttribute="trailing" constant="8" id="Fhq-cd-nWS"/>
                                     <constraint firstAttribute="height" constant="48" id="GYZ-g4-FoP"/>
                                     <constraint firstItem="wZB-Ez-4jl" firstAttribute="leading" secondItem="rxd-Qk-4x2" secondAttribute="trailing" id="Scn-wk-aeG"/>
-                                    <constraint firstItem="wZB-Ez-4jl" firstAttribute="height" secondItem="q2y-oi-pBe" secondAttribute="height" multiplier="0.35" id="SzH-XG-XCN"/>
+                                    <constraint firstItem="wZB-Ez-4jl" firstAttribute="height" secondItem="q2y-oi-pBe" secondAttribute="height" multiplier="0.75" id="SzH-XG-XCN"/>
                                     <constraint firstItem="OGL-AQ-jvc" firstAttribute="leading" secondItem="q2y-oi-pBe" secondAttribute="leading" constant="8" id="aPA-A4-YY4"/>
                                     <constraint firstItem="wZB-Ez-4jl" firstAttribute="centerY" secondItem="q2y-oi-pBe" secondAttribute="centerY" id="eJL-3Y-EHu"/>
                                     <constraint firstAttribute="trailing" secondItem="wZB-Ez-4jl" secondAttribute="trailing" constant="16" id="eyH-DU-lCL"/>
@@ -810,7 +811,7 @@
                                 <rect key="frame" x="127" y="644" width="160" height="30"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="gwu-Mb-Kve"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="gwu-Mb-Kve"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1044,7 +1045,7 @@
             <color red="0.95686274509803926" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ButtonColor">
-            <color red="0.34901960780000002" green="0.64705882349999999" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34901960784313724" green="0.6470588235294118" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HighlightColor">
             <color red="0.21568627450980393" green="0.43529411764705883" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

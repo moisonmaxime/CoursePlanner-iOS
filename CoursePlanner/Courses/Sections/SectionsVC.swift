@@ -11,7 +11,7 @@ import UIKit
 protocol SectionsDelegate {
     func addCRN(_ crn: String)
     func removeCRN(_ crn: String) -> Bool
-    func removeCourse(_ course: [String:String])
+    func removeCourse(_ course: [String:String]) -> Bool
     func getBadCRNs() -> [String]
 }
 
@@ -50,7 +50,7 @@ class SectionsVC: UIViewController {
     }
     
     @IBAction func remove(_ sender: Any) {
-        sectionsDelegate.removeCourse(course)
+        _ = sectionsDelegate.removeCourse(course)
         navigationController?.popViewController(animated: true)
     }
     

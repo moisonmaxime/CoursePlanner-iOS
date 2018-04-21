@@ -43,7 +43,30 @@ extension SectionsVC: UITableViewDelegate {
             }
         }
         
-        self.sectionTable.reloadData()
+        let mainCell = sectionTable.cellForRow(at: indexPath) as! CourseCell
+        mainCell.updateAvailability(sectionsDelegate.getBadCRNs())
+        mainCell.updateView()
+        
+        updateAvailability(for: attached)
+        updateAvailability(for: lecture)
+        
+        if (dependents != nil) {
+            for dependent in dependents! {
+                updateAvailability(for: dependent)
+            }
+        }
+    }
+    
+    func updateAvailability(for crn: String?) {
+        guard crn != nil else {
+            return
+        }
+        if let indexFound = courses.index(where: { (course) -> Bool in return course.crn == crn }) {
+            if let cell = sectionTable.cellForRow(at: IndexPath(row: indexFound, section: 0)) as? CourseCell {
+                cell.updateAvailability(sectionsDelegate.getBadCRNs())
+                cell.updateView()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

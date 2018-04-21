@@ -21,14 +21,15 @@ extension CoursesVC: SectionsDelegate {
         return false
     }
     
-    func removeCourse(_ course: [String : String]) {
+    func removeCourse(_ course: [String : String]) -> Bool {
         if let index = selectedCourses.index(of: course) {
             selectedCourses.remove(at: index)
-            selectedTable.reloadData()
-            searchTable.reloadData()
+            reloadTables()
             selectionLabel.isHidden = true
             badCRNs = []
+            return true
         }
+        return false
     }
     
     func getBadCRNs() -> [String] {

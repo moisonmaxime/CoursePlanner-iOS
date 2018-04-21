@@ -11,11 +11,14 @@ import UIKit
 extension CoursesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (tableView == searchTable) {
-            if let index = selectedCourses.index(of: searchedCourses[indexPath.row]) {
-                selectedCourses.remove(at: index)
-            } else {
-                selectedCourses.append(searchedCourses[indexPath.row])
+            let course = searchedCourses[indexPath.row]
+            if !removeCourse(course) {
+                selectedCourses.append(course)
             }
+            let cell = searchTable.cellForRow(at: indexPath) as! QuickCourseCell
+            cell.setSelected(selectedCourses.contains(course), animated: false)
+            cell.updateView()
+            selectedTable.reloadData()
         } else {
             let destination = (storyboard?.instantiateViewController(withIdentifier: "Sections"))! as! SectionsVC
             destination.course = selectedCourses[indexPath.row]
@@ -23,7 +26,6 @@ extension CoursesVC: UITableViewDelegate {
             destination.term = term
             self.navigationController?.pushViewController(destination, animated: true)
         }
-        reloadTables()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
