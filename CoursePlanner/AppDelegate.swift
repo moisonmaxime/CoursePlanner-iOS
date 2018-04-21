@@ -22,14 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let _ = UserDefaults.standard.string(forKey: "api_token") {
             // Load Home View
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let newVC = storyboard.instantiateViewController(withIdentifier: "Home")
+            
+            let navigationController: UINavigationController? = (self.window?.rootViewController as? NavigationController)
+            navigationController?.viewControllers = [newVC]
+            
             RestAPI.refreshAPIKey(completion: { _ in })
             RestAPI.getTerms(completion: { _, _ in })
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialVC:UIViewController
-            initialVC = storyboard.instantiateViewController(withIdentifier: "HomeNav")
-            self.window?.rootViewController = initialVC
-            self.window?.makeKeyAndVisible()
         }
         
         return true
