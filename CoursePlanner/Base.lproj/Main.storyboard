@@ -113,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2417" y="833"/>
+            <point key="canvasLocation" x="-1491" y="832"/>
         </scene>
         <!--Register-->
         <scene sceneID="4Qq-Gy-GLJ">
@@ -247,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqO-rx-ZUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1607.2" y="832.53373313343332"/>
+            <point key="canvasLocation" x="-703" y="832"/>
         </scene>
         <!--Profile-->
         <scene sceneID="dZJ-Ls-QjY">
@@ -319,10 +319,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PiO-5w-B1A"/>
                     </view>
+                    <connections>
+                        <outlet property="profilePicture" destination="gRP-et-feX" id="fCK-eD-AnO"/>
+                        <outlet property="usernameLabel" destination="ZJC-rO-D1a" id="keJ-68-wDJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUB-lz-3hY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="27.717391304347828"/>
+            <point key="canvasLocation" x="1048" y="97"/>
         </scene>
         <!--CoursesVC-->
         <scene sceneID="qiq-4w-G1f">
@@ -756,7 +760,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1049" y="1612"/>
+            <point key="canvasLocation" x="1048" y="1586"/>
         </scene>
         <!--Schedule DetailsVC-->
         <scene sceneID="Xdh-Id-RFL">
@@ -848,7 +852,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX3-M9-MDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="238" y="2391"/>
+            <point key="canvasLocation" x="236" y="2347"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vg1-vK-hXI">
@@ -865,24 +869,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9d-cj-6xz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3289" y="833"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="BGg-BF-LVc">
-            <objects>
-                <navigationController storyboardIdentifier="HomeNav" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="S4v-G4-58B" customClass="NavigationController" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="xkN-2m-Cwg">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="tN9-yH-7gg" kind="relationship" relationship="rootViewController" id="RIb-a3-ECi"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cxX-Ot-A0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-634" y="834"/>
+            <point key="canvasLocation" x="-2310" y="832"/>
         </scene>
         <!--Saved SchedulesVC-->
         <scene sceneID="J09-y1-jW7">
@@ -1033,7 +1020,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="237.68115942028987" y="1611.6847826086957"/>
+            <point key="canvasLocation" x="236" y="1586"/>
         </scene>
     </scenes>
     <resources>
@@ -1055,6 +1042,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Fe-fm-CgP"/>
+        <segue reference="Yw0-g4-zbT"/>
     </inferredMetricsTieBreakers>
 </document>

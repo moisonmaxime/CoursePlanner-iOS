@@ -49,31 +49,6 @@ class RestAPI {
         }
     }
     
-    static func getUniqueID(completion: @escaping (APIError?) -> ()) {
-        guard let url = URL(string: "\(apiURL)users/user-info/") else {
-            return
-        }
-        
-        let request:URLRequest = URLRequest(url: url, type: .GET)
-        request.getJsonData { (dict, err) in
-            if (err != nil) {
-                // Failed - invalid api key
-                completion(err)
-            } else {
-                // Success - valid api key
-                
-                guard let uniqueID = dict!["unique_id"] as? String else {
-                    completion(.InternalError)
-                    return
-                }
-                
-                UserDefaults.standard.set(uniqueID, forKey: "unique_id")
-                
-                completion(nil)
-            }
-        }
-    }
-    
     static func refreshAPIKey(completion: @escaping (APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)auth/token/refresh") else {
             completion(.InternalError)
