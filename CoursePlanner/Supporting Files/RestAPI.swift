@@ -86,6 +86,63 @@ class RestAPI {
         }
     }
     
+    static func getUserInfo(completion: @escaping ([String:String]?, APIError?) -> ()) {
+        guard let url = URL(string: "\(apiURL)users/user-info/") else {
+            completion(nil, .InternalError)
+            return
+        }
+        
+        let request:URLRequest = URLRequest(url: url, type: .GET)
+        request.getJsonData { (dict, err) in
+            if (err != nil) {
+                completion(nil, err!)
+                return
+            } else {
+                guard let username = dict!["username"] as? String else {
+                    completion(nil, .InternalError)
+                    return
+                }
+                guard let name = dict!["name"] as? String else {
+                    completion(nil, .InternalError)
+                    return
+                }
+                let userInfo = ["username": username, "name": name]
+                completion(userInfo, nil)
+                return
+            }
+        }
+    }
+    
+    static func changePassword(oldPass: String, newPass: String, completion: @escaping (APIError?) -> ()) {
+        guard let url = URL(string: "\(apiURL)users/change-password/") else {
+            completion(.InternalError)
+            return
+        }
+        
+        var request:URLRequest = URLRequest(url: url, type: .POST)
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: ["old_password": oldPass, "new_password": newPass], options: .prettyPrinted) else {
+            completion(.InternalError)
+            return
+        }
+        request.httpBody = jsonData
+        
+        request.getJsonData { (dict, err) in
+            if (err != nil) {
+                completion(err!)
+                return
+            } else {
+                if let failure = dict!["fail"] as? String {
+                    let error:APIError = failure == "password_incorrect" ? .InvalidCredentials : .ServerError
+                    completion(error)
+                    return
+                }
+                
+                completion(nil)
+                return
+            }
+        }
+    }
+    
     /*
      static func refreshApplicationKey(completion: @escaping (APIError?) -> ()) {
      guard let url = URL(string: "\(apiURL)auth/token/refresh") else {
