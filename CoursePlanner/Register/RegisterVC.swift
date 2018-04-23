@@ -27,8 +27,11 @@ class RegisterVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     @IBAction func registerPressed(_ sender: Any) {
         
+        // Make sure all fields are filled and valid
         guard let firstName = firstField.text, firstField.text != "" else {
             displayAlert(message: "First name required")
             return
@@ -50,8 +53,10 @@ class RegisterVC: UIViewController {
             return
         }
         
+        // If there is an email, use it
         let email:String? = (emailField.text == "") ? nil : emailField.text
         
+        // API Call to register (transition to Homepage if successful)
         self.view.isUserInteractionEnabled = false
         (self.navigationController as! NavigationController).didStartLoading()
         RestAPI.register(user: username, password: password, first: firstName, last: lastName, email: email) { (error) in
