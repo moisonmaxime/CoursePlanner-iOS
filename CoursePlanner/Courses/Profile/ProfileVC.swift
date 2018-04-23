@@ -11,15 +11,26 @@ import UIKit
 class ProfileVC: UIViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var oldPass: UITextField!
+    @IBOutlet weak var pass1: UITextField!
+    @IBOutlet weak var pass2: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameLabel.text = (UserDefaults.standard.string(forKey: "username") ?? "USERNAME").capitalized
-        profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
-        profilePicture.layer.masksToBounds = true
-        
         // Do any additional setup after loading the view.
+        hideKeyboardWhenTappedAround()
+        fullNameLabel.text = ""
+        RestAPI.getUserInfo { (info, error) in
+            DispatchQueue.main.async {
+                if (error != nil) {
+                    self.handleError(error: error!)
+                } else {
+                    self.usernameLabel.text = info?["username"]?.capitalized
+                    self.fullNameLabel.text = info?["name"]?.capitalized
+                }
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,11 +38,29 @@ class ProfileVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func logout(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: "api_token") // Clear token
-        /*(self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
-         let login = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-         self.navigationController?.setViewControllers([login!], animated: true)*/
+    @IBAction func passwordDone(_ sender: Any) {
+        pass2.endEditing(true)
+    }
+    
+    @IBAction func changePassword(_ sender: Any) {
+        guard let password = pass1.text, pass1.text != "", pass1.text == pass2.text else {
+            if (pass1.text == pass2.text) {
+                displayAlert(message: "Password required")
+            } else {
+                displayAlert(message: "Passwords are not matching")
+            }
+            return
+        }
+        
+        RestAPI.changePassword(oldPass: oldPass.text!, newPass: password) { (error) in
+            DispatchQueue.main.async {
+                if (error != nil) {
+                    self.handleError(error: error!)
+                } else {
+                    self.displayAlert(title: "Success", message: "Your Password was changed")
+                }
+            }
+        }
     }
     
     @IBAction func dismiss(_ sender: Any) {
