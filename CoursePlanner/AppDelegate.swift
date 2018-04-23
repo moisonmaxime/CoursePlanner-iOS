@@ -17,19 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        let appDomain = Bundle.main.bundleIdentifier!     // Reset Defaults
-//        UserDefaults.standard.removePersistentDomain(forName: appDomain)
-//        UserDefaults.standard.synchronize()
+        // let appDomain = Bundle.main.bundleIdentifier!     // Reset Defaults
         
-        if let _ = UserDefaults.standard.string(forKey: "api_token") {
-            // Load Home View
-            
+        if let _ = UserDefaults.standard.string(forKey: "api_token") {  // If there is an API Key saved (then someone is logged in)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let newVC = storyboard.instantiateViewController(withIdentifier: "Home")
             
             let navigationController: UINavigationController? = (self.window?.rootViewController as? NavigationController)
-            navigationController?.viewControllers = [newVC]
+            navigationController?.viewControllers = [newVC]         // If someone is logged in switch to the homepage
             
+            // Refresh api key and check if there are new terms available
             RestAPI.refreshAPIKey(completion: { _ in })
             RestAPI.getTerms(completion: { _, _ in })
         }
@@ -49,12 +46,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
+        // Refresh api key and check if there are new terms available
         RestAPI.refreshAPIKey(completion: { _ in })
         RestAPI.getTerms(completion: { _, _ in })
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        // Refresh api key and check if there are new terms available
         RestAPI.refreshAPIKey(completion: { _ in })
         RestAPI.getTerms(completion: { _, _ in })
     }
