@@ -63,6 +63,18 @@ class ProfileVC: UIViewController {
         }
     }
     
+    @IBAction func logout() {
+        let appDomain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: appDomain)
+        UserDefaults.standard.synchronize()
+        self.dismiss(animated: true, completion: {
+            let nav = UIApplication.shared.delegate?.window??.rootViewController as! NavigationController
+            nav.setAnimationType(type: FadingAnimation.self, isRepeating: false)
+            let home = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+            nav.setViewControllers([home!], animated: true)
+        })
+    }
+    
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

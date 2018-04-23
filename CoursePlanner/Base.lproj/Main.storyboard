@@ -24,7 +24,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3CO-9t-L0f">
                                 <rect key="frame" x="104" y="198" width="207" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                 <connections>
                                     <action selector="nextTextFieldWithSender:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="nkj-lR-eE0"/>
@@ -33,7 +33,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0nW-i7-7ch">
                                 <rect key="frame" x="104" y="236" width="207" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
                                     <action selector="loginClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="Ka0-y7-NEx"/>
@@ -127,7 +127,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-s4-ua9">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="given-name"/>
                                         <connections>
                                             <action selector="nextTextFieldWithSender:" destination="JlZ-CH-N0H" eventType="primaryActionTriggered" id="IKK-YK-Qgr"/>
@@ -136,7 +136,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0SH-lL-cZ6">
                                         <rect key="frame" x="0.0" y="38" width="200" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="family-name"/>
                                         <connections>
                                             <action selector="nextTextFieldWithSender:" destination="JlZ-CH-N0H" eventType="primaryActionTriggered" id="w4Z-zI-7nI"/>
@@ -145,7 +145,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-xK-8ox">
                                         <rect key="frame" x="0.0" y="75.999999999999986" width="200" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" textContentType="username"/>
                                         <connections>
                                             <action selector="nextTextFieldWithSender:" destination="JlZ-CH-N0H" eventType="primaryActionTriggered" id="maI-Qb-nwR"/>
@@ -154,7 +154,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSV-PB-Zoe">
                                         <rect key="frame" x="0.0" y="114" width="200" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
                                             <action selector="nextTextFieldWithSender:" destination="JlZ-CH-N0H" eventType="primaryActionTriggered" id="dDb-wE-QSc"/>
@@ -163,7 +163,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-Type Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmG-90-lIL">
                                         <rect key="frame" x="0.0" y="152" width="200" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
                                             <action selector="nextTextFieldWithSender:" destination="JlZ-CH-N0H" eventType="primaryActionTriggered" id="HDs-TU-97v"/>
@@ -172,7 +172,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bya-8z-s0b">
                                         <rect key="frame" x="0.0" y="190" width="200" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                         <connections>
                                             <action selector="registerPressed:" destination="JlZ-CH-N0H" eventType="primaryActionTriggered" id="QpE-fo-rvQ"/>
@@ -269,6 +269,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logout" destination="znY-HK-LxG" eventType="touchUpInside" id="A7C-PM-Ssd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6n-8s-0Vr">
                                 <rect key="frame" x="16" y="25.666666666666671" width="50" height="36"/>
@@ -292,31 +295,40 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maxime Moison" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VU0-hT-Vca">
-                                <rect key="frame" x="128" y="71" width="159.33333333333337" height="27.666666666666671"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                <rect key="frame" x="152" y="71" width="112" height="19.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                 <color key="textColor" name="LabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71m-bX-S9y">
-                                <rect key="frame" x="104" y="152" width="207" height="30"/>
+                                <rect key="frame" x="104" y="143.66666666666666" width="207" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
-                                    <action selector="nextTextFieldWithSender:" destination="znY-HK-LxG" eventType="editingDidEnd" id="ibf-jJ-fSo"/>
+                                    <action selector="nextTextFieldWithSender:" destination="znY-HK-LxG" eventType="primaryActionTriggered" id="ZMs-ee-IuJ"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-qJ-vmE">
+                                <rect key="frame" x="104" y="181.66666666666666" width="207" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                <connections>
+                                    <action selector="nextTextFieldWithSender:" destination="znY-HK-LxG" eventType="primaryActionTriggered" id="Pyi-Fp-tee"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-type New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-EL-V5z">
-                                <rect key="frame" x="104" y="232" width="207" height="30"/>
+                                <rect key="frame" x="104" y="223.66666666666666" width="207" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
                                     <action selector="passwordDone:" destination="znY-HK-LxG" eventType="primaryActionTriggered" id="vVe-bM-JiJ"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jg-An-JPK">
-                                <rect key="frame" x="142.66666666666666" y="270" width="128.99999999999997" height="30"/>
+                                <rect key="frame" x="142.66666666666666" y="261.66666666666669" width="128.99999999999997" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="tintColor" name="ButtonColor"/>
                                 <state key="normal" title="Change Password"/>
@@ -324,15 +336,6 @@
                                     <action selector="changePassword:" destination="znY-HK-LxG" eventType="touchUpInside" id="KaX-VI-ToI"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-qJ-vmE">
-                                <rect key="frame" x="104" y="190" width="207" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
-                                <connections>
-                                    <action selector="nextTextFieldWithSender:" destination="znY-HK-LxG" eventType="editingDidEnd" id="gru-wv-wQH"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -340,6 +343,8 @@
                             <constraint firstItem="q6n-8s-0Vr" firstAttribute="centerY" secondItem="ZJC-rO-D1a" secondAttribute="centerY" id="09g-og-ReV"/>
                             <constraint firstItem="VU0-hT-Vca" firstAttribute="centerX" secondItem="ZJC-rO-D1a" secondAttribute="centerX" id="2FV-yJ-aAl"/>
                             <constraint firstItem="PiO-5w-B1A" firstAttribute="bottom" secondItem="A9X-Mu-Kd8" secondAttribute="bottom" constant="16" id="6Kf-N3-KAN"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="q6n-8s-0Vr" secondAttribute="trailing" constant="20" symbolic="YES" id="978-qv-akg"/>
+                            <constraint firstItem="q6n-8s-0Vr" firstAttribute="leading" secondItem="PiO-5w-B1A" secondAttribute="leading" constant="16" id="BRk-oc-dfQ"/>
                             <constraint firstItem="0jg-An-JPK" firstAttribute="centerX" secondItem="PiO-5w-B1A" secondAttribute="centerX" id="Efq-f5-fHE"/>
                             <constraint firstItem="VU0-hT-Vca" firstAttribute="top" secondItem="ZJC-rO-D1a" secondAttribute="bottom" constant="8" id="Gis-jv-si6"/>
                             <constraint firstItem="71m-bX-S9y" firstAttribute="width" secondItem="ISF-SZ-TJf" secondAttribute="width" multiplier="0.5" id="Id9-4M-4Ga"/>
@@ -349,7 +354,6 @@
                             <constraint firstItem="rc3-qJ-vmE" firstAttribute="top" secondItem="71m-bX-S9y" secondAttribute="bottom" constant="8" id="VvF-eS-j3O"/>
                             <constraint firstItem="71m-bX-S9y" firstAttribute="top" secondItem="VU0-hT-Vca" secondAttribute="bottom" constant="53.333333333333329" id="a48-2o-ur4"/>
                             <constraint firstItem="A9X-Mu-Kd8" firstAttribute="centerX" secondItem="PiO-5w-B1A" secondAttribute="centerX" id="aA4-d9-2vz"/>
-                            <constraint firstItem="q6n-8s-0Vr" firstAttribute="leading" secondItem="PiO-5w-B1A" secondAttribute="leading" constant="16" id="efN-QC-WZc"/>
                             <constraint firstItem="FQC-EL-V5z" firstAttribute="top" secondItem="rc3-qJ-vmE" secondAttribute="bottom" constant="12" id="jOx-S7-39A"/>
                             <constraint firstItem="ZJC-rO-D1a" firstAttribute="top" secondItem="PiO-5w-B1A" secondAttribute="top" constant="4" id="m0Q-PJ-BtH"/>
                             <constraint firstItem="FQC-EL-V5z" firstAttribute="width" secondItem="ISF-SZ-TJf" secondAttribute="width" multiplier="0.5" id="mX0-er-wdh"/>
@@ -465,8 +469,8 @@
                                     <constraint firstItem="yiT-ki-RXk" firstAttribute="leading" secondItem="osP-WH-Dtd" secondAttribute="leading" id="vX5-q1-LII"/>
                                 </constraints>
                             </stackView>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-vT-Qo6">
-                                <rect key="frame" x="0.0" y="131" width="414" height="518"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-vT-Qo6">
+                                <rect key="frame" x="0.0" y="131" width="414" height="605"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 courses selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3m-Et-Lam">

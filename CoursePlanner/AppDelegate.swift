@@ -17,8 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // UserDefaults.standard.removeObject(forKey: "api_token") // Clear token
-        // UserDefaults.standard.removeObject(forKey: "terms") // Clear terms
+//        let appDomain = Bundle.main.bundleIdentifier!     // Reset Defaults
+//        UserDefaults.standard.removePersistentDomain(forName: appDomain)
+//        UserDefaults.standard.synchronize()
         
         if let _ = UserDefaults.standard.string(forKey: "api_token") {
             // Load Home View
