@@ -445,13 +445,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="249" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMF-pn-q2m" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                        <rect key="frame" x="350" y="9.6666666666666643" width="32" height="32"/>
+                                        <rect key="frame" x="334" y="1.6666666666666679" width="48" height="48"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="MMF-pn-q2m" secondAttribute="height" multiplier="1:1" id="HFx-dL-deG"/>
-                                            <constraint firstAttribute="height" constant="32" id="Hcm-pL-sMS"/>
+                                            <constraint firstAttribute="height" constant="48" id="Hcm-pL-sMS"/>
                                         </constraints>
                                         <color key="tintColor" name="ButtonColor"/>
+                                        <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                         <state key="normal" image="User">
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1081,17 +1082,11 @@
         <namedColor name="ButtonColor">
             <color red="0.34901960784313724" green="0.6470588235294118" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="ButtonColor">
-            <color red="0.34901960784313724" green="0.6470588235294118" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="HighlightColor">
             <color red="0.21568627450980393" green="0.43529411764705883" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LabelColor">
             <color red="0.074509803921568626" green="0.23529411764705882" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="LabelColor">
-            <color red="0.074509803920000006" green="0.23529411759999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
