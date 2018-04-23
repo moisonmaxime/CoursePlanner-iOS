@@ -14,26 +14,28 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         hideKeyboardWhenTappedAround()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func loginClick(_ sender: Any) {
-        self.view.isUserInteractionEnabled = false
-        (self.navigationController as! NavigationController).didStartLoading()
-        RestAPI.login(user: userField.text!, password: passwordField.text!) { error in
+        self.view.isUserInteractionEnabled = false  // disable user interaction
+        (self.navigationController as! NavigationController).didStartLoading()  // start loading animation
+        
+        RestAPI.login(user: userField.text!, password: passwordField.text!) { error in  // Try Login API Call
+            
+            // Actions have to be done in the main thread
             DispatchQueue.main.async {
-                self.view.isUserInteractionEnabled = true
+                self.view.isUserInteractionEnabled = true   // reenable user interaction
                 if (error != nil) {
+                    // stop loading animation, display error alert
                     (self.navigationController as! NavigationController).didFinishLoading()
                     self.handleError(error: error!)
                 } else {
-                    //RestAPI.getUserInfo { _ in }
+                    // Navigate to homepage
                     (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
                     let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.navigationController?.setViewControllers([home!], animated: true)
