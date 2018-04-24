@@ -18,6 +18,7 @@ class CoursesVC: UIViewController {
     @IBOutlet weak var clearSearchButton: UIButton!
     @IBOutlet weak var searchField: UITextField!
     
+    // If user changes term, then update UI and reset everything
     var term:String? {
         didSet {
             DispatchQueue.main.async {
@@ -31,6 +32,7 @@ class CoursesVC: UIViewController {
         }
     }
     
+    // when searching for courses when courses are selected or deselected give a number of courses selected
     var selectedCourses:Array<[String: String]> = [] {
         didSet {
             let count = selectedCourses.count
@@ -39,13 +41,14 @@ class CoursesVC: UIViewController {
             searchTable.contentInset.top = count > 0 ? 24 : 0
         }
     }
-    var searchedCourses:Array<[String: String]> = []
     
-    var badCRNs:[String] = []
+    var searchedCourses:Array<[String: String]> = []
+    var badCRNs:[String] = []   // Track the CRNs to not include in the schedule building
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // If there are no terms saved, pull them from server
         if let terms = UserDefaults.standard.object(forKey: "terms") {
             term = (terms as! [String]).first
         } else {
@@ -60,33 +63,36 @@ class CoursesVC: UIViewController {
             }
         }
         
+        // Add the QuickCourseCell reusable to the tables
         let nib = UINib.init(nibName: "QuickCourseCell", bundle: nil)
         searchTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
         selectedTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
         
+        // the clear button has to be outside of screen at start
         updateClearButton()
         
+        // Set delegates
         searchTable.dataSource = self
         searchTable.delegate = self
         selectedTable.dataSource = self
         selectedTable.delegate = self
         
+        // Add an observer to check on keyboard status
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow),
             name: NSNotification.Name.UIKeyboardWillShow,
             object: nil
         )
-        // Do any additional setup after loading the view.
     }
     
     deinit {
+        // When deinit, remove observer...
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func reloadTables() {
@@ -95,6 +101,7 @@ class CoursesVC: UIViewController {
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
+        // When keyboard shows, change inset in searchTable so that nothing is under keyboard
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardHeight = keyboardFrame.cgRectValue.height
             self.searchTable.contentInset.bottom = keyboardHeight + 50
@@ -102,6 +109,7 @@ class CoursesVC: UIViewController {
     }
     
     @IBAction func termPress(_ sender: Any) {
+        // Term selection
         selectTerm { (termSelected) in
             if (termSelected != self.term) {
                 self.term = termSelected
