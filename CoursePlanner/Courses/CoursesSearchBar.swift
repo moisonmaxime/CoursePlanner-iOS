@@ -71,8 +71,10 @@ extension CoursesVC {
     }
     
     func updateClearButton() {
+        // Update whether clear button is visible or not
         let willHide = searchField.text == "" || !searchField.isEditing
         
+        // if already in the settings it's going to be, return
         if ((!willHide && clearSearchButton.alpha == 1) || (willHide && clearSearchButton.alpha == 0)) {
             return
         }
@@ -86,6 +88,7 @@ extension CoursesVC {
     }
     
     func updateSearchStatus() {
+        // Update search button style
         UIView.animate(withDuration: 0.2, animations: {
             self.searchIcon.transform = self.searchField.isEditing ? CGAffineTransform(scaleX: 1.2, y: 1.2) : CGAffineTransform(scaleX: 0.8, y: 0.8)
         }) { (finished) in

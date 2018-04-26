@@ -13,7 +13,7 @@ extension CoursesVC: UITableViewDelegate {
         if (tableView == searchTable) {
             let course = searchedCourses[indexPath.row]
             if !removeCourse(course) {
-                selectedCourses.append(course)
+                selectedCourses.append(course)  // try to remove if fail add
             }
             let cell = searchTable.cellForRow(at: indexPath) as! QuickCourseCell
             cell.setSelected(selectedCourses.contains(course), animated: false)
