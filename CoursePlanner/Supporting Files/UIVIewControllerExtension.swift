@@ -54,6 +54,9 @@ extension UIViewController {
         case .OutOfSpace:
             message = "You reached the limit of 20 saved schedules"
             break
+        case .NoMatchingUser:
+            message = "Username does not exist"
+            break
         case .ServiceUnavailable:
             message = "Oops! Seems like our server is down!"
         }

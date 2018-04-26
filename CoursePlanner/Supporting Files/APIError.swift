@@ -17,4 +17,5 @@ enum APIError: Error {
     case ServiceUnavailable
     case NotFound
     case OutOfSpace
+    case NoMatchingUser
 }

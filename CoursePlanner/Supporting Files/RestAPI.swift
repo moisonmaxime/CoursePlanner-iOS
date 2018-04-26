@@ -143,6 +143,40 @@ class RestAPI {
         }
     }
     
+    static func forgotPassword(user: String, completion: @escaping (APIError?) -> ()) {
+        guard let url = URL(string: "\(apiURL)users/forgot-password/") else {
+            completion(.InternalError)
+            return
+        }
+        
+        var request:URLRequest = URLRequest(url: url, type: .POST)
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: ["username": user], options: .prettyPrinted) else {
+            completion(.InternalError)
+            return
+        }
+        request.httpBody = jsonData
+        
+        request.getJsonData { (dict, err) in
+            if (err != nil) {
+                completion(err!)
+                return
+            } else {
+                guard let success = dict!["success"] as? Bool else {
+                    completion(.InternalError)
+                    return
+                }
+                
+                guard success else {
+                    completion(.NoMatchingUser)
+                    return
+                }
+                
+                completion(nil)
+                return
+            }
+        }
+    }
+    
     /*
      static func refreshApplicationKey(completion: @escaping (APIError?) -> ()) {
      guard let url = URL(string: "\(apiURL)auth/token/refresh") else {
