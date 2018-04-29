@@ -240,7 +240,16 @@ class RestAPI {
                 completion(err)
             } else {
                 // Save to application settings
-                guard let keys = dict!["api_keys"]! as? Dictionary<String, String> else {
+                if let error = dict?["error"] as? String {
+                    if (error == "User Already Exists") {
+                        completion(.UserAlreadyExists)
+                        return
+                    }
+                    completion(.ServerError)
+                    return
+                }
+                
+                guard let keys = dict?["api_keys"] as? Dictionary<String, String> else {
                     completion(.InternalError)
                     return
                 }

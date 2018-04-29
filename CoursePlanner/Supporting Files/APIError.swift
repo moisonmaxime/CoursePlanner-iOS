@@ -18,4 +18,5 @@ enum APIError: Error {
     case NotFound
     case OutOfSpace
     case NoMatchingUser
+    case UserAlreadyExists
 }

@@ -26,7 +26,7 @@ extension UIViewController {
         let message:String
         switch (error) {
         case .InternalError:
-            message = "Internal Error"
+            message = "Oops! Something went wrong"
             break
         case .InvalidAPIKey:
             message = "Invalid API Key"
@@ -46,7 +46,7 @@ extension UIViewController {
             message = "Server Error"
             break
         case .NetworkError:
-            message = "Network Error"
+            message = "Check your internet connection"
             break
         case .NotFound:
             message = "Could not delete schedule"
@@ -59,6 +59,10 @@ extension UIViewController {
             break
         case .ServiceUnavailable:
             message = "Oops! Seems like our server is down!"
+            break
+        case .UserAlreadyExists:
+            message = "This username is already taken"
+            break
         }
         
         // debugPrint("Error: \(message)")
