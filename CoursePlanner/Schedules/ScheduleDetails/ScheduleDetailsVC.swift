@@ -17,6 +17,7 @@ protocol ScheduleDetailsDelegate {
 
 class ScheduleDetailsVC: UIViewController {
     
+    @IBOutlet weak var registerButton: RoundedButton!
     @IBOutlet weak var coursesTable: UITableView!
     @IBOutlet weak var actionButton: RoundedButton!
     var detailDelegate:ScheduleDetailsDelegate!
@@ -31,6 +32,9 @@ class ScheduleDetailsVC: UIViewController {
         // Do any additional setup after loading the view.
         coursesTable.dataSource = self
         coursesTable.delegate = self
+        registerButton.isEnabled = !(detailDelegate.getSchedule().courses.contains { (course) -> Bool in
+            return course.isFull
+        })
         coursesTable.reloadData()
     }
     

@@ -123,6 +123,7 @@ class WeekCalendar: UIView {
                         view.courseID.text = course.courseName
                         view.typeLabel.text = "\(course.type) \(course.sectionID)"
                         view.tintColor = color
+                        view.alpha = course.isFull ? 0.4 : 1
                         insertSubview(view, at: 0)
                     }
                 }

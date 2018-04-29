@@ -29,6 +29,12 @@ class ProfileVC: UIViewController {
                     self.usernameLabel.text = info?["username"]?.capitalized
                     self.fullNameLabel.text = info?["name"]?.capitalized
                 }
+                self.usernameLabel.alpha = 0
+                self.fullNameLabel.alpha = 0
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.usernameLabel.alpha = 1
+                    self.fullNameLabel.alpha = 1
+                })
             }
         }
     }
