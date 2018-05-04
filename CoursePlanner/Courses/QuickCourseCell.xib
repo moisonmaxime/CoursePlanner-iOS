@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,11 +32,21 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow" translatesAutoresizingMaskIntoConstraints="NO" id="IPS-jb-s3c">
+                        <rect key="frame" x="295" y="8" width="32" height="55.5"/>
+                        <color key="tintColor" name="LabelColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="9xF-Cr-plv"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="IPS-jb-s3c" secondAttribute="trailing" constant="8" id="49s-do-zoD"/>
+                    <constraint firstItem="IPS-jb-s3c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7gg-6w-Hjq"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qbU-41-raH" secondAttribute="trailing" constant="16" id="Dm1-Wv-wD9"/>
                     <constraint firstItem="Hgu-gt-CAM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="KeX-oc-fnU"/>
                     <constraint firstItem="qbU-41-raH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Rg9-ZG-dFJ"/>
+                    <constraint firstAttribute="bottom" secondItem="IPS-jb-s3c" secondAttribute="bottom" constant="8" id="ToR-E2-lMN"/>
                     <constraint firstItem="Hgu-gt-CAM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="exn-hZ-a12"/>
                     <constraint firstItem="qbU-41-raH" firstAttribute="top" secondItem="Hgu-gt-CAM" secondAttribute="bottom" constant="4" id="l7K-cs-J4c"/>
                 </constraints>
@@ -43,9 +54,16 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="descriptionLabel" destination="qbU-41-raH" id="uCV-db-lX4"/>
+                <outlet property="detailsArrow" destination="IPS-jb-s3c" id="awi-gd-a5B"/>
                 <outlet property="nameLabel" destination="Hgu-gt-CAM" id="ZNl-NJ-r8Z"/>
             </connections>
             <point key="canvasLocation" x="41.5" y="73"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Arrow" width="128" height="128"/>
+        <namedColor name="LabelColor">
+            <color red="0.074509803921568626" green="0.23529411764705882" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

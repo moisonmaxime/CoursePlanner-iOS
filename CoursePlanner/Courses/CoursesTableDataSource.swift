@@ -26,12 +26,12 @@ extension CoursesVC: UITableViewDataSource {
             cell.nameLabel.text = course["name"]
             cell.descriptionLabel.text = course["description"]
             cell.setSelected(selectedCourses.contains(course), animated: false) // update status
-            cell.updateView()   // update visuals
+            cell.updateView(hasDetails: false)   // update visuals
         } else {
             let course = selectedCourses[indexPath.row]
             cell.nameLabel.text = course["name"]
             cell.descriptionLabel.text = course["description"]
-            cell.updateView()   // update visuals
+            cell.updateView(hasDetails: true)   // update visuals
         }
         return cell
     }

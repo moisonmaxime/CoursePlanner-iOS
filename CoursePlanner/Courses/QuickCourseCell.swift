@@ -12,12 +12,14 @@ class QuickCourseCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var detailsArrow: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    func updateView() {
+    func updateView(hasDetails: Bool) {
+        detailsArrow.isHidden = !hasDetails
         let highlightColor = #colorLiteral(red: 0.07450980392, green: 0.2352941176, blue: 0.3333333333, alpha: 1)
         nameLabel.textColor = isSelected ? .white : highlightColor
         descriptionLabel.textColor = isSelected ? .white : highlightColor
