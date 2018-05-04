@@ -30,7 +30,7 @@ class RoundedView: UIView {
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
-        let path = UIBezierPath(roundedRect: CGRect(x: rect.minX+0.1, y: rect.minY+0.1, width: rect.width-0.2, height: rect.height-0.2), cornerRadius: 5)
+        let path = UIBezierPath(roundedRect: CGRect(x: rect.minX+0.2, y: rect.minY+0.2, width: rect.width-0.4, height: rect.height-0.4), cornerRadius: 5)
         #colorLiteral(red: 0.3490196078, green: 0.6470588235, blue: 0.8470588235, alpha: 1).setStroke()
         path.lineWidth = 0.5
         path.stroke()
