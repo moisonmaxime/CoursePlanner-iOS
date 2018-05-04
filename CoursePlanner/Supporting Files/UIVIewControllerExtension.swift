@@ -29,7 +29,7 @@ extension UIViewController {
             message = "Oops! Something went wrong"
             break
         case .InvalidAPIKey:
-            message = "Invalid API Key"
+            message = "Please sign in again"
             let appDomain = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
             UserDefaults.standard.synchronize()
@@ -103,17 +103,4 @@ extension UIViewController {
     }
     // ###
     
-    
-    // ### - Done goes to the next field
-    @IBAction func nextTextField(sender: UITextField) {
-        let fields = view.subviews.filter { (field) -> Bool in
-            return type(of: field) == UITextField.self
-        }
-        if let index = fields.index(of: sender) {
-            if (index+1 < fields.count) {
-                sender.resignFirstResponder()
-                fields[index+1].becomeFirstResponder()
-            }
-        }
-    }
 }
