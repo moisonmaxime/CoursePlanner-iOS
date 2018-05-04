@@ -34,6 +34,9 @@
                                         <color key="textColor" name="LabelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="username"/>
+                                        <connections>
+                                            <action selector="setAsFirstResponder" destination="0nW-i7-7ch" eventType="primaryActionTriggered" id="F09-7A-T7p"/>
+                                        </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="6wh-Bt-Gt5">
                                         <rect key="frame" x="8.0000000000000071" y="8" width="24" height="24"/>
@@ -65,7 +68,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
-                                            <action selector="loginClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="9Fi-1S-grt"/>
+                                            <action selector="dismissField" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="muV-HU-MLd"/>
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Key" translatesAutoresizingMaskIntoConstraints="NO" id="r7r-tD-pIJ">
@@ -184,6 +187,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="given-name"/>
+                                        <connections>
+                                            <action selector="setAsFirstResponder" destination="0SH-lL-cZ6" eventType="primaryActionTriggered" id="9pN-E8-G3b"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0SH-lL-cZ6" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="51.999999999999986" width="290" height="40"/>
@@ -193,6 +199,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="family-name"/>
+                                        <connections>
+                                            <action selector="setAsFirstResponder" destination="KhQ-xK-8ox" eventType="primaryActionTriggered" id="oIp-0R-N2z"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-xK-8ox" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="103.99999999999999" width="290" height="40.000000000000014"/>
@@ -202,6 +211,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" textContentType="username"/>
+                                        <connections>
+                                            <action selector="setAsFirstResponder" destination="cSV-PB-Zoe" eventType="primaryActionTriggered" id="mHs-Hg-MMO"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSV-PB-Zoe" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="156" width="290" height="40"/>
@@ -211,6 +223,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <action selector="setAsFirstResponder" destination="jmG-90-lIL" eventType="primaryActionTriggered" id="g1a-3D-JUf"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-Type Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmG-90-lIL" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="208" width="290" height="40"/>
@@ -220,6 +235,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <action selector="setAsFirstResponder" destination="Bya-8z-s0b" eventType="primaryActionTriggered" id="QmC-mu-LQZ"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bya-8z-s0b" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="260" width="290" height="40"/>
@@ -229,6 +247,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <connections>
+                                            <action selector="dismissField" destination="JlZ-CH-N0H" eventType="primaryActionTriggered" id="rO0-qY-XQi"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -250,10 +271,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaS-PG-6tb" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
-                                <rect key="frame" x="163" y="632" width="88" height="40"/>
+                                <rect key="frame" x="159" y="632" width="96" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="c8B-Ox-1Vi"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="c8B-Ox-1Vi"/>
                                     <constraint firstAttribute="height" constant="40" id="lbg-du-Z0v"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -350,23 +371,32 @@
                                 <color key="textColor" name="LabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71m-bX-S9y">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71m-bX-S9y" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
                                 <rect key="frame" x="104" y="143.66666666666666" width="207" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                <connections>
+                                    <action selector="setAsFirstResponder" destination="rc3-qJ-vmE" eventType="primaryActionTriggered" id="ebK-aw-6UB"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-qJ-vmE">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-qJ-vmE" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
                                 <rect key="frame" x="104" y="181.66666666666666" width="207" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                <connections>
+                                    <action selector="setAsFirstResponder" destination="FQC-EL-V5z" eventType="primaryActionTriggered" id="QV5-dv-IsR"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-type New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-EL-V5z">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-type New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-EL-V5z" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
                                 <rect key="frame" x="104" y="223.66666666666666" width="207" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                <connections>
+                                    <action selector="dismissField" destination="znY-HK-LxG" eventType="primaryActionTriggered" id="2Qd-Sf-cAG"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jg-An-JPK">
                                 <rect key="frame" x="142.66666666666666" y="261.66666666666669" width="128.99999999999997" height="30"/>
