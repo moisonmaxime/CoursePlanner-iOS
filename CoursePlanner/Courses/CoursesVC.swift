@@ -17,6 +17,7 @@ class CoursesVC: UIViewController {
     @IBOutlet weak var searchIcon: UIImageView!
     @IBOutlet weak var clearSearchButton: UIButton!
     @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var emptyCoursesPrompt: UIImageView!
     
     // If user changes term, then update UI and reset everything
     var term:String? {
@@ -39,6 +40,7 @@ class CoursesVC: UIViewController {
             selectionLabel.isHidden = !((count > 0) && !searchTable.isHidden)
             selectionLabel.text = "\(count) course\(count > 1 ? "s" : "") selected"
             searchTable.contentInset.top = count > 0 ? 24 : 0
+            updateEmptyCoursesPrompt()
         }
     }
     
@@ -98,6 +100,10 @@ class CoursesVC: UIViewController {
     func reloadTables() {
         searchTable.reloadData()
         selectedTable.reloadData()
+    }
+    
+    func updateEmptyCoursesPrompt() {
+        emptyCoursesPrompt.isHidden = selectedCourses.count != 0
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {

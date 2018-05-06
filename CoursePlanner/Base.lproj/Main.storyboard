@@ -578,6 +578,13 @@
                                 <rect key="frame" x="0.0" y="139" width="414" height="510"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectCourses" translatesAutoresizingMaskIntoConstraints="NO" id="CE7-vY-8tS">
+                                <rect key="frame" x="103" y="163" width="207" height="207"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CE7-vY-8tS" secondAttribute="height" multiplier="1:1" id="VNe-TM-YFa"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mud-R2-aON">
                                 <rect key="frame" x="20" y="672" width="48" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -741,6 +748,7 @@
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="osP-WH-Dtd" secondAttribute="trailing" constant="16" id="VZG-Pg-cMv"/>
                             <constraint firstItem="7j9-vT-Qo6" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="XDq-bc-6g6"/>
                             <constraint firstItem="p3m-Et-Lam" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="Z0R-a0-vfs"/>
+                            <constraint firstItem="CE7-vY-8tS" firstAttribute="top" secondItem="q2y-oi-pBe" secondAttribute="bottom" constant="32" id="aIV-xf-frG"/>
                             <constraint firstItem="mud-R2-aON" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" constant="20" id="bpZ-qP-Dtc"/>
                             <constraint firstItem="osP-WH-Dtd" firstAttribute="top" secondItem="Dug-H3-JDK" secondAttribute="top" constant="4" id="cin-m1-cCU"/>
                             <constraint firstItem="q2y-oi-pBe" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" id="cuc-ZH-8T1"/>
@@ -750,12 +758,15 @@
                             <constraint firstItem="q2y-oi-pBe" firstAttribute="top" secondItem="osP-WH-Dtd" secondAttribute="bottom" constant="8" id="hGH-Mf-uOj"/>
                             <constraint firstItem="TaZ-ol-ppf" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="iHD-li-6Fa"/>
                             <constraint firstItem="mud-R2-aON" firstAttribute="baseline" secondItem="TaZ-ol-ppf" secondAttribute="baseline" constant="4" id="nnn-cu-3G1"/>
+                            <constraint firstItem="CE7-vY-8tS" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="qmP-zv-tPU"/>
+                            <constraint firstItem="CE7-vY-8tS" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" multiplier="0.5" id="tmG-eV-sin"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dug-H3-JDK"/>
                     </view>
                     <navigationItem key="navigationItem" id="tNi-SO-2U1"/>
                     <connections>
                         <outlet property="clearSearchButton" destination="wZB-Ez-4jl" id="dV4-iq-1YM"/>
+                        <outlet property="emptyCoursesPrompt" destination="CE7-vY-8tS" id="Czz-os-xjw"/>
                         <outlet property="searchField" destination="rxd-Qk-4x2" id="J8E-qX-PQX"/>
                         <outlet property="searchIcon" destination="OGL-AQ-jvc" id="exV-fc-EjV"/>
                         <outlet property="searchTable" destination="7j9-vT-Qo6" id="mdZ-nl-ez4"/>
@@ -1269,6 +1280,7 @@
         <image name="Key" width="341" height="341"/>
         <image name="Logo" width="256" height="256"/>
         <image name="Search" width="128" height="128"/>
+        <image name="SelectCourses" width="1024" height="1024"/>
         <image name="User" width="128" height="128"/>
         <namedColor name="BackgroundColor">
             <color red="0.95686274509803926" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1278,12 +1290,6 @@
         </namedColor>
         <namedColor name="HighlightColor">
             <color red="0.21568627450980393" green="0.43529411764705883" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="HighlightColor">
-            <color red="0.21568627450980393" green="0.43529411764705883" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="LabelColor">
-            <color red="0.074509803921568626" green="0.23529411764705882" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LabelColor">
             <color red="0.074509803921568626" green="0.23529411764705882" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
