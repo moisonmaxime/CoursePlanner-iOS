@@ -27,28 +27,17 @@ enum APIError {
 extension APIError {
     var message: String {
         switch self {
-        case .serverError:
-            return "Server Error"
-        case .networkError:
-            return "Check your internet connection"
-        case .invalidAPIKey:
-            return "Please sign in again"
-        case .invalidCredentials:
-            return "Invalid Credentials"
-        case .internalError:
-            return "Oops! Something went wrong"
-        case .serviceUnavailable:
-            return "Oops! Seems like our server is down!"
-        case .notFound:
-            return "Could not delete schedule"
-        case .outOfSpace:
-            return "You reached the limit of 20 saved schedules"
-        case .noMatchingUser:
-            return "Username does not exist"
-        case .userAlreadyExists:
-            return "This username is already taken"
-        case .unknownError:
-            return "No idea what happend there..."
+        case .serverError: return "Server Error"
+        case .networkError: return "Check your internet connection"
+        case .invalidAPIKey: return "Please sign in again"
+        case .invalidCredentials: return "Invalid Credentials"
+        case .internalError: return "Oops! Something went wrong"
+        case .serviceUnavailable: return "Oops! Seems like our server is down!"
+        case .notFound: return "Could not delete schedule"
+        case .outOfSpace: return "You reached the limit of 20 saved schedules"
+        case .noMatchingUser: return "Username does not exist"
+        case .userAlreadyExists: return "This username is already taken"
+        case .unknownError: return "No idea what happend there..."
         }
     }
     static func error(for statusCode: Int) -> APIError {
@@ -76,10 +65,18 @@ extension URLRequest {
         case GET = "GET"
     }
     
-    init(url: URL, type: RequestType, forceUnauthorized: Bool=false) {
+    init?(url: String, content:[String:Any]=[:], type: RequestType, forceUnauthorized: Bool=false) {
+        print(url)
+        guard let url = URL(string: url),
+            let jsonData = try? JSONSerialization.data(withJSONObject: content, options: .prettyPrinted) else {
+                return nil
+        }
         self.init(url: url)
         self.setValue("application/json", forHTTPHeaderField: "Content-Type")
         self.httpMethod = type.rawValue
+        if !content.isEmpty {
+            self.httpBody = jsonData
+        }
         
         let token = UserDefaults.standard.string(forKey: "api_token")
         if (token != nil && !forceUnauthorized) {
@@ -87,33 +84,32 @@ extension URLRequest {
         }
     }
     
-    func getJsonData(completion: @escaping (Dictionary<String, Any>?, APIError?)->()) {
+    func getJsonData(completionHandler: @escaping (Dictionary<String, Any>)->(), errorHandler: @escaping (APIError)->()) {
         let task = URLSession.shared.dataTask(with: self) { data, response, error in
             guard let data = data, error == nil else {                                   // check for fundamental networking error
-                completion(nil, .networkError)
+                errorHandler(.networkError)
                 return
             }
-            
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {    // check for http errors
                 // print("HttpCode: \(httpStatus.statusCode)")
-                completion(nil, APIError.error(for: httpStatus.statusCode))
+                errorHandler(APIError.error(for: httpStatus.statusCode))
                 return
             }
-            
             if let json = try? JSONSerialization.jsonObject(with: data, options: []) {      // extract response data
                 if let dict = json as? Dictionary<String, Any> {
-                    completion(dict, nil)
+                    print(dict)
+                    completionHandler(dict)
                     return
                 } else if let array = json as? Array<Any> {
                     let dict = ["result": array]
-                    completion(dict, nil)
+                    print(dict)
+                    completionHandler(dict)
                     return
                 }
             }
-            completion(nil, .internalError)
+            errorHandler(.internalError)
             return
         }
-        
         task.resume()
     }
     

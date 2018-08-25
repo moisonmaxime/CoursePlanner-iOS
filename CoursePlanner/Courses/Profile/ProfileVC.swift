@@ -21,22 +21,16 @@ class ProfileVC: UIViewController {
         // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
         fullNameLabel.text = ""
-        RestAPI.getUserInfo { (info, error) in
-            DispatchQueue.main.async {
-                if (error != nil) {
-                    self.handleError(error: error!)
-                } else {
-                    self.usernameLabel.text = info?["username"]?.capitalized
-                    self.fullNameLabel.text = info?["name"]?.capitalized
-                }
-                self.usernameLabel.alpha = 0
-                self.fullNameLabel.alpha = 0
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.usernameLabel.alpha = 1
-                    self.fullNameLabel.alpha = 1
-                })
-            }
-        }
+        RestAPI.getUserInfo(completionHandler: { info in
+            self.usernameLabel.text = info["username"]?.capitalized
+            self.fullNameLabel.text = info["name"]?.capitalized
+            self.usernameLabel.alpha = 0
+            self.fullNameLabel.alpha = 0
+            UIView.animate(withDuration: 0.5, animations: {
+                self.usernameLabel.alpha = 1
+                self.fullNameLabel.alpha = 1
+            })
+        }, errorHandler: handleError)
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,24 +43,21 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func changePassword(_ sender: Any) {
-        guard let password = pass1.text, pass1.text != "", pass1.text == pass2.text else {
-            if (pass1.text == pass2.text) {
-                displayAlert(message: "Password required")
-            } else {
-                displayAlert(message: "Passwords are not matching")
-            }
-            return
+        guard let oldPass = oldPass.text,
+            let password = pass1.text,
+            pass1.text != "",
+            pass1.text == pass2.text else {
+                if (pass1.text == pass2.text) {
+                    displayAlert(message: "Password required")
+                } else {
+                    displayAlert(message: "Passwords are not matching")
+                }
+                return
         }
         
-        RestAPI.changePassword(oldPass: oldPass.text!, newPass: password) { (error) in
-            DispatchQueue.main.async {
-                if (error != nil) {
-                    self.handleError(error: error!)
-                } else {
-                    self.displayAlert(title: "Success", message: "Your Password was changed")
-                }
-            }
-        }
+        RestAPI.changePassword(oldPass: oldPass, newPass: password, completionHandler: {
+            self.displayAlert(title: "Success", message: "Your Password was changed")
+        }, errorHandler: handleError)
     }
     
     @IBAction func logout() {

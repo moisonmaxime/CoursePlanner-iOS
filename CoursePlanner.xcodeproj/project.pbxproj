@@ -65,6 +65,7 @@
 		1BBFDB5520747A57003FBADE /* CourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBFDB5320747A57003FBADE /* CourseCell.xib */; };
 		1BDEED532059F220001FE6FB /* FadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED522059F220001FE6FB /* FadingAnimation.swift */; };
 		1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDEED542059F36B001FE6FB /* NavigationController.swift */; };
+		1BE7E68021320BBC0036024D /* StandardScheduleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7E67F21320BBC0036024D /* StandardScheduleUITests.swift */; };
 		1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE085D205EE51800FEEB1F /* CoursesVC.swift */; };
 		1BFE30C02068629B0053C3B3 /* SchedulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE30BF2068629B0053C3B3 /* SchedulesVC.swift */; };
 /* End PBXBuildFile section */
@@ -152,6 +153,7 @@
 		1BBFDB5320747A57003FBADE /* CourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
 		1BDEED522059F220001FE6FB /* FadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadingAnimation.swift; sourceTree = "<group>"; };
 		1BDEED542059F36B001FE6FB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		1BE7E67F21320BBC0036024D /* StandardScheduleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardScheduleUITests.swift; sourceTree = "<group>"; };
 		1BFE085D205EE51800FEEB1F /* CoursesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesVC.swift; sourceTree = "<group>"; };
 		1BFE30BF2068629B0053C3B3 /* SchedulesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -369,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				1B99D457207983D8003BE359 /* CoursePlannerUITests.swift */,
+				1BE7E67F21320BBC0036024D /* StandardScheduleUITests.swift */,
 				1B99D459207983D8003BE359 /* Info.plist */,
 			);
 			path = CoursePlannerUITests;
@@ -619,6 +622,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B99D458207983D8003BE359 /* CoursePlannerUITests.swift in Sources */,
+				1BE7E68021320BBC0036024D /* StandardScheduleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

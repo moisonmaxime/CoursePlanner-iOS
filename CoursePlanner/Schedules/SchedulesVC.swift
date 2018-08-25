@@ -46,28 +46,24 @@ class SchedulesVC: UIViewController {
     
     func getInitialData() {
         (self.navigationController as! NavigationController).didStartLoading(immediately: true)
-        RestAPI.getSchedules(term: term, courses: courses, badCRNs: badCRNs,completion: { (response, error) in
-            DispatchQueue.main.async {
-                if let nav = self.navigationController as? NavigationController {
-                    nav.didFinishLoading()
-                    if (error != nil) {
-                        self.handleError(error: error!)
-                        self.schedules = []
-                    } else {
-                        self.schedules = response!
-                        if (self.schedules.count == 0) {
-                            print("No schedule!")
-                        }
-                        let noSchedule = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
-                        self.currentScheduleLbl.isHidden = noSchedule
-                        self.detailssButton.isHidden = noSchedule
-                        self.nextButton.isHidden = noSchedule
-                        self.previousButton.isHidden = noSchedule
-                        self.weekDisplay.schedule = self.schedules.first
-                        self.weekDisplay.setNeedsDisplay()
-                    }
-                }
+        RestAPI.getSchedules(term: term, courses: courses, completionHandler: { schedules in
+            if let nav = self.navigationController as? NavigationController {
+                nav.didFinishLoading()
             }
+            self.schedules = schedules
+            if (self.schedules.count == 0) {
+                print("No schedule!")
+            }
+            let noSchedule = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
+            self.currentScheduleLbl.isHidden = noSchedule
+            self.detailssButton.isHidden = noSchedule
+            self.nextButton.isHidden = noSchedule
+            self.previousButton.isHidden = noSchedule
+            self.weekDisplay.schedule = self.schedules.first
+            self.weekDisplay.setNeedsDisplay()
+        }, errorHandler: { error in
+            self.handleError(error: error)
+            self.schedules = []
         })
     }
     

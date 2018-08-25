@@ -56,8 +56,16 @@ class ScheduleDetailsVC: UIViewController {
             textField.isSecureTextEntry = true
         })
         alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { _ in
-            self.didStartLoading(immediately: true)
-            RestAPI.register(username: alert.textFields![0].text!, password: alert.textFields![1].text!, term: self.detailDelegate.getTerm(), crns: self.detailDelegate.getSchedule().crns) { (err, msg) in
+            //self.didStartLoading(immediately: true)
+            /*RestAPI.register(username: alert.textFields![0].text!, password: alert.textFields![1].text!, term: self.detailDelegate.getTerm(), crns: self.detailDelegate.getSchedule().crns, email: <#String?#>)
+            
+            
+            
+            
+            
+            
+            
+            let test = { (err, msg) in
                 DispatchQueue.main.async {
                     self.didFinishLoading()
                     if err != nil {
@@ -68,7 +76,7 @@ class ScheduleDetailsVC: UIViewController {
                         self.displayAlert(title: "Success", message: "All your classes were registered")
                     }
                 }
-            }
+            }*/
         }))
         self.present(alert, animated: true)
         
@@ -77,24 +85,12 @@ class ScheduleDetailsVC: UIViewController {
     @IBAction func saveSchedule(_ sender: Any) {
         if (detailDelegate.isSaved()) {
             self.didStartLoading()
-            RestAPI.deleteSchedule(term: detailDelegate.getTerm(), crns: detailDelegate.getSchedule().crns) { (err) in
-                DispatchQueue.main.async {
-                    if (err != nil) {
-                        self.handleError(error: err!)
-                    } else {
-                        self.detailDelegate.removeScheduleLocally()
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
-            }
+            RestAPI.deleteSchedule(term: detailDelegate.getTerm(), crns: detailDelegate.getSchedule().crns, completionHandler: {
+                self.detailDelegate.removeScheduleLocally()
+                self.dismiss(animated: true, completion: nil)
+            }, errorHandler: handleError)
         } else {
-            RestAPI.saveSchedule(term: detailDelegate.getTerm(), crns: detailDelegate.getSchedule().crns) { (err) in
-                DispatchQueue.main.async {
-                    if (err != nil) {
-                        self.handleError(error: err!)
-                    }
-                }
-            }
+            RestAPI.saveSchedule(term: detailDelegate.getTerm(), crns: detailDelegate.getSchedule().crns, completionHandler: {}, errorHandler: handleError)
         }
     }
     

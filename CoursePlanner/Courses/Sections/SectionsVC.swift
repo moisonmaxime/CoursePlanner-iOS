@@ -34,18 +34,13 @@ class SectionsVC: UIViewController {
         self.sectionTable.register(nib, forCellReuseIdentifier: "CourseCell")
         
         (self.navigationController as! NavigationController).didStartLoading(immediately: true)
-        RestAPI.getSections(term: term!, id: course!["name"]!) { (response, err) in
-            DispatchQueue.main.async {
-                if let nav = self.navigationController as? NavigationController {
-                    nav.didFinishLoading()
-                    if (err != nil) {
-                        self.handleError(error: err!)
-                    }
-                    self.courses = response ?? []
-                    self.sectionTable.reloadData()
-                }
+        RestAPI.getSections(term: term!, id: course["name"]!, completionHandler: { courses in
+            if let nav = self.navigationController as? NavigationController {
+                nav.didFinishLoading()
             }
-        }
+            self.courses = courses
+            self.sectionTable.reloadData()
+        }, errorHandler: handleError)
         // Do any additional setup after loading the view.
     }
     

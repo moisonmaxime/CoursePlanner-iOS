@@ -39,28 +39,17 @@ class HomeVC: UIViewController {
     
     @objc func refresh() {
         selectedRow = nil
-        RestAPI.getTerms { (terms, error) in
-            DispatchQueue.main.async {
-                self.refreshControl.endRefreshing()
-                if (error != nil) {
-                    DispatchQueue.main.async {
-                        self.handleError(error: error!)
-                    }
-                } else {
-                    self.terms = terms!.sorted(by: { (s1, s2) -> Bool in
-                        let t1 = s1.readableTerm().split(separator: " ")
-                        let t2 = s2.readableTerm().split(separator: " ")
-                        if (t1[1] == t2[1]) {
-                            return t1[0] < t2[0]
-                        }
-                        return t1[1] > t2[1]
-                    })
-                    self.termTable.reloadData();
+        RestAPI.getTerms(completionHandler: { terms in
+            self.terms = terms.sorted(by: { (s1, s2) -> Bool in
+                let t1 = s1.readableTerm().split(separator: " ")
+                let t2 = s2.readableTerm().split(separator: " ")
+                if (t1[1] == t2[1]) {
+                    return t1[0] < t2[0]
                 }
-                
-            }
-            
-        }
+                return t1[1] > t2[1]
+            })
+            self.termTable.reloadData();
+        }, errorHandler: handleError)
     }
     
     @IBAction func logout(_ sender: Any) {

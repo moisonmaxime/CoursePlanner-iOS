@@ -22,14 +22,12 @@ class CoursesVC: UIViewController {
     // If user changes term, then update UI and reset everything
     var term:String? {
         didSet {
-            DispatchQueue.main.async {
-                self.selectedCourses = []
-                self.searchedCourses = []
-                self.badCRNs = []
-                self.termButton.setTitle((self.term?.readableTerm())! + " ▼", for: .normal)
-                self.reloadTables()
-                self.searchField.text = ""
-            }
+            self.selectedCourses = []
+            self.searchedCourses = []
+            self.badCRNs = []
+            self.termButton.setTitle((self.term?.readableTerm())! + " ▼", for: .normal)
+            self.reloadTables()
+            self.searchField.text = ""
         }
     }
     
@@ -54,15 +52,9 @@ class CoursesVC: UIViewController {
         if let terms = UserDefaults.standard.object(forKey: "terms") {
             term = (terms as! [String]).first
         } else {
-            RestAPI.getTerms { (terms, err) in
-                DispatchQueue.main.async {
-                    if (err != nil) {
-                        self.handleError(error: err!)
-                    } else {
-                        self.term = terms?.first
-                    }
-                }
-            }
+            RestAPI.getTerms(completionHandler: { terms in
+                self.term = terms.first
+            }, errorHandler: handleError)
         }
         
         // Add the QuickCourseCell reusable to the tables

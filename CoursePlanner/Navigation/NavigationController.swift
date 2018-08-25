@@ -76,6 +76,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     }
     
     func didStartLoading(immediately: Bool=false) {
+        topViewController?.view.isUserInteractionEnabled = false
         let loadingView = UIView(frame: self.view.frame)
         
         let screen = UIApplication.shared.keyWindow!.frame
@@ -105,11 +106,15 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     }
     
     func didFinishLoading() {
+        topViewController?.view.isUserInteractionEnabled = true
         for v in loadingViews {
             UIView.animate(withDuration: 0.5, animations: {
                 v.alpha = 0
             }, completion: { _ in
                 v.removeFromSuperview()
+                if let index = self.loadingViews.index(of: v) {
+                    self.loadingViews.remove(at: index)
+                }
             })
         }
     }

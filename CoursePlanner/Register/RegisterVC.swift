@@ -21,7 +21,7 @@ class RegisterVC: UIViewController {
         // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,32 +57,21 @@ class RegisterVC: UIViewController {
         let email:String? = (emailField.text == "") ? nil : emailField.text
         
         // API Call to register (transition to Homepage if successful)
-        self.view.isUserInteractionEnabled = false
         (self.navigationController as! NavigationController).didStartLoading()
-        RestAPI.register(user: username, password: password, first: firstName, last: lastName, email: email) { (error) in
-            DispatchQueue.main.async {
-                (self.navigationController as! NavigationController).didFinishLoading()
-                self.view.isUserInteractionEnabled = true
-                
-                if (error != nil) {
-                    self.handleError(error: error!)
-                } else {
-                    //RestAPI.getUserInfo { _ in }
-                    (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
-                    let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                    self.navigationController?.setViewControllers([home!], animated: true)
-                }
-            }
-        }
+        RestAPI.register(user: username, password: password, first: firstName, last: lastName, email: email, completionHandler: {
+            (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
+            let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+            self.navigationController?.setViewControllers([home!], animated: true)
+        }, errorHandler: handleError)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
