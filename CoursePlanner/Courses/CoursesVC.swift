@@ -19,6 +19,8 @@ class CoursesVC: UIViewController {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var emptyCoursesPrompt: UIImageView!
     
+    var timer:Timer?
+    
     // If user changes term, then update UI and reset everything
     var term:String? {
         didSet {

@@ -19,41 +19,47 @@ extension CoursesVC {
     @IBAction func searchDidChanged(_ sender: Any) {
         
         updateClearButton()
-        if ((searchField.text?.underestimatedCount)! >= 2) {
-            let searchPrompt = searchField.text!
-            RestAPI.searchCourseIDs(id: searchField.text!,
+        
+        guard let searchPrompt = searchField.text,
+            searchPrompt.count >= 2 else {
+                self.searchedCourses = []
+                self.searchTable.reloadData()
+                return
+        }
+        
+        timer?.invalidate()
+        
+        timer = Timer(timeInterval: 0.25, repeats: false, block: { _ in
+            RestAPI.searchCourseIDs(id: searchPrompt,
                                     term: self.term!,
                                     completionHandler: { result in
-                                        if (searchPrompt == self.searchField.text!) {
-                                            if (result != nil) {
-                                                self.searchedCourses = result.sorted(by: { (c1, c2) -> Bool in
-                                                    let s1 = c1["name"]!.split(separator: "-")
-                                                    let s2 = c2["name"]!.split(separator: "-")
-                                                    
-                                                    if (s1[0] == s2[0]) {
-                                                        let n1 = Int(s1[1]) ?? 0
-                                                        let n2 = Int(s2[1]) ?? 0
-                                                        return n1 < n2
-                                                    }
-                                                    return s1[0] < s2[0]
-                                                })
-                                            } else {
-                                                self.searchedCourses = []
+                                        self.searchedCourses = result.sorted(by: { (c1, c2) -> Bool in
+                                            let s1 = c1["name"]!.split(separator: "-")
+                                            let s2 = c2["name"]!.split(separator: "-")
+                                            
+                                            if (s1[0] == s2[0]) {
+                                                let n1 = Int(s1[1]) ?? 0
+                                                let n2 = Int(s2[1]) ?? 0
+                                                return n1 < n2
                                             }
-                                            self.searchTable.reloadData()
-                                        }
-            }, errorHandler: handleError)
-        } else {
-            self.searchedCourses = []
-            self.searchTable.reloadData()
+                                            return s1[0] < s2[0]
+                                        })
+                                        self.searchTable.reloadData()
+            }, errorHandler: self.handleError)
+        })
+        
+        if let timer = timer {
+            RunLoop.main.add(timer, forMode: .commonModes)
         }
     }
+    
     @IBAction func searchDidEnd(_ sender: Any) {
         searchTable.isHidden = true
         selectionLabel.isHidden = true
         updateSearchStatus()
         updateClearButton()
     }
+    
     @IBAction func searchDidReturn(_ sender: Any) {
         searchField.endEditing(true)
     }

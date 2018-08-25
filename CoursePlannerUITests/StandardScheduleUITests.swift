@@ -31,7 +31,6 @@ class StandardScheduleUITests: XCTestCase {
     func testMain() {
         let app = XCUIApplication()
         
-        
         app.textFields["Search for classes"].tap()
         app.textFields["Search for classes"].typeText("CSE111")
         XCTAssertEqual(app.alerts.count, 0, "Alert Message")
@@ -60,6 +59,17 @@ class StandardScheduleUITests: XCTestCase {
         XCTAssertEqual(app.alerts.count, 0, "Alert Message")
         app.buttons["Details"].tap()
         XCTAssertEqual(app.alerts.count, 0, "Alert Message")
+    }
+    
+    
+    func testSearchBar() {
+        let app = XCUIApplication()
+        app.textFields["Search for classes"].tap()
+        for _ in 1...10 {
+            app.textFields["Search for classes"].typeText("CSE111")
+            app.buttons["Cross"].tap()
+            XCTAssertEqual(app.alerts.count, 0, "Alert Message")
+        }
     }
     
 }
