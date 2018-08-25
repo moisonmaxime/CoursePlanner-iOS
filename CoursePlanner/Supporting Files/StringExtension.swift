@@ -52,7 +52,7 @@ extension String {
     func readableTerm() -> String {
         let year = self.prefix(4)
         let term = self.suffix(from: .init(encodedOffset: 4))
-        let TERMS = ["30": "Fall", "10": "Spring"]
+        let TERMS = ["30": "Fall", "10": "Spring", "20": "Summer"]
         return "\(TERMS[String(term)] ?? String(term)) \(year)"
     }
     
