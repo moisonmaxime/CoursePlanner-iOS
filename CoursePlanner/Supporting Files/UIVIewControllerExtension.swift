@@ -23,13 +23,8 @@ extension UIViewController {
     
     // ### - Handle API errors
     func handleError(error: APIError) {
-        let message:String
-        switch (error) {
-        case .InternalError:
-            message = "Oops! Something went wrong"
-            break
-        case .InvalidAPIKey:
-            message = "Please sign in again"
+        let message:String = error.message
+        if error == .invalidAPIKey {
             let appDomain = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
             UserDefaults.standard.synchronize()
@@ -39,33 +34,9 @@ extension UIViewController {
                 self.navigationController?.setViewControllers([login!], animated: true)
             })
             return
-        case .InvalidCredentials:
-            message = "Invalid Credentials"
-            break
-        case .ServerError:
-            message = "Server Error"
-            break
-        case .NetworkError:
-            message = "Check your internet connection"
-            break
-        case .NotFound:
-            message = "Could not delete schedule"
-            break
-        case .OutOfSpace:
-            message = "You reached the limit of 20 saved schedules"
-            break
-        case .NoMatchingUser:
-            message = "Username does not exist"
-            break
-        case .ServiceUnavailable:
-            message = "Oops! Seems like our server is down!"
-            break
-        case .UserAlreadyExists:
-            message = "This username is already taken"
-            break
         }
         
-        // debugPrint("Error: \(message)")
+        // print("Error: \(message)")
         
         self.displayAlert(message: message, handler: nil)
     }

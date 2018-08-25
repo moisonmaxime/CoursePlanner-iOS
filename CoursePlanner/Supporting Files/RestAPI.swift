@@ -16,13 +16,13 @@ class RestAPI {
                       password: String,
                       completion: @escaping (APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)auth/token/obtain") else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         
         var request:URLRequest = URLRequest(url: url, type: .POST)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: ["username": user, "password": password], options: .prettyPrinted) else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         request.httpBody = jsonData
@@ -34,11 +34,11 @@ class RestAPI {
             } else {
                 // Save to application settings
                 guard let refresh = dict!["refresh"] as? String else {
-                    completion(.InternalError)
+                    completion(.internalError)
                     return
                 }
                 guard let access = dict!["access"] as? String else {
-                    completion(.InternalError)
+                    completion(.internalError)
                     return
                 }
                 UserDefaults.standard.set(access, forKey: "api_token")
@@ -51,14 +51,14 @@ class RestAPI {
     
     static func refreshAPIKey(completion: @escaping (APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)auth/token/refresh") else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         
         var request:URLRequest = URLRequest(url: url, type: .POST)
         
         guard let jsonData = try? JSONSerialization.data(withJSONObject: ["refresh": UserDefaults.standard.string(forKey: "refresh_token")], options: .prettyPrinted) else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         request.httpBody = jsonData
@@ -70,12 +70,12 @@ class RestAPI {
             } else {
                 /*
                 guard let refresh = dict!["refresh"] as? String else {
-                    completion(.InternalError)
+                    completion(.internalError)
                     return
                 }
                  */
                 guard let access = dict!["access"] as? String else {
-                    completion(.InternalError)
+                    completion(.internalError)
                     return
                 }
                 UserDefaults.standard.set(access, forKey: "api_token")
@@ -88,7 +88,7 @@ class RestAPI {
     
     static func getUserInfo(completion: @escaping ([String:String]?, APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)users/user-info/") else {
-            completion(nil, .InternalError)
+            completion(nil, .internalError)
             return
         }
         
@@ -99,11 +99,11 @@ class RestAPI {
                 return
             } else {
                 guard let username = dict!["username"] as? String else {
-                    completion(nil, .InternalError)
+                    completion(nil, .internalError)
                     return
                 }
                 guard let name = dict!["name"] as? String else {
-                    completion(nil, .InternalError)
+                    completion(nil, .internalError)
                     return
                 }
                 let userInfo = ["username": username, "name": name]
@@ -115,13 +115,13 @@ class RestAPI {
     
     static func changePassword(oldPass: String, newPass: String, completion: @escaping (APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)users/change-password/") else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         
         var request:URLRequest = URLRequest(url: url, type: .POST)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: ["old_password": oldPass, "new_password": newPass], options: .prettyPrinted) else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         request.httpBody = jsonData
@@ -132,7 +132,7 @@ class RestAPI {
                 return
             } else {
                 if let failure = dict!["fail"] as? String {
-                    let error:APIError = failure == "password_incorrect" ? .InvalidCredentials : .ServerError
+                    let error:APIError = failure == "password_incorrect" ? .invalidCredentials : .serverError
                     completion(error)
                     return
                 }
@@ -145,13 +145,13 @@ class RestAPI {
     
     static func forgotPassword(user: String, completion: @escaping (APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)users/forgot-password/") else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         
         var request:URLRequest = URLRequest(url: url, type: .POST)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: ["username": user], options: .prettyPrinted) else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         request.httpBody = jsonData
@@ -162,12 +162,12 @@ class RestAPI {
                 return
             } else {
                 guard let success = dict!["success"] as? Bool else {
-                    completion(.InternalError)
+                    completion(.internalError)
                     return
                 }
                 
                 guard success else {
-                    completion(.NoMatchingUser)
+                    completion(.noMatchingUser)
                     return
                 }
                 
@@ -180,7 +180,7 @@ class RestAPI {
     /*
      static func refreshApplicationKey(completion: @escaping (APIError?) -> ()) {
      guard let url = URL(string: "\(apiURL)auth/token/refresh") else {
-     completion(.InternalError)
+     completion(.internalError)
      return
      }
      let request:URLRequest = URLRequest(url: url, type: .POST, dictionary: [ "refresh": UserDefaults.standard.string(forKey: "refresh_token")! ])
@@ -191,11 +191,11 @@ class RestAPI {
      } else {
      // Save to application settings
      //                guard let refresh = dict!["refresh"] as? String else {
-     //                    completion(.InternalError)
+     //                    completion(.internalError)
      //                    return
      //                }
      guard let access = dict!["access"] as? String else {
-     completion(.InternalError)
+     completion(.internalError)
      return
      }
      UserDefaults.standard.set(access, forKey: "api_token")
@@ -214,7 +214,7 @@ class RestAPI {
                          email: String?,
                          completion: @escaping (APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)register/") else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         
@@ -230,7 +230,7 @@ class RestAPI {
         
         var request:URLRequest = URLRequest(url: url, type: .POST)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         request.httpBody = jsonData
@@ -242,19 +242,19 @@ class RestAPI {
                 // Save to application settings
                 if let error = dict?["error"] as? String {
                     if (error == "User Already Exists") {
-                        completion(.UserAlreadyExists)
+                        completion(.userAlreadyExists)
                         return
                     }
-                    completion(.ServerError)
+                    completion(.serverError)
                     return
                 }
                 
                 guard let keys = dict?["api_keys"] as? Dictionary<String, String> else {
-                    completion(.InternalError)
+                    completion(.internalError)
                     return
                 }
                 guard let token = keys["access"] else {
-                    completion(.InternalError)
+                    completion(.internalError)
                     return
                 }
                 UserDefaults.standard.set(token, forKey: "api_token")
@@ -265,14 +265,14 @@ class RestAPI {
     
     static func getSections(term: String, id: String, completion: @escaping ([Course]?, APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)courses/course-match/") else {
-            completion(nil, .InternalError)
+            completion(nil, .internalError)
             return
         }
         
         let postContent = ["term": term, "course_list": [id]] as [String : Any]
         var request:URLRequest = URLRequest(url: url, type: .POST)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
-            completion(nil, .InternalError)
+            completion(nil, .internalError)
             return
         }
         request.httpBody = jsonData
@@ -284,7 +284,7 @@ class RestAPI {
             } else {
                 // Save to application settings
                 guard let result = dict![id] as? Array<[String: Any?]> else {
-                    completion(nil, .InternalError)
+                    completion(nil, .internalError)
                     return
                 }
                 
@@ -309,7 +309,7 @@ class RestAPI {
     
     static func searchCourseIDs(id: String, term: String?, completion: @escaping (Array<[String: String]>?, APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)courses/course-search?course=\(id.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)&term=\(term ?? "201810")") else {
-            completion(nil, .InternalError)
+            completion(nil, .internalError)
             return
         }
         let request:URLRequest = URLRequest(url: url, type: .GET)
@@ -319,7 +319,7 @@ class RestAPI {
                 return
             } else {
                 guard let result = dict!["result"] as? Array<[String: String]> else {
-                    completion(nil, .InternalError)
+                    completion(nil, .internalError)
                     return
                 }
                 completion(result, nil)
@@ -330,7 +330,7 @@ class RestAPI {
     
     static func getTerms(completion: @escaping (Array<String>?, APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)courses/get-terms/") else {
-            completion(nil, .InternalError)
+            completion(nil, .internalError)
             return
         }
         let request:URLRequest = URLRequest(url: url, type: .GET, forceUnauthorized: true)
@@ -341,7 +341,7 @@ class RestAPI {
             } else {
                 // Save to application settings
                 guard var result = dict!["result"] as? Array<String> else {
-                    completion(nil, .InternalError)
+                    completion(nil, .internalError)
                     return
                 }
                 result.sort(by: { (s1, s2) -> Bool in
@@ -363,7 +363,7 @@ class RestAPI {
                              badCRNs: [String]?=nil,
                              completion: @escaping ([Schedule]?, APIError?) -> ()) {
         guard let url = URL(string: "\(apiURL)courses/schedule-search/") else {
-            completion(nil, .InternalError)
+            completion(nil, .internalError)
             return
         }
         
@@ -374,7 +374,7 @@ class RestAPI {
             postContent["bad_crns"] = badCRNs!
         }
         guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
-            completion(nil, .InternalError)
+            completion(nil, .internalError)
             return
         }
         request.httpBody = jsonData
@@ -385,18 +385,18 @@ class RestAPI {
                 return
             } else {
                 guard let result = dict!["result"] as? [[String: Any]] else {
-                    completion(nil, .InternalError)
+                    completion(nil, .internalError)
                     return
                 }
                 
                 var schedules:[Schedule] = []
                 for i in 0..<result.count {
                     guard let info = result[i]["info"]! as? [String: Any] else {
-                        completion(nil, .InternalError)
+                        completion(nil, .internalError)
                         return
                     }
                     guard let courses = result[i]["schedule"] as? [String: [String: Any?]] else {
-                        completion(nil, .InternalError)
+                        completion(nil, .internalError)
                         return
                     }
                     let newSchedule = Schedule(info: info, courses: courses)
@@ -410,7 +410,7 @@ class RestAPI {
     
     static func getSavedSchedule(term: String, completion: @escaping ([Schedule]?, APIError?)->()) {
         guard let url = URL(string: "\(apiURL)users/schedule-dump/?term=\(term)") else {
-            completion(nil, .InternalError)
+            completion(nil, .internalError)
             return
         }
         let request:URLRequest = URLRequest(url: url, type: .GET)
@@ -420,18 +420,18 @@ class RestAPI {
                 return
             } else {
                 guard let result = dict!["result"] as? Array<Dictionary<String, Any>> else {
-                    completion(nil, .InternalError)
+                    completion(nil, .internalError)
                     return
                 }
                 
                 var schedules:[Schedule] = []
                 for i in 0..<result.count {
                     guard let info = result[i]["info"]! as? Dictionary<String, Any> else {
-                        completion(nil, .InternalError)
+                        completion(nil, .internalError)
                         return
                     }
                     guard let courses = result[i]["schedule"] as? Dictionary<String, Dictionary<String, Dictionary<String, Any?>>> else {
-                        completion(nil, .InternalError)
+                        completion(nil, .internalError)
                         return
                     }
                     let newSchedule = Schedule(info: info, courses: courses)
@@ -445,13 +445,13 @@ class RestAPI {
     
     static func saveSchedule(term: String, crns: [String], completion: @escaping (APIError?)->()) {
         guard let url = URL(string: "\(apiURL)users/save-schedule/") else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         let postContent = ["term": term, "crns": crns] as [String: Any]
         var request:URLRequest = URLRequest(url: url, type: .POST)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         request.httpBody = jsonData
@@ -461,7 +461,7 @@ class RestAPI {
                 return
             } else {
                 guard dict!.keys.contains("success") else {
-                    completion(.OutOfSpace)
+                    completion(.outOfSpace)
                     return
                 }
                 completion(nil)
@@ -472,13 +472,13 @@ class RestAPI {
     
     static func deleteSchedule(term: String, crns: [String], completion: @escaping (APIError?)->()) {
         guard let url = URL(string: "\(apiURL)users/delete-schedule/") else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         let postContent = ["term": term, "crns": crns] as [String: Any]
         var request:URLRequest = URLRequest(url: url, type: .POST)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
-            completion(.InternalError)
+            completion(.internalError)
             return
         }
         request.httpBody = jsonData
@@ -488,7 +488,7 @@ class RestAPI {
                 return
             } else {
                 guard dict!.keys.contains("success") else {
-                    completion(.NotFound)
+                    completion(.notFound)
                     return
                 }
                 completion(nil)
@@ -499,13 +499,13 @@ class RestAPI {
     
     static func register(username: String, password: String, term: String, crns: [String], completion: @escaping (APIError?, String?)->()) {
         guard let url = URL(string: "\(apiURL)courses/course-register/") else {
-            completion(.InternalError, nil)
+            completion(.internalError, nil)
             return
         }
         let postContent = ["term": term, "crns": crns, "username": username, "password": password] as [String: Any]
         var request:URLRequest = URLRequest(url: url, type: .POST)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
-            completion(.InternalError, nil)
+            completion(.internalError, nil)
             return
         }
         request.httpBody = jsonData
@@ -515,10 +515,10 @@ class RestAPI {
                 return
             } else {
                 guard let result = dict! as? [String: String] else {
-                    completion(.InternalError, nil)
+                    completion(.internalError, nil)
                     return
                 }
-                debugPrint(result)
+                print(result)
                 guard !result.keys.contains("reg_time") else {
                     completion(nil, dict!["reg_time"] as? String)
                     return

@@ -56,7 +56,7 @@ class SchedulesVC: UIViewController {
                     } else {
                         self.schedules = response!
                         if (self.schedules.count == 0) {
-                            debugPrint("No schedule!")
+                            print("No schedule!")
                         }
                         let noSchedule = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
                         self.currentScheduleLbl.isHidden = noSchedule

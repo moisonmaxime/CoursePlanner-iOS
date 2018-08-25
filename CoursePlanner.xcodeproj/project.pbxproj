@@ -27,7 +27,6 @@
 		1B37625C20783AD4006C20D6 /* ReadableTermTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625B20783AD4006C20D6 /* ReadableTermTests.swift */; };
 		1B37625E20783B22006C20D6 /* ReadableRoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625D20783B22006C20D6 /* ReadableRoomTests.swift */; };
 		1B37626020783CAE006C20D6 /* RestAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625F20783CAE006C20D6 /* RestAPITests.swift */; };
-		1B37626220783E36006C20D6 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6A1974205C3C6C000AD3D5 /* APIError.swift */; };
 		1B37626420783E3D006C20D6 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
 		1B37626520783E41006C20D6 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C7F602065ABB9009911E0 /* Schedule.swift */; };
 		1B49AC3E207885650033C002 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E362050EDAD00CA9264 /* RestAPI.swift */; };
@@ -41,7 +40,6 @@
 		1B644E1E2050ED9F00CA9264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1D2050ED9F00CA9264 /* Assets.xcassets */; };
 		1B644E212050ED9F00CA9264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1F2050ED9F00CA9264 /* LaunchScreen.storyboard */; };
 		1B644E372050EDAD00CA9264 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E362050EDAD00CA9264 /* RestAPI.swift */; };
-		1B6A1975205C3C6C000AD3D5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6A1974205C3C6C000AD3D5 /* APIError.swift */; };
 		1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7660592059AC69000929D5 /* LoginVC.swift */; };
 		1B76605C2059AF99000929D5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605B2059AF99000929D5 /* HomeVC.swift */; };
 		1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605D2059B089000929D5 /* RegisterVC.swift */; };
@@ -127,7 +125,6 @@
 		1B644E202050ED9F00CA9264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B644E222050ED9F00CA9264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B644E362050EDAD00CA9264 /* RestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPI.swift; sourceTree = "<group>"; };
-		1B6A1974205C3C6C000AD3D5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		1B7660592059AC69000929D5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1B76605B2059AF99000929D5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		1B76605D2059B089000929D5 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -383,7 +380,6 @@
 				1B644E362050EDAD00CA9264 /* RestAPI.swift */,
 				1B5C7F602065ABB9009911E0 /* Schedule.swift */,
 				1B49AC3F20788B700033C002 /* Course.swift */,
-				1B6A1974205C3C6C000AD3D5 /* APIError.swift */,
 				1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */,
 				1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */,
 				1B7C116B2071C00C001328E4 /* StringExtension.swift */,
@@ -566,7 +562,6 @@
 				1B49AC4320788BE40033C002 /* CourseTests.swift in Sources */,
 				1B37625C20783AD4006C20D6 /* ReadableTermTests.swift in Sources */,
 				1B37626520783E41006C20D6 /* Schedule.swift in Sources */,
-				1B37626220783E36006C20D6 /* APIError.swift in Sources */,
 				1B30D0892079643E0035158C /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,7 +609,6 @@
 				1BBFDB5420747A57003FBADE /* CourseCell.swift in Sources */,
 				1B31BC2B20773B6A0013FC53 /* RoundedButton.swift in Sources */,
 				1BB2021C205A198A00A96619 /* Animation.swift in Sources */,
-				1B6A1975205C3C6C000AD3D5 /* APIError.swift in Sources */,
 				1B8F68D52079CCDC00F0D14D /* ScheduleDetailsVC.swift in Sources */,
 				1B7C11782071F967001328E4 /* Event.swift in Sources */,
 			);
