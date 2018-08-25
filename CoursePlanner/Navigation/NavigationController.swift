@@ -8,71 +8,41 @@
 
 import UIKit
 
-class NavigationController: UINavigationController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
-    
-    var animationType:Animation.Type?
-    var defaultAnimationType:Animation.Type?
-    var willRevert:Bool = false
-    
-    var interactor:InteractiveTransition!
-    
-    var loadingViews:[UIView] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.delegate = self
-        self.view.backgroundColor = .clear
-        interactivePopGestureRecognizer?.delegate = self
-        // Do any additional setup after loading the view.
+protocol NavigationAnimationController {
+    func setAnimationType(type: Animation.Type, forever isRepeating: Bool)
+    func resetAnimationType()
+}
+
+extension UINavigationController: NavigationAnimationController {
+    struct AnimationSettings {
+        static var animationType:Animation.Type?
+        static var defaultAnimationType:Animation.Type?
+        static var interactiveTransition:InteractiveTransition?
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if (gestureRecognizer == interactivePopGestureRecognizer) {
-            if (viewControllers.count <= 1) {
-                return false
-            }
-        }
-        return true
-    }
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        guard let currentAnimationType:Animation.Type = animationType, animationType != nil  else {
-            return nil
-        }
-        
-        if (willRevert) {
-            animationType = defaultAnimationType
-            willRevert = false
-        }
-        
-        let duration = self.isNavigationBarHidden ? 0.4 : TimeInterval(UINavigationControllerHideShowBarDuration)
-        
-        switch operation {
-        case .push:
-            self.interactor = InteractiveTransition(attachTo: toVC)
-            return currentAnimationType.init(duration: duration, isPresenting: true)
-        default:
-            return currentAnimationType.init(duration: duration, isPresenting: false)
-        }
-    }
-    
-    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        guard let transitioner = interactor else { return nil }
-        return transitioner.transitionInProgress ? interactor : nil
-    }
-    
-    func setAnimationType(type: Animation.Type, isRepeating: Bool) {
+    func setAnimationType(type: Animation.Type, forever isRepeating: Bool) {
         if (isRepeating) {
-            defaultAnimationType = type
+            AnimationSettings.defaultAnimationType = type
         }
-        animationType = type
-        willRevert = !isRepeating
+        AnimationSettings.animationType = type
+    }
+    
+    func resetAnimationType() {
+        AnimationSettings.defaultAnimationType = nil
+        AnimationSettings.animationType = nil
+    }
+}
+
+
+
+protocol NavigationLoadingScreen {
+    func didStartLoading(immediately: Bool)
+    func didFinishLoading()
+}
+
+extension UINavigationController: NavigationLoadingScreen {
+    struct DisplayedElements {
+        static var loadingViews:[UIView] = []
     }
     
     func didStartLoading(immediately: Bool=false) {
@@ -95,7 +65,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
         loadingView.addSubview(loadingLabel)
         
         topViewController?.view.addSubview(loadingView)
-        loadingViews.append(loadingView)
+        DisplayedElements.loadingViews.append(loadingView)
         
         if (!immediately) {
             loadingView.alpha = 0
@@ -107,26 +77,70 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     
     func didFinishLoading() {
         topViewController?.view.isUserInteractionEnabled = true
-        for v in loadingViews {
+        for v in DisplayedElements.loadingViews {
             UIView.animate(withDuration: 0.5, animations: {
                 v.alpha = 0
             }, completion: { _ in
                 v.removeFromSuperview()
-                if let index = self.loadingViews.index(of: v) {
-                    self.loadingViews.remove(at: index)
+                if let index = DisplayedElements.loadingViews.index(of: v) {
+                    DisplayedElements.loadingViews.remove(at: index)
                 }
             })
         }
     }
+}
+
+
+
+extension UINavigationController: UIGestureRecognizerDelegate {
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if (gestureRecognizer == interactivePopGestureRecognizer) {
+            if (viewControllers.count <= 1) {
+                return false
+            }
+        }
+        return true
+    }
+}
+
+
+
+extension UINavigationController: UINavigationControllerDelegate {
+    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        guard let currentAnimationType:Animation.Type = AnimationSettings.animationType, AnimationSettings.animationType != nil  else {
+            return nil
+        }
+        
+        if (AnimationSettings.animationType != AnimationSettings.defaultAnimationType) {
+            AnimationSettings.animationType = AnimationSettings.defaultAnimationType
+        }
+        
+        let duration = self.isNavigationBarHidden ? 0.4 : TimeInterval(UINavigationControllerHideShowBarDuration)
+        
+        switch operation {
+        case .push:
+            AnimationSettings.interactiveTransition = InteractiveTransition(attachTo: toVC)
+            return currentAnimationType.init(duration: duration, isPresenting: true)
+        default:
+            return currentAnimationType.init(duration: duration, isPresenting: false)
+        }
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        guard let transitioner = AnimationSettings.interactiveTransition else { return nil }
+        return transitioner.transitionInProgress ? AnimationSettings.interactiveTransition : nil
+    }
+}
+
+
+
+extension UINavigationController {
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        self.delegate = self
+        self.view.backgroundColor = .clear
+        interactivePopGestureRecognizer?.delegate = self
+        // Do any additional setup after loading the view.
+    }
 }
