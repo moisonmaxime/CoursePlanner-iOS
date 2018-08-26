@@ -21,12 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let newVC = storyboard.instantiateViewController(withIdentifier: "Home")
             
-            let navigationController: UINavigationController? = (self.window?.rootViewController as? NavigationController)
+            let navigationController: UINavigationController? = self.window?.rootViewController as? UINavigationController
             navigationController?.viewControllers = [newVC]         // If someone is logged in switch to the homepage
-            
-            // Refresh api key and check if there are new terms available
-//            RestAPI.refreshAPIKey(completionHandler: { }, errorHandler: { _ in })
-//            RestAPI.getTerms(completionHandler: { _ in }, errorHandler: { _ in })
         }
         
         return true
@@ -44,10 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        
-        // Refresh api key and check if there are new terms available
-//        RestAPI.refreshAPIKey(completionHandler: { }, errorHandler: { _ in })
-//        RestAPI.getTerms(completionHandler: { _ in }, errorHandler: { _ in })
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {

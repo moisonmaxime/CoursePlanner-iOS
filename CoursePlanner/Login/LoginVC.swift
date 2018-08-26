@@ -22,14 +22,14 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginClick(_ sender: Any) {
-        (self.navigationController as! NavigationController).didStartLoading()  // start loading animation
+        navigationController?.didStartLoading()  // start loading animation
         
         guard let user = userField.text, let password = passwordField.text else {
             return
         }
         
         RestAPI.login(user: user, password: password, completionHandler: {
-            (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
+            self.navigationController?.setAnimationType(type: FadingAnimation.self, forever: false)
             let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
             self.navigationController?.setViewControllers([home!], animated: true)
         }, errorHandler: handleError)

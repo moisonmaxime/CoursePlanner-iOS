@@ -65,10 +65,10 @@ class ProfileVC: UIViewController {
         UserDefaults.standard.removePersistentDomain(forName: appDomain)
         UserDefaults.standard.synchronize()
         self.dismiss(animated: true, completion: {
-            let nav = UIApplication.shared.delegate?.window??.rootViewController as! NavigationController
-            nav.setAnimationType(type: FadingAnimation.self, isRepeating: false)
+            let nav = UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController
+            nav?.setAnimationType(type: FadingAnimation.self, forever: false)
             let home = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-            nav.setViewControllers([home!], animated: true)
+            nav?.setViewControllers([home!], animated: true)
         })
     }
     

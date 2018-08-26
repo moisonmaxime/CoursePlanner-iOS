@@ -45,11 +45,9 @@ class SchedulesVC: UIViewController {
     }
     
     func getInitialData() {
-        (self.navigationController as! NavigationController).didStartLoading(immediately: true)
+        self.navigationController?.didStartLoading(immediately: true)
         RestAPI.getSchedules(term: term, courses: courses, completionHandler: { schedules in
-            if let nav = self.navigationController as? NavigationController {
-                nav.didFinishLoading()
-            }
+            self.navigationController?.didFinishLoading()
             self.schedules = schedules
             if (self.schedules.count == 0) {
                 print("No schedule!")

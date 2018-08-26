@@ -1108,7 +1108,7 @@
         <!--Navigation Controller-->
         <scene sceneID="vg1-vK-hXI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="sLT-cW-Tsj" customClass="NavigationController" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="sLT-cW-Tsj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CU2-ob-uBF">
                         <autoresizingMask key="autoresizingMask"/>

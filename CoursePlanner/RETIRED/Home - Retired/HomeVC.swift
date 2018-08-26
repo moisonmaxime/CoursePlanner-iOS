@@ -26,7 +26,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         termTable.dataSource = self
         termTable.delegate = self
-        (self.navigationController as! NavigationController).didFinishLoading()
+        self.navigationController?.didFinishLoading()
         
         let nib = UINib.init(nibName: "TermCell", bundle: nil)
         termTable.register(nib, forCellReuseIdentifier: "TermCell")
@@ -54,7 +54,7 @@ class HomeVC: UIViewController {
     
     @IBAction func logout(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "api_token") // Clear token
-        (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
+        self.navigationController?.setAnimationType(type: FadingAnimation.self, forever: false)
         let login = self.storyboard?.instantiateViewController(withIdentifier: "Login")
         self.navigationController?.setViewControllers([login!], animated: true)
     }

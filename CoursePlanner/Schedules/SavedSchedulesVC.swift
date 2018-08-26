@@ -11,25 +11,23 @@ import UIKit
 class SavedSchedulesVC: SchedulesVC {
     
     override func getInitialData() {
-        (self.navigationController as! NavigationController).didStartLoading(immediately: true)
+        self.navigationController?.didStartLoading(immediately: true)
         RestAPI.getSavedSchedule(term: term, completionHandler: { (response) in
-            if let nav = (self.navigationController as? NavigationController) {
-                nav.didFinishLoading()
-                self.schedules = response
-                self.schedules.sort(by: { (s1, s2) -> Bool in
-                    if (s1.days! == s2.days!) {
-                        return s1.gaps! < s2.gaps!
-                    }
-                    return s1.days! < s2.days!
-                })
-                let noSchedule = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
-                self.currentScheduleLbl.isHidden = noSchedule
-                self.detailssButton.isHidden = noSchedule
-                self.nextButton.isHidden = noSchedule
-                self.previousButton.isHidden = noSchedule
-                self.weekDisplay.schedule = self.schedules.first
-                self.weekDisplay.setNeedsDisplay()
-            }
+            self.navigationController?.didFinishLoading()
+            self.schedules = response
+            self.schedules.sort(by: { (s1, s2) -> Bool in
+                if (s1.days! == s2.days!) {
+                    return s1.gaps! < s2.gaps!
+                }
+                return s1.days! < s2.days!
+            })
+            let noSchedule = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
+            self.currentScheduleLbl.isHidden = noSchedule
+            self.detailssButton.isHidden = noSchedule
+            self.nextButton.isHidden = noSchedule
+            self.previousButton.isHidden = noSchedule
+            self.weekDisplay.schedule = self.schedules.first
+            self.weekDisplay.setNeedsDisplay()
         }, errorHandler: handleError)
     }
     /*

@@ -11,7 +11,6 @@ import UIKit
 
 extension UIViewController {
     
-    
     // Display PopUp Alert
     func displayAlert(title: String="Error", message: String?=nil, handler: ((UIAlertAction) -> ())? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -22,16 +21,14 @@ extension UIViewController {
     // Handle API errors
     func handleError(error: APIError) {
         DispatchQueue.main.sync {
-            if let nav = self.navigationController as? NavigationController {
-                nav.didFinishLoading()
-            }
+            self.navigationController?.didFinishLoading()
             let message:String = error.message
-            if error == .invalidAPIKey {
+            if error == .invalidAPIKey || error == .invalidCredentials {
                 let appDomain = Bundle.main.bundleIdentifier!
                 UserDefaults.standard.removePersistentDomain(forName: appDomain)
                 UserDefaults.standard.synchronize()
                 self.displayAlert(message: message, handler: { _ in
-                    (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
+                    self.navigationController?.setAnimationType(type: FadingAnimation.self, forever: false)
                     let login = self.storyboard?.instantiateViewController(withIdentifier: "Login")
                     self.navigationController?.setViewControllers([login!], animated: true)
                 })

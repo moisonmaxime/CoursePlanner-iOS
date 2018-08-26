@@ -33,11 +33,9 @@ class SectionsVC: UIViewController {
         let nib = UINib.init(nibName: "CourseCell", bundle: nil)
         self.sectionTable.register(nib, forCellReuseIdentifier: "CourseCell")
         
-        (self.navigationController as! NavigationController).didStartLoading(immediately: true)
+        self.navigationController?.didStartLoading(immediately: true)
         RestAPI.getSections(term: term!, id: course["name"]!, completionHandler: { courses in
-            if let nav = self.navigationController as? NavigationController {
-                nav.didFinishLoading()
-            }
+            self.navigationController?.didFinishLoading()
             self.courses = courses
             self.sectionTable.reloadData()
         }, errorHandler: handleError)

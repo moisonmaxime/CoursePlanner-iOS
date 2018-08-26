@@ -57,9 +57,9 @@ class RegisterVC: UIViewController {
         let email:String? = (emailField.text == "") ? nil : emailField.text
         
         // API Call to register (transition to Homepage if successful)
-        (self.navigationController as! NavigationController).didStartLoading()
+        self.navigationController?.didStartLoading()
         RestAPI.register(user: username, password: password, first: firstName, last: lastName, email: email, completionHandler: {
-            (self.navigationController as! NavigationController).setAnimationType(type: FadingAnimation.self, isRepeating: false)
+            self.navigationController?.setAnimationType(type: FadingAnimation.self, forever: false)
             let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
             self.navigationController?.setViewControllers([home!], animated: true)
         }, errorHandler: handleError)
