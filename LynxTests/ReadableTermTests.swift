@@ -27,4 +27,8 @@ class ReadableTermTests: XCTestCase {
     func testFall() {
         XCTAssertTrue("201830".readableTerm() == "Fall 2018")
     }
+    
+    func testSummer() {
+        XCTAssertTrue("201820".readableTerm() == "Summer 2018")
+    }
 }
