@@ -21,8 +21,8 @@ class WeekCalendar: UIView {
     override func draw(_ rect: CGRect) {
         // Drawing code
         
-        for v in subviews {
-            v.removeFromSuperview()
+        for subView in subviews {
+            subView.removeFromSuperview()
         }
         
         if (schedule == nil || schedule.sections.count == 0) {
@@ -47,10 +47,10 @@ class WeekCalendar: UIView {
     
     func drawDays(_ rect: CGRect) {
         let dayWidth = rect.width/5
-        for i in 0..<5 {
-            let dayFrame = CGRect(x: rect.minX + dayWidth * CGFloat(i), y: rect.minY, width: dayWidth, height: rect.height)
+        for dayOffset in 0..<5 {
+            let dayFrame = CGRect(x: rect.minX + dayWidth * CGFloat(dayOffset), y: rect.minY, width: dayWidth, height: rect.height)
             let lbl = UILabel(frame: dayFrame)
-            lbl.text = weekDays[i]
+            lbl.text = weekDays[dayOffset]
             lbl.font = UIFont.boldSystemFont(ofSize: 15)
             lbl.adjustsFontSizeToFitWidth = true
             lbl.textAlignment = .center
@@ -67,11 +67,11 @@ class WeekCalendar: UIView {
         let duration:Double = Double(Int(schedule.latest/100)) + Double(Int(schedule.latest) % 100)/60 - Double(Int(schedule.earliest/100)) - Double(Int(schedule.earliest) % 100)/60
         let timeSpacing = rect.height/CGFloat(duration)
         
-        for i in start...end {
-            let timeFrame = CGRect(x: rect.minX, y: rect.minY-8 + (CGFloat(i-start) + startOffset) * timeSpacing, width: rect.width, height: 16)
+        for timeOffset in start...end {
+            let timeFrame = CGRect(x: rect.minX, y: rect.minY-8 + (CGFloat(timeOffset-start) + startOffset) * timeSpacing, width: rect.width, height: 16)
             let lbl = UILabel(frame: timeFrame)
-            let hour = i == 12 ? 12 : i % 12
-            lbl.text = "\(hour):00\(i/12==1 ? "pm" : "am")"
+            let hour = timeOffset == 12 ? 12 : timeOffset % 12
+            lbl.text = "\(hour):00\(timeOffset/12==1 ? "pm" : "am")"
             lbl.font = UIFont.systemFont(ofSize: 15, weight: .light)
             lbl.adjustsFontSizeToFitWidth = true
             lbl.textAlignment = .left
@@ -110,21 +110,22 @@ class WeekCalendar: UIView {
                 let hours = course.hours
                 let days = course.days
                 if (hours != nil && hours != "TBD-TBD") {
-                    for d in days! {
-                        let dayOffset = DAYS[d]
+                    for day in days! {
+                        let dayOffset = DAYS[day]
                         let times = hours!.extractTime()
                         let frame = CGRect(
                             x: rect.minX + 1 + CGFloat(dayOffset!) * (dayWidth),
                             y: rect.minY + hourHeight * CGFloat(times.0 - start),
                             width: dayWidth-2,
                             height: hourHeight * CGFloat(times.1 - times.0))
-                        let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! Event
-                        view.frame = frame
-                        view.courseID.text = course.courseName
-                        view.typeLabel.text = "\(course.type) \(course.sectionID)"
-                        view.tintColor = color
-                        view.alpha = course.isFull ? 0.4 : 1
-                        insertSubview(view, at: 0)
+                        if let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? Event {
+                            view.frame = frame
+                            view.courseID.text = course.courseName
+                            view.typeLabel.text = "\(course.type) \(course.sectionID)"
+                            view.tintColor = color
+                            view.alpha = course.isFull ? 0.4 : 1
+                            insertSubview(view, at: 0)
+                        }
                     }
                 }
             }

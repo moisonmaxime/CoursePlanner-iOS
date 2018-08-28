@@ -77,12 +77,12 @@ extension UINavigationController: NavigationLoadingScreen {
     
     func didFinishLoading() {
         topViewController?.view.isUserInteractionEnabled = true
-        for v in DisplayedElements.loadingViews {
+        for loadingView in DisplayedElements.loadingViews {
             UIView.animate(withDuration: 0.5, animations: {
-                v.alpha = 0
+                loadingView.alpha = 0
             }, completion: { _ in
-                v.removeFromSuperview()
-                if let index = DisplayedElements.loadingViews.index(of: v) {
+                loadingView.removeFromSuperview()
+                if let index = DisplayedElements.loadingViews.index(of: loadingView) {
                     DisplayedElements.loadingViews.remove(at: index)
                 }
             })
@@ -106,7 +106,9 @@ extension UINavigationController: UIGestureRecognizerDelegate {
 
 
 extension UINavigationController: UINavigationControllerDelegate {
-    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func navigationController(_ navigationController: UINavigationController,
+                                     animationControllerFor operation: UINavigationControllerOperation,
+                                     from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         guard let currentAnimationType:Animation.Type = AnimationSettings.animationType, AnimationSettings.animationType != nil  else {
             return nil
@@ -127,7 +129,8 @@ extension UINavigationController: UINavigationControllerDelegate {
         }
     }
     
-    public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    public func navigationController(_ navigationController: UINavigationController,
+                                     interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         guard let transitioner = AnimationSettings.interactiveTransition else { return nil }
         return transitioner.transitionInProgress ? AnimationSettings.interactiveTransition : nil
     }

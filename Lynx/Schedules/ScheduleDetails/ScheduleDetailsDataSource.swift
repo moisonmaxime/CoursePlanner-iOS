@@ -14,9 +14,9 @@ extension ScheduleDetailsVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as! CourseCell
-        cell.selectionStyle = .none
-        cell.setup(course: detailDelegate.getSchedule().courses[indexPath.row])
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as? CourseCell
+        cell?.selectionStyle = .none
+        cell?.setup(course: detailDelegate.getSchedule().courses[indexPath.row])
+        return cell ?? UITableViewCell()
     }
 }

@@ -49,7 +49,7 @@ extension UIViewController {
     
     // Term selection
     func selectTerm(completion: @escaping (String)->()) {
-        let terms = UserDefaults.standard.object(forKey: "terms") as! [String]
+        guard let terms = UserDefaults.standard.object(forKey: "terms") as? [String] else { return }
         
         let termSelector = UIAlertController(title: "Choose a term", message: nil, preferredStyle: .actionSheet)
         for term in terms {

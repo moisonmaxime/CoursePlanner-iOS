@@ -19,20 +19,20 @@ extension CoursesVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QuickCourseCell") as! QuickCourseCell
-        cell.selectionStyle = .none // no selection style
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QuickCourseCell") as? QuickCourseCell
+        cell?.selectionStyle = .none // no selection style
         if (tableView == searchTable) {
             let course = searchedCourses[indexPath.row]
-            cell.nameLabel.text = course["name"]
-            cell.descriptionLabel.text = course["description"]
-            cell.setSelected(selectedCourses.contains(course), animated: false) // update status
-            cell.updateView(hasDetails: false)   // update visuals
+            cell?.nameLabel.text = course["name"]
+            cell?.descriptionLabel.text = course["description"]
+            cell?.setSelected(selectedCourses.contains(course), animated: false) // update status
+            cell?.updateView(hasDetails: false)   // update visuals
         } else {
             let course = selectedCourses[indexPath.row]
-            cell.nameLabel.text = course["name"]
-            cell.descriptionLabel.text = course["description"]
-            cell.updateView(hasDetails: true)   // update visuals
+            cell?.nameLabel.text = course["name"]
+            cell?.descriptionLabel.text = course["description"]
+            cell?.updateView(hasDetails: true)   // update visuals
         }
-        return cell
+        return cell ?? UITableViewCell()
     }
 }

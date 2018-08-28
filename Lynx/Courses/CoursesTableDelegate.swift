@@ -15,16 +15,17 @@ extension CoursesVC: UITableViewDelegate {
             if !removeCourse(course) {
                 selectedCourses.append(course)  // try to remove if fail add
             }
-            let cell = searchTable.cellForRow(at: indexPath) as! QuickCourseCell
-            cell.setSelected(selectedCourses.contains(course), animated: false)
-            cell.updateView(hasDetails: false)
+            let cell = searchTable.cellForRow(at: indexPath) as? QuickCourseCell
+            cell?.setSelected(selectedCourses.contains(course), animated: false)
+            cell?.updateView(hasDetails: false)
             selectedTable.reloadData()
         } else {
-            let destination = (storyboard?.instantiateViewController(withIdentifier: "Sections"))! as! SectionsVC
-            destination.course = selectedCourses[indexPath.row]
-            destination.sectionsDelegate = self
-            destination.term = term
-            self.navigationController?.pushViewController(destination, animated: true)
+            if let destination = (storyboard?.instantiateViewController(withIdentifier: "Sections"))! as? SectionsVC {
+                destination.course = selectedCourses[indexPath.row]
+                destination.sectionsDelegate = self
+                destination.term = term
+                self.navigationController?.pushViewController(destination, animated: true)
+            }
         }
     }
     

@@ -14,11 +14,11 @@ extension SectionsVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as! CourseCell
-        cell.selectionStyle = .none
-        cell.setup(course: courses[indexPath.row])
-        cell.updateAvailability(sectionsDelegate.getBadCRNs())
-        cell.updateView()
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as? CourseCell
+        cell?.selectionStyle = .none
+        cell?.setup(course: courses[indexPath.row])
+        cell?.updateAvailability(sectionsDelegate.getBadCRNs())
+        cell?.updateView()
+        return cell ?? UITableViewCell()
     }
 }

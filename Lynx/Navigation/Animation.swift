@@ -9,9 +9,9 @@
 import UIKit
 
 protocol Animation: UIViewControllerAnimatedTransitioning {
-    var duration : TimeInterval {get set}
-    var isPresenting : Bool {get set}
-    init(duration : TimeInterval, isPresenting: Bool)
+    var duration: TimeInterval {get set}
+    var isPresenting: Bool {get set}
+    init(duration: TimeInterval, isPresenting: Bool)
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning)
 }

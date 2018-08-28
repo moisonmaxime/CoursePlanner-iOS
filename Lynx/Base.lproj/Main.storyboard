@@ -16,19 +16,19 @@
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Login" title="Login" id="BYZ-38-t0r" customClass="LoginVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" title="Login" id="BYZ-38-t0r" customClass="LoginVC" customModule="Lynx" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3T-uk-P28" customClass="RoundedView" customModule="CoursePlanner" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3T-uk-P28" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                 <rect key="frame" x="40.666666666666657" y="154.33333333333334" width="331.33333333333337" height="351.66666666666663"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-fO-I5F" customClass="RoundedView" customModule="CoursePlanner" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-fO-I5F" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                 <rect key="frame" x="62.666666666666657" y="322" width="290" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3CO-9t-L0f" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3CO-9t-L0f" customClass="TextField" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="40" y="0.0" width="250" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" name="HighlightColor"/>
@@ -57,10 +57,10 @@
                                     <constraint firstItem="6wh-Bt-Gt5" firstAttribute="leading" secondItem="L0t-fO-I5F" secondAttribute="leading" constant="8" id="k2P-vu-hsz"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfT-1H-763" customClass="RoundedView" customModule="CoursePlanner" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfT-1H-763" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                 <rect key="frame" x="62.666666666666657" y="370" width="290" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0nW-i7-7ch" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0nW-i7-7ch" customClass="TextField" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="40" y="0.0" width="250" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" name="HighlightColor"/>
@@ -92,7 +92,7 @@
                                     <constraint firstItem="r7r-tD-pIJ" firstAttribute="top" secondItem="qfT-1H-763" secondAttribute="top" constant="8" id="z48-hv-NxO"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxg-fI-qgP" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxg-fI-qgP" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
                                 <rect key="frame" x="171" y="442" width="72" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -114,7 +114,7 @@
                                     <action selector="loginClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5vC-TF-Jve"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaN-ee-FmA" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaN-ee-FmA" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
                                 <rect key="frame" x="107" y="696" width="200" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Axp-7K-1PX"/>
@@ -174,7 +174,7 @@
         <!--Register-->
         <scene sceneID="4Qq-Gy-GLJ">
             <objects>
-                <viewController storyboardIdentifier="Register" title="Register" id="JlZ-CH-N0H" customClass="RegisterVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" title="Register" id="JlZ-CH-N0H" customClass="RegisterVC" customModule="Lynx" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uoq-Yr-FfK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,10 +182,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="IPF-Xd-VRn">
                                 <rect key="frame" x="62" y="88.666666666666686" width="290" height="300"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hv4-I7-nd3" customClass="RoundedView" customModule="CoursePlanner" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hv4-I7-nd3" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-s4-ua9" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-s4-ua9" customClass="TextField" customModule="Lynx" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="HighlightColor"/>
@@ -206,10 +206,10 @@
                                             <constraint firstAttribute="height" constant="40" id="xzL-zx-Jrq"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXg-dM-wo1" customClass="RoundedView" customModule="CoursePlanner" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXg-dM-wo1" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="51.999999999999986" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0SH-lL-cZ6" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0SH-lL-cZ6" customClass="TextField" customModule="Lynx" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="HighlightColor"/>
@@ -230,10 +230,10 @@
                                             <constraint firstItem="0SH-lL-cZ6" firstAttribute="top" secondItem="kXg-dM-wo1" secondAttribute="top" id="xjX-hb-uOP"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsk-02-7aG" customClass="RoundedView" customModule="CoursePlanner" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsk-02-7aG" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="103.99999999999999" width="290" height="40.000000000000014"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-xK-8ox" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-xK-8ox" customClass="TextField" customModule="Lynx" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="HighlightColor"/>
@@ -254,10 +254,10 @@
                                             <constraint firstAttribute="bottom" secondItem="KhQ-xK-8ox" secondAttribute="bottom" id="lgZ-bT-Czw"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGP-tf-bRq" customClass="RoundedView" customModule="CoursePlanner" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGP-tf-bRq" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="156" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSV-PB-Zoe" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSV-PB-Zoe" customClass="TextField" customModule="Lynx" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="tintColor" name="HighlightColor"/>
                                                 <color key="textColor" name="LabelColor"/>
@@ -277,10 +277,10 @@
                                             <constraint firstItem="cSV-PB-Zoe" firstAttribute="top" secondItem="RGP-tf-bRq" secondAttribute="top" id="pTa-50-Mx5"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-ug-Drj" customClass="RoundedView" customModule="CoursePlanner" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-ug-Drj" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="208" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-Type Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmG-90-lIL" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-Type Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmG-90-lIL" customClass="TextField" customModule="Lynx" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="tintColor" name="HighlightColor"/>
                                                 <color key="textColor" name="LabelColor"/>
@@ -300,10 +300,10 @@
                                             <constraint firstAttribute="bottom" secondItem="jmG-90-lIL" secondAttribute="bottom" id="peQ-eZ-95Q"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyp-U2-Qmk" customClass="RoundedView" customModule="CoursePlanner" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyp-U2-Qmk" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="260" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bya-8z-s0b" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bya-8z-s0b" customClass="TextField" customModule="Lynx" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="HighlightColor"/>
@@ -343,7 +343,7 @@
                                 <color key="textColor" name="ButtonColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaS-PG-6tb" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaS-PG-6tb" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
                                 <rect key="frame" x="159" y="632" width="96" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -394,12 +394,12 @@
         <!--Profile-->
         <scene sceneID="dZJ-Ls-QjY">
             <objects>
-                <viewController title="Profile" id="znY-HK-LxG" customClass="ProfileVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Profile" id="znY-HK-LxG" customClass="ProfileVC" customModule="Lynx" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ISF-SZ-TJf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9X-Mu-Kd8" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9X-Mu-Kd8" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
                                 <rect key="frame" x="103.66666666666669" y="680" width="207" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.02328635045" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -447,10 +447,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hTC-Vi-4dn">
                                 <rect key="frame" x="62.333333333333343" y="145.66666666666666" width="290" height="197.99999999999997"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAX-ah-91R" customClass="RoundedView" customModule="CoursePlanner" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAX-ah-91R" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71m-bX-S9y" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71m-bX-S9y" customClass="TextField" customModule="Lynx" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
@@ -470,10 +470,10 @@
                                             <constraint firstAttribute="bottom" secondItem="71m-bX-S9y" secondAttribute="bottom" id="d8N-5K-zEN"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEs-LZ-ESR" customClass="RoundedView" customModule="CoursePlanner" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEs-LZ-ESR" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="56" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-qJ-vmE" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-qJ-vmE" customClass="TextField" customModule="Lynx" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
@@ -493,10 +493,10 @@
                                             <constraint firstAttribute="trailing" secondItem="rc3-qJ-vmE" secondAttribute="trailing" constant="8" id="ovg-HG-Mdo"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fs-rC-3BW" customClass="RoundedView" customModule="CoursePlanner" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fs-rC-3BW" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="112.00000000000003" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-type New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-EL-V5z" customClass="TextField" customModule="CoursePlanner" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-type New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-EL-V5z" customClass="TextField" customModule="Lynx" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -569,7 +569,7 @@
         <!--CoursesVC-->
         <scene sceneID="qiq-4w-G1f">
             <objects>
-                <viewController storyboardIdentifier="Home" id="tN9-yH-7gg" customClass="CoursesVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="tN9-yH-7gg" customClass="CoursesVC" customModule="Lynx" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QE0-S8-wJs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -604,7 +604,7 @@
                                     <segue destination="dMr-rB-oXv" kind="show" identifier="showSaved" id="Irv-we-sxW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaZ-ol-ppf" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaZ-ol-ppf" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
                                 <rect key="frame" x="148" y="665" width="118" height="51"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -626,7 +626,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="osP-WH-Dtd">
                                 <rect key="frame" x="16" y="24" width="382" height="51"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiT-ki-RXk" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiT-ki-RXk" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="222" height="51"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
@@ -642,7 +642,7 @@
                                             <action selector="termPress:" destination="tN9-yH-7gg" eventType="touchUpInside" id="vob-Z8-053"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="249" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMF-pn-q2m" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="249" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMF-pn-q2m" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="334" y="1.6666666666666679" width="48" height="48"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -782,7 +782,7 @@
         <!--SectionsVC-->
         <scene sceneID="dKO-8h-C4j">
             <objects>
-                <viewController storyboardIdentifier="Sections" id="Pu4-f6-ddb" customClass="SectionsVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Sections" id="Pu4-f6-ddb" customClass="SectionsVC" customModule="Lynx" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ddr-0t-tAq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -791,7 +791,7 @@
                                 <rect key="frame" x="0.0" y="57" width="414" height="599"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivL-lT-ysm" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivL-lT-ysm" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
                                 <rect key="frame" x="167" y="676" width="80" height="40"/>
                                 <color key="backgroundColor" red="0.94113498263888884" green="0.039833659477777776" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -865,7 +865,7 @@
         <!--SchedulesVC-->
         <scene sceneID="bzG-ke-CBr">
             <objects>
-                <viewController id="Yh2-kt-Ah4" customClass="SchedulesVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Yh2-kt-Ah4" customClass="SchedulesVC" customModule="Lynx" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NMa-1y-u3e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -893,7 +893,7 @@
                                     <action selector="goBack" destination="tN9-yH-7gg" eventType="touchUpInside" id="q8F-dR-VCn"/>
                                 </connections>
                             </button>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QG1-qZ-wHJ" customClass="WeekCalendar" customModule="CoursePlanner" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QG1-qZ-wHJ" customClass="WeekCalendar" customModule="Lynx" customModuleProvider="target">
                                 <rect key="frame" x="16" y="56.666666666666686" width="382" height="603.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -1015,7 +1015,7 @@
         <!--Schedule DetailsVC-->
         <scene sceneID="Xdh-Id-RFL">
             <objects>
-                <viewController id="eoI-jR-vgg" customClass="ScheduleDetailsVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eoI-jR-vgg" customClass="ScheduleDetailsVC" customModule="Lynx" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d8z-xh-VZZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1023,7 +1023,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="OuD-2v-aH0">
                                 <rect key="frame" x="16" y="690" width="382" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lc-TH-eHA" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lc-TH-eHA" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="159" height="30"/>
                                         <color key="backgroundColor" name="ButtonColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1039,7 +1039,7 @@
                                             <action selector="dismiss:" destination="eoI-jR-vgg" eventType="touchUpInside" id="I1m-2H-Hf6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0m-ba-p2A" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0m-ba-p2A" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="223" y="0.0" width="159" height="30"/>
                                         <color key="backgroundColor" name="ButtonColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1061,7 +1061,7 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="608"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpX-GK-cjp" customClass="RoundedButton" customModule="CoursePlanner" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpX-GK-cjp" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
                                 <rect key="frame" x="127" y="644" width="160" height="30"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
                                 <constraints>
@@ -1125,12 +1125,12 @@
         <!--Saved SchedulesVC-->
         <scene sceneID="J09-y1-jW7">
             <objects>
-                <viewController id="dMr-rB-oXv" customClass="SavedSchedulesVC" customModule="CoursePlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dMr-rB-oXv" customClass="SavedSchedulesVC" customModule="Lynx" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="psP-yU-sg1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPN-YC-Q5I" customClass="WeekCalendar" customModule="CoursePlanner" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPN-YC-Q5I" customClass="WeekCalendar" customModule="Lynx" customModuleProvider="target">
                                 <rect key="frame" x="16" y="57" width="382" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>

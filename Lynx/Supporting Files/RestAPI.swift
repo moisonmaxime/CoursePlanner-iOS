@@ -346,12 +346,12 @@ class RestAPI {
             }
             
             var schedules:[Schedule] = []
-            for i in 0..<result.count {
-                guard let info = result[i]["info"]! as? Dictionary<String, Any> else {
+            for index in 0..<result.count {
+                guard let info = result[index]["info"]! as? Dictionary<String, Any> else {
                     errorHandler(.internalError)
                     return
                 }
-                guard let courses = result[i]["schedule"] as? Dictionary<String, Dictionary<String, Dictionary<String, Any?>>> else {
+                guard let courses = result[index]["schedule"] as? Dictionary<String, Dictionary<String, Dictionary<String, Any?>>> else {
                     errorHandler(.internalError)
                     return
                 }

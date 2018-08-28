@@ -52,7 +52,9 @@ class CoursesVC: UIViewController {
         
         // If there are no terms saved, pull them from server
         if let terms = UserDefaults.standard.object(forKey: "terms") {
-            term = (terms as! [String]).first
+            if let term = (terms as? [String])?.first {
+                self.term = term
+            }
         } else {
             RestAPI.getTerms(completionHandler: { terms in
                 self.term = terms.first
@@ -124,17 +126,19 @@ class CoursesVC: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if (segue.identifier == "showSchedules") {
-            let VC = segue.destination as! SchedulesVC
-            var selectedIDs:[String] = []
-            for course in selectedCourses {
-                selectedIDs.append(course["name"]!)
+            if let VC = segue.destination as? SchedulesVC {
+                var selectedIDs:[String] = []
+                for course in selectedCourses {
+                    selectedIDs.append(course["name"]!)
+                }
+                VC.courses = selectedIDs
+                VC.term = term!
+                VC.badCRNs = badCRNs
             }
-            VC.courses = selectedIDs
-            VC.term = term!
-            VC.badCRNs = badCRNs
         } else if (segue.identifier == "showSaved") {
-            let dest = segue.destination as! SavedSchedulesVC
-            dest.term = term
+            if let dest = segue.destination as? SavedSchedulesVC {
+                dest.term = term
+            }
         }
     }
 }

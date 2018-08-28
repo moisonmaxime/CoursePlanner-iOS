@@ -71,11 +71,11 @@ class SchedulesVC: UIViewController {
     }
     
     @IBAction func previous(_ sender: Any) {
-        index = index - 1
+        index -= 1
     }
     
     @IBAction func next(_ sender: Any) {
-        index = index + 1
+        index += 1
     }
     
     @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) {
@@ -96,8 +96,9 @@ class SchedulesVC: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if (segue.identifier == "showScheduleDetails") {
-            let vc = segue.destination as! ScheduleDetailsVC
-            vc.detailDelegate = self
+            if let vc = segue.destination as? ScheduleDetailsVC {
+                vc.detailDelegate = self
+            }
         }
     }
     

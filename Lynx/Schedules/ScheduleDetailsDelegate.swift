@@ -18,7 +18,7 @@ extension SchedulesVC: ScheduleDetailsDelegate {
     }
     func removeScheduleLocally() {
         if index >= schedules.count - 1 {
-            index = index - 1
+            index -= 1
         }
         getInitialData()
     }

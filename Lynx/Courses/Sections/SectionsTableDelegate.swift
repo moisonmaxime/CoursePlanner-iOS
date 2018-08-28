@@ -43,9 +43,9 @@ extension SectionsVC: UITableViewDelegate {
             }
         }
         
-        let mainCell = sectionTable.cellForRow(at: indexPath) as! CourseCell
-        mainCell.updateAvailability(sectionsDelegate.getBadCRNs())
-        mainCell.updateView()
+        let mainCell = sectionTable.cellForRow(at: indexPath) as? CourseCell
+        mainCell?.updateAvailability(sectionsDelegate.getBadCRNs())
+        mainCell?.updateView()
         
         updateAvailability(for: attached)
         updateAvailability(for: lecture)

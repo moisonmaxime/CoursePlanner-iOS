@@ -30,7 +30,7 @@ class Section: NSObject {
         let name = dictionary.keys.first?.uppercased()
         self.name = name != nil ? name! : "UNKNOWN"
         for (_, section) in dictionary {
-            let section = section as! [String: [String: Any?]?]
+            let section = section as? [String: [String: Any?]?] ?? [:]
             for (_, course) in section {
                 if let courseToAdd = course {
                     self.courses.append(Course(courseToAdd))

@@ -19,8 +19,8 @@ class Schedule: NSObject {
     var courses:[Course] {
         get {
             var arr:[Course] = []
-            for s in sections {
-                arr += s.courses
+            for section in sections {
+                arr += section.courses
             }
             return arr
         }
@@ -29,9 +29,9 @@ class Schedule: NSObject {
     var crns:[String] {
         get {
             var arr:[String] = []
-            for s in sections {
-                for c in s.courses {
-                    arr.append(c.crn)
+            for section in sections {
+                for course in section.courses {
+                    arr.append(course.crn)
                 }
             }
             return arr
@@ -39,13 +39,13 @@ class Schedule: NSObject {
     }
     
     required init(info: [String: Any], courses: [String:[String:Any?]]) {
-        self.earliest = info["earliest"] as! Double
-        self.latest = info["latest"] as! Double
+        self.earliest = info["earliest"] as? Double ?? 0
+        self.latest = info["latest"] as? Double ?? 0
         self.gaps = info["gaps"] as? Int
         self.days = info["number_of_days"] as? Int
         
-        for c in courses {
-            sections.append(Section([c.key: c.value]))
+        for course in courses {
+            sections.append(Section([course.key: course.value]))
         }
     }
 }

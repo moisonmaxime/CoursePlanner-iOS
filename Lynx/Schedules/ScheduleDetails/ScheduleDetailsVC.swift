@@ -55,29 +55,7 @@ class ScheduleDetailsVC: UIViewController {
             textField.placeholder = "Password"
             textField.isSecureTextEntry = true
         })
-        alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { _ in
-            //self.didStartLoading(immediately: true)
-            /*RestAPI.register(username: alert.textFields![0].text!, password: alert.textFields![1].text!, term: self.detailDelegate.getTerm(), crns: self.detailDelegate.getSchedule().crns, email: <#String?#>)
-            
-            
-            
-            
-            
-            
-            
-            let test = { (err, msg) in
-                DispatchQueue.main.async {
-                    self.didFinishLoading()
-                    if err != nil {
-                        self.handleError(error: err!)
-                    } else if msg != nil {
-                        self.displayAlert(title: "Error", message: msg!)
-                    } else {
-                        self.displayAlert(title: "Success", message: "All your classes were registered")
-                    }
-                }
-            }*/
-        }))
+        alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { _ in }))
         self.present(alert, animated: true)
         
     }

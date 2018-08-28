@@ -11,9 +11,9 @@ import UIKit
 extension UIColor {
     
     func darker() -> UIColor {
-        var h: CGFloat = 0, s: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
-        return UIColor.init(hue: h, saturation: s, brightness: b * 0.75, alpha: a)
+        var hue: CGFloat = 0, saturation: CGFloat = 0, brightness: CGFloat = 0, alpha: CGFloat = 0
+        self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        return UIColor.init(hue: hue, saturation: saturation, brightness: brightness * 0.75, alpha: alpha)
     }
     
 }
