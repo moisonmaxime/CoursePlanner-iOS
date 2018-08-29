@@ -23,17 +23,17 @@ struct Schedule: Codable, Equatable {
     }
 
 
-    private let schedule: [String: Course]
+    private let schedule: [String: [String: Section]]
+    // [String: [Section]]
     private let info: ScheduleInformation
 
 
-    var courses: [Course] { return schedule.map({ (_, course) -> Course in return course }) }
+    var courses: [[Section]] { return schedule.map({ (_, sections) -> [Section] in return Array(sections.values) }) }
+    // { return schedule.map({ (_, sections) -> [Section] in return sections }) }
     var sections: [Section] {
-        var sections: [Section] = []
-        courses.forEach({
-            sections += $0.sections
+        return courses.reduce([Section](), { (a, b) -> [Section] in
+            a+b
         })
-        return sections
     }
     var crns: [String] { return sections.map({ return $0.name }) }
     var numberOfDays: Int { return info.numberOfDays }

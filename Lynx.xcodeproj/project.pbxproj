@@ -64,7 +64,6 @@
 		1BE4010B2134D2B30064F282 /* SignupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4010A2134D2B30064F282 /* SignupResponse.swift */; };
 		1BE4010D2134D5E90064F282 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4010C2134D5E90064F282 /* Section.swift */; };
 		1BE4010F2134DCD90064F282 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4010E2134DCD90064F282 /* Schedule.swift */; };
-		1BE401112134DD800064F282 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE401102134DD800064F282 /* Course.swift */; };
 		1BE7E68021320BBC0036024D /* StandardScheduleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7E67F21320BBC0036024D /* StandardScheduleUITests.swift */; };
 		1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE085D205EE51800FEEB1F /* CoursesVC.swift */; };
 		1BFE30C02068629B0053C3B3 /* SchedulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE30BF2068629B0053C3B3 /* SchedulesVC.swift */; };
@@ -153,7 +152,6 @@
 		1BE4010A2134D2B30064F282 /* SignupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponse.swift; sourceTree = "<group>"; };
 		1BE4010C2134D5E90064F282 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		1BE4010E2134DCD90064F282 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
-		1BE401102134DD800064F282 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		1BE7E67F21320BBC0036024D /* StandardScheduleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardScheduleUITests.swift; sourceTree = "<group>"; };
 		1BFE085D205EE51800FEEB1F /* CoursesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesVC.swift; sourceTree = "<group>"; };
 		1BFE30BF2068629B0053C3B3 /* SchedulesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesVC.swift; sourceTree = "<group>"; };
@@ -405,7 +403,6 @@
 				1BE4010A2134D2B30064F282 /* SignupResponse.swift */,
 				1BE401002134C8E40064F282 /* CourseSearchResult.swift */,
 				1BE4010C2134D5E90064F282 /* Section.swift */,
-				1BE401102134DD800064F282 /* Course.swift */,
 				1BE4010E2134DCD90064F282 /* Schedule.swift */,
 			);
 			path = "Rest API";
@@ -591,7 +588,6 @@
 				1B30D0882079643E0035158C /* UIColorExtension.swift in Sources */,
 				1BE4010B2134D2B30064F282 /* SignupResponse.swift in Sources */,
 				1B7C116A2071BC32001328E4 /* WeekCalendar.swift in Sources */,
-				1BE401112134DD800064F282 /* Course.swift in Sources */,
 				1B5C7F612065ABB9009911E0 /* OLD-Schedule.swift in Sources */,
 				1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */,
 				1B30D08B207966D10035158C /* CoursesSectionsDelegate.swift in Sources */,

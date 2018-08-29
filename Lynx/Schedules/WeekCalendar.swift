@@ -106,7 +106,7 @@ class WeekCalendar: UIView {
         
         for course in schedule.courses {
             let color = colors.popLast() ?? .lightGray
-            for section in course.sections {
+            for section in course {
                 let hours = section.hours
                 let days = section.days
                 if hours != "TBD-TBD" {
