@@ -58,7 +58,7 @@ class RegisterVC: UIViewController {
         
         // API Call to register (transition to Homepage if successful)
         self.navigationController?.didStartLoading()
-        RestAPI.register(user: username, password: password, first: firstName, last: lastName, email: email, completionHandler: {
+        RestAPI.signup(user: username, password: password, first: firstName, last: lastName, email: email, completionHandler: {
             self.navigationController?.setAnimationType(type: FadingAnimation.self, forever: false)
             let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
             self.navigationController?.setViewControllers([home!], animated: true)

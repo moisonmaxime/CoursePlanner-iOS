@@ -23,7 +23,7 @@ extension CoursesVC: SectionsDelegate {
         return false
     }
     
-    func removeCourse(_ course: [String : String]) -> Bool {
+    func removeCourse(_ course: CourseSearchResult) -> Bool {
         // If course is selected, remove it and reset badCRNs
         if let index = selectedCourses.index(of: course) {
             selectedCourses.remove(at: index)

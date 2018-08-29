@@ -23,14 +23,14 @@ extension CoursesVC: UITableViewDataSource {
         cell?.selectionStyle = .none // no selection style
         if (tableView == searchTable) {
             let course = searchedCourses[indexPath.row]
-            cell?.nameLabel.text = course["name"]
-            cell?.descriptionLabel.text = course["description"]
+            cell?.nameLabel.text = course.name
+            cell?.descriptionLabel.text = course.description
             cell?.setSelected(selectedCourses.contains(course), animated: false) // update status
             cell?.updateView(hasDetails: false)   // update visuals
         } else {
             let course = selectedCourses[indexPath.row]
-            cell?.nameLabel.text = course["name"]
-            cell?.descriptionLabel.text = course["description"]
+            cell?.nameLabel.text = course.name
+            cell?.descriptionLabel.text = course.description
             cell?.updateView(hasDetails: true)   // update visuals
         }
         return cell ?? UITableViewCell()

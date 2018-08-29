@@ -19,7 +19,7 @@ class CourseCell: UITableViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var seatsLabel: UILabel!
     
-    var course:Course!
+    var section:Section!
     var isAvailable:Bool = true
     var neededCRN:String?
     
@@ -28,26 +28,26 @@ class CourseCell: UITableViewCell {
         // Initialization code
     }
     
-    func setup(course: Course) {
-        self.course = course
-        courseIDLabel.text = course.courseID
-        daysLabel.text = course.days
-        hoursLabel.text = course.hours
-        instructorLabel.text = course.instructor
-        crnLabel.text = course.crn
-        let room = course.room ?? "TBD"
+    func setup(section: Section) {
+        self.section = section
+        courseIDLabel.text = section.courseID
+        daysLabel.text = section.days
+        hoursLabel.text = section.hours
+        instructorLabel.text = section.instructor
+        crnLabel.text = section.crn
+        let room = section.room == " " ? "TBD" : section.room
         roomLabel.text = room.readableRoom()
-        typeLabel.text = course.type
-        seatsLabel.text = course.isFull ?
-            "FULL\(course.availableSeats < 0 ? " (\(-course.availableSeats) over enrolled)" : "")"
-            : "\(course.availableSeats) seat\(course.availableSeats < 2 ? "" : "s") available (Out of \(course.capacity))"
-        seatsLabel.textColor = course.isFull ? UIColor.red.darker() : .black
-        seatsLabel.font = UIFont.systemFont(ofSize: seatsLabel.font.pointSize, weight: course.isFull ? .bold : .regular)
+        typeLabel.text = section.type
+        seatsLabel.text = section.isFull ?
+            "FULL\(section.available < 0 ? " (\(-section.available) over enrolled)" : "")"
+            : "\(section.available) seat\(section.available < 2 ? "" : "s") available (Out of \(section.capacity))"
+        seatsLabel.textColor = section.isFull ? UIColor.red.darker() : .black
+        seatsLabel.font = UIFont.systemFont(ofSize: seatsLabel.font.pointSize, weight: section.isFull ? .bold : .regular)
     }
     
     func updateAvailability(_ badCRNs: [String]) {
         
-        if badCRNs.contains(course.crn) {
+        if badCRNs.contains(section.crn) {
             isAvailable = false
         } else {
             isAvailable = true
@@ -65,9 +65,5 @@ class CourseCell: UITableViewCell {
         roomLabel.alpha = newAlpha
         typeLabel.alpha = newAlpha
         seatsLabel.alpha = newAlpha
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
 }

@@ -22,19 +22,19 @@ class CoursesVC: UIViewController {
     var timer:Timer?
     
     // If user changes term, then update UI and reset everything
-    var term:String? {
+    var term:String = "" {
         didSet {
             self.selectedCourses = []
             self.searchedCourses = []
             self.badCRNs = []
-            self.termButton.setTitle((self.term?.readableTerm())! + " ▼", for: .normal)
+            self.termButton.setTitle(term.readableTerm() + " ▼", for: .normal)
             self.reloadTables()
             self.searchField.text = ""
         }
     }
     
     // when searching for courses when courses are selected or deselected give a number of courses selected
-    var selectedCourses:Array<[String: String]> = [] {
+    var selectedCourses: [CourseSearchResult] = [] {
         didSet {
             let count = selectedCourses.count
             selectionLabel.isHidden = !((count > 0) && !searchTable.isHidden)
@@ -44,12 +44,11 @@ class CoursesVC: UIViewController {
         }
     }
     
-    var searchedCourses:Array<[String: String]> = []
+    var searchedCourses: [CourseSearchResult] = []
     var badCRNs:[String] = []   // Track the CRNs to not include in the schedule building
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // If there are no terms saved, pull them from server
         if let terms = UserDefaults.standard.object(forKey: "terms") {
             if let term = (terms as? [String])?.first {
@@ -57,7 +56,9 @@ class CoursesVC: UIViewController {
             }
         } else {
             RestAPI.getTerms(completionHandler: { terms in
-                self.term = terms.first
+                if let term = terms.first {
+                    self.term = term
+                }
             }, errorHandler: handleError)
         }
         
@@ -129,10 +130,10 @@ class CoursesVC: UIViewController {
             if let VC = segue.destination as? SchedulesVC {
                 var selectedIDs:[String] = []
                 for course in selectedCourses {
-                    selectedIDs.append(course["name"]!)
+                    selectedIDs.append(course.name)
                 }
                 VC.courses = selectedIDs
-                VC.term = term!
+                VC.term = term
                 VC.badCRNs = badCRNs
             }
         } else if (segue.identifier == "showSaved") {

@@ -84,7 +84,7 @@ extension URLRequest {
         }
     }
     
-    func getJsonData(completionHandler: @escaping (Dictionary<String, Any>)->(), errorHandler: @escaping (APIError)->()) {
+    func getJsonData(completionHandler: @escaping (Data)->(), errorHandler: @escaping (APIError)->()) {
         let task = URLSession.shared.dataTask(with: self) { data, response, error in
             guard let data = data, error == nil else {                                   // check for fundamental networking error
                 errorHandler(.networkError)
@@ -95,19 +95,8 @@ extension URLRequest {
                 errorHandler(APIError.error(for: httpStatus.statusCode))
                 return
             }
-            if let json = try? JSONSerialization.jsonObject(with: data, options: []) {      // extract response data
-                if let dict = json as? Dictionary<String, Any> {
-                    print(dict)
-                    completionHandler(dict)
-                    return
-                } else if let array = json as? Array<Any> {
-                    let dict = ["result": array]
-                    print(dict)
-                    completionHandler(dict)
-                    return
-                }
-            }
-            errorHandler(.internalError)
+            
+            completionHandler(data)
             return
         }
         task.resume()

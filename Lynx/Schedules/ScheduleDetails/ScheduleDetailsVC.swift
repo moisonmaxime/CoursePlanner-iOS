@@ -32,8 +32,8 @@ class ScheduleDetailsVC: UIViewController {
         // Do any additional setup after loading the view.
         coursesTable.dataSource = self
         coursesTable.delegate = self
-        registerButton.isEnabled = !(detailDelegate.getSchedule().courses.contains { (course) -> Bool in
-            return course.isFull
+        registerButton.isEnabled = !(detailDelegate.getSchedule().sections.contains { section -> Bool in
+            return section.isFull
         })
         coursesTable.reloadData()
     }

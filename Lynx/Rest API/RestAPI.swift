@@ -35,7 +35,7 @@ extension API {
         
         let parametersString = parameters.map { (parameterKey, parameter) -> String in
             return "\(parameterKey)=\(parameter)"
-        }.joined(separator: "&")
+            }.joined(separator: "&")
         
         return API.endpointUrl + self.rawValue + parametersString
     }
@@ -67,14 +67,14 @@ class RestAPI {
             errorHandler(.internalError)
             return
         }
-        request.getJsonData(completionHandler: { dict in
-            guard let refresh = dict["refresh"] as? String,
-                let access = dict["access"] as? String else {
+        request.getJsonData(completionHandler: { data in
+            guard let loginResponse = try? JSONDecoder().decode(LoginResponse.self, from: data),
+                loginResponse.refreshKey != nil else {
                     errorHandler(.internalError)
                     return
             }
-            UserDefaults.standard.set(access, forKey: "api_token")
-            UserDefaults.standard.set(refresh, forKey: "refresh_token")
+            UserDefaults.standard.set(loginResponse.accessKey, forKey: "api_token")
+            UserDefaults.standard.set(loginResponse.refreshKey, forKey: "refresh_token")
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
@@ -87,34 +87,29 @@ class RestAPI {
                 errorHandler(.internalError)
                 return
         }
-        request.getJsonData(completionHandler: { dict in
-            guard let access = dict["access"] as? String else {
+        request.getJsonData(completionHandler: { data in
+            guard let loginResponse = try? JSONDecoder().decode(LoginResponse.self, from: data) else {
                 errorHandler(.internalError)
                 return
             }
-            UserDefaults.standard.set(access, forKey: "api_token")
+            UserDefaults.standard.set(loginResponse.accessKey, forKey: "api_token")
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
     
     
     
-    static func getUserInfo(completionHandler: @escaping ([String:String])->(),
+    static func getUserInfo(completionHandler: @escaping (UserInformation)->(),
                             errorHandler: @escaping (APIError) -> ()) {
         guard let request = URLRequest(url: API.userInfo.url, type: .GET) else {
-                errorHandler(.internalError)
-                return
+            errorHandler(.internalError)
+            return
         }
-        request.getJsonData(completionHandler: { dict in
-            guard let username = dict["username"] as? String else {
+        request.getJsonData(completionHandler: { data in
+            guard let userInfo = try? JSONDecoder().decode(UserInformation.self, from: data) else {
                 errorHandler(.internalError)
                 return
             }
-            guard let name = dict["name"] as? String else {
-                errorHandler(.internalError)
-                return
-            }
-            let userInfo = ["username": username, "name": name]
             DispatchQueue.main.async { completionHandler(userInfo) }
         }, errorHandler: errorHandler)
     }
@@ -130,9 +125,18 @@ class RestAPI {
             errorHandler(.internalError)
             return
         }
-        request.getJsonData(completionHandler: { dict in
-            if let failure = dict["fail"] as? String {
-                let error:APIError = failure == "password_incorrect" ? .invalidCredentials : .serverError
+        request.getJsonData(completionHandler: { data in
+            guard let response = try? JSONDecoder().decode(SuccessResponse.self, from: data) else {
+                errorHandler(.internalError)
+                return
+            }
+            guard let _ = response.success else {
+                let error:APIError
+                if let errorString = response.fail {
+                    error = errorString == "password_incorrect" ? .invalidCredentials : .serverError
+                } else {
+                    error = .unknownError
+                }
                 errorHandler(error)
                 return
             }
@@ -150,10 +154,11 @@ class RestAPI {
             errorHandler(.internalError)
             return
         }
-        request.getJsonData(completionHandler: { dict in
-            guard let success = dict["success"] as? Bool else {
-                errorHandler(.internalError)
-                return
+        request.getJsonData(completionHandler: { data in
+            guard let response = try? JSONDecoder().decode(SuccessResponse.self, from: data),
+                let success = response.success else {
+                    errorHandler(.internalError)
+                    return
             }
             guard success else {
                 errorHandler(.noMatchingUser)
@@ -165,13 +170,13 @@ class RestAPI {
     
     
     
-    static func register(user: String,
-                         password: String,
-                         first: String,
-                         last: String,
-                         email: String?,
-                         completionHandler: @escaping ()->(),
-                         errorHandler: @escaping (APIError) -> ()) {
+    static func signup(user: String,
+                       password: String,
+                       first: String,
+                       last: String,
+                       email: String?,
+                       completionHandler: @escaping ()->(),
+                       errorHandler: @escaping (APIError) -> ()) {
         
         var postContent = [ "username": user.trimmingCharacters(in: .whitespaces),
                             "password": password.trimmingCharacters(in: .whitespaces),
@@ -185,25 +190,24 @@ class RestAPI {
             errorHandler(.internalError)
             return
         }
-        request.getJsonData(completionHandler: { dict in
-            if let error = dict["error"] as? String {
-                if (error == "User Already Exists") {
-                    errorHandler(.userAlreadyExists)
-                    return
-                }
-                errorHandler(.serverError)
+        request.getJsonData(completionHandler: { data in
+            
+            guard let response = try? JSONDecoder().decode(SignupResponse.self, from: data) else {
+                errorHandler(.internalError)
                 return
             }
             
-            guard let keys = dict["api_keys"] as? Dictionary<String, String> else {
-                errorHandler(.internalError)
-                return
+            guard let accessKey = response.accessKey,
+                let refreshKey = response.refreshKey else {
+                    if let error = response.error, error == "User Already Exists" {
+                        errorHandler(.userAlreadyExists)
+                    } else {
+                        errorHandler(.unknownError)
+                    }
+                    return
             }
-            guard let token = keys["access"] else {
-                errorHandler(.internalError)
-                return
-            }
-            UserDefaults.standard.set(token, forKey: "api_token")
+            UserDefaults.standard.set(accessKey, forKey: "api_token")
+            UserDefaults.standard.set(refreshKey, forKey: "refresh_token")
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
@@ -212,7 +216,7 @@ class RestAPI {
     
     static func getSections(term: String,
                             id: String,
-                            completionHandler: @escaping ([Course])->(),
+                            completionHandler: @escaping ([Section])->(),
                             errorHandler: @escaping (APIError) -> ()) {
         
         let postContent = ["term": term, "course_list": [id]] as [String : Any]
@@ -220,25 +224,22 @@ class RestAPI {
             errorHandler(.internalError)
             return
         }
-        request.getJsonData(completionHandler: { dict in
-            guard let result = dict[id] as? Array<[String: Any?]> else {
-                errorHandler(.internalError)
-                return
+        request.getJsonData(completionHandler: { data in
+
+            guard let response = try? JSONDecoder().decode([String:[Section]].self, from: data),
+                var sections = response[id] else {
+                    errorHandler(.internalError)
+                    return
             }
             
-            var courses:[Course] = []
-            for courseDict in result {
-                courses.append(Course(courseDict))
-            }
-            
-            courses.sort(by: { (c1, c2) -> Bool in
-                let id1 = c1.courseID
-                let id2 = c2.courseID
-                let s1 = String(id1.split(separator: "-")[2])
-                let s2 = String(id2.split(separator: "-")[2])
-                return s1 < s2
+            sections.sort(by: { (section1, section2) -> Bool in
+                let id1 = section1.courseID
+                let id2 = section2.courseID
+                let sectionNumber1 = String(id1.split(separator: "-")[2])
+                let sectionNumber2 = String(id2.split(separator: "-")[2])
+                return sectionNumber1 < sectionNumber2
             })
-            DispatchQueue.main.async { completionHandler(courses) }
+            DispatchQueue.main.async { completionHandler(sections) }
         }, errorHandler: errorHandler)
     }
     
@@ -246,7 +247,7 @@ class RestAPI {
     
     static func searchCourseIDs(id: String,
                                 term: String,
-                                completionHandler: @escaping ([[String: String]])->(),
+                                completionHandler: @escaping ([CourseSearchResult])->(),
                                 errorHandler: @escaping (APIError) -> ()) {
         
         guard let courseID = id.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
@@ -254,12 +255,13 @@ class RestAPI {
                 errorHandler(.internalError)
                 return
         }
-        request.getJsonData(completionHandler: { dict in
-            guard let result = dict["result"] as? Array<[String: String]> else {
+        request.getJsonData(completionHandler: { data in
+            
+            guard let searchResults = try? JSONDecoder().decode([CourseSearchResult].self, from: data) else {
                 errorHandler(.internalError)
                 return
             }
-            DispatchQueue.main.async { completionHandler(result) }
+            DispatchQueue.main.async { completionHandler(searchResults) }
         }, errorHandler: errorHandler)
     }
     
@@ -272,19 +274,22 @@ class RestAPI {
             errorHandler(.internalError)
             return
         }
-        request.getJsonData(completionHandler: { dict in
-            guard var result = dict["result"] as? Array<String> else {
+        request.getJsonData(completionHandler: { data in
+            
+            guard var terms = try? JSONDecoder().decode([String].self, from: data) else {
                 errorHandler(.internalError)
                 return
             }
-            result.sort(by: { (s1, s2) -> Bool in
+            
+            terms.sort(by: { (s1, s2) -> Bool in
                 if (s1.prefix(4) == s2.prefix(4)) {
                     return s1.suffix(2) > s2.suffix(2)
                 }
                 return s1.prefix(4) > s2.prefix(4)
             })
-            UserDefaults.standard.set(result, forKey: "terms")
-            DispatchQueue.main.async { completionHandler(result) }
+            
+            UserDefaults.standard.set(terms, forKey: "terms")
+            DispatchQueue.main.async { completionHandler(terms) }
         }, errorHandler: errorHandler)
     }
     
@@ -306,24 +311,10 @@ class RestAPI {
             errorHandler(.internalError)
             return
         }
-        request.getJsonData(completionHandler: { dict in
-            guard let result = dict["result"] as? [[String: Any]] else {
+        request.getJsonData(completionHandler: { data in
+            guard let schedules = try? JSONDecoder().decode([Schedule].self, from: data) else {
                 errorHandler(.internalError)
                 return
-            }
-            
-            var schedules:[Schedule] = []
-            for i in 0..<result.count {
-                guard let info = result[i]["info"]! as? [String: Any] else {
-                    errorHandler(.internalError)
-                    return
-                }
-                guard let courses = result[i]["schedule"] as? [String: [String: Any?]] else {
-                    errorHandler(.internalError)
-                    return
-                }
-                let newSchedule = Schedule(info: info, courses: courses)
-                schedules.append(newSchedule)
             }
             DispatchQueue.main.async { completionHandler(schedules) }
         }, errorHandler: errorHandler)
@@ -339,24 +330,10 @@ class RestAPI {
             errorHandler(.internalError)
             return
         }
-        request.getJsonData(completionHandler: { dict in
-            guard let result = dict["result"] as? Array<Dictionary<String, Any>> else {
+        request.getJsonData(completionHandler: { data in
+            guard let schedules = try? JSONDecoder().decode([Schedule].self, from: data) else {
                 errorHandler(.internalError)
                 return
-            }
-            
-            var schedules:[Schedule] = []
-            for index in 0..<result.count {
-                guard let info = result[index]["info"]! as? Dictionary<String, Any> else {
-                    errorHandler(.internalError)
-                    return
-                }
-                guard let courses = result[index]["schedule"] as? Dictionary<String, Dictionary<String, Dictionary<String, Any?>>> else {
-                    errorHandler(.internalError)
-                    return
-                }
-                let newSchedule = Schedule(info: info, courses: courses)
-                schedules.append(newSchedule)
             }
             DispatchQueue.main.async { completionHandler(schedules) }
         }, errorHandler: errorHandler)
@@ -374,10 +351,11 @@ class RestAPI {
             errorHandler(.internalError)
             return
         }
-        request.getJsonData(completionHandler: { dict in
-            guard dict.keys.contains("success") else {
-                errorHandler(.outOfSpace)
-                return
+        request.getJsonData(completionHandler: { data in
+            guard let response = try? JSONDecoder().decode(SuccessResponse.self, from: data),
+                let _ = response.success else {
+                    errorHandler(.outOfSpace)
+                    return
             }
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
@@ -395,10 +373,11 @@ class RestAPI {
             errorHandler(.internalError)
             return
         }
-        request.getJsonData(completionHandler: { dict in
-            guard dict.keys.contains("success") else {
-                errorHandler(.notFound)
-                return
+        request.getJsonData(completionHandler: { data in
+            guard let response = try? JSONDecoder().decode(SuccessResponse.self, from: data),
+                let _ = response.success else {
+                    errorHandler(.notFound)
+                    return
             }
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
@@ -406,40 +385,40 @@ class RestAPI {
     
     
     /*
-    static func register(username: String, password: String, term: String, crns: [String], completion: @escaping (APIError?, String?)->()) {
-        
-        guard let url = URL(string: "\(apiURL)courses/course-register/") else {
-            completion(.internalError, nil)
-            return
-        }
-        let postContent = ["term": term, "crns": crns, "username": username, "password": password] as [String: Any]
-        var request:URLRequest = URLRequest(url: url, type: .POST)
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
-            completion(.internalError, nil)
-            return
-        }
-        request.httpBody = jsonData
-        request.getJsonData { (dict, err) in
-            if (err != nil) {
-                completion(err!, nil)
-                return
-            } else {
-                guard let result = dict! as? [String: String] else {
-                    completion(.internalError, nil)
-                    return
-                }
-                print(result)
-                guard !result.keys.contains("reg_time") else {
-                    completion(nil, dict!["reg_time"] as? String)
-                    return
-                }
-                guard !result.keys.contains("login") else {
-                    completion(nil, "Invalid UC Merced Credentials")
-                    return
-                }
-                completion(nil, nil)
-                return
-            }
-        }
-    }*/
+     static func register(username: String, password: String, term: String, crns: [String], completion: @escaping (APIError?, String?)->()) {
+     
+     guard let url = URL(string: "\(apiURL)courses/course-register/") else {
+     completion(.internalError, nil)
+     return
+     }
+     let postContent = ["term": term, "crns": crns, "username": username, "password": password] as [String: Any]
+     var request:URLRequest = URLRequest(url: url, type: .POST)
+     guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
+     completion(.internalError, nil)
+     return
+     }
+     request.httpBody = jsonData
+     request.getJsonData { (dict, err) in
+     if (err != nil) {
+     completion(err!, nil)
+     return
+     } else {
+     guard let result = dict! as? [String: String] else {
+     completion(.internalError, nil)
+     return
+     }
+     print(result)
+     guard !result.keys.contains("reg_time") else {
+     completion(nil, dict!["reg_time"] as? String)
+     return
+     }
+     guard !result.keys.contains("login") else {
+     completion(nil, "Invalid UC Merced Credentials")
+     return
+     }
+     completion(nil, nil)
+     return
+     }
+     }
+     }*/
 }

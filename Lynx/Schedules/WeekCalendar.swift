@@ -104,15 +104,15 @@ class WeekCalendar: UIView {
         let hourHeight:CGFloat = rect.height / CGFloat(end-start)
         let dayWidth = rect.width / 5
         
-        for section in schedule.sections {
+        for course in schedule.courses {
             let color = colors.popLast() ?? .lightGray
-            for course in section.courses {
-                let hours = course.hours
-                let days = course.days
-                if (hours != nil && hours != "TBD-TBD") {
-                    for day in days! {
+            for section in course.sections {
+                let hours = section.hours
+                let days = section.days
+                if hours != "TBD-TBD" {
+                    for day in days {
                         let dayOffset = DAYS[day]
-                        let times = hours!.extractTime()
+                        let times = hours.extractTime()
                         let frame = CGRect(
                             x: rect.minX + 1 + CGFloat(dayOffset!) * (dayWidth),
                             y: rect.minY + hourHeight * CGFloat(times.0 - start),
@@ -120,10 +120,10 @@ class WeekCalendar: UIView {
                             height: hourHeight * CGFloat(times.1 - times.0))
                         if let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? Event {
                             view.frame = frame
-                            view.courseID.text = course.courseName
-                            view.typeLabel.text = "\(course.type) \(course.sectionID)"
+                            view.courseID.text = section.shortName
+                            view.typeLabel.text = "\(section.type) \(section.sectionID)"
                             view.tintColor = color
-                            view.alpha = course.isFull ? 0.4 : 1
+                            view.alpha = section.isFull ? 0.4 : 1
                             insertSubview(view, at: 0)
                         }
                     }

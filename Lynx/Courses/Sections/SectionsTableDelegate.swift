@@ -11,10 +11,10 @@ import UIKit
 extension SectionsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let crn = courses[indexPath.row].crn
-        let attached = courses[indexPath.row].attachedCourse
-        let lecture = courses[indexPath.row].lecture
-        let dependents = courses[indexPath.row].dependents
+        let crn = sections[indexPath.row].crn
+        let attached = sections[indexPath.row].attachedCourse
+        let lecture = sections[indexPath.row].lecture
+        let dependents = sections[indexPath.row].dependents
         
         if (attached != nil) {
             if sectionsDelegate.removeCRN(attached!) {
@@ -22,24 +22,19 @@ extension SectionsVC: UITableViewDelegate {
                 sectionsDelegate.addCRN(attached!)
             }
         }
-        
-        if (lecture != nil) {
-            _ = sectionsDelegate.removeCRN(lecture!)
+
+        if let lecture = lecture {
+            _ = sectionsDelegate.removeCRN(lecture)
         }
-        
         
         if !sectionsDelegate.removeCRN(crn) {
             sectionsDelegate.addCRN(crn)
-            if (dependents != nil) {
-                for dependent in dependents! {
-                    sectionsDelegate.addCRN(dependent)
-                }
+            for dependent in dependents {
+                sectionsDelegate.addCRN(dependent)
             }
         } else {
-            if (dependents != nil) {
-                for dependent in dependents! {
-                    _ = sectionsDelegate.removeCRN(dependent)
-                }
+            for dependent in dependents {
+                _ = sectionsDelegate.removeCRN(dependent)
             }
         }
         
@@ -50,10 +45,8 @@ extension SectionsVC: UITableViewDelegate {
         updateAvailability(for: attached)
         updateAvailability(for: lecture)
         
-        if (dependents != nil) {
-            for dependent in dependents! {
-                updateAvailability(for: dependent)
-            }
+        for dependent in dependents {
+            updateAvailability(for: dependent)
         }
     }
     
@@ -61,7 +54,7 @@ extension SectionsVC: UITableViewDelegate {
         guard crn != nil else {
             return
         }
-        if let indexFound = courses.index(where: { (course) -> Bool in return course.crn == crn }) {
+        if let indexFound = sections.index(where: { (section) -> Bool in return section.crn == crn }) {
             if let cell = sectionTable.cellForRow(at: IndexPath(row: indexFound, section: 0)) as? CourseCell {
                 cell.updateAvailability(sectionsDelegate.getBadCRNs())
                 cell.updateView()

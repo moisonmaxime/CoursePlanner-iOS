@@ -25,9 +25,4 @@ class QuickCourseCell: UITableViewCell {
         descriptionLabel.textColor = isSelected ? .white : highlightColor
         backgroundColor = isSelected ? highlightColor : .white
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
 }
