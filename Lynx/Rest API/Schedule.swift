@@ -25,7 +25,7 @@ struct Schedule: Codable, Equatable {
 
     private let schedule: [String: [Section]]
     private let info: ScheduleInformation
-
+    var customEvents: [CustomEvent]
 
     var courses: [[Section]] { return schedule.map({ (_, sections) -> [Section] in return sections }) }
     var sections: [Section] {
@@ -42,6 +42,7 @@ struct Schedule: Codable, Equatable {
     enum CodingKeys: String, CodingKey {
         case schedule
         case info
+        case customEvents = "custom_events"
     }
 }
 

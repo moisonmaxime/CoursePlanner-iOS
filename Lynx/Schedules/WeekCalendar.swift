@@ -11,7 +11,7 @@ import UIKit
 class WeekCalendar: UIView {
     
     let DAYS:[Character: Int] = ["M": 0, "T": 1, "W": 2, "R": 3, "F": 4]
-    let COLORS:[UIColor] = [.red, .blue, .green, .orange, .purple]
+    let COLORS:[UIColor] = [.red, .brown, .blue, .green, .orange, .purple]
     let weekDays:[String] = ["Mon", "Tue", "Wed", "Thu", "Fri"]
     
     var schedule:Schedule!
@@ -127,6 +127,25 @@ class WeekCalendar: UIView {
                             insertSubview(view, at: 0)
                         }
                     }
+                }
+            }
+        }
+        for event in schedule.customEvents {
+            let color = colors.popLast() ?? .lightGray
+            for day in event.days {
+                let dayOffset = DAYS[day]
+                let times = (Double(Int(event.start/100)) + Double(Int(event.start)%100)/60, Double(Int(event.end/100)) + Double(Int(event.end)%100)/60)
+                let frame = CGRect(
+                    x: rect.minX + 1 + CGFloat(dayOffset!) * (dayWidth),
+                    y: rect.minY + hourHeight * CGFloat(times.0 - start),
+                    width: dayWidth-2,
+                    height: hourHeight * CGFloat(times.1 - times.0))
+                if let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? Event {
+                    view.frame = frame
+                    view.courseID.text = event.name
+                    view.typeLabel.text = "custom"
+                    view.tintColor = color
+                    insertSubview(view, at: 0)
                 }
             }
         }

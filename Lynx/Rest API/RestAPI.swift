@@ -51,7 +51,7 @@ class RestAPI {
      errorHandler(.internalError)
      return
      }
-     request.getJsonData(completionHandler: { dict in
+     request.getJsonData(completionHandler: { data in
      //Deal w/ data from response
      completionHandler()
      }, errorHandler: errorHandler)
@@ -382,43 +382,4 @@ class RestAPI {
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
-    
-    
-    /*
-     static func register(username: String, password: String, term: String, crns: [String], completion: @escaping (APIError?, String?)->()) {
-     
-     guard let url = URL(string: "\(apiURL)courses/course-register/") else {
-     completion(.internalError, nil)
-     return
-     }
-     let postContent = ["term": term, "crns": crns, "username": username, "password": password] as [String: Any]
-     var request:URLRequest = URLRequest(url: url, type: .POST)
-     guard let jsonData = try? JSONSerialization.data(withJSONObject: postContent, options: .prettyPrinted) else {
-     completion(.internalError, nil)
-     return
-     }
-     request.httpBody = jsonData
-     request.getJsonData { (dict, err) in
-     if (err != nil) {
-     completion(err!, nil)
-     return
-     } else {
-     guard let result = dict! as? [String: String] else {
-     completion(.internalError, nil)
-     return
-     }
-     print(result)
-     guard !result.keys.contains("reg_time") else {
-     completion(nil, dict!["reg_time"] as? String)
-     return
-     }
-     guard !result.keys.contains("login") else {
-     completion(nil, "Invalid UC Merced Credentials")
-     return
-     }
-     completion(nil, nil)
-     return
-     }
-     }
-     }*/
 }
