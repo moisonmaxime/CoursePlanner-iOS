@@ -66,7 +66,7 @@ extension URLRequest {
     }
     
     init?(url: String, content:[String:Any]=[:], type: RequestType, forceUnauthorized: Bool=false) {
-        print(url)
+        //  print(url)
         guard let url = URL(string: url),
             let jsonData = try? JSONSerialization.data(withJSONObject: content, options: .prettyPrinted) else {
                 return nil
