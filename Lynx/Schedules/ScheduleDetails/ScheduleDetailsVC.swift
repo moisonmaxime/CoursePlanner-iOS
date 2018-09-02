@@ -43,23 +43,6 @@ class ScheduleDetailsVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func register(_ sender: Any) {
-        let alert = UIAlertController(title: "UC Merced Login", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
-            return
-        }))
-        alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "UCMNetID"
-        })
-        alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Password"
-            textField.isSecureTextEntry = true
-        })
-        alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { _ in }))
-        self.present(alert, animated: true)
-        
-    }
-    
     @IBAction func saveSchedule(_ sender: Any) {
         if (detailDelegate.isSaved()) {
             self.didStartLoading()
