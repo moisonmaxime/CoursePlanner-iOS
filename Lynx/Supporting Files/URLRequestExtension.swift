@@ -78,9 +78,9 @@ extension URLRequest {
             self.httpBody = jsonData
         }
 
-        let token = UserDefaults.standard.string(forKey: "api_token")
-        if token != nil && !forceUnauthorized {
-            self.addValue("Bearer \(token!)", forHTTPHeaderField: "Authorization")
+        if let token = UserDefaults.standard.string(forKey: "api_token"),
+            !forceUnauthorized {
+            self.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
     }
 
