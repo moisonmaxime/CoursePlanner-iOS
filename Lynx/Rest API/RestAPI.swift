@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 private enum API: String {
     case login = "auth/token/obtain"
@@ -356,6 +357,22 @@ class RestAPI {
                     return
             }
             DispatchQueue.main.async { completionHandler() }
+        }, errorHandler: errorHandler)
+    }
+
+    static func getProfileImage(imageURL: String,
+                                completionHandler: @escaping (UIImage) -> Void,
+                                errorHandler: @escaping (APIError) -> Void) {
+        guard let request = URLRequest(url: imageURL, type: .GET, forceUnauthorized: true) else {
+            errorHandler(.internalError)
+            return
+        }
+        request.getJsonData(completionHandler: { data in
+            guard let image = UIImage(data: data) else {
+                errorHandler(.internalError)
+                return
+            }
+            completionHandler(image)
         }, errorHandler: errorHandler)
     }
 }
