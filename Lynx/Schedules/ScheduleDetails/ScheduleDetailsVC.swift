@@ -42,10 +42,14 @@ class ScheduleDetailsVC: UIViewController {
     @IBAction func saveSchedule(_ sender: Any) {
         if detailDelegate.isSaved() {
             self.didStartLoading()
-            RestAPI.deleteSchedule(term: detailDelegate.getTerm(), crns: detailDelegate.getSchedule().crns, completionHandler: {
-                self.detailDelegate.removeScheduleLocally()
+            RestAPI.deleteSchedule(term: delegate.getTerm(), crns: delegate.getSchedule().crns, completionHandler: {
+                self.didFinishLoading()
+                delegate.removeScheduleLocally()
                 self.dismiss(animated: true, completion: nil)
-            }, errorHandler: handleError)
+            }, errorHandler: { error in
+                DispatchQueue.main.async { self.didFinishLoading() }
+                self.handleError(error: error)
+            })
         } else {
             RestAPI.saveSchedule(term: detailDelegate.getTerm(), crns: detailDelegate.getSchedule().crns, completionHandler: {}, errorHandler: handleError)
         }
