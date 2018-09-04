@@ -49,9 +49,6 @@ class SchedulesVC: UIViewController {
         RestAPI.getSchedules(term: term, courses: courses, completionHandler: { schedules in
             self.navigationController?.didFinishLoading()
             self.schedules = schedules
-            if self.schedules.isEmpty {
-                print("No schedule!")
-            }
             let noSchedule = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
             self.currentScheduleLbl.isHidden = noSchedule
             self.detailssButton.isHidden = noSchedule

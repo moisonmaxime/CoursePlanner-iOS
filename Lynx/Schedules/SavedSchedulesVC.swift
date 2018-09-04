@@ -12,15 +12,9 @@ class SavedSchedulesVC: SchedulesVC {
 
     override func getInitialData() {
         self.navigationController?.didStartLoading(immediately: true)
-        RestAPI.getSavedSchedule(term: term, completionHandler: { (response) in
+        RestAPI.getSavedSchedule(term: term, completionHandler: { schedules in
             self.navigationController?.didFinishLoading()
-            self.schedules = response
-            self.schedules.sort(by: { (schedule1, schedule2) -> Bool in
-                if schedule1.numberOfDays == schedule2.numberOfDays {
-                    return schedule1.gaps < schedule2.gaps
-                }
-                return schedule1.numberOfDays < schedule2.numberOfDays
-            })
+            self.schedules = schedules
             let noSchedule = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
             self.currentScheduleLbl.isHidden = noSchedule
             self.detailssButton.isHidden = noSchedule
@@ -28,7 +22,10 @@ class SavedSchedulesVC: SchedulesVC {
             self.previousButton.isHidden = noSchedule
             self.weekDisplay.schedule = self.schedules.first
             self.weekDisplay.setNeedsDisplay()
-        }, errorHandler: handleError)
+        }, errorHandler: { error in
+            self.handleError(error: error)
+            self.schedules = []
+        })
     }
     /*
      // MARK: - Navigation

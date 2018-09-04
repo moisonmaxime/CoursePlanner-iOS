@@ -32,7 +32,7 @@ struct Schedule: Codable, Equatable {
             total + current
         })
     }
-    var crns: [String] { return sections.map({ return $0.name }) }
+    var crns: [String] { return sections.map({ return $0.crn }) }
     var numberOfDays: Int { return info.numberOfDays }
     var earliest: Double { return info.earliest }
     var latest: Double { return info.latest }
