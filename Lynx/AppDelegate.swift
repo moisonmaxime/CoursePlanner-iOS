@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
         if UserDefaults.standard.string(forKey: "api_token") != nil {  // If there is an API Key saved (then someone is logged in)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let newVC = storyboard.instantiateViewController(withIdentifier: "Home")
@@ -23,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let navigationController: UINavigationController? = self.window?.rootViewController as? UINavigationController
             navigationController?.viewControllers = [newVC]         // If someone is logged in switch to the homepage
         }
-
         return true
     }
 

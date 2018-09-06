@@ -15,11 +15,48 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var passField1: UITextField!
     @IBOutlet weak var passField2: UITextField!
     @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var formView: UIScrollView!
+    @IBOutlet weak var registerButton: RoundedButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
+        formView.contentSize = CGSize(width: 0, height: registerButton.frame.maxY)
+        formView.layer.masksToBounds = true
+
+        // Add an observer to check on keyboard status
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: NSNotification.Name.UIKeyboardWillShow,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: NSNotification.Name.UIKeyboardWillHide,
+            object: nil
+        )
+    }
+
+    deinit {
+        // When deinit, remove observer...
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+
+    @objc func keyboardWillShow(_ notification: Notification) {
+        // When keyboard shows, change inset in searchTable so that nothing is under keyboard
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            formView.contentInset.bottom = keyboardHeight
+        }
+    }
+
+    @objc func keyboardWillHide(_ notification: Notification) {
+        // When keyboard shows, change inset in searchTable so that nothing is under keyboard
+        formView.contentInset.bottom = 0
     }
 
     override func didReceiveMemoryWarning() {

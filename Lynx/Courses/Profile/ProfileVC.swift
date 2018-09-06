@@ -61,9 +61,9 @@ class ProfileVC: UIViewController {
     }
 
     @IBAction func logout() {
-        let appDomain = Bundle.main.bundleIdentifier!
-        UserDefaults.standard.removePersistentDomain(forName: appDomain)
-        UserDefaults.standard.synchronize()
+
+        UserDefaults.standard.removeObject(forKey: "api_token")
+
         self.dismiss(animated: true, completion: {
             let nav = UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController
             nav?.setAnimationType(type: FadingAnimation.self, forever: false)
