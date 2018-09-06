@@ -42,7 +42,10 @@ class ScheduleDetailsVC: UIViewController {
     @IBAction func saveSchedule(_ sender: Any) {
         if detailDelegate.isSaved() {
             self.didStartLoading()
-            RestAPI.deleteSchedule(term: delegate.getTerm(), crns: delegate.getSchedule().crns, completionHandler: {
+            RestAPI.deleteSchedule(term: delegate.getTerm(),
+                                   crns: delegate.getSchedule().crns,
+                                   customEvents: delegate.getSchedule().customEvents,
+                                   completionHandler: {
                 self.didFinishLoading()
                 delegate.removeScheduleLocally()
                 self.dismiss(animated: true, completion: nil)

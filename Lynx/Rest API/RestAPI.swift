@@ -342,10 +342,16 @@ class RestAPI {
 
     static func deleteSchedule(term: String,
                                crns: [String],
+                               customEvents: [CustomEvent],
                                completionHandler: @escaping () -> Void,
                                errorHandler: @escaping (APIError) -> Void) {
 
-        let postContent: [String: Any] = ["term": term, "crns": crns]
+        guard let customEventsData = try? JSONEncoder().encode(customEvents),
+        let customEventJson = try? JSONSerialization.jsonObject(with: customEventsData, options: []) else {
+            errorHandler(.internalError)
+            return
+        }
+        let postContent: [String: Any] = ["term": term, "crns": crns, "custom_events": customEventJson]
         guard let request = URLRequest(url: API.deleteSchedule.url, content: postContent, type: .POST) else {
             errorHandler(.internalError)
             return
