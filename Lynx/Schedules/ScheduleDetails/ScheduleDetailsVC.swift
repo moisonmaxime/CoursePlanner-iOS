@@ -40,6 +40,7 @@ class ScheduleDetailsVC: UIViewController {
     }
 
     @IBAction func saveSchedule(_ sender: Any) {
+        guard let delegate = detailDelegate else { return }
         if detailDelegate.isSaved() {
             self.didStartLoading()
             RestAPI.deleteSchedule(term: delegate.getTerm(),
