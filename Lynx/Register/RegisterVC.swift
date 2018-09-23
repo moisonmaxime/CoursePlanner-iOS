@@ -15,22 +15,20 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var passField1: UITextField!
     @IBOutlet weak var passField2: UITextField!
     @IBOutlet weak var emailField: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
+
     @IBAction func registerPressed(_ sender: Any) {
-        
+
         // Make sure all fields are filled and valid
         guard let firstName = firstField.text, firstField.text != "" else {
             displayAlert(message: "First name required")
@@ -45,17 +43,17 @@ class RegisterVC: UIViewController {
             return
         }
         guard let password = passField1.text, passField1.text != "", passField1.text == passField2.text else {
-            if (passField1.text == passField2.text) {
+            if passField1.text == passField2.text {
                 displayAlert(message: "Password required")
             } else {
                 displayAlert(message: "Passwords are not matching")
             }
             return
         }
-        
+
         // If there is an email, use it
-        let email:String? = (emailField.text == "") ? nil : emailField.text
-        
+        let email: String? = (emailField.text == "") ? nil : emailField.text
+
         // API Call to register (transition to Homepage if successful)
         self.navigationController?.didStartLoading()
         RestAPI.signup(user: username, password: password, first: firstName, last: lastName, email: email, completionHandler: {
@@ -73,5 +71,5 @@ class RegisterVC: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
+
 }

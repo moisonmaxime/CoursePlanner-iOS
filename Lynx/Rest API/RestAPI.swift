@@ -8,7 +8,7 @@
 
 import Foundation
 
-private enum API: String  {
+private enum API: String {
     case login = "auth/token/obtain"
     case refreshAPIKey = "auth/token/refresh"
     case userInfo = "users/user-info/"
@@ -26,23 +26,23 @@ private enum API: String  {
 
 extension API {
     private static let endpointUrl = "https://cse120-course-planner.herokuapp.com/api/"
-    
-    var url:String {
+
+    var url: String {
         return API.endpointUrl + self.rawValue
     }
-    
-    func url(with parameters: [String:String]) -> String {
-        
+
+    func url(with parameters: [String: String]) -> String {
+
         let parametersString = parameters.map { (parameterKey, parameter) -> String in
             return "\(parameterKey)=\(parameter)"
             }.joined(separator: "&")
-        
+
         return API.endpointUrl + self.rawValue + parametersString
     }
 }
 
 class RestAPI {
-    
+
     /*
      - Template for API Request -
      static func doSomething(completionHandler: @escaping ()->(), errorHandler: @escaping (APIError) -> ()) {
@@ -56,12 +56,11 @@ class RestAPI {
      completionHandler()
      }, errorHandler: errorHandler)
      }*/
-    
-    
+
     static func login(user: String,
                       password: String,
-                      completionHandler: @escaping ()->(),
-                      errorHandler: @escaping (APIError)->()) {
+                      completionHandler: @escaping () -> Void,
+                      errorHandler: @escaping (APIError) -> Void) {
         let postContent = ["username": user, "password": password]
         guard let request = URLRequest(url: API.login.url, content: postContent, type: .POST) else {
             errorHandler(.internalError)
@@ -78,10 +77,9 @@ class RestAPI {
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
-    
-    
-    static func refreshAPIKey(completionHandler: @escaping ()->(),
-                              errorHandler: @escaping (APIError) -> ()) {
+
+    static func refreshAPIKey(completionHandler: @escaping () -> Void,
+                              errorHandler: @escaping (APIError) -> Void) {
         guard let postContent = ["refresh": UserDefaults.standard.string(forKey: "refresh_token")] as? [String: String],
             let request = URLRequest(url: API.refreshAPIKey.url, content: postContent, type: .POST) else {
                 errorHandler(.internalError)
@@ -96,11 +94,9 @@ class RestAPI {
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
-    
-    
-    
-    static func getUserInfo(completionHandler: @escaping (UserInformation)->(),
-                            errorHandler: @escaping (APIError) -> ()) {
+
+    static func getUserInfo(completionHandler: @escaping (UserInformation) -> Void,
+                            errorHandler: @escaping (APIError) -> Void) {
         guard let request = URLRequest(url: API.userInfo.url, type: .GET) else {
             errorHandler(.internalError)
             return
@@ -113,13 +109,11 @@ class RestAPI {
             DispatchQueue.main.async { completionHandler(userInfo) }
         }, errorHandler: errorHandler)
     }
-    
-    
-    
+
     static func changePassword(oldPass: String,
                                newPass: String,
-                               completionHandler: @escaping ()->(),
-                               errorHandler: @escaping (APIError) -> ()) {
+                               completionHandler: @escaping () -> Void,
+                               errorHandler: @escaping (APIError) -> Void) {
         let postContent = ["old_password": oldPass, "new_password": newPass]
         guard let request = URLRequest(url: API.changePassword.url, content: postContent, type: .POST) else {
             errorHandler(.internalError)
@@ -130,7 +124,7 @@ class RestAPI {
                 errorHandler(.internalError)
                 return
             }
-            guard let _ = response.success else {
+            guard response.success != nil else {
                 let error:APIError
                 if let errorString = response.fail {
                     error = errorString == "password_incorrect" ? .invalidCredentials : .serverError
@@ -143,12 +137,10 @@ class RestAPI {
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
-    
-    
-    
+
     static func forgotPassword(user: String,
-                               completionHandler: @escaping ()->(),
-                               errorHandler: @escaping (APIError) -> ()) {
+                               completionHandler: @escaping () -> Void,
+                               errorHandler: @escaping (APIError) -> Void) {
         let postContent = ["username": user]
         guard let request = URLRequest(url: API.forgotPassword.url, content: postContent, type: .POST) else {
             errorHandler(.internalError)
@@ -167,23 +159,21 @@ class RestAPI {
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
-    
-    
-    
+
     static func signup(user: String,
                        password: String,
                        first: String,
                        last: String,
                        email: String?,
-                       completionHandler: @escaping ()->(),
-                       errorHandler: @escaping (APIError) -> ()) {
-        
+                       completionHandler: @escaping () -> Void,
+                       errorHandler: @escaping (APIError) -> Void) {
+
         var postContent = [ "username": user.trimmingCharacters(in: .whitespaces),
                             "password": password.trimmingCharacters(in: .whitespaces),
                             "first_name": first.trimmingCharacters(in: .whitespaces),
                             "last_name": last.trimmingCharacters(in: .whitespaces),
                             "name": "\(first) \(last)" ]
-        if (email != nil) {
+        if email != nil {
             postContent["email"] = email!.trimmingCharacters(in: .whitespaces)
         }
         guard let request = URLRequest(url: API.register.url, content: postContent, type: .POST) else {
@@ -191,12 +181,12 @@ class RestAPI {
             return
         }
         request.getJsonData(completionHandler: { data in
-            
+
             guard let response = try? JSONDecoder().decode(SignupResponse.self, from: data) else {
                 errorHandler(.internalError)
                 return
             }
-            
+
             guard let accessKey = response.accessKey,
                 let refreshKey = response.refreshKey else {
                     if let error = response.error, error == "User Already Exists" {
@@ -211,27 +201,25 @@ class RestAPI {
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
-    
-    
-    
+
     static func getSections(term: String,
                             id: String,
-                            completionHandler: @escaping ([Section])->(),
-                            errorHandler: @escaping (APIError) -> ()) {
-        
-        let postContent = ["term": term, "course_list": [id]] as [String : Any]
+                            completionHandler: @escaping ([Section]) -> Void,
+                            errorHandler: @escaping (APIError) -> Void) {
+
+        let postContent = ["term": term, "course_list": [id]] as [String: Any]
         guard let request = URLRequest(url: API.getSections.url, content: postContent, type: .POST) else {
             errorHandler(.internalError)
             return
         }
         request.getJsonData(completionHandler: { data in
 
-            guard let response = try? JSONDecoder().decode([String:[Section]].self, from: data),
+            guard let response = try? JSONDecoder().decode([String: [Section]].self, from: data),
                 var sections = response[id] else {
                     errorHandler(.internalError)
                     return
             }
-            
+
             sections.sort(by: { (section1, section2) -> Bool in
                 let id1 = section1.courseID
                 let id2 = section2.courseID
@@ -242,21 +230,19 @@ class RestAPI {
             DispatchQueue.main.async { completionHandler(sections) }
         }, errorHandler: errorHandler)
     }
-    
-    
-    
+
     static func searchCourseIDs(id: String,
                                 term: String,
-                                completionHandler: @escaping ([CourseSearchResult])->(),
-                                errorHandler: @escaping (APIError) -> ()) {
-        
+                                completionHandler: @escaping ([CourseSearchResult]) -> Void,
+                                errorHandler: @escaping (APIError) -> Void) {
+
         guard let courseID = id.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
             let request = URLRequest(url: API.searchCourseIDs.url(with: ["course": courseID, "term": term]), type: .GET) else {
                 errorHandler(.internalError)
                 return
         }
         request.getJsonData(completionHandler: { data in
-            
+
             guard let searchResults = try? JSONDecoder().decode([CourseSearchResult].self, from: data) else {
                 errorHandler(.internalError)
                 return
@@ -264,47 +250,43 @@ class RestAPI {
             DispatchQueue.main.async { completionHandler(searchResults) }
         }, errorHandler: errorHandler)
     }
-    
-    
-    
-    static func getTerms(completionHandler: @escaping ([String])->(),
-                         errorHandler: @escaping (APIError) -> ()) {
-        
+
+    static func getTerms(completionHandler: @escaping ([String]) -> Void,
+                         errorHandler: @escaping (APIError) -> Void) {
+
         guard let request = URLRequest(url: API.getTerms.url, type: .GET) else {
             errorHandler(.internalError)
             return
         }
         request.getJsonData(completionHandler: { data in
-            
+
             guard var terms = try? JSONDecoder().decode([String].self, from: data) else {
                 errorHandler(.internalError)
                 return
             }
-            
+
             terms.sort(by: { (s1, s2) -> Bool in
-                if (s1.prefix(4) == s2.prefix(4)) {
+                if s1.prefix(4) == s2.prefix(4) {
                     return s1.suffix(2) > s2.suffix(2)
                 }
                 return s1.prefix(4) > s2.prefix(4)
             })
-            
+
             UserDefaults.standard.set(terms, forKey: "terms")
             DispatchQueue.main.async { completionHandler(terms) }
         }, errorHandler: errorHandler)
     }
-    
-    
-    
+
     static func getSchedules(term: String,
-                             courses: Array<String>,
+                             courses: [String],
                              openOnly: Bool=false,
                              badCRNs: [String]?=nil,
-                             completionHandler: @escaping ([Schedule])->(),
-                             errorHandler: @escaping (APIError) -> ()) {
-        
-        var postContent = ["term": term, "course_list": courses] as [String : Any]
+                             completionHandler: @escaping ([Schedule]) -> Void,
+                             errorHandler: @escaping (APIError) -> Void) {
+
+        var postContent = ["term": term, "course_list": courses] as [String: Any]
         postContent["search_full"] = openOnly ? "false" : "true"
-        if (badCRNs != nil) {
+        if badCRNs != nil {
             postContent["bad_crns"] = badCRNs!
         }
         guard let request = URLRequest(url: API.getSchedules.url, content: postContent, type: .POST) else {
@@ -319,14 +301,12 @@ class RestAPI {
             DispatchQueue.main.async { completionHandler(schedules) }
         }, errorHandler: errorHandler)
     }
-    
-    
-    
+
     static func getSavedSchedule(term: String,
-                                 completionHandler: @escaping ([Schedule])->(),
-                                 errorHandler: @escaping (APIError) -> ()) {
-        
-        guard let request = URLRequest(url: API.getSavedSchedules.url(with: ["term" : term]), type: .GET) else {
+                                 completionHandler: @escaping ([Schedule]) -> Void,
+                                 errorHandler: @escaping (APIError) -> Void) {
+
+        guard let request = URLRequest(url: API.getSavedSchedules.url(with: ["term": term]), type: .GET) else {
             errorHandler(.internalError)
             return
         }
@@ -338,44 +318,40 @@ class RestAPI {
             DispatchQueue.main.async { completionHandler(schedules) }
         }, errorHandler: errorHandler)
     }
-    
-    
-    
+
     static func saveSchedule(term: String,
                              crns: [String],
-                             completionHandler: @escaping ()->(),
-                             errorHandler: @escaping (APIError) -> ()) {
-        
-        let postContent:[String: Any] = ["term": term, "crns": crns]
+                             completionHandler: @escaping () -> Void,
+                             errorHandler: @escaping (APIError) -> Void) {
+
+        let postContent: [String: Any] = ["term": term, "crns": crns]
         guard let request = URLRequest(url: API.saveSchedule.url, content: postContent, type: .POST) else {
             errorHandler(.internalError)
             return
         }
         request.getJsonData(completionHandler: { data in
             guard let response = try? JSONDecoder().decode(SuccessResponse.self, from: data),
-                let _ = response.success else {
+                response.success != nil else {
                     errorHandler(.outOfSpace)
                     return
             }
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
-    
-    
-    
+
     static func deleteSchedule(term: String,
                                crns: [String],
-                               completionHandler: @escaping ()->(),
-                               errorHandler: @escaping (APIError) -> ()) {
-        
-        let postContent:[String: Any] = ["term": term, "crns": crns]
+                               completionHandler: @escaping () -> Void,
+                               errorHandler: @escaping (APIError) -> Void) {
+
+        let postContent: [String: Any] = ["term": term, "crns": crns]
         guard let request = URLRequest(url: API.deleteSchedule.url, content: postContent, type: .POST) else {
             errorHandler(.internalError)
             return
         }
         request.getJsonData(completionHandler: { data in
             guard let response = try? JSONDecoder().decode(SuccessResponse.self, from: data),
-                let _ = response.success else {
+                response.success != nil else {
                     errorHandler(.notFound)
                     return
             }

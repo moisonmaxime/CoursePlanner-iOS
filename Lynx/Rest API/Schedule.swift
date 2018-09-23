@@ -22,15 +22,14 @@ struct Schedule: Codable, Equatable {
         }
     }
 
-
     private let schedule: [String: [Section]]
     private let info: ScheduleInformation
     var customEvents: [CustomEvent]
 
     var courses: [[Section]] { return schedule.map({ (_, sections) -> [Section] in return sections }) }
     var sections: [Section] {
-        return courses.reduce([Section](), { (a, b) -> [Section] in
-            a+b
+        return courses.reduce([Section](), { (total, current) -> [Section] in
+            total + current
         })
     }
     var crns: [String] { return sections.map({ return $0.name }) }
@@ -38,12 +37,10 @@ struct Schedule: Codable, Equatable {
     var earliest: Double { return info.earliest }
     var latest: Double { return info.latest }
     var gaps: Double { return info.gaps }
-    
+
     enum CodingKeys: String, CodingKey {
         case schedule
         case info
         case customEvents = "custom_events"
     }
 }
-
-

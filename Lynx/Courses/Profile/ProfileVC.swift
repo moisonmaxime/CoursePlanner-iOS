@@ -9,13 +9,13 @@
 import UIKit
 
 class ProfileVC: UIViewController {
-    
+
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var oldPass: UITextField!
     @IBOutlet weak var pass1: UITextField!
     @IBOutlet weak var pass2: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -32,34 +32,34 @@ class ProfileVC: UIViewController {
             })
         }, errorHandler: handleError)
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func passwordDone(_ sender: Any) {
         pass2.endEditing(true)
     }
-    
+
     @IBAction func changePassword(_ sender: Any) {
         guard let oldPass = oldPass.text,
             let password = pass1.text,
             pass1.text != "",
             pass1.text == pass2.text else {
-                if (pass1.text == pass2.text) {
+                if pass1.text == pass2.text {
                     displayAlert(message: "Password required")
                 } else {
                     displayAlert(message: "Passwords are not matching")
                 }
                 return
         }
-        
+
         RestAPI.changePassword(oldPass: oldPass, newPass: password, completionHandler: {
             self.displayAlert(title: "Success", message: "Your Password was changed")
         }, errorHandler: handleError)
     }
-    
+
     @IBAction func logout() {
         let appDomain = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: appDomain)
@@ -71,11 +71,11 @@ class ProfileVC: UIViewController {
             nav?.setViewControllers([home!], animated: true)
         })
     }
-    
+
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+
     /*
      // MARK: - Navigation
      
@@ -85,5 +85,5 @@ class ProfileVC: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
+
 }

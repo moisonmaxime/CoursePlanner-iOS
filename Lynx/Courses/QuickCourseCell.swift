@@ -13,7 +13,7 @@ class QuickCourseCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var detailsArrow: UIImageView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

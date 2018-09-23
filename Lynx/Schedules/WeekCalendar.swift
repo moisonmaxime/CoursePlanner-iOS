@@ -9,23 +9,23 @@
 import UIKit
 
 class WeekCalendar: UIView {
-    
-    let DAYS:[Character: Int] = ["M": 0, "T": 1, "W": 2, "R": 3, "F": 4]
-    let COLORS:[UIColor] = [.red, .brown, .blue, .green, .orange, .purple]
-    let weekDays:[String] = ["Mon", "Tue", "Wed", "Thu", "Fri"]
-    
-    var schedule:Schedule!
-    
+
+    let DAYS: [Character: Int] = ["M": 0, "T": 1, "W": 2, "R": 3, "F": 4]
+    let COLORS: [UIColor] = [.red, .brown, .blue, .green, .orange, .purple]
+    let weekDays: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+
+    var schedule: Schedule!
+
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
-        
+
         for subView in subviews {
             subView.removeFromSuperview()
         }
-        
-        if (schedule == nil || schedule.sections.count == 0) {
+
+        if schedule == nil || schedule.sections.isEmpty {
             let noScheduleLabel = UILabel(frame: CGRect(x: 32, y: rect.height/2-50, width: rect.width-64, height: 100))
             noScheduleLabel.text = "No Schedule"
             noScheduleLabel.textColor = .lightGray
@@ -35,16 +35,16 @@ class WeekCalendar: UIView {
             insertSubview(noScheduleLabel, at: 0)
             return
         }
-        
+
         let daysFrame = CGRect(x: 42, y: 10, width: rect.width - 52, height: 20)
         let timesFrame = CGRect(x: 10, y: 30, width: 32, height: rect.height - 40)
         let scheduleFrame = CGRect(x: 42, y: 30, width: rect.width - 52, height: rect.height - 40)
-        
+
         drawCourses(scheduleFrame)
         drawDays(daysFrame)
         drawTimes(timesFrame)
     }
-    
+
     func drawDays(_ rect: CGRect) {
         let dayWidth = rect.width/5
         for dayOffset in 0..<5 {
@@ -57,16 +57,16 @@ class WeekCalendar: UIView {
             insertSubview(lbl, at: 0)
         }
     }
-    
+
     func drawTimes(_ rect: CGRect) {
-        
+
         let startOffset = CGFloat(Int(schedule.earliest) % 100)/60
         let skipFirst = startOffset != 0
         let start = Int(schedule.earliest/100) + (skipFirst ? 1 : 0)
         let end = Int(schedule.latest/100)
-        let duration:Double = Double(Int(schedule.latest/100)) + Double(Int(schedule.latest) % 100)/60 - Double(Int(schedule.earliest/100)) - Double(Int(schedule.earliest) % 100)/60
+        let duration: Double = Double(Int(schedule.latest/100)) + Double(Int(schedule.latest) % 100)/60 - Double(Int(schedule.earliest/100)) - Double(Int(schedule.earliest) % 100)/60
         let timeSpacing = rect.height/CGFloat(duration)
-        
+
         for timeOffset in start...end {
             let timeFrame = CGRect(x: rect.minX, y: rect.minY-8 + (CGFloat(timeOffset-start) + startOffset) * timeSpacing, width: rect.width, height: 16)
             let lbl = UILabel(frame: timeFrame)
@@ -77,7 +77,7 @@ class WeekCalendar: UIView {
             lbl.textAlignment = .left
             insertSubview(lbl, at: 0)
         }
-        
+
         /*
          let timeFrame = CGRect(x: rect.minX, y: rect.minY-8 + CGFloat(i) * timeSpacing, width: rect.width, height: 16)
          let lbl = UILabel(frame: timeFrame)
@@ -90,20 +90,20 @@ class WeekCalendar: UIView {
          lbl.textAlignment = .left
          insertSubview(lbl, at: 0)
          */
-        
+
     }
-    
+
     func drawCourses(_ rect: CGRect) {
         var colors = COLORS
-        
+
         var start = schedule.earliest
         var end = schedule.latest
         start = Double(Int(start/100)) + Double(Int(start) % 100)/60
         end = Double(Int(end/100)) + Double(Int(end) % 100)/60
-        
-        let hourHeight:CGFloat = rect.height / CGFloat(end-start)
+
+        let hourHeight: CGFloat = rect.height / CGFloat(end-start)
         let dayWidth = rect.width / 5
-        
+
         for course in schedule.courses {
             let color = colors.popLast() ?? .lightGray
             for section in course {
@@ -150,5 +150,5 @@ class WeekCalendar: UIView {
             }
         }
     }
-    
+
 }

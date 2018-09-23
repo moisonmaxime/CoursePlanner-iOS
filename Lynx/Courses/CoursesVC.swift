@@ -13,16 +13,16 @@ class CoursesVC: UIViewController {
     @IBOutlet weak var selectedTable: UITableView!
     @IBOutlet weak var selectionLabel: UILabel!
     @IBOutlet weak var termButton: UIButton!
-    
+
     @IBOutlet weak var searchIcon: UIImageView!
     @IBOutlet weak var clearSearchButton: UIButton!
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var emptyCoursesPrompt: UIImageView!
-    
-    var timer:Timer?
-    
+
+    var timer: Timer?
+
     // If user changes term, then update UI and reset everything
-    var term:String = "" {
+    var term: String = "" {
         didSet {
             self.selectedCourses = []
             self.searchedCourses = []
@@ -32,7 +32,7 @@ class CoursesVC: UIViewController {
             self.searchField.text = ""
         }
     }
-    
+
     // when searching for courses when courses are selected or deselected give a number of courses selected
     var selectedCourses: [CourseSearchResult] = [] {
         didSet {
@@ -43,10 +43,10 @@ class CoursesVC: UIViewController {
             updateEmptyCoursesPrompt()
         }
     }
-    
+
     var searchedCourses: [CourseSearchResult] = []
-    var badCRNs:[String] = []   // Track the CRNs to not include in the schedule building
-    
+    var badCRNs: [String] = []   // Track the CRNs to not include in the schedule building
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // If there are no terms saved, pull them from server
@@ -61,21 +61,21 @@ class CoursesVC: UIViewController {
                 }
             }, errorHandler: handleError)
         }
-        
+
         // Add the QuickCourseCell reusable to the tables
         let nib = UINib.init(nibName: "QuickCourseCell", bundle: nil)
         searchTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
         selectedTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
-        
+
         // the clear button has to be outside of screen at start
         updateClearButton()
-        
+
         // Set delegates
         searchTable.dataSource = self
         searchTable.delegate = self
         selectedTable.dataSource = self
         selectedTable.delegate = self
-        
+
         // Add an observer to check on keyboard status
         NotificationCenter.default.addObserver(
             self,
@@ -84,25 +84,25 @@ class CoursesVC: UIViewController {
             object: nil
         )
     }
-    
+
     deinit {
         // When deinit, remove observer...
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     func reloadTables() {
         searchTable.reloadData()
         selectedTable.reloadData()
     }
-    
+
     func updateEmptyCoursesPrompt() {
         emptyCoursesPrompt.isHidden = selectedCourses.count != 0
     }
-    
+
     @objc func keyboardWillShow(_ notification: Notification) {
         // When keyboard shows, change inset in searchTable so that nothing is under keyboard
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
@@ -110,33 +110,33 @@ class CoursesVC: UIViewController {
             self.searchTable.contentInset.bottom = keyboardHeight + 50
         }
     }
-    
+
     @IBAction func termPress(_ sender: Any) {
         // Term selection
         selectTerm { (termSelected) in
-            if (termSelected != self.term) {
+            if termSelected != self.term {
                 self.term = termSelected
             }
         }
     }
-    
+
     // MARK: - Navigation
-    
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if (segue.identifier == "showSchedules") {
-            if let VC = segue.destination as? SchedulesVC {
-                var selectedIDs:[String] = []
+        if segue.identifier == "showSchedules" {
+            if let destination = segue.destination as? SchedulesVC {
+                var selectedIDs: [String] = []
                 for course in selectedCourses {
                     selectedIDs.append(course.name)
                 }
-                VC.courses = selectedIDs
-                VC.term = term
-                VC.badCRNs = badCRNs
+                destination.courses = selectedIDs
+                destination.term = term
+                destination.badCRNs = badCRNs
             }
-        } else if (segue.identifier == "showSaved") {
+        } else if segue.identifier == "showSaved" {
             if let dest = segue.destination as? SavedSchedulesVC {
                 dest.term = term
             }

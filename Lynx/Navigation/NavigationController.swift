@@ -15,25 +15,23 @@ protocol NavigationAnimationController {
 
 extension UINavigationController: NavigationAnimationController {
     struct AnimationSettings {
-        static var animationType:Animation.Type?
-        static var defaultAnimationType:Animation.Type?
-        static var interactiveTransition:InteractiveTransition?
+        static var animationType: Animation.Type?
+        static var defaultAnimationType: Animation.Type?
+        static var interactiveTransition: InteractiveTransition?
     }
-    
+
     func setAnimationType(type: Animation.Type, forever isRepeating: Bool) {
-        if (isRepeating) {
+        if isRepeating {
             AnimationSettings.defaultAnimationType = type
         }
         AnimationSettings.animationType = type
     }
-    
+
     func resetAnimationType() {
         AnimationSettings.defaultAnimationType = nil
         AnimationSettings.animationType = nil
     }
 }
-
-
 
 protocol NavigationLoadingScreen {
     func didStartLoading(immediately: Bool)
@@ -42,39 +40,39 @@ protocol NavigationLoadingScreen {
 
 extension UINavigationController: NavigationLoadingScreen {
     struct DisplayedElements {
-        static var loadingViews:[UIView] = []
+        static var loadingViews: [UIView] = []
     }
-    
+
     func didStartLoading(immediately: Bool=false) {
         topViewController?.view.isUserInteractionEnabled = false
         let loadingView = UIView(frame: self.view.frame)
-        
+
         let screen = UIApplication.shared.keyWindow!.frame
-        
+
         let loadingLabel = UILabel(frame: CGRect(x: 32, y: screen.height/2-50, width: screen.width-64, height: 100))
         loadingLabel.text = "Loading..."
         loadingLabel.textColor = #colorLiteral(red: 0.2156862745, green: 0.4352941176, blue: 0.6470588235, alpha: 1)
         loadingLabel.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
         loadingLabel.adjustsFontSizeToFitWidth = true
         loadingLabel.textAlignment = .center
-        
+
         let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.view.frame
         loadingView.addSubview(blurEffectView)
         loadingView.addSubview(loadingLabel)
-        
+
         topViewController?.view.addSubview(loadingView)
         DisplayedElements.loadingViews.append(loadingView)
-        
-        if (!immediately) {
+
+        if !immediately {
             loadingView.alpha = 0
             UIView.animate(withDuration: 0.5) {
                 loadingView.alpha = 1
             }
         }
     }
-    
+
     func didFinishLoading() {
         topViewController?.view.isUserInteractionEnabled = true
         for loadingView in DisplayedElements.loadingViews {
@@ -90,12 +88,10 @@ extension UINavigationController: NavigationLoadingScreen {
     }
 }
 
-
-
 extension UINavigationController: UIGestureRecognizerDelegate {
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if (gestureRecognizer == interactivePopGestureRecognizer) {
-            if (viewControllers.count <= 1) {
+        if gestureRecognizer == interactivePopGestureRecognizer {
+            if viewControllers.count <= 1 {
                 return false
             }
         }
@@ -103,23 +99,21 @@ extension UINavigationController: UIGestureRecognizerDelegate {
     }
 }
 
-
-
 extension UINavigationController: UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController,
                                      animationControllerFor operation: UINavigationControllerOperation,
                                      from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        guard let currentAnimationType:Animation.Type = AnimationSettings.animationType, AnimationSettings.animationType != nil  else {
+
+        guard let currentAnimationType: Animation.Type = AnimationSettings.animationType, AnimationSettings.animationType != nil  else {
             return nil
         }
-        
-        if (AnimationSettings.animationType != AnimationSettings.defaultAnimationType) {
+
+        if AnimationSettings.animationType != AnimationSettings.defaultAnimationType {
             AnimationSettings.animationType = AnimationSettings.defaultAnimationType
         }
-        
+
         let duration = self.isNavigationBarHidden ? 0.4 : TimeInterval(UINavigationControllerHideShowBarDuration)
-        
+
         switch operation {
         case .push:
             AnimationSettings.interactiveTransition = InteractiveTransition(attachTo: toVC)
@@ -128,15 +122,13 @@ extension UINavigationController: UINavigationControllerDelegate {
             return currentAnimationType.init(duration: duration, isPresenting: false)
         }
     }
-    
+
     public func navigationController(_ navigationController: UINavigationController,
                                      interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         guard let transitioner = AnimationSettings.interactiveTransition else { return nil }
         return transitioner.transitionInProgress ? AnimationSettings.interactiveTransition : nil
     }
 }
-
-
 
 extension UINavigationController {
     override open func viewDidLoad() {

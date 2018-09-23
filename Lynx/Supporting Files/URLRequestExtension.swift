@@ -42,7 +42,7 @@ extension APIError {
     }
     static func error(for statusCode: Int) -> APIError {
         if statusCode == 401 || statusCode == 400 {
-            if let _ = UserDefaults.standard.string(forKey: "api_token") {
+            if UserDefaults.standard.string(forKey: "api_token") != nil {
                 return .invalidAPIKey
             } else {
                 return .invalidCredentials
@@ -59,13 +59,13 @@ extension APIError {
 // MARK: - URL Request
 
 extension URLRequest {
-    
-    enum RequestType:String {
-        case POST = "POST"
-        case GET = "GET"
+
+    enum RequestType: String {
+        case POST
+        case GET
     }
-    
-    init?(url: String, content:[String:Any]=[:], type: RequestType, forceUnauthorized: Bool=false) {
+
+    init?(url: String, content: [String: Any]=[:], type: RequestType, forceUnauthorized: Bool=false) {
         //  print(url)
         guard let url = URL(string: url),
             let jsonData = try? JSONSerialization.data(withJSONObject: content, options: .prettyPrinted) else {
@@ -77,14 +77,15 @@ extension URLRequest {
         if !content.isEmpty {
             self.httpBody = jsonData
         }
-        
+
         let token = UserDefaults.standard.string(forKey: "api_token")
-        if (token != nil && !forceUnauthorized) {
+        if token != nil && !forceUnauthorized {
             self.addValue("Bearer \(token!)", forHTTPHeaderField: "Authorization")
         }
     }
-    
-    func getJsonData(completionHandler: @escaping (Data)->(), errorHandler: @escaping (APIError)->()) {
+
+    func getJsonData(completionHandler: @escaping (Data) -> Void,
+                     errorHandler: @escaping (APIError) -> Void) {
         let task = URLSession.shared.dataTask(with: self) { data, response, error in
             guard let data = data, error == nil else {                                   // check for fundamental networking error
                 errorHandler(.networkError)
@@ -95,11 +96,11 @@ extension URLRequest {
                 errorHandler(APIError.error(for: httpStatus.statusCode))
                 return
             }
-            
+
             completionHandler(data)
             return
         }
         task.resume()
     }
-    
+
 }

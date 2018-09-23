@@ -9,7 +9,7 @@
 struct LoginResponse: Codable {
     let refreshKey: String?
     let accessKey: String
-    
+
     enum CodingKeys: String, CodingKey {
         case refreshKey = "refresh"
         case accessKey = "access"

@@ -10,7 +10,7 @@ struct SignupResponse: Codable {
     let accessKey: String?
     let refreshKey: String?
     let error: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case error
         case refreshKey = "refresh"

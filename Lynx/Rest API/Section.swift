@@ -7,7 +7,7 @@
 //
 
 struct Section: Codable, Equatable {
-    
+
     let crn: String
     let subject: String
     let courseID: String
@@ -26,13 +26,13 @@ struct Section: Codable, Equatable {
     let finalDays: String?
     let finalHours: String?
     let dependents: [String]
-    
+
     var isFull: Bool { return enrolled >= capacity }
     var available: Int { return capacity - enrolled}
-    var sectionID:String {
+    var sectionID: String {
         return String((courseID.split(separator: "-").last?.prefix(2))!)
     }
-    
+
     enum CodingKeys: String, CodingKey {
         case crn = "crn"
         case subject = "subject"

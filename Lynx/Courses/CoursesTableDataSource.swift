@@ -11,13 +11,13 @@ import UIKit
 extension CoursesVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // setup the number of rows in each table
-        if (tableView == searchTable) {
+        if tableView == searchTable {
             return searchedCourses.count
         } else {
             return selectedCourses.count
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuickCourseCell") as? QuickCourseCell else { return UITableViewCell() }
         cell.selectionStyle = .none // no selection style

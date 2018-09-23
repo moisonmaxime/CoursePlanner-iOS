@@ -15,20 +15,20 @@ extension CoursesVC {
         updateSearchStatus()
         updateClearButton()
     }
-    
+
     @IBAction func searchDidChanged(_ sender: Any) {
-        
+
         updateClearButton()
-        
+
         guard let searchPrompt = searchField.text,
             searchPrompt.count >= 2 else {
                 self.searchedCourses = []
                 self.searchTable.reloadData()
                 return
         }
-        
+
         timer?.invalidate()
-        
+
         timer = Timer(timeInterval: 0.25, repeats: false, block: { _ in
             RestAPI.searchCourseIDs(id: searchPrompt,
                                     term: self.term,
@@ -36,7 +36,7 @@ extension CoursesVC {
                                         self.searchedCourses = result.sorted(by: { (course1, course2) -> Bool in
                                             let course1 = course1.name.split(separator: "-")
                                             let course2 = course2.name.split(separator: "-")
-                                            
+
                                             if course1[0] == course2[0] {
                                                 let n1 = Int(course1[1]) ?? 0
                                                 let n2 = Int(course2[1]) ?? 0
@@ -47,23 +47,23 @@ extension CoursesVC {
                                         self.searchTable.reloadData()
             }, errorHandler: self.handleError)
         })
-        
+
         if let timer = timer {
             RunLoop.main.add(timer, forMode: .commonModes)
         }
     }
-    
+
     @IBAction func searchDidEnd(_ sender: Any) {
         searchTable.isHidden = true
         selectionLabel.isHidden = true
         updateSearchStatus()
         updateClearButton()
     }
-    
+
     @IBAction func searchDidReturn(_ sender: Any) {
         searchField.endEditing(true)
     }
-    
+
     @IBAction func clearField(_ sender: Any) {
         searchField.text = ""
         updateSearchStatus()
@@ -71,16 +71,16 @@ extension CoursesVC {
         searchedCourses = []
         searchTable.reloadData()
     }
-    
+
     func updateClearButton() {
         // Update whether clear button is visible or not
         let willHide = searchField.text == "" || !searchField.isEditing
-        
+
         // if already in the settings it's going to be, return
-        if ((!willHide && clearSearchButton.alpha == 1) || (willHide && clearSearchButton.alpha == 0)) {
+        if (!willHide && clearSearchButton.alpha == 1) || (willHide && clearSearchButton.alpha == 0) {
             return
         }
-        
+
         clearSearchButton.transform = CGAffineTransform(translationX: willHide ? 0 : 64, y: 0)
         clearSearchButton.alpha = willHide ? 1 : 0
         UIView.animate(withDuration: 0.5) {
@@ -88,12 +88,12 @@ extension CoursesVC {
             self.clearSearchButton.alpha = willHide ? 0 : 1
         }
     }
-    
+
     func updateSearchStatus() {
         // Update search button style
         UIView.animate(withDuration: 0.2, animations: {
             self.searchIcon.transform = self.searchField.isEditing ? CGAffineTransform(scaleX: 1.2, y: 1.2) : CGAffineTransform(scaleX: 0.8, y: 0.8)
-        }) { (finished) in
+        }) { (_) in
             UIView.animate(withDuration: 0.2, animations: {
                 self.searchIcon.alpha = self.searchField.isEditing ? 1 : 0.4
                 self.searchIcon.transform = CGAffineTransform(scaleX: 1, y: 1)

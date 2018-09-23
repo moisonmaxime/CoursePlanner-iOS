@@ -12,7 +12,7 @@ struct UserInformation: Codable {
     let name: String
     let uniqueID: String
     let profileImageUrl: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case username
         case email

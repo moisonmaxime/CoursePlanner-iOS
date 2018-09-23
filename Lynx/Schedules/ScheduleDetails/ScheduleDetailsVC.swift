@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ScheduleDetailsDelegate {
+protocol ScheduleDetailsDelegate: class {
     func getSchedule() -> Schedule
     func getTerm() -> String
     func isSaved() -> Bool
@@ -16,17 +16,17 @@ protocol ScheduleDetailsDelegate {
 }
 
 class ScheduleDetailsVC: UIViewController {
-    
+
     @IBOutlet weak var registerButton: RoundedButton!
     @IBOutlet weak var coursesTable: UITableView!
     @IBOutlet weak var actionButton: RoundedButton!
-    var detailDelegate:ScheduleDetailsDelegate!
+    weak var detailDelegate: ScheduleDetailsDelegate!
     var loadingView: UIView?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         actionButton.setTitle("\(detailDelegate.isSaved() ? "Remove" : "Save") Schedule", for: .normal)
-        
+
         let nib = UINib.init(nibName: "CourseCell", bundle: nil)
         self.coursesTable.register(nib, forCellReuseIdentifier: "CourseCell")
         // Do any additional setup after loading the view.
@@ -37,14 +37,14 @@ class ScheduleDetailsVC: UIViewController {
         })
         coursesTable.reloadData()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func saveSchedule(_ sender: Any) {
-        if (detailDelegate.isSaved()) {
+        if detailDelegate.isSaved() {
             self.didStartLoading()
             RestAPI.deleteSchedule(term: detailDelegate.getTerm(), crns: detailDelegate.getSchedule().crns, completionHandler: {
                 self.detailDelegate.removeScheduleLocally()
@@ -54,39 +54,38 @@ class ScheduleDetailsVC: UIViewController {
             RestAPI.saveSchedule(term: detailDelegate.getTerm(), crns: detailDelegate.getSchedule().crns, completionHandler: {}, errorHandler: handleError)
         }
     }
-    
+
     @IBAction func dismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
+
     func didStartLoading(immediately: Bool=false) {
         let loadingView = UIView(frame: self.view.frame)
-        
+
         let loadingLabel = UILabel(frame: CGRect(x: 32, y: self.view.frame.height/2-50, width: self.view.frame.width-64, height: 100))
         loadingLabel.text = "Loading..."
         loadingLabel.textColor = .lightGray
         loadingLabel.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
         loadingLabel.adjustsFontSizeToFitWidth = true
         loadingLabel.textAlignment = .center
-        
+
         let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.view.frame
         loadingView.addSubview(blurEffectView)
         loadingView.addSubview(loadingLabel)
-        
+
         view.addSubview(loadingView)
         self.loadingView = loadingView
-        
-        if (!immediately) {
+
+        if !immediately {
             loadingView.alpha = 0
             UIView.animate(withDuration: 0.5) {
                 loadingView.alpha = 1
             }
         }
     }
-    
+
     func didFinishLoading() {
         UIView.animate(withDuration: 0.5, animations: {
             self.loadingView?.alpha = 0
@@ -103,5 +102,5 @@ class ScheduleDetailsVC: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
+
 }

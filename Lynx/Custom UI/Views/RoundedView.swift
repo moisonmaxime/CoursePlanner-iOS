@@ -14,18 +14,17 @@ class RoundedView: UIView {
         super.init(frame: frame)
         setupView()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupView()
     }
-    
+
     func setupView() {
         layer.cornerRadius = 5
         layer.masksToBounds = true
     }
-    
-    
+
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {

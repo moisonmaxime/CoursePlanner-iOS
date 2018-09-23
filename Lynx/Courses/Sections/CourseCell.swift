@@ -9,7 +9,7 @@
 import UIKit
 
 class CourseCell: UITableViewCell {
-    
+
     @IBOutlet weak var courseIDLabel: UILabel!
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
@@ -18,16 +18,16 @@ class CourseCell: UITableViewCell {
     @IBOutlet weak var roomLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var seatsLabel: UILabel!
-    
-    var section:Section!
-    var isAvailable:Bool = true
-    var neededCRN:String?
-    
+
+    var section: Section!
+    var isAvailable: Bool = true
+    var neededCRN: String?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     func setup(section: Section) {
         self.section = section
         courseIDLabel.text = section.courseID
@@ -44,9 +44,9 @@ class CourseCell: UITableViewCell {
         seatsLabel.textColor = section.isFull ? UIColor.red.darker() : .black
         seatsLabel.font = UIFont.systemFont(ofSize: seatsLabel.font.pointSize, weight: section.isFull ? .bold : .regular)
     }
-    
+
     func updateAvailability(_ badCRNs: [String]) {
-        
+
         if badCRNs.contains(section.crn) {
             isAvailable = false
         } else {
@@ -54,9 +54,9 @@ class CourseCell: UITableViewCell {
             neededCRN = nil
         }
     }
-    
+
     func updateView() {
-        let newAlpha:CGFloat = isAvailable ? 1 : 0.2
+        let newAlpha: CGFloat = isAvailable ? 1 : 0.2
         courseIDLabel.alpha = newAlpha
         daysLabel.alpha = newAlpha
         hoursLabel.alpha = newAlpha

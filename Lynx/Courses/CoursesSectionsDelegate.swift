@@ -9,11 +9,11 @@
 extension CoursesVC: SectionsDelegate {
     func addCRN(_ crn: String) {
         // If crn is not in list add it
-        if (badCRNs.index(of: crn) == nil) {
+        if badCRNs.index(of: crn) == nil {
             badCRNs.append(crn)
         }
     }
-    
+
     func removeCRN(_ crn: String) -> Bool {
         // If crn in list, remove it and return true, else return false
         if let index = badCRNs.index(of: crn) {
@@ -22,7 +22,7 @@ extension CoursesVC: SectionsDelegate {
         }
         return false
     }
-    
+
     func removeCourse(_ course: CourseSearchResult) -> Bool {
         // If course is selected, remove it and reset badCRNs
         if let index = selectedCourses.index(of: course) {
@@ -34,7 +34,7 @@ extension CoursesVC: SectionsDelegate {
         }
         return false
     }
-    
+
     func getBadCRNs() -> [String] {
         // Get the list of bad crns
         return badCRNs

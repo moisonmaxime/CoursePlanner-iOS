@@ -15,7 +15,7 @@ import UIKit
             self.layer.cornerRadius = cornerRadius
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.layer.cornerRadius = cornerRadius
@@ -23,7 +23,7 @@ import UIKit
         self.titleLabel?.adjustsFontSizeToFitWidth = true
         self.titleLabel?.minimumScaleFactor = 0.75
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.layer.cornerRadius = cornerRadius

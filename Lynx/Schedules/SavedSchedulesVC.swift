@@ -9,14 +9,14 @@
 import UIKit
 
 class SavedSchedulesVC: SchedulesVC {
-    
+
     override func getInitialData() {
         self.navigationController?.didStartLoading(immediately: true)
         RestAPI.getSavedSchedule(term: term, completionHandler: { (response) in
             self.navigationController?.didFinishLoading()
             self.schedules = response
             self.schedules.sort(by: { (schedule1, schedule2) -> Bool in
-                if (schedule1.numberOfDays == schedule2.numberOfDays) {
+                if schedule1.numberOfDays == schedule2.numberOfDays {
                     return schedule1.gaps < schedule2.gaps
                 }
                 return schedule1.numberOfDays < schedule2.numberOfDays
@@ -39,5 +39,5 @@ class SavedSchedulesVC: SchedulesVC {
      // Pass the selected object to the new view controller.
      }
      */
-    
+
 }
