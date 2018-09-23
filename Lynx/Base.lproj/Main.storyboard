@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sLT-cW-Tsj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sLT-cW-Tsj">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,13 +20,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3T-uk-P28" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
-                                <rect key="frame" x="40.666666666666657" y="154.33333333333334" width="331.33333333333337" height="351.66666666666663"/>
+                                <rect key="frame" x="41.333333333333343" y="154.33333333333334" width="331.33333333333326" height="351.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-fO-I5F" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
-                                <rect key="frame" x="62.666666666666657" y="322" width="290" height="40"/>
+                                <rect key="frame" x="62" y="321.66666666666669" width="290" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3CO-9t-L0f" customClass="TextField" customModule="Lynx" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3CO-9t-L0f">
                                         <rect key="frame" x="40" y="0.0" width="250" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" name="HighlightColor"/>
@@ -40,7 +38,7 @@
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="6wh-Bt-Gt5">
-                                        <rect key="frame" x="8.0000000000000071" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="8" y="8" width="24" height="24"/>
                                         <color key="tintColor" name="ButtonColor"/>
                                     </imageView>
                                 </subviews>
@@ -58,9 +56,9 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfT-1H-763" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
-                                <rect key="frame" x="62.666666666666657" y="370" width="290" height="40"/>
+                                <rect key="frame" x="62" y="369.66666666666669" width="290" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0nW-i7-7ch" customClass="TextField" customModule="Lynx" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0nW-i7-7ch">
                                         <rect key="frame" x="40" y="0.0" width="250" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" name="HighlightColor"/>
@@ -75,7 +73,7 @@
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Key" translatesAutoresizingMaskIntoConstraints="NO" id="r7r-tD-pIJ">
-                                        <rect key="frame" x="8.0000000000000071" y="8" width="24" height="24"/>
+                                        <rect key="frame" x="8" y="8" width="24" height="24"/>
                                         <color key="tintColor" name="ButtonColor"/>
                                     </imageView>
                                 </subviews>
@@ -93,7 +91,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxg-fI-qgP" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
-                                <rect key="frame" x="171" y="442" width="72" height="32"/>
+                                <rect key="frame" x="171" y="441.66666666666669" width="72" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="3bt-lD-vGt"/>
@@ -133,7 +131,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="NWv-I9-B6k">
-                                <rect key="frame" x="155.66666666666666" y="186.33333333333334" width="103.33333333333334" height="103.66666666666666"/>
+                                <rect key="frame" x="155.33333333333334" y="186.33333333333334" width="103.33333333333334" height="103.33333333333334"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NWv-I9-B6k" secondAttribute="height" multiplier="1:1" id="sCP-ug-pMF"/>
                                 </constraints>
@@ -185,7 +183,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hv4-I7-nd3" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-s4-ua9" customClass="TextField" customModule="Lynx" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-s4-ua9">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="HighlightColor"/>
@@ -209,7 +207,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXg-dM-wo1" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="51.999999999999986" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0SH-lL-cZ6" customClass="TextField" customModule="Lynx" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0SH-lL-cZ6">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="HighlightColor"/>
@@ -233,7 +231,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsk-02-7aG" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="103.99999999999999" width="290" height="40.000000000000014"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-xK-8ox" customClass="TextField" customModule="Lynx" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-xK-8ox">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="HighlightColor"/>
@@ -257,7 +255,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGP-tf-bRq" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="156" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSV-PB-Zoe" customClass="TextField" customModule="Lynx" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSV-PB-Zoe">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="tintColor" name="HighlightColor"/>
                                                 <color key="textColor" name="LabelColor"/>
@@ -280,7 +278,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-ug-Drj" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="208" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-Type Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmG-90-lIL" customClass="TextField" customModule="Lynx" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-Type Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmG-90-lIL">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="tintColor" name="HighlightColor"/>
                                                 <color key="textColor" name="LabelColor"/>
@@ -303,7 +301,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyp-U2-Qmk" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="260" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bya-8z-s0b" customClass="TextField" customModule="Lynx" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bya-8z-s0b">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="HighlightColor"/>
@@ -327,7 +325,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvI-4i-YcL">
-                                <rect key="frame" x="16" y="11" width="30" height="48"/>
+                                <rect key="frame" x="16" y="10.333333333333336" width="30" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="◀︎">
                                     <color key="titleColor" name="ButtonColor"/>
@@ -439,18 +437,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maxime Moison" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VU0-hT-Vca">
-                                <rect key="frame" x="152" y="70.333333333333329" width="112" height="19.333333333333329"/>
+                                <rect key="frame" x="151" y="70.333333333333329" width="112" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                 <color key="textColor" name="LabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hTC-Vi-4dn">
-                                <rect key="frame" x="62.333333333333343" y="145.66666666666666" width="290" height="197.99999999999997"/>
+                                <rect key="frame" x="62" y="145.66666666666666" width="290" height="197.99999999999997"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAX-ah-91R" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71m-bX-S9y" customClass="TextField" customModule="Lynx" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71m-bX-S9y">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
@@ -473,7 +471,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEs-LZ-ESR" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="56" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-qJ-vmE" customClass="TextField" customModule="Lynx" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-qJ-vmE">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
@@ -496,7 +494,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fs-rC-3BW" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="112.00000000000003" width="290" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-type New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-EL-V5z" customClass="TextField" customModule="Lynx" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-type New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-EL-V5z">
                                                 <rect key="frame" x="8" y="0.0" width="274" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -579,7 +577,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectCourses" translatesAutoresizingMaskIntoConstraints="NO" id="CE7-vY-8tS">
-                                <rect key="frame" x="103" y="163" width="207" height="207"/>
+                                <rect key="frame" x="103.66666666666669" y="163" width="207" height="207"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CE7-vY-8tS" secondAttribute="height" multiplier="1:1" id="VNe-TM-YFa"/>
@@ -686,14 +684,14 @@
                                 <rect key="frame" x="0.0" y="83" width="414" height="48"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="OGL-AQ-jvc">
-                                        <rect key="frame" x="7.9999999999999982" y="12" width="24.333333333333329" height="24"/>
+                                        <rect key="frame" x="8" y="12" width="24" height="24"/>
                                         <color key="tintColor" name="HighlightColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="OGL-AQ-jvc" secondAttribute="height" multiplier="1:1" id="SGm-GB-PFv"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for classes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rxd-Qk-4x2">
-                                        <rect key="frame" x="40.333333333333343" y="0.0" width="321.66666666666663" height="48"/>
+                                        <rect key="frame" x="40" y="0.0" width="322" height="48"/>
                                         <color key="tintColor" name="HighlightColor"/>
                                         <color key="textColor" name="LabelColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
@@ -824,7 +822,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrD-wT-Zm0">
-                                <rect key="frame" x="16" y="15" width="30" height="48"/>
+                                <rect key="frame" x="16" y="14.666666666666664" width="30" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="tintColor" name="ButtonColor"/>
                                 <state key="normal" title="◀︎">
@@ -871,7 +869,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedules" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROu-Bu-h8O">
-                                <rect key="frame" x="150" y="24" width="115" height="28.666666666666671"/>
+                                <rect key="frame" x="149.66666666666666" y="24" width="114.99999999999997" height="28.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <color key="textColor" name="ButtonColor"/>
                                 <nil key="highlightedColor"/>
@@ -1058,47 +1056,25 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EBa-7T-v3B">
-                                <rect key="frame" x="0.0" y="20" width="414" height="608"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="654"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpX-GK-cjp" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
-                                <rect key="frame" x="127" y="644" width="160" height="30"/>
-                                <color key="backgroundColor" name="ButtonColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="gwu-Mb-Kve"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                <state key="normal" title="Register"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="register:" destination="eoI-jR-vgg" eventType="touchUpInside" id="k7w-EY-nkT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OdF-TR-DAg" firstAttribute="trailing" secondItem="EBa-7T-v3B" secondAttribute="trailing" id="1Bq-9j-EdC"/>
                             <constraint firstItem="EBa-7T-v3B" firstAttribute="leading" secondItem="OdF-TR-DAg" secondAttribute="leading" id="7lq-fJ-GLS"/>
-                            <constraint firstItem="OpX-GK-cjp" firstAttribute="top" secondItem="EBa-7T-v3B" secondAttribute="bottom" constant="16" id="7mi-Pi-ZFM"/>
                             <constraint firstItem="OdF-TR-DAg" firstAttribute="bottom" secondItem="OuD-2v-aH0" secondAttribute="bottom" constant="16" id="FAs-nv-cji"/>
                             <constraint firstItem="OuD-2v-aH0" firstAttribute="leading" secondItem="OdF-TR-DAg" secondAttribute="leading" constant="16" id="KzE-Qe-KaY"/>
-                            <constraint firstItem="OuD-2v-aH0" firstAttribute="top" secondItem="OpX-GK-cjp" secondAttribute="bottom" constant="16" id="ZAu-Rg-Hkx"/>
+                            <constraint firstItem="OuD-2v-aH0" firstAttribute="top" secondItem="EBa-7T-v3B" secondAttribute="bottom" constant="16" id="WBi-GN-fQr"/>
                             <constraint firstItem="EBa-7T-v3B" firstAttribute="top" secondItem="OdF-TR-DAg" secondAttribute="top" id="mPK-rf-ldY"/>
                             <constraint firstItem="OdF-TR-DAg" firstAttribute="trailing" secondItem="OuD-2v-aH0" secondAttribute="trailing" constant="16" id="qh5-Ex-AgR"/>
-                            <constraint firstItem="OpX-GK-cjp" firstAttribute="centerX" secondItem="OdF-TR-DAg" secondAttribute="centerX" id="zZG-0a-Bmd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OdF-TR-DAg"/>
                     </view>
                     <connections>
                         <outlet property="actionButton" destination="z0m-ba-p2A" id="l6h-WG-6N7"/>
                         <outlet property="coursesTable" destination="EBa-7T-v3B" id="vvC-do-1e2"/>
-                        <outlet property="registerButton" destination="OpX-GK-cjp" id="ORm-Cv-Ksx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX3-M9-MDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1131,7 +1107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPN-YC-Q5I" customClass="WeekCalendar" customModule="Lynx" customModuleProvider="target">
-                                <rect key="frame" x="16" y="57" width="382" height="603"/>
+                                <rect key="frame" x="16" y="56.666666666666686" width="382" height="603.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -1155,7 +1131,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bme-8F-P3J">
-                                <rect key="frame" x="16" y="14.666666666666664" width="30" height="48"/>
+                                <rect key="frame" x="16" y="14.333333333333336" width="30" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="◀︎">
                                     <color key="titleColor" name="ButtonColor"/>

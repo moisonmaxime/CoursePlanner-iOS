@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B1BBF422093B30B008E6D4C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BBF412093B30B008E6D4C /* TextField.swift */; };
+		1B1BBF422093B30B008E6D4C /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BBF412093B30B008E6D4C /* UITextFieldExtension.swift */; };
 		1B1BBF462093B8B1008E6D4C /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BBF452093B8B1008E6D4C /* RoundedView.swift */; };
 		1B204475205E3E6A00615A4A /* CoverRightAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B204474205E3E6A00615A4A /* CoverRightAnimation.swift */; };
 		1B209D412062EE1000F701C6 /* CoursesTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B209D402062EE1000F701C6 /* CoursesTableDataSource.swift */; };
@@ -94,7 +94,7 @@
 		1B1322CB209438B300D7CEE7 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Light.ttf"; path = "CoursePlanner/Supporting Files/Nunito/Nunito-Light.ttf"; sourceTree = "<group>"; };
 		1B1322CD209438B600D7CEE7 /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-ExtraLight.ttf"; path = "CoursePlanner/Supporting Files/Nunito/Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
 		1B1322CF209438BA00D7CEE7 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-SemiBold.ttf"; path = "CoursePlanner/Supporting Files/Nunito/Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
-		1B1BBF412093B30B008E6D4C /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		1B1BBF412093B30B008E6D4C /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		1B1BBF452093B8B1008E6D4C /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		1B204474205E3E6A00615A4A /* CoverRightAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverRightAnimation.swift; sourceTree = "<group>"; };
 		1B209D402062EE1000F701C6 /* CoursesTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesTableDataSource.swift; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 		1B1BBF402093AF82008E6D4C /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
-				1B1BBF412093B30B008E6D4C /* TextField.swift */,
+				1B1BBF412093B30B008E6D4C /* UITextFieldExtension.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -582,7 +582,7 @@
 				1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */,
 				1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */,
 				1B2E26DA208981C800707B1A /* ProfileVC.swift in Sources */,
-				1B1BBF422093B30B008E6D4C /* TextField.swift in Sources */,
+				1B1BBF422093B30B008E6D4C /* UITextFieldExtension.swift in Sources */,
 				1B8F68D72079DDF900F0D14D /* ScheduleDetailsDataSource.swift in Sources */,
 				1B30D0882079643E0035158C /* UIColorExtension.swift in Sources */,
 				1BE4010B2134D2B30064F282 /* SignupResponse.swift in Sources */,
