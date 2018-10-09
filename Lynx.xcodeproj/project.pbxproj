@@ -25,11 +25,7 @@
 		1B37625C20783AD4006C20D6 /* ReadableTermTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625B20783AD4006C20D6 /* ReadableTermTests.swift */; };
 		1B37625E20783B22006C20D6 /* ReadableRoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625D20783B22006C20D6 /* ReadableRoomTests.swift */; };
 		1B37626420783E3D006C20D6 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
-		1B37626520783E41006C20D6 /* OLD-Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C7F602065ABB9009911E0 /* OLD-Schedule.swift */; };
-		1B49AC4020788B700033C002 /* OLD-Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B49AC3F20788B700033C002 /* OLD-Course.swift */; };
-		1B49AC4120788BAD0033C002 /* OLD-Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B49AC3F20788B700033C002 /* OLD-Course.swift */; };
 		1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
-		1B5C7F612065ABB9009911E0 /* OLD-Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C7F602065ABB9009911E0 /* OLD-Schedule.swift */; };
 		1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E162050ED9F00CA9264 /* AppDelegate.swift */; };
 		1B644E1C2050ED9F00CA9264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1A2050ED9F00CA9264 /* Main.storyboard */; };
 		1B644E1E2050ED9F00CA9264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1D2050ED9F00CA9264 /* Assets.xcassets */; };
@@ -112,9 +108,7 @@
 		1B37625320783902006C20D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B37625B20783AD4006C20D6 /* ReadableTermTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadableTermTests.swift; sourceTree = "<group>"; };
 		1B37625D20783B22006C20D6 /* ReadableRoomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadableRoomTests.swift; sourceTree = "<group>"; };
-		1B49AC3F20788B700033C002 /* OLD-Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OLD-Course.swift"; sourceTree = "<group>"; };
 		1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
-		1B5C7F602065ABB9009911E0 /* OLD-Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OLD-Schedule.swift"; sourceTree = "<group>"; };
 		1B644E132050ED9F00CA9264 /* Lynx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lynx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B644E162050ED9F00CA9264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B644E1B2050ED9F00CA9264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -358,8 +352,6 @@
 		1BAB20A620586B5400C0D079 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1B5C7F602065ABB9009911E0 /* OLD-Schedule.swift */,
-				1B49AC3F20788B700033C002 /* OLD-Course.swift */,
 				1BB5855B216D53AA007CC3D2 /* CellProtocols.swift */,
 				1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */,
 				1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */,
@@ -550,11 +542,9 @@
 			files = (
 				1B37626420783E3D006C20D6 /* URLRequestExtension.swift in Sources */,
 				1B30D06A207939DE0035158C /* HoursTests.swift in Sources */,
-				1B49AC4120788BAD0033C002 /* OLD-Course.swift in Sources */,
 				1B37625A20783981006C20D6 /* StringExtension.swift in Sources */,
 				1B37625E20783B22006C20D6 /* ReadableRoomTests.swift in Sources */,
 				1B37625C20783AD4006C20D6 /* ReadableTermTests.swift in Sources */,
-				1B37626520783E41006C20D6 /* OLD-Schedule.swift in Sources */,
 				1B30D0892079643E0035158C /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,7 +571,6 @@
 				1B204475205E3E6A00615A4A /* CoverRightAnimation.swift in Sources */,
 				1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */,
 				1BB5855C216D53AA007CC3D2 /* CellProtocols.swift in Sources */,
-				1B49AC4020788B700033C002 /* OLD-Course.swift in Sources */,
 				1BFE30C02068629B0053C3B3 /* SchedulesVC.swift in Sources */,
 				1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */,
 				1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */,
@@ -591,7 +580,6 @@
 				1B30D0882079643E0035158C /* UIColorExtension.swift in Sources */,
 				1BE4010B2134D2B30064F282 /* SignupResponse.swift in Sources */,
 				1B7C116A2071BC32001328E4 /* WeekCalendar.swift in Sources */,
-				1B5C7F612065ABB9009911E0 /* OLD-Schedule.swift in Sources */,
 				1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */,
 				1B30D08B207966D10035158C /* CoursesSectionsDelegate.swift in Sources */,
 				1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */,
