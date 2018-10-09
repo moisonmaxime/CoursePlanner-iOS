@@ -46,21 +46,6 @@ extension UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
-    // Term selection
-    func selectTerm(completion: @escaping (String) -> Void) {
-        guard let terms = UserDefaults.standard.object(forKey: "terms") as? [String] else { return }
-
-        let termSelector = UIAlertController(title: "Choose a term", message: nil, preferredStyle: .actionSheet)
-        for term in terms {
-            termSelector.addAction(.init(title: term.readableTerm(), style: .default, handler: { _ in
-                completion(term)
-            }))
-        }
-
-        termSelector.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
-        self.present(termSelector, animated: true, completion: nil)
-    }
-
     // ### - Tap to dismiss keyboard
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))

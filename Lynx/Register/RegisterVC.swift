@@ -38,6 +38,9 @@ class RegisterVC: UIViewController {
             name: NSNotification.Name.UIKeyboardWillHide,
             object: nil
         )
+
+        formView.layer.cornerRadius = 5
+        formView.layer.masksToBounds = true
     }
 
     deinit {

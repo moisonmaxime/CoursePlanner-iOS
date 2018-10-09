@@ -49,18 +49,6 @@ class CoursesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // If there are no terms saved, pull them from server
-        if let terms = UserDefaults.standard.object(forKey: "terms") {
-            if let term = (terms as? [String])?.first {
-                self.term = term
-            }
-        } else {
-            RestAPI.getTerms(completionHandler: { terms in
-                if let term = terms.first {
-                    self.term = term
-                }
-            }, errorHandler: handleError)
-        }
 
         // Add the QuickCourseCell reusable to the tables
         let nib = UINib.init(nibName: "QuickCourseCell", bundle: nil)
@@ -113,11 +101,23 @@ class CoursesVC: UIViewController {
 
     @IBAction func termPress(_ sender: Any) {
         // Term selection
-        selectTerm { (termSelected) in
-            if termSelected != self.term {
-                self.term = termSelected
+        self.navigationController?.didStartLoading()
+        RestAPI.getTerms(completionHandler: { terms in
+            self.navigationController?.didFinishLoading()
+
+            let termSelector = UIAlertController(title: "Choose a term", message: nil, preferredStyle: .actionSheet)
+
+            for term in terms {
+                termSelector.addAction(.init(title: term.readableTerm(), style: .default, handler: { _ in
+                    if term != self.term {
+                        self.term = term
+                    }
+                }))
             }
-        }
+
+            termSelector.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
+            self.present(termSelector, animated: true, completion: nil)
+        }, errorHandler: handleError)
     }
 
     // MARK: - Navigation
