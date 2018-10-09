@@ -19,7 +19,9 @@ extension CoursesVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuickCourseCell") as? QuickCourseCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuickCourseCell") as? QuickCourseCell else {
+            return UITableViewCell()
+        }
         cell.selectionStyle = .none // no selection style
         let isSearchTable = tableView == searchTable
         let course = isSearchTable ? searchedCourses[indexPath.row] : selectedCourses[indexPath.row]
