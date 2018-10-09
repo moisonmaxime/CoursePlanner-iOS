@@ -33,17 +33,7 @@ extension CoursesVC {
             RestAPI.searchCourseIDs(id: searchPrompt,
                                     term: self.term,
                                     completionHandler: { result in
-                                        self.searchedCourses = result.sorted(by: { (course1, course2) -> Bool in
-                                            let course1 = course1.name.split(separator: "-")
-                                            let course2 = course2.name.split(separator: "-")
-
-                                            if course1[0] == course2[0] {
-                                                let n1 = Int(course1[1]) ?? 0
-                                                let n2 = Int(course2[1]) ?? 0
-                                                return n1 < n2
-                                            }
-                                            return course1[0] < course2[0]
-                                        })
+                                        self.searchedCourses = result
                                         self.searchTable.reloadData()
             }, errorHandler: self.handleError)
         })
