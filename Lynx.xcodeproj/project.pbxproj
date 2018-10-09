@@ -46,6 +46,7 @@
 		1B8F68D92079DF0300F0D14D /* ScheduleDetailsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F68D82079DF0300F0D14D /* ScheduleDetailsDelegate.swift */; };
 		1B8F68DB2079E14B00F0D14D /* ScheduleDetailsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F68DA2079E14B00F0D14D /* ScheduleDetailsTableDelegate.swift */; };
 		1BB2021C205A198A00A96619 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2021B205A198A00A96619 /* Animation.swift */; };
+		1BB5855C216D53AA007CC3D2 /* CellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5855B216D53AA007CC3D2 /* CellProtocols.swift */; };
 		1BB8FCE02079E4830097479D /* SavedSchedulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB8FCDF2079E4830097479D /* SavedSchedulesVC.swift */; };
 		1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */; };
 		1BB93B46205D8DF20042B021 /* InteractiveTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */; };
@@ -134,6 +135,7 @@
 		1B99D455207983D8003BE359 /* LynxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LynxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B99D459207983D8003BE359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BB2021B205A198A00A96619 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Lynx/Navigation/Animation.swift; sourceTree = SOURCE_ROOT; };
+		1BB5855B216D53AA007CC3D2 /* CellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocols.swift; sourceTree = "<group>"; };
 		1BB8FCDF2079E4830097479D /* SavedSchedulesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSchedulesVC.swift; sourceTree = "<group>"; };
 		1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewControllerExtension.swift; sourceTree = "<group>"; };
 		1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransitioner.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			children = (
 				1B5C7F602065ABB9009911E0 /* OLD-Schedule.swift */,
 				1B49AC3F20788B700033C002 /* OLD-Course.swift */,
+				1BB5855B216D53AA007CC3D2 /* CellProtocols.swift */,
 				1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */,
 				1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */,
 				1B7C116B2071C00C001328E4 /* StringExtension.swift */,
@@ -577,6 +580,7 @@
 				1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */,
 				1B204475205E3E6A00615A4A /* CoverRightAnimation.swift in Sources */,
 				1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */,
+				1BB5855C216D53AA007CC3D2 /* CellProtocols.swift in Sources */,
 				1B49AC4020788B700033C002 /* OLD-Course.swift in Sources */,
 				1BFE30C02068629B0053C3B3 /* SchedulesVC.swift in Sources */,
 				1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */,

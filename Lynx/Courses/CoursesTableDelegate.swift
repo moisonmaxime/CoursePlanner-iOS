@@ -17,7 +17,7 @@ extension CoursesVC: UITableViewDelegate {
             }
             let cell = searchTable.cellForRow(at: indexPath) as? QuickCourseCell
             cell?.setSelected(selectedCourses.contains(course), animated: false)
-            cell?.updateView(hasDetails: false)
+            cell?.updateView()
             selectedTable.reloadData()
         } else {
             if let destination = (storyboard?.instantiateViewController(withIdentifier: "Sections"))! as? SectionsVC {

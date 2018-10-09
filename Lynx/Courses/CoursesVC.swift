@@ -50,6 +50,17 @@ class CoursesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let lastTerm = UserDefaults.standard.string(forKey: "lastTerm") {
+            self.term = lastTerm
+        } else {
+            navigationController?.didStartLoading()
+            RestAPI.getTerms(completionHandler: { (terms) in
+                self.navigationController?.didFinishLoading()
+                self.term = terms.first ?? ""
+                UserDefaults.standard.set(self.term, forKey: "lastTerm")
+            }, errorHandler: handleError)
+        }
+
         // Add the QuickCourseCell reusable to the tables
         let nib = UINib.init(nibName: "QuickCourseCell", bundle: nil)
         searchTable.register(nib, forCellReuseIdentifier: "QuickCourseCell")
@@ -111,6 +122,7 @@ class CoursesVC: UIViewController {
                 termSelector.addAction(.init(title: term.readableTerm(), style: .default, handler: { _ in
                     if term != self.term {
                         self.term = term
+                        UserDefaults.standard.set(term, forKey: "lastTerm")
                     }
                 }))
             }

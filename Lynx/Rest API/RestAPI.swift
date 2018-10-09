@@ -285,8 +285,6 @@ class RestAPI {
                 }
                 return s1.prefix(4) > s2.prefix(4)
             })
-
-            UserDefaults.standard.set(terms, forKey: "terms")
             DispatchQueue.main.async { completionHandler(terms) }
         }, errorHandler: errorHandler)
     }

@@ -21,11 +21,14 @@ extension CoursesVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuickCourseCell") as? QuickCourseCell else { return UITableViewCell() }
         cell.selectionStyle = .none // no selection style
-        let course = tableView == searchTable ? searchedCourses[indexPath.row] : selectedCourses[indexPath.row]
-        cell.nameLabel.text = course.name
-        cell.descriptionLabel.text = course.description
-        if tableView == searchTable { cell.setSelected(selectedCourses.contains(course), animated: false) } // update status
-        cell.updateView(hasDetails: tableView == selectedTable)
+        let isSearchTable = tableView == searchTable
+        let course = isSearchTable ? searchedCourses[indexPath.row] : selectedCourses[indexPath.row]
+        let isSelected = isSearchTable ? selectedCourses.contains(course) : false
+        let hasDetails = !isSearchTable
+
+        cell.load(with: QuickCourseCellPayload(hasDetails: hasDetails,
+                                               isSelected: isSelected,
+                                               course: course))
         return cell
     }
 }
