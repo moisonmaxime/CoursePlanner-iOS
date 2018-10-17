@@ -10,7 +10,7 @@ import UIKit
 
 extension ScheduleDetailsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return detailDelegate.getSchedule().courses.count
+        return detailDelegate.getSchedule().sections.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

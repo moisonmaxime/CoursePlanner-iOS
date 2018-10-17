@@ -36,11 +36,14 @@ class CoursesVC: UIViewController {
     // when searching for courses when courses are selected or deselected give a number of courses selected
     var selectedCourses: [CourseSearchResult] = [] {
         didSet {
-            let count = selectedCourses.count
-            selectionLabel.isHidden = !((count > 0) && !searchTable.isHidden)
-            selectionLabel.text = "\(count) course\(count > 1 ? "s" : "") selected"
-            searchTable.contentInset.top = count > 0 ? 24 : 0
-            updateEmptyCoursesPrompt()
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                let count = strongSelf.selectedCourses.count
+                strongSelf.selectionLabel.isHidden = count == 0 || strongSelf.searchTable.isHidden
+                strongSelf.selectionLabel.text = "\(count) course\(count > 1 ? "s" : "") selected"
+                strongSelf.searchTable.contentInset.top = count > 0 ? 24 : 0
+                strongSelf.updateEmptyCoursesPrompt()
+            }
         }
     }
 
@@ -54,10 +57,11 @@ class CoursesVC: UIViewController {
             self.term = lastTerm
         } else {
             navigationController?.didStartLoading()
-            RestAPI.getTerms(completionHandler: { (terms) in
-                self.navigationController?.didFinishLoading()
-                self.term = terms.first ?? ""
-                UserDefaults.standard.set(self.term, forKey: "lastTerm")
+            RestAPI.getTerms(completionHandler: { [weak self] (terms) in
+                guard let strongSelf = self else { return }
+                strongSelf.navigationController?.didFinishLoading()
+                strongSelf.term = terms.first ?? ""
+                UserDefaults.standard.set(strongSelf.term, forKey: "lastTerm")
             }, errorHandler: handleError)
         }
 
@@ -79,14 +83,14 @@ class CoursesVC: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow),
-            name: NSNotification.Name.UIKeyboardWillShow,
+            name: UIResponder.keyboardWillShowNotification,
             object: nil
         )
     }
 
     deinit {
         // When deinit, remove observer...
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,7 +108,7 @@ class CoursesVC: UIViewController {
 
     @objc func keyboardWillShow(_ notification: Notification) {
         // When keyboard shows, change inset in searchTable so that nothing is under keyboard
-        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardHeight = keyboardFrame.cgRectValue.height
             self.searchTable.contentInset.bottom = keyboardHeight + 50
         }
@@ -113,22 +117,23 @@ class CoursesVC: UIViewController {
     @IBAction func termPress(_ sender: Any) {
         // Term selection
         self.navigationController?.didStartLoading()
-        RestAPI.getTerms(completionHandler: { terms in
-            self.navigationController?.didFinishLoading()
+        RestAPI.getTerms(completionHandler: { [weak self] terms in
+            guard let strongSelf = self else { return }
+            strongSelf.navigationController?.didFinishLoading()
 
             let termSelector = UIAlertController(title: "Choose a term", message: nil, preferredStyle: .actionSheet)
 
             for term in terms {
                 termSelector.addAction(.init(title: term.readableTerm(), style: .default, handler: { _ in
-                    if term != self.term {
-                        self.term = term
+                    if term != strongSelf.term {
+                        strongSelf.term = term
                         UserDefaults.standard.set(term, forKey: "lastTerm")
                     }
                 }))
             }
 
             termSelector.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
-            self.present(termSelector, animated: true, completion: nil)
+            strongSelf.present(termSelector, animated: true, completion: nil)
         }, errorHandler: handleError)
     }
 

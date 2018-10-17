@@ -46,19 +46,20 @@ class SchedulesVC: UIViewController {
 
     func getInitialData() {
         self.navigationController?.didStartLoading(immediately: true)
-        RestAPI.getSchedules(term: term, courses: courses, completionHandler: { schedules in
-            self.navigationController?.didFinishLoading()
-            self.schedules = schedules
-            let noSchedule = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
-            self.currentScheduleLbl.isHidden = noSchedule
-            self.detailssButton.isHidden = noSchedule
-            self.nextButton.isHidden = noSchedule
-            self.previousButton.isHidden = noSchedule
-            self.weekDisplay.schedule = self.schedules.first
-            self.weekDisplay.setNeedsDisplay()
-        }, errorHandler: { error in
-            self.handleError(error: error)
-            self.schedules = []
+        RestAPI.getSchedules(term: term, courses: courses, completionHandler: { [weak self] schedules in
+            guard let strongSelf = self else { return }
+            strongSelf.navigationController?.didFinishLoading()
+            strongSelf.schedules = schedules
+            let noSchedule = strongSelf.schedules.first == nil || strongSelf.schedules[strongSelf.index].sections.count == 0
+            strongSelf.currentScheduleLbl.isHidden = noSchedule
+            strongSelf.detailssButton.isHidden = noSchedule
+            strongSelf.nextButton.isHidden = noSchedule
+            strongSelf.previousButton.isHidden = noSchedule
+            strongSelf.weekDisplay.schedule = strongSelf.schedules.first
+            strongSelf.weekDisplay.setNeedsDisplay()
+        }, errorHandler: { [weak self] error in
+            self?.handleError(error: error)
+            self?.schedules = []
         })
     }
 

@@ -101,7 +101,7 @@ extension UINavigationController: UIGestureRecognizerDelegate {
 
 extension UINavigationController: UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController,
-                                     animationControllerFor operation: UINavigationControllerOperation,
+                                     animationControllerFor operation: UINavigationController.Operation,
                                      from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
         guard let currentAnimationType: Animation.Type = AnimationSettings.animationType, AnimationSettings.animationType != nil  else {
@@ -112,7 +112,7 @@ extension UINavigationController: UINavigationControllerDelegate {
             AnimationSettings.animationType = AnimationSettings.defaultAnimationType
         }
 
-        let duration = self.isNavigationBarHidden ? 0.4 : TimeInterval(UINavigationControllerHideShowBarDuration)
+        let duration = self.isNavigationBarHidden ? 0.4 : TimeInterval(UINavigationController.hideShowBarDuration)
 
         switch operation {
         case .push:
