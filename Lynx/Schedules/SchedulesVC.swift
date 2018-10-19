@@ -46,7 +46,8 @@ class SchedulesVC: UIViewController {
 
     func getInitialData() {
         self.navigationController?.didStartLoading(immediately: true)
-        RestAPI.getSchedules(term: term, courses: courses, completionHandler: { [weak self] schedules in
+        
+        RestAPI.getSchedules(term: term, courses: courses, badCRNs: badCRNs, completionHandler: { [weak self] schedules in
             guard let strongSelf = self else { return }
             strongSelf.navigationController?.didFinishLoading()
             strongSelf.schedules = schedules
