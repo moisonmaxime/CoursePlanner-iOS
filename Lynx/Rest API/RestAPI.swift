@@ -254,8 +254,8 @@ class RestAPI {
                 let course2 = course2.name.split(separator: "-")
 
                 if course1[0] == course2[0] {
-                    let n1 = Int(course1[1]) ?? 0
-                    let n2 = Int(course2[1]) ?? 0
+                    let n1 = Int(course1[1].trimmingCharacters(in: CharacterSet.decimalDigits)) ?? 0
+                    let n2 = Int(course2[1].trimmingCharacters(in: CharacterSet.decimalDigits)) ?? 0
                     return n1 < n2
                 }
                 return course1[0] < course2[0]
