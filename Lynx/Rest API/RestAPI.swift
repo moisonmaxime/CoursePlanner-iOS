@@ -172,8 +172,7 @@ class RestAPI {
         var postContent = [ "username": user.trimmingCharacters(in: .whitespaces),
                             "password": password.trimmingCharacters(in: .whitespaces),
                             "first_name": first.trimmingCharacters(in: .whitespaces),
-                            "last_name": last.trimmingCharacters(in: .whitespaces),
-                            "name": "\(first) \(last)" ]
+                            "last_name": last.trimmingCharacters(in: .whitespaces)]
         if email != nil {
             postContent["email"] = email!.trimmingCharacters(in: .whitespaces)
         }

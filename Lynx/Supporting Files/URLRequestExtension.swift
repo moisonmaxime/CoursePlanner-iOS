@@ -21,6 +21,7 @@ enum APIError {
     case outOfSpace
     case noMatchingUser
     case userAlreadyExists
+    case notAcceptable
     case unknownError
 }
 
@@ -37,22 +38,25 @@ extension APIError {
         case .outOfSpace: return "You reached the limit of 20 saved schedules"
         case .noMatchingUser: return "Username does not exist"
         case .userAlreadyExists: return "This username is already taken"
+        case .notAcceptable: return "Server Error"
         case .unknownError: return "No idea what happend there..."
         }
     }
     static func error(for statusCode: Int) -> APIError {
-        if statusCode == 401 || statusCode == 400 {
-            if UserDefaults.standard.string(forKey: "api_token") != nil {
-                return .invalidAPIKey
-            } else {
-                return .invalidCredentials
-            }
-        } else if statusCode == 500 {
+        
+        switch statusCode {
+        case 401, 400:
+            let isLoggedIn =  UserDefaults.standard.string(forKey: "api_token") != nil
+            return isLoggedIn ? .invalidAPIKey : .invalidCredentials
+        case 500:
             return .serverError
-        } else if statusCode == 500 {
+        case 503:
             return .serviceUnavailable
+        case 406:
+            return .notAcceptable
+        default:
+            return .unknownError
         }
-        return .unknownError
     }
 }
 
@@ -92,7 +96,6 @@ extension URLRequest {
                 return
             }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {    // check for http errors
-                // print("HttpCode: \(httpStatus.statusCode)")
                 errorHandler(APIError.error(for: httpStatus.statusCode))
                 return
             }
