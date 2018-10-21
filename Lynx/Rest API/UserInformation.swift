@@ -8,9 +8,9 @@
 
 struct UserInformation: Codable {
     let username: String
-    let email: String
+    let email: String?
     let name: String
-    let uniqueID: String
+    let uniqueID: String?
     let profileImageUrl: String?
 
     enum CodingKeys: String, CodingKey {

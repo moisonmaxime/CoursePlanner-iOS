@@ -7,13 +7,20 @@
 //
 
 struct SignupResponse: Codable {
-    let accessKey: String?
-    let refreshKey: String?
+    let userInfo: UserInformation
+    private let keys: LoginResponse
     let error: String?
+    
+    var refreshKey: String? {
+        return keys.refreshKey
+    }
+    var accessKey: String? {
+        return keys.accessKey
+    }
 
     enum CodingKeys: String, CodingKey {
         case error
-        case refreshKey = "refresh"
-        case accessKey = "access"
+        case userInfo = "user"
+        case keys = "api_keys"
     }
 }
