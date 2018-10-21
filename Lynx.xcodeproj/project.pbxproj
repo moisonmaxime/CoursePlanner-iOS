@@ -25,7 +25,6 @@
 		1B37625C20783AD4006C20D6 /* ReadableTermTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625B20783AD4006C20D6 /* ReadableTermTests.swift */; };
 		1B37625E20783B22006C20D6 /* ReadableRoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B37625D20783B22006C20D6 /* ReadableRoomTests.swift */; };
 		1B37626420783E3D006C20D6 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
-		1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
 		1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E162050ED9F00CA9264 /* AppDelegate.swift */; };
 		1B644E1C2050ED9F00CA9264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1A2050ED9F00CA9264 /* Main.storyboard */; };
 		1B644E1E2050ED9F00CA9264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1D2050ED9F00CA9264 /* Assets.xcassets */; };
@@ -37,6 +36,7 @@
 		1B7C116C2071C00C001328E4 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C116B2071C00C001328E4 /* StringExtension.swift */; };
 		1B7C11762071F833001328E4 /* Event.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7C11752071F833001328E4 /* Event.xib */; };
 		1B7C11782071F967001328E4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C11772071F967001328E4 /* Event.swift */; };
+		1B849937217C4342007939D4 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */; };
 		1B8F68D52079CCDC00F0D14D /* ScheduleDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F68D42079CCDC00F0D14D /* ScheduleDetailsVC.swift */; };
 		1B8F68D72079DDF900F0D14D /* ScheduleDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F68D62079DDF900F0D14D /* ScheduleDetailsDataSource.swift */; };
 		1B8F68D92079DF0300F0D14D /* ScheduleDetailsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F68D82079DF0300F0D14D /* ScheduleDetailsDelegate.swift */; };
@@ -62,6 +62,7 @@
 		1BE4010D2134D5E90064F282 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4010C2134D5E90064F282 /* Section.swift */; };
 		1BE4010F2134DCD90064F282 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4010E2134DCD90064F282 /* Schedule.swift */; };
 		1BE7E68021320BBC0036024D /* StandardScheduleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE7E67F21320BBC0036024D /* StandardScheduleUITests.swift */; };
+		1BF2B5E7217C3CCF00FB37A9 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF2B5E6217C3CCF00FB37A9 /* ErrorResponse.swift */; };
 		1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE085D205EE51800FEEB1F /* CoursesVC.swift */; };
 		1BFE30C02068629B0053C3B3 /* SchedulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE30BF2068629B0053C3B3 /* SchedulesVC.swift */; };
 /* End PBXBuildFile section */
@@ -149,6 +150,7 @@
 		1BE4010C2134D5E90064F282 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		1BE4010E2134DCD90064F282 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		1BE7E67F21320BBC0036024D /* StandardScheduleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardScheduleUITests.swift; sourceTree = "<group>"; };
+		1BF2B5E6217C3CCF00FB37A9 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		1BFE085D205EE51800FEEB1F /* CoursesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesVC.swift; sourceTree = "<group>"; };
 		1BFE30BF2068629B0053C3B3 /* SchedulesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -392,6 +394,7 @@
 			children = (
 				1B644E362050EDAD00CA9264 /* RestAPI.swift */,
 				1BE401022134CB680064F282 /* LoginResponse.swift */,
+				1BF2B5E6217C3CCF00FB37A9 /* ErrorResponse.swift */,
 				1BE401042134CD820064F282 /* UserInformation.swift */,
 				1BE401082134D02B0064F282 /* SuccessResponse.swift */,
 				1BE4010A2134D2B30064F282 /* SignupResponse.swift */,
@@ -563,7 +566,6 @@
 				1B644E372050EDAD00CA9264 /* RestAPI.swift in Sources */,
 				1B8F68DB2079E14B00F0D14D /* ScheduleDetailsTableDelegate.swift in Sources */,
 				1BE401052134CD820064F282 /* UserInformation.swift in Sources */,
-				1B4E1B51205332F30051CFE8 /* URLRequestExtension.swift in Sources */,
 				1BB93B46205D8DF20042B021 /* InteractiveTransitioner.swift in Sources */,
 				1B209D432062EE9200F701C6 /* CoursesTableDelegate.swift in Sources */,
 				1BB8FCE02079E4830097479D /* SavedSchedulesVC.swift in Sources */,
@@ -571,6 +573,7 @@
 				1BDEED532059F220001FE6FB /* FadingAnimation.swift in Sources */,
 				1BBFDB4620743CFC003FBADE /* SectionsDataSource.swift in Sources */,
 				1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */,
+				1BF2B5E7217C3CCF00FB37A9 /* ErrorResponse.swift in Sources */,
 				1B204475205E3E6A00615A4A /* CoverRightAnimation.swift in Sources */,
 				1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */,
 				1BB5855C216D53AA007CC3D2 /* CellProtocols.swift in Sources */,
@@ -592,6 +595,7 @@
 				1BE401092134D02B0064F282 /* SuccessResponse.swift in Sources */,
 				1B209D452062EED800F701C6 /* CoursesSearchBar.swift in Sources */,
 				1B209D412062EE1000F701C6 /* CoursesTableDataSource.swift in Sources */,
+				1B849937217C4342007939D4 /* URLRequestExtension.swift in Sources */,
 				1BE401032134CB680064F282 /* LoginResponse.swift in Sources */,
 				1B7C116C2071C00C001328E4 /* StringExtension.swift in Sources */,
 				1BBFDB5420747A57003FBADE /* CourseCell.swift in Sources */,

@@ -12,50 +12,54 @@ import Foundation
 
 enum APIError {
     case networkError
+    
     case serverError
+    case notAcceptable
+    case unknownError
+    
     case invalidAPIKey
     case invalidCredentials
+    
     case internalError
     case serviceUnavailable
+    
     case notFound
     case outOfSpace
     case noMatchingUser
     case userAlreadyExists
-    case notAcceptable
-    case unknownError
 }
 
 extension APIError {
     var message: String {
         switch self {
-        case .serverError: return "Server Error"
-        case .networkError: return "Check your internet connection"
-        case .invalidAPIKey: return "Please sign in again"
-        case .invalidCredentials: return "Invalid Credentials"
-        case .internalError: return "Oops! Something went wrong"
-        case .serviceUnavailable: return "Oops! Seems like our server is down!"
-        case .notFound: return "Could not delete schedule"
-        case .outOfSpace: return "You reached the limit of 20 saved schedules"
-        case .noMatchingUser: return "Username does not exist"
-        case .userAlreadyExists: return "This username is already taken"
-        case .notAcceptable: return "Server Error"
-        case .unknownError: return "No idea what happend there..."
+        case .networkError: return "Check your internet connection"             // internal
+            
+        case .serverError: return "Oh my! Something went wrong"                 // http - 500
+        case .notAcceptable: return "Server Error"                              // http - 406
+        case .unknownError: return "No idea what happend there..."              // internal
+            
+        case .invalidAPIKey: return "Please sign in again"                      // http - 400/401
+        case .invalidCredentials: return "Invalid Credentials"                  // http - 400/401
+            
+        case .internalError: return "Oops! Something went wrong"                // internal
+        case .serviceUnavailable: return "Oops! Seems like our server is down!" // http - 503
+            
+        case .notFound: return "Could not delete schedule"                      // error
+        case .outOfSpace: return "You reached the limit of 20 saved schedules"  // error
+        case .noMatchingUser: return "Username does not exist"                  // error
+        case .userAlreadyExists: return "This username is already taken"        // error
         }
     }
+    
     static func error(for statusCode: Int) -> APIError {
-        
         switch statusCode {
         case 401, 400:
             let isLoggedIn =  UserDefaults.standard.string(forKey: "api_token") != nil
             return isLoggedIn ? .invalidAPIKey : .invalidCredentials
-        case 500:
-            return .serverError
-        case 503:
-            return .serviceUnavailable
-        case 406:
-            return .notAcceptable
-        default:
-            return .unknownError
+        case 500: return .serverError
+        case 503: return .serviceUnavailable
+        case 406: return .notAcceptable
+        default: return .unknownError
         }
     }
 }
