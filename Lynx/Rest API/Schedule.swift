@@ -13,12 +13,14 @@ struct Schedule: Codable, Equatable {
         let earliest: Double
         let latest: Double
         let gaps: Double
+        let hasConflictingFinals: Bool
 
         enum CodingKeys: String, CodingKey {
             case numberOfDays = "number_of_days"
             case earliest
             case latest
             case gaps
+            case hasConflictingFinals
         }
     }
 
