@@ -63,13 +63,6 @@ class CourseCell: UITableViewCell {
 
     func updateView() {
         let newAlpha: CGFloat = isAvailable ? 1 : 0.2
-        courseIDLabel.alpha = newAlpha
-        daysLabel.alpha = newAlpha
-        hoursLabel.alpha = newAlpha
-        instructorLabel.alpha = newAlpha
-        crnLabel.alpha = newAlpha
-        roomLabel.alpha = newAlpha
-        typeLabel.alpha = newAlpha
-        seatsLabel.alpha = newAlpha
+        self.alpha = newAlpha
     }
 }
