@@ -23,10 +23,11 @@ enum APIError {
     case internalError
     case serviceUnavailable
     
-    case notFound
+    case scheduleNotFound
     case outOfSpace
     case noMatchingUser
     case userAlreadyExists
+    case scheduleAlreadyExists
 }
 
 extension APIError {
@@ -44,10 +45,11 @@ extension APIError {
         case .internalError: return "Oops! Something went wrong"                // internal
         case .serviceUnavailable: return "Oops! Seems like our server is down!" // http - 503
             
-        case .notFound: return "Could not delete schedule"                      // error
-        case .outOfSpace: return "You reached the limit of 20 saved schedules"  // error
-        case .noMatchingUser: return "Username does not exist"                  // error
-        case .userAlreadyExists: return "This username is already taken"        // error
+        case .scheduleNotFound: return "Could not delete schedule"              // error - 105
+        case .outOfSpace: return "You reached the limit of 20 saved schedules"  // error -
+        case .noMatchingUser: return "Username does not exist"                  // error - 109
+        case .userAlreadyExists: return "This username is already taken"        // error - 100
+        case .scheduleAlreadyExists: return "This schedule was already saved"   // error - 104
         }
     }
     
@@ -60,6 +62,25 @@ extension APIError {
         case 503: return .serviceUnavailable
         case 406: return .notAcceptable
         default: return .unknownError
+        }
+    }
+    
+    static func processError(for errorCode: Int) -> APIError {
+        switch errorCode {
+        case 100: return .userAlreadyExists
+        // 101 no term
+        // 102 no course or term
+        // 103 no school
+        case 104: return .scheduleAlreadyExists
+        case 105: return .scheduleNotFound
+        // 106 no terms or crns
+        // 107 no image or wrong password
+        // 108 no password
+        case 109: return .noMatchingUser
+        // 110 crn not provided
+        // 111 image upload issue
+        case 112: return .outOfSpace
+        default: return .serverError
         }
     }
 }
@@ -101,6 +122,10 @@ extension URLRequest {
             }
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {    // check for http errors
                 errorHandler(APIError.error(for: httpStatus.statusCode))
+                return
+            }
+            if let error =  try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                errorHandler(APIError.processError(for: error.code))
                 return
             }
 

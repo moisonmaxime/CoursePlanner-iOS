@@ -369,7 +369,7 @@ class RestAPI {
         request.getJsonData(completionHandler: { data in
             guard let response = try? JSONDecoder().decode(SuccessResponse.self, from: data),
                 response.success != nil else {
-                    errorHandler(.notFound)
+                    errorHandler(.scheduleNotFound)
                     return
             }
             DispatchQueue.main.async { completionHandler() }
