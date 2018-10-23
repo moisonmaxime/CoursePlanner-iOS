@@ -57,7 +57,6 @@
 		1BE401012134C8E40064F282 /* CourseSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE401002134C8E40064F282 /* CourseSearchResult.swift */; };
 		1BE401032134CB680064F282 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE401022134CB680064F282 /* LoginResponse.swift */; };
 		1BE401052134CD820064F282 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE401042134CD820064F282 /* UserInformation.swift */; };
-		1BE401092134D02B0064F282 /* SuccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE401082134D02B0064F282 /* SuccessResponse.swift */; };
 		1BE4010B2134D2B30064F282 /* SignupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4010A2134D2B30064F282 /* SignupResponse.swift */; };
 		1BE4010D2134D5E90064F282 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4010C2134D5E90064F282 /* Section.swift */; };
 		1BE4010F2134DCD90064F282 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4010E2134DCD90064F282 /* Schedule.swift */; };
@@ -145,7 +144,6 @@
 		1BE401002134C8E40064F282 /* CourseSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSearchResult.swift; sourceTree = "<group>"; };
 		1BE401022134CB680064F282 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		1BE401042134CD820064F282 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
-		1BE401082134D02B0064F282 /* SuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResponse.swift; sourceTree = "<group>"; };
 		1BE4010A2134D2B30064F282 /* SignupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponse.swift; sourceTree = "<group>"; };
 		1BE4010C2134D5E90064F282 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		1BE4010E2134DCD90064F282 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -396,7 +394,6 @@
 				1BE401022134CB680064F282 /* LoginResponse.swift */,
 				1BF2B5E6217C3CCF00FB37A9 /* ErrorResponse.swift */,
 				1BE401042134CD820064F282 /* UserInformation.swift */,
-				1BE401082134D02B0064F282 /* SuccessResponse.swift */,
 				1BE4010A2134D2B30064F282 /* SignupResponse.swift */,
 				1BE401002134C8E40064F282 /* CourseSearchResult.swift */,
 				1BE4010C2134D5E90064F282 /* Section.swift */,
@@ -592,7 +589,6 @@
 				1BBFDB4420742043003FBADE /* SectionsVC.swift in Sources */,
 				1B27C6302075C8E000DBA833 /* QuickCourseCell.swift in Sources */,
 				1BC2404E213B541D0003DA32 /* CustomEvent.swift in Sources */,
-				1BE401092134D02B0064F282 /* SuccessResponse.swift in Sources */,
 				1B209D452062EED800F701C6 /* CoursesSearchBar.swift in Sources */,
 				1B209D412062EE1000F701C6 /* CoursesTableDataSource.swift in Sources */,
 				1B849937217C4342007939D4 /* URLRequestExtension.swift in Sources */,

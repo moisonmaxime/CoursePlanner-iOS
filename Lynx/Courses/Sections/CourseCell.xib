@@ -111,11 +111,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="t3H-lS-S9O" firstAttribute="leading" secondItem="PKg-On-H1v" secondAttribute="leading" id="30n-N4-3lG"/>
+                            <constraint firstItem="Upn-k3-2Li" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="t3H-lS-S9O" secondAttribute="trailing" constant="8" id="A2c-x9-Ujh"/>
                             <constraint firstAttribute="bottom" secondItem="6XF-fs-ABH" secondAttribute="bottom" id="GkK-gA-HP2"/>
                             <constraint firstAttribute="bottom" secondItem="t3H-lS-S9O" secondAttribute="bottom" id="WRa-L0-AUF"/>
                             <constraint firstItem="Upn-k3-2Li" firstAttribute="centerY" secondItem="PKg-On-H1v" secondAttribute="centerY" id="cL0-Jp-8hF"/>
                             <constraint firstItem="6XF-fs-ABH" firstAttribute="top" secondItem="PKg-On-H1v" secondAttribute="top" id="d3p-Id-Dzm"/>
                             <constraint firstAttribute="trailing" secondItem="6XF-fs-ABH" secondAttribute="trailing" id="gzW-Pu-gJ8"/>
+                            <constraint firstItem="6XF-fs-ABH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Upn-k3-2Li" secondAttribute="trailing" constant="8" id="mZL-J4-0ob"/>
                             <constraint firstItem="Upn-k3-2Li" firstAttribute="centerX" secondItem="PKg-On-H1v" secondAttribute="centerX" id="sPz-NK-E34"/>
                         </constraints>
                     </view>

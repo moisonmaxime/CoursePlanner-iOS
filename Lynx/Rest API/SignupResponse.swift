@@ -9,7 +9,6 @@
 struct SignupResponse: Codable {
     let userInfo: UserInformation
     private let keys: LoginResponse
-    let error: String?
     
     var refreshKey: String? {
         return keys.refreshKey
@@ -19,7 +18,6 @@ struct SignupResponse: Codable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case error
         case userInfo = "user"
         case keys = "api_keys"
     }

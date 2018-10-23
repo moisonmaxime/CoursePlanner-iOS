@@ -12,4 +12,10 @@ struct ErrorResponse: Codable {
     let title: String
     let description: String
     let code: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case title = "error_title"
+        case description = "error_description"
+        case code = "error_code"
+    }
 }
