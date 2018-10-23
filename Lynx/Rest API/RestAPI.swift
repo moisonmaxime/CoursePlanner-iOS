@@ -121,20 +121,6 @@ class RestAPI {
             return
         }
         request.getJsonData(completionHandler: { data in
-            guard let response = try? JSONDecoder().decode(SuccessResponse.self, from: data) else {
-                errorHandler(.internalError)
-                return
-            }
-            guard response.success != nil else {
-                let error:APIError
-                if let errorString = response.fail {
-                    error = errorString == "password_incorrect" ? .invalidCredentials : .serverError
-                } else {
-                    error = .unknownError
-                }
-                errorHandler(error)
-                return
-            }
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
@@ -148,15 +134,6 @@ class RestAPI {
             return
         }
         request.getJsonData(completionHandler: { data in
-            guard let response = try? JSONDecoder().decode(SuccessResponse.self, from: data),
-                let success = response.success else {
-                    errorHandler(.internalError)
-                    return
-            }
-            guard success else {
-                errorHandler(.noMatchingUser)
-                return
-            }
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
@@ -182,20 +159,13 @@ class RestAPI {
         }
         request.getJsonData(completionHandler: { data in
 
-            guard let response = try? JSONDecoder().decode(SignupResponse.self, from: data) else {
+            guard let response = try? JSONDecoder().decode(SignupResponse.self, from: data),
+                let accessKey = response.accessKey,
+                let refreshKey = response.refreshKey else {
                 errorHandler(.internalError)
                 return
             }
 
-            guard let accessKey = response.accessKey,
-                let refreshKey = response.refreshKey else {
-                    if let error = response.error, error == "User Already Exists" {
-                        errorHandler(.userAlreadyExists)
-                    } else {
-                        errorHandler(.unknownError)
-                    }
-                    return
-            }
             UserDefaults.standard.set(accessKey, forKey: "api_token")
             UserDefaults.standard.set(refreshKey, forKey: "refresh_token")
             DispatchQueue.main.async { completionHandler() }
@@ -341,11 +311,6 @@ class RestAPI {
             return
         }
         request.getJsonData(completionHandler: { data in
-            guard let response = try? JSONDecoder().decode(SuccessResponse.self, from: data),
-                response.success != nil else {
-                    errorHandler(.outOfSpace)
-                    return
-            }
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
@@ -367,11 +332,6 @@ class RestAPI {
             return
         }
         request.getJsonData(completionHandler: { data in
-            guard let response = try? JSONDecoder().decode(SuccessResponse.self, from: data),
-                response.success != nil else {
-                    errorHandler(.scheduleNotFound)
-                    return
-            }
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }

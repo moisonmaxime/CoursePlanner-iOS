@@ -28,6 +28,7 @@ enum APIError {
     case noMatchingUser
     case userAlreadyExists
     case scheduleAlreadyExists
+    case wrongPassword
 }
 
 extension APIError {
@@ -46,10 +47,11 @@ extension APIError {
         case .serviceUnavailable: return "Oops! Seems like our server is down!" // http - 503
             
         case .scheduleNotFound: return "Could not delete schedule"              // error - 105
-        case .outOfSpace: return "You reached the limit of 20 saved schedules"  // error -
+        case .outOfSpace: return "You reached the limit of 20 saved schedules"  // error - 112
         case .noMatchingUser: return "Username does not exist"                  // error - 109
         case .userAlreadyExists: return "This username is already taken"        // error - 100
         case .scheduleAlreadyExists: return "This schedule was already saved"   // error - 104
+        case .wrongPassword: return "Password incorrect"                        // error - 107
         }
     }
     
@@ -74,7 +76,7 @@ extension APIError {
         case 104: return .scheduleAlreadyExists
         case 105: return .scheduleNotFound
         // 106 no terms or crns
-        // 107 no image or wrong password
+        case 107: return .wrongPassword
         // 108 no password
         case 109: return .noMatchingUser
         // 110 crn not provided
