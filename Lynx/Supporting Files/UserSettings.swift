@@ -16,40 +16,28 @@ class UserSettings {
     
     static var accessKey: String? {
         get {
-            return UserDefaults.standard.string(forKey: "api_token")
+            return get(.accessKey) as? String
         }
         set {
-            if let newKey = newValue {
-                UserDefaults.standard.set(newKey, forKey: "api_token")
-            } else {
-                UserDefaults.standard.removeObject(forKey: "api_token")
-            }
+            set(key: .accessKey, value: newValue)
         }
     }
     
     static var refreshKey: String? {
         get {
-            return UserDefaults.standard.string(forKey: "refresh_token")
+            return get(.refreshKey) as? String
         }
         set {
-            if let newKey = newValue {
-                UserDefaults.standard.set(newKey, forKey: "refresh_token")
-            } else {
-                UserDefaults.standard.removeObject(forKey: "refresh_token")
-            }
+            set(key: .refreshKey, value: newValue)
         }
     }
     
     static var defaultTerm: String? {
         get {
-            return UserDefaults.standard.string(forKey: "lastTerm")
+            return get(.defaultTerm) as? String
         }
         set {
-            if let newTerm = newValue {
-                UserDefaults.standard.set(newTerm, forKey: "lastTerm")
-            } else {
-                UserDefaults.standard.removeObject(forKey: "lastTerm")
-            }
+            set(key: .defaultTerm, value: newValue)
         }
     }
     
@@ -58,5 +46,29 @@ class UserSettings {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
             UserDefaults.standard.synchronize()
         }
+    }
+}
+
+
+
+
+
+extension UserSettings {
+    private enum UserSettingKey: String {
+        case accessKey = "access_tokey"
+        case refreshKey = "refresh_token"
+        case defaultTerm = "default_term"
+    }
+    
+    private static func set(key: UserSettingKey, value: Any?) {
+        if let newValue = value {
+            UserDefaults.standard.set(newValue, forKey: key.rawValue)
+        } else {
+            UserDefaults.standard.removeObject(forKey: key.rawValue)
+        }
+    }
+    
+    private static func get(_ key: UserSettingKey) -> Any? {
+        return UserDefaults.standard.string(forKey: key.rawValue)
     }
 }
