@@ -40,6 +40,8 @@
 		1B8F68D72079DDF900F0D14D /* ScheduleDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F68D62079DDF900F0D14D /* ScheduleDetailsDataSource.swift */; };
 		1B8F68D92079DF0300F0D14D /* ScheduleDetailsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F68D82079DF0300F0D14D /* ScheduleDetailsDelegate.swift */; };
 		1B8F68DB2079E14B00F0D14D /* ScheduleDetailsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F68DA2079E14B00F0D14D /* ScheduleDetailsTableDelegate.swift */; };
+		1BA3FD5B2181927300F8B02F /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF2B5E6217C3CCF00FB37A9 /* ErrorResponse.swift */; };
+		1BA3FD5D2181931100F8B02F /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA3FD5C2181931100F8B02F /* UserSettings.swift */; };
 		1BB2021C205A198A00A96619 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2021B205A198A00A96619 /* Animation.swift */; };
 		1BB5855C216D53AA007CC3D2 /* CellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5855B216D53AA007CC3D2 /* CellProtocols.swift */; };
 		1BB8FCE02079E4830097479D /* SavedSchedulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB8FCDF2079E4830097479D /* SavedSchedulesVC.swift */; };
@@ -126,6 +128,7 @@
 		1B8F68DA2079E14B00F0D14D /* ScheduleDetailsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailsTableDelegate.swift; sourceTree = "<group>"; };
 		1B99D455207983D8003BE359 /* LynxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LynxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B99D459207983D8003BE359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BA3FD5C2181931100F8B02F /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		1BB2021B205A198A00A96619 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Lynx/Navigation/Animation.swift; sourceTree = SOURCE_ROOT; };
 		1BB5855B216D53AA007CC3D2 /* CellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocols.swift; sourceTree = "<group>"; };
 		1BB8FCDF2079E4830097479D /* SavedSchedulesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSchedulesVC.swift; sourceTree = "<group>"; };
@@ -348,6 +351,7 @@
 				1B644E1D2050ED9F00CA9264 /* Assets.xcassets */,
 				1B644E1F2050ED9F00CA9264 /* LaunchScreen.storyboard */,
 				1B30D0872079643E0035158C /* UIColorExtension.swift */,
+				1BA3FD5C2181931100F8B02F /* UserSettings.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -538,6 +542,7 @@
 				1B37625E20783B22006C20D6 /* ReadableRoomTests.swift in Sources */,
 				1B37625C20783AD4006C20D6 /* ReadableTermTests.swift in Sources */,
 				1B30D0892079643E0035158C /* UIColorExtension.swift in Sources */,
+				1BA3FD5B2181927300F8B02F /* ErrorResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +571,7 @@
 				1BFE30C02068629B0053C3B3 /* SchedulesVC.swift in Sources */,
 				1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */,
 				1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */,
+				1BA3FD5D2181931100F8B02F /* UserSettings.swift in Sources */,
 				1B2E26DA208981C800707B1A /* ProfileVC.swift in Sources */,
 				1B1BBF422093B30B008E6D4C /* UITextFieldExtension.swift in Sources */,
 				1B8F68D72079DDF900F0D14D /* ScheduleDetailsDataSource.swift in Sources */,

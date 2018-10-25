@@ -62,7 +62,7 @@ class ProfileVC: UIViewController {
 
     @IBAction func logout() {
 
-        UserDefaults.standard.removeObject(forKey: "api_token")
+        UserSettings.accessKey = nil
 
         self.dismiss(animated: true, completion: {
             let nav = UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController

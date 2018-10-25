@@ -24,9 +24,7 @@ extension UIViewController {
             self.navigationController?.didFinishLoading()
             let message: String = error.message
             if error == .invalidAPIKey || error == .invalidCredentials {
-                let appDomain = Bundle.main.bundleIdentifier!
-                UserDefaults.standard.removePersistentDomain(forName: appDomain)
-                UserDefaults.standard.synchronize()
+                UserSettings.clear()
                 self.displayAlert(message: message, handler: { _ in
                     self.navigationController?.setAnimationType(type: FadingAnimation.self, forever: false)
                     let login = self.storyboard?.instantiateViewController(withIdentifier: "Login")

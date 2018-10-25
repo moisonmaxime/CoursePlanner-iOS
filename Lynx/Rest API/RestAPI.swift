@@ -73,15 +73,15 @@ class RestAPI {
                     errorHandler(.internalError)
                     return
             }
-            UserDefaults.standard.set(loginResponse.accessKey, forKey: "api_token")
-            UserDefaults.standard.set(loginResponse.refreshKey, forKey: "refresh_token")
+            UserSettings.accessKey = loginResponse.accessKey
+            UserSettings.refreshKey = loginResponse.refreshKey
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
 
     static func refreshAPIKey(completionHandler: @escaping () -> Void,
                               errorHandler: @escaping (APIError) -> Void) {
-        guard let postContent = ["refresh": UserDefaults.standard.string(forKey: "refresh_token")] as? [String: String],
+        guard let postContent = ["refresh": UserSettings.refreshKey] as? [String: String],
             let request = URLRequest(url: API.refreshAPIKey.url, content: postContent, type: .POST) else {
                 errorHandler(.internalError)
                 return
@@ -91,7 +91,7 @@ class RestAPI {
                 errorHandler(.internalError)
                 return
             }
-            UserDefaults.standard.set(loginResponse.accessKey, forKey: "api_token")
+            UserSettings.accessKey = loginResponse.accessKey
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
@@ -165,9 +165,8 @@ class RestAPI {
                 errorHandler(.internalError)
                 return
             }
-
-            UserDefaults.standard.set(accessKey, forKey: "api_token")
-            UserDefaults.standard.set(refreshKey, forKey: "refresh_token")
+            UserSettings.accessKey = accessKey
+            UserSettings.refreshKey = refreshKey
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }

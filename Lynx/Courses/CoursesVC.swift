@@ -53,7 +53,7 @@ class CoursesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let lastTerm = UserDefaults.standard.string(forKey: "lastTerm") {
+        if let lastTerm = UserSettings.defaultTerm {
             self.term = lastTerm
         } else {
             navigationController?.didStartLoading()
@@ -61,7 +61,7 @@ class CoursesVC: UIViewController {
                 guard let strongSelf = self else { return }
                 strongSelf.navigationController?.didFinishLoading()
                 strongSelf.term = terms.first ?? ""
-                UserDefaults.standard.set(strongSelf.term, forKey: "lastTerm")
+                UserSettings.defaultTerm = strongSelf.term
             }, errorHandler: handleError)
         }
 
@@ -127,7 +127,7 @@ class CoursesVC: UIViewController {
                 termSelector.addAction(.init(title: term.readableTerm(), style: .default, handler: { _ in
                     if term != strongSelf.term {
                         strongSelf.term = term
-                        UserDefaults.standard.set(term, forKey: "lastTerm")
+                        UserSettings.defaultTerm = term
                     }
                 }))
             }

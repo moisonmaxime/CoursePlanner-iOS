@@ -57,9 +57,7 @@ extension APIError {
     
     static func error(for statusCode: Int) -> APIError {
         switch statusCode {
-        case 401, 400:
-            let isLoggedIn =  UserDefaults.standard.string(forKey: "api_token") != nil
-            return isLoggedIn ? .invalidAPIKey : .invalidCredentials
+        case 401, 400: return UserSettings.isLoggedIn ? .invalidAPIKey : .invalidCredentials
         case 500: return .serverError
         case 503: return .serviceUnavailable
         case 406: return .notAcceptable
@@ -109,7 +107,7 @@ extension URLRequest {
             self.httpBody = jsonData
         }
 
-        if let token = UserDefaults.standard.string(forKey: "api_token"),
+        if let token = UserSettings.accessKey,
             !forceUnauthorized {
             self.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
