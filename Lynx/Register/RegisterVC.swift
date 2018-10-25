@@ -15,15 +15,21 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var passField1: UITextField!
     @IBOutlet weak var passField2: UITextField!
     @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var formView: UIScrollView!
-    @IBOutlet weak var registerButton: RoundedButton!
-
+    @IBOutlet weak var stackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
         formView.contentSize = CGSize(width: 0, height: registerButton.frame.maxY)
         formView.layer.masksToBounds = true
+        
+        for input in stackView.arrangedSubviews {
+            input.setCornerRadius(at: 5)
+        }
+        registerButton.setCornerRadius(at: 5)
 
         // Add an observer to check on keyboard status
         NotificationCenter.default.addObserver(
@@ -38,9 +44,6 @@ class RegisterVC: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
-
-        formView.layer.cornerRadius = 5
-        formView.layer.masksToBounds = true
     }
 
     deinit {

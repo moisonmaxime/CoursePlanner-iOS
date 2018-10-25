@@ -11,10 +11,16 @@ import UIKit
 class LoginVC: UIViewController {
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var usernameInput: UIView!
+    @IBOutlet weak var passwordInput: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
+        usernameInput.setCornerRadius(at: 5)
+        passwordInput.setCornerRadius(at: 5)
+        loginButton.setCornerRadius(at: 5)
     }
 
     override func didReceiveMemoryWarning() {

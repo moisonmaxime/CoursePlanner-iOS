@@ -18,7 +18,7 @@ protocol ScheduleDetailsDelegate: class {
 class ScheduleDetailsVC: UIViewController {
 
     @IBOutlet weak var coursesTable: UITableView!
-    @IBOutlet weak var actionButton: RoundedButton!
+    @IBOutlet weak var actionButton: UIButton!
     weak var detailDelegate: ScheduleDetailsDelegate!
     var loadingView: UIView?
 
