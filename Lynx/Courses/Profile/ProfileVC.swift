@@ -21,16 +21,25 @@ class ProfileVC: UIViewController {
         // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
         fullNameLabel.text = ""
-        RestAPI.getUserInfo(completionHandler: { info in
-            self.usernameLabel.text = info.username.capitalized
-            self.fullNameLabel.text = info.name.capitalized
-            self.usernameLabel.alpha = 0
-            self.fullNameLabel.alpha = 0
-            UIView.animate(withDuration: 0.5, animations: {
-                self.usernameLabel.alpha = 1
-                self.fullNameLabel.alpha = 1
-            })
-        }, errorHandler: handleError)
+        guard let userInfo = UserSettings.userInformation else {
+            RestAPI.getUserInfo(completionHandler: { [weak self] info in
+                self?.updateUI(with: info)
+                }, errorHandler: handleError)
+            return
+        }
+        updateUI(with: userInfo)
+    }
+    
+    private func updateUI(with userInfo: UserInformation, withAnimation: Bool=false) {
+        self.usernameLabel.text = userInfo.username.capitalized
+        self.fullNameLabel.text = userInfo.name.capitalized
+        self.usernameLabel.alpha = withAnimation ? 0 : 1
+        self.fullNameLabel.alpha = withAnimation ? 0 : 1
+        guard withAnimation else { return }
+        UIView.animate(withDuration: 0.5, animations: {
+            self.usernameLabel.alpha = 1
+            self.fullNameLabel.alpha = 1
+        })
     }
 
     override func didReceiveMemoryWarning() {

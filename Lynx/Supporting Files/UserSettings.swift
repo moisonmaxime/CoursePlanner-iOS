@@ -41,6 +41,18 @@ class UserSettings {
         }
     }
     
+    static var userInformation: UserInformation? {
+        get {
+            guard let data = get(.userInformation) as? Data,
+                let value = try? JSONDecoder().decode(UserInformation.self, from: data) else { return nil }
+            return value
+        }
+        set {
+            let data = try? JSONEncoder().encode(newValue)
+            set(key: .userInformation, value: data)
+        }
+    }
+    
     static func clear() {
         if let appDomain = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
@@ -58,6 +70,7 @@ extension UserSettings {
         case accessKey = "access_tokey"
         case refreshKey = "refresh_token"
         case defaultTerm = "default_term"
+        case userInformation = "user_info"
     }
     
     private static func set(key: UserSettingKey, value: Any?) {

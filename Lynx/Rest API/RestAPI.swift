@@ -107,6 +107,7 @@ class RestAPI {
                 errorHandler(.internalError)
                 return
             }
+            UserSettings.userInformation = userInfo
             DispatchQueue.main.async { completionHandler(userInfo) }
         }, errorHandler: errorHandler)
     }
