@@ -82,6 +82,6 @@ extension UserSettings {
     }
     
     private static func get(_ key: UserSettingKey) -> Any? {
-        return UserDefaults.standard.string(forKey: key.rawValue)
+        return UserDefaults.standard.object(forKey: key.rawValue)
     }
 }

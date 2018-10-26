@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Refresh api key and check if there are new terms available
         RestAPI.refreshAPIKey(completionHandler: { }, errorHandler: { _ in })
-//        RestAPI.getTerms(completionHandler: { _ in }, errorHandler: { _ in })
+        RestAPI.getUserInfo(completionHandler: { _ in }, errorHandler: { _ in })
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

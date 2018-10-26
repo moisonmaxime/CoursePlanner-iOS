@@ -75,6 +75,9 @@ class RestAPI {
             }
             UserSettings.accessKey = loginResponse.accessKey
             UserSettings.refreshKey = loginResponse.refreshKey
+            
+            RestAPI.getUserInfo(completionHandler: { _ in }, errorHandler: { _ in })
+            
             DispatchQueue.main.async { completionHandler() }
         }, errorHandler: errorHandler)
     }
