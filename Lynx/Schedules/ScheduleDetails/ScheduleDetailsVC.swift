@@ -55,10 +55,15 @@ class ScheduleDetailsVC: UIViewController {
                 self.handleError(error: error)
             })
         } else {
-            RestAPI.saveSchedule(term: detailDelegate.getTerm(), crns: detailDelegate.getSchedule().crns, completionHandler: {}, errorHandler: handleError)
+            RestAPI.saveSchedule(term: detailDelegate.getTerm(),
+                                 crns: detailDelegate.getSchedule().crns,
+                                 completionHandler: { [weak self] in
+                                    self?.displayAlert(title: "Success", message: "This schedule was saved")
+                                    self?.actionButton.isEnabled = false
+                }, errorHandler: handleError)
         }
     }
-
+    
     @IBAction func dismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
