@@ -120,10 +120,8 @@ class CoursesVC: UIViewController {
 
     @IBAction func termPress(_ sender: Any) {
         // Term selection
-        self.navigationController?.didStartLoading()
         RestAPI.getTerms(completionHandler: { [weak self] terms in
             guard let strongSelf = self else { return }
-            strongSelf.navigationController?.didFinishLoading()
 
             let termSelector = UIAlertController(title: "Choose a term", message: nil, preferredStyle: .actionSheet)
 
