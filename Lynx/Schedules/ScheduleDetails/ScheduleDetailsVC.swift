@@ -24,7 +24,7 @@ class ScheduleDetailsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        actionButton.setTitle("\(detailDelegate.isSaved() ? "Remove" : "Save") Schedule", for: .normal)
+        actionButton.setTitle(detailDelegate.isSaved() ? "Remove" : "Save", for: .normal)
 
         let nib = UINib.init(nibName: "CourseCell", bundle: nil)
         self.coursesTable.register(nib, forCellReuseIdentifier: "CourseCell")
