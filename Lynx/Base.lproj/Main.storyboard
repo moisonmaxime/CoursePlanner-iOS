@@ -194,7 +194,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="IPF-Xd-VRn">
                                         <rect key="frame" x="0.0" y="16" width="224" height="300"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hv4-I7-nd3" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hv4-I7-nd3">
                                                 <rect key="frame" x="0.0" y="0.0" width="224" height="40"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-s4-ua9">
@@ -218,7 +218,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="xzL-zx-Jrq"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXg-dM-wo1" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXg-dM-wo1">
                                                 <rect key="frame" x="0.0" y="52" width="224" height="40"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0SH-lL-cZ6">
@@ -242,7 +242,7 @@
                                                     <constraint firstItem="0SH-lL-cZ6" firstAttribute="top" secondItem="kXg-dM-wo1" secondAttribute="top" id="xjX-hb-uOP"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsk-02-7aG" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsk-02-7aG">
                                                 <rect key="frame" x="0.0" y="104" width="224" height="40"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-xK-8ox">
@@ -266,7 +266,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="KhQ-xK-8ox" secondAttribute="bottom" id="lgZ-bT-Czw"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGP-tf-bRq" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGP-tf-bRq">
                                                 <rect key="frame" x="0.0" y="156" width="224" height="40"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSV-PB-Zoe">
@@ -289,7 +289,7 @@
                                                     <constraint firstItem="cSV-PB-Zoe" firstAttribute="top" secondItem="RGP-tf-bRq" secondAttribute="top" id="pTa-50-Mx5"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-ug-Drj" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-ug-Drj">
                                                 <rect key="frame" x="0.0" y="208" width="224" height="40"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-Type Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmG-90-lIL">
@@ -312,7 +312,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="jmG-90-lIL" secondAttribute="bottom" id="peQ-eZ-95Q"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyp-U2-Qmk" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyp-U2-Qmk">
                                                 <rect key="frame" x="0.0" y="260" width="224" height="40"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bya-8z-s0b">
@@ -417,7 +417,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9X-Mu-Kd8" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
-                                <rect key="frame" x="80" y="512" width="160" height="40"/>
+                                <rect key="frame" x="48" y="512" width="224" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.02328635045" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="kbP-3m-hdX"/>
@@ -464,7 +464,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hTC-Vi-4dn">
                                 <rect key="frame" x="48" y="146" width="224" height="198"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAX-ah-91R" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAX-ah-91R">
                                         <rect key="frame" x="0.0" y="0.0" width="224" height="40"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71m-bX-S9y">
@@ -487,7 +487,7 @@
                                             <constraint firstAttribute="bottom" secondItem="71m-bX-S9y" secondAttribute="bottom" id="d8N-5K-zEN"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEs-LZ-ESR" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEs-LZ-ESR">
                                         <rect key="frame" x="0.0" y="56" width="224" height="40"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-qJ-vmE">
@@ -510,7 +510,7 @@
                                             <constraint firstAttribute="trailing" secondItem="rc3-qJ-vmE" secondAttribute="trailing" constant="8" id="ovg-HG-Mdo"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fs-rC-3BW" customClass="RoundedView" customModule="Lynx" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fs-rC-3BW">
                                         <rect key="frame" x="0.0" y="112" width="224" height="40"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-type New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-EL-V5z">
@@ -537,10 +537,16 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jg-An-JPK">
-                                        <rect key="frame" x="47.5" y="168" width="129" height="30"/>
+                                        <rect key="frame" x="0.0" y="168" width="224" height="30"/>
+                                        <color key="backgroundColor" name="ButtonColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="3OF-jM-vNx"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <color key="tintColor" name="ButtonColor"/>
-                                        <state key="normal" title="Change Password"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Change Password">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="changePassword:" destination="znY-HK-LxG" eventType="touchUpInside" id="KaX-VI-ToI"/>
                                         </connections>
@@ -550,6 +556,7 @@
                                     <constraint firstItem="9Fs-rC-3BW" firstAttribute="width" secondItem="hTC-Vi-4dn" secondAttribute="width" id="TyT-jW-pyb"/>
                                     <constraint firstItem="oAX-ah-91R" firstAttribute="width" secondItem="hTC-Vi-4dn" secondAttribute="width" id="ePl-7i-jDn"/>
                                     <constraint firstItem="CEs-LZ-ESR" firstAttribute="width" secondItem="hTC-Vi-4dn" secondAttribute="width" id="edD-jf-j7g"/>
+                                    <constraint firstItem="9Fs-rC-3BW" firstAttribute="width" secondItem="0jg-An-JPK" secondAttribute="width" id="pIP-57-fDN"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -562,7 +569,7 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="q6n-8s-0Vr" secondAttribute="trailing" constant="20" symbolic="YES" id="978-qv-akg"/>
                             <constraint firstItem="q6n-8s-0Vr" firstAttribute="leading" secondItem="PiO-5w-B1A" secondAttribute="leading" constant="16" id="BRk-oc-dfQ"/>
                             <constraint firstItem="VU0-hT-Vca" firstAttribute="top" secondItem="ZJC-rO-D1a" secondAttribute="bottom" constant="8" id="Gis-jv-si6"/>
-                            <constraint firstItem="A9X-Mu-Kd8" firstAttribute="width" secondItem="ISF-SZ-TJf" secondAttribute="width" multiplier="0.5" id="QwQ-8t-9kL"/>
+                            <constraint firstItem="A9X-Mu-Kd8" firstAttribute="width" secondItem="ISF-SZ-TJf" secondAttribute="width" multiplier="0.7" id="QwQ-8t-9kL"/>
                             <constraint firstItem="A9X-Mu-Kd8" firstAttribute="centerX" secondItem="PiO-5w-B1A" secondAttribute="centerX" id="aA4-d9-2vz"/>
                             <constraint firstItem="hTC-Vi-4dn" firstAttribute="width" secondItem="ISF-SZ-TJf" secondAttribute="width" multiplier="0.7" id="eBZ-dm-XQD"/>
                             <constraint firstItem="ZJC-rO-D1a" firstAttribute="top" secondItem="PiO-5w-B1A" secondAttribute="top" constant="4" id="m0Q-PJ-BtH"/>
@@ -577,6 +584,10 @@
                         <outlet property="pass1" destination="rc3-qJ-vmE" id="EgR-En-Cx9"/>
                         <outlet property="pass2" destination="FQC-EL-V5z" id="76h-XO-Fpm"/>
                         <outlet property="usernameLabel" destination="ZJC-rO-D1a" id="keJ-68-wDJ"/>
+                        <outletCollection property="inputs" destination="oAX-ah-91R" collectionClass="NSMutableArray" id="0jU-et-0tD"/>
+                        <outletCollection property="inputs" destination="CEs-LZ-ESR" collectionClass="NSMutableArray" id="D1v-25-pwF"/>
+                        <outletCollection property="inputs" destination="9Fs-rC-3BW" collectionClass="NSMutableArray" id="sdA-TD-sz8"/>
+                        <outletCollection property="inputs" destination="0jg-An-JPK" collectionClass="NSMutableArray" id="T8M-zb-jCR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUB-lz-3hY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -808,10 +819,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivL-lT-ysm" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
-                                <rect key="frame" x="120" y="508" width="80" height="40"/>
+                                <rect key="frame" x="48" y="508" width="224" height="40"/>
                                 <color key="backgroundColor" red="0.94113498263888884" green="0.039833659477777776" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Bw4-l0-iKR"/>
                                     <constraint firstAttribute="height" constant="40" id="eSo-bL-AdW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -868,6 +878,7 @@
                             <constraint firstItem="hjM-Yj-j8j" firstAttribute="leading" secondItem="h1B-Ph-2tp" secondAttribute="leading" id="k0f-vi-LiU"/>
                             <constraint firstItem="hjM-Yj-j8j" firstAttribute="top" secondItem="fET-Wn-Nak" secondAttribute="bottom" constant="4" id="nOH-rb-Nzo"/>
                             <constraint firstItem="fET-Wn-Nak" firstAttribute="baseline" secondItem="ekT-2F-M1Z" secondAttribute="baseline" id="nrQ-gA-TDi"/>
+                            <constraint firstItem="ivL-lT-ysm" firstAttribute="width" secondItem="Ddr-0t-tAq" secondAttribute="width" multiplier="0.7" id="sJ3-pL-Mqb"/>
                             <constraint firstItem="ivL-lT-ysm" firstAttribute="centerX" secondItem="h1B-Ph-2tp" secondAttribute="centerX" id="wEb-Fw-ciN"/>
                             <constraint firstItem="zrD-wT-Zm0" firstAttribute="top" secondItem="h1B-Ph-2tp" secondAttribute="top" constant="4" id="wQY-5q-jk0"/>
                         </constraints>

@@ -15,10 +15,18 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var oldPass: UITextField!
     @IBOutlet weak var pass1: UITextField!
     @IBOutlet weak var pass2: UITextField!
-
+    @IBOutlet var inputs: [UIView]!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        for input in inputs {
+            input.layer.borderWidth = 0.75
+            input.layer.borderColor = UIColor(named: "ButtonColor")?.cgColor
+            input.setCornerRadius(at: 5)
+        }
+        
         hideKeyboardWhenTappedAround()
         fullNameLabel.text = ""
         guard let userInfo = UserSettings.userInformation else {
