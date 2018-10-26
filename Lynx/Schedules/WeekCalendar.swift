@@ -11,7 +11,7 @@ import UIKit
 class WeekCalendar: UIView {
 
     let DAYS: [Character: Int] = ["M": 0, "T": 1, "W": 2, "R": 3, "F": 4]
-    let COLORS: [UIColor] = [.red, .brown, .blue, .green, .orange, .purple]
+    let COLORS: [UIColor] = [#colorLiteral(red: 1, green: 0.8431372549, blue: 0.3137254902, alpha: 1), #colorLiteral(red: 1, green: 0.1607843137, blue: 0.462745098, alpha: 1), #colorLiteral(red: 0.8196078431, green: 0.4980392157, blue: 0.8745098039, alpha: 1), #colorLiteral(red: 1, green: 0.6117647059, blue: 0.2392156863, alpha: 1), #colorLiteral(red: 0.2470588235, green: 0.8549019608, blue: 0.4235294118, alpha: 1), #colorLiteral(red: 0.7137254902, green: 0.5921568627, blue: 0.4784313725, alpha: 1), #colorLiteral(red: 0.1019607843, green: 0.7137254902, blue: 0.9607843137, alpha: 1)]
     let weekDays: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri"]
 
     var schedule: Schedule!
@@ -120,7 +120,7 @@ class WeekCalendar: UIView {
                             height: hourHeight * CGFloat(times.1 - times.0))
                         if let view = UINib(nibName: "Event", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? Event {
                             view.frame = frame
-                            view.courseID.text = section.shortName
+                            view.courseID.text = section.shortName.padding(toLength: 8, withPad: " ", startingAt: 0)
                             view.typeLabel.text = "\(section.type) \(section.sectionID)"
                             view.tintColor = color
                             view.alpha = section.isFull ? 0.4 : 1
