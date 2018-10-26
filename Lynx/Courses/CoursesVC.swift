@@ -13,6 +13,7 @@ class CoursesVC: UIViewController {
     @IBOutlet weak var selectedTable: UITableView!
     @IBOutlet weak var selectionLabel: UILabel!
     @IBOutlet weak var termButton: UIButton!
+    @IBOutlet weak var buildButton: UIButton!
 
     @IBOutlet weak var searchIcon: UIImageView!
     @IBOutlet weak var clearSearchButton: UIButton!
@@ -27,7 +28,7 @@ class CoursesVC: UIViewController {
             self.selectedCourses = []
             self.searchedCourses = []
             self.badCRNs = []
-            self.termButton.setTitle(term.readableTerm() + " ▼", for: .normal)
+            self.termButton.setTitle(term.readableTerm(), for: .normal)
             self.reloadTables()
             self.searchField.text = ""
         }
@@ -52,6 +53,9 @@ class CoursesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        termButton.setCornerRadius(at: 5)
+        buildButton.setCornerRadius(at: 5)
 
         if let lastTerm = UserSettings.defaultTerm {
             self.term = lastTerm
@@ -160,3 +164,4 @@ class CoursesVC: UIViewController {
         }
     }
 }
+
