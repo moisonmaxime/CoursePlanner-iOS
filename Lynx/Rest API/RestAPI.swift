@@ -299,10 +299,11 @@ class RestAPI {
 
     static func saveSchedule(term: String,
                              crns: [String],
+                             hasConflictingFinals: Bool = false,
                              completionHandler: @escaping () -> Void,
                              errorHandler: @escaping (APIError) -> Void) {
 
-        let postContent: [String: Any] = ["term": term, "crns": crns]
+        let postContent: [String: Any] = ["term": term, "crns": crns, "hasConflictingFinals": hasConflictingFinals]
         guard let request = URLRequest(url: API.saveSchedule.url, content: postContent, type: .POST) else {
             errorHandler(.internalError)
             return

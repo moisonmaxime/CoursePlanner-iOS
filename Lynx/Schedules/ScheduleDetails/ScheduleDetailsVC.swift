@@ -57,6 +57,7 @@ class ScheduleDetailsVC: UIViewController {
         } else {
             RestAPI.saveSchedule(term: detailDelegate.getTerm(),
                                  crns: detailDelegate.getSchedule().crns,
+                                 hasConflictingFinals: delegate.getSchedule().hasConflictingFinals,
                                  completionHandler: { [weak self] in
                                     self?.displayAlert(title: "Success", message: "This schedule was saved")
                                     self?.actionButton.isEnabled = false
