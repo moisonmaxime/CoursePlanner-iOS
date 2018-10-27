@@ -1114,30 +1114,53 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EBa-7T-v3B">
-                                <rect key="frame" x="0.0" y="20" width="320" height="486"/>
+                                <rect key="frame" x="0.0" y="41.5" width="320" height="464.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Dx-R0-Lk1">
+                                <rect key="frame" x="103" y="20" width="114" height="21.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conflicting Finals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPy-OD-RYu">
+                                        <rect key="frame" x="8" y="4" width="98" height="13.5"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="CalendarOrange"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="uPy-OD-RYu" secondAttribute="bottom" constant="4" id="2XO-wR-hUZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="uPy-OD-RYu" secondAttribute="trailing" constant="8" id="RpS-rj-VM3"/>
+                                    <constraint firstItem="uPy-OD-RYu" firstAttribute="top" secondItem="5Dx-R0-Lk1" secondAttribute="top" constant="4" id="TdA-io-bVT"/>
+                                    <constraint firstItem="uPy-OD-RYu" firstAttribute="leading" secondItem="5Dx-R0-Lk1" secondAttribute="leading" constant="8" id="nB7-A7-uuh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OdF-TR-DAg" firstAttribute="trailing" secondItem="EBa-7T-v3B" secondAttribute="trailing" id="1Bq-9j-EdC"/>
                             <constraint firstItem="EBa-7T-v3B" firstAttribute="leading" secondItem="OdF-TR-DAg" secondAttribute="leading" id="7lq-fJ-GLS"/>
+                            <constraint firstItem="5Dx-R0-Lk1" firstAttribute="centerX" secondItem="OdF-TR-DAg" secondAttribute="centerX" id="E0S-Ho-Tkf"/>
                             <constraint firstItem="OdF-TR-DAg" firstAttribute="bottom" secondItem="OuD-2v-aH0" secondAttribute="bottom" constant="16" id="FAs-nv-cji"/>
                             <constraint firstItem="OuD-2v-aH0" firstAttribute="leading" secondItem="OdF-TR-DAg" secondAttribute="leading" constant="16" id="KzE-Qe-KaY"/>
                             <constraint firstItem="OuD-2v-aH0" firstAttribute="top" secondItem="EBa-7T-v3B" secondAttribute="bottom" constant="16" id="WBi-GN-fQr"/>
-                            <constraint firstItem="EBa-7T-v3B" firstAttribute="top" secondItem="OdF-TR-DAg" secondAttribute="top" id="mPK-rf-ldY"/>
+                            <constraint firstItem="EBa-7T-v3B" firstAttribute="top" secondItem="5Dx-R0-Lk1" secondAttribute="bottom" id="Yb8-CN-ggp"/>
+                            <constraint firstItem="OdF-TR-DAg" firstAttribute="top" secondItem="5Dx-R0-Lk1" secondAttribute="top" id="dTn-Nf-OUp"/>
                             <constraint firstItem="OdF-TR-DAg" firstAttribute="trailing" secondItem="OuD-2v-aH0" secondAttribute="trailing" constant="16" id="qh5-Ex-AgR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OdF-TR-DAg"/>
                     </view>
                     <connections>
                         <outlet property="actionButton" destination="z0m-ba-p2A" id="l6h-WG-6N7"/>
+                        <outlet property="conflictingFinalsWarning" destination="5Dx-R0-Lk1" id="P84-4W-J8X"/>
                         <outlet property="coursesTable" destination="EBa-7T-v3B" id="vvC-do-1e2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UX3-M9-MDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="236" y="2347"/>
+            <point key="canvasLocation" x="234.375" y="2346.1267605633802"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vg1-vK-hXI">
@@ -1362,6 +1385,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Fe-fm-CgP"/>
+        <segue reference="Yw0-g4-zbT"/>
     </inferredMetricsTieBreakers>
 </document>

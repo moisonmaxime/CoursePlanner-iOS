@@ -19,6 +19,7 @@ class ScheduleDetailsVC: UIViewController {
 
     @IBOutlet weak var coursesTable: UITableView!
     @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var conflictingFinalsWarning: UIView!
     weak var detailDelegate: ScheduleDetailsDelegate!
     var loadingView: UIView?
 
@@ -32,6 +33,9 @@ class ScheduleDetailsVC: UIViewController {
         coursesTable.dataSource = self
         coursesTable.delegate = self
         coursesTable.reloadData()
+        conflictingFinalsWarning.setCornerRadius(at: 5)
+        guard let delegate = detailDelegate else { return }
+        conflictingFinalsWarning.isHidden = !delegate.getSchedule().hasConflictingFinals
     }
 
     override func didReceiveMemoryWarning() {
