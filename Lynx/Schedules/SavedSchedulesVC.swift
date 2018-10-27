@@ -12,19 +12,12 @@ class SavedSchedulesVC: SchedulesVC {
 
     override func getInitialData() {
         self.navigationController?.didStartLoading(immediately: true)
-        RestAPI.getSavedSchedule(term: term, completionHandler: { schedules in
-            self.navigationController?.didFinishLoading()
-            self.schedules = schedules
-            let noSchedule = self.schedules.first == nil || self.schedules[self.index].sections.count == 0
-            self.currentScheduleLbl.isHidden = noSchedule
-            self.detailssButton.isHidden = noSchedule
-            self.nextButton.isHidden = noSchedule
-            self.previousButton.isHidden = noSchedule
-            self.weekDisplay.schedule = self.schedules.first
-            self.weekDisplay.setNeedsDisplay()
-        }, errorHandler: { error in
-            self.handleError(error: error)
-            self.schedules = []
+        RestAPI.getSavedSchedule(term: term, completionHandler: { [weak self] schedules in
+            self?.navigationController?.didFinishLoading()
+            self?.loadSchedules(schedules)
+        }, errorHandler: { [weak self] error in
+            self?.handleError(error: error)
+            self?.schedules = []
         })
     }
     /*

@@ -40,6 +40,7 @@ struct Schedule: Codable, Equatable {
     var earliest: Double { return info.earliest }
     var latest: Double { return info.latest }
     var gaps: Double { return info.gaps }
+    var hasConflictingFinals: Bool { return info.hasConflictingFinals }
 
     enum CodingKeys: String, CodingKey {
         case schedule

@@ -1009,11 +1009,23 @@
                                     <constraint firstAttribute="height" constant="32" id="Iwi-gk-zdu"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYc-DA-Lz3">
+                                <rect key="frame" x="264" y="472" width="40" height="40"/>
+                                <color key="backgroundColor" name="CalendarOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="AUa-Ey-6zQ"/>
+                                    <constraint firstAttribute="width" secondItem="PYc-DA-Lz3" secondAttribute="height" multiplier="1:1" id="pXi-9a-sgv"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="10" minY="9" maxX="10" maxY="11"/>
+                                <state key="normal" image="Warning"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TDB-d3-QtD" firstAttribute="top" secondItem="FNj-Bg-LKw" secondAttribute="top" constant="4" id="20V-KH-7ff"/>
                             <constraint firstItem="V1L-Cb-tMW" firstAttribute="leading" secondItem="FNj-Bg-LKw" secondAttribute="leading" constant="16" id="36V-4Y-aQe"/>
+                            <constraint firstItem="V1L-Cb-tMW" firstAttribute="top" secondItem="PYc-DA-Lz3" secondAttribute="bottom" constant="8" id="3W3-0g-QRK"/>
                             <constraint firstItem="hPe-wy-pnV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ROu-Bu-h8O" secondAttribute="trailing" constant="4" id="6gR-cB-Ipn"/>
                             <constraint firstItem="FNj-Bg-LKw" firstAttribute="trailing" secondItem="QG1-qZ-wHJ" secondAttribute="trailing" constant="16" id="8u8-QT-Qkd"/>
                             <constraint firstItem="TDB-d3-QtD" firstAttribute="centerY" secondItem="ROu-Bu-h8O" secondAttribute="centerY" id="DWa-kC-DN5"/>
@@ -1026,6 +1038,7 @@
                             <constraint firstItem="QG1-qZ-wHJ" firstAttribute="leading" secondItem="FNj-Bg-LKw" secondAttribute="leading" constant="16" id="lnN-Yh-DMe"/>
                             <constraint firstItem="FNj-Bg-LKw" firstAttribute="bottom" secondItem="V1L-Cb-tMW" secondAttribute="bottom" constant="16" id="lxN-nJ-cGW"/>
                             <constraint firstItem="ROu-Bu-h8O" firstAttribute="baseline" secondItem="hPe-wy-pnV" secondAttribute="baseline" id="rrx-J7-7I5"/>
+                            <constraint firstItem="FNj-Bg-LKw" firstAttribute="trailing" secondItem="PYc-DA-Lz3" secondAttribute="trailing" constant="16" id="swE-Jb-4AF"/>
                             <constraint firstItem="0Qq-42-Etl" firstAttribute="centerX" secondItem="FNj-Bg-LKw" secondAttribute="centerX" id="t1J-Ao-rpL"/>
                             <constraint firstItem="FNj-Bg-LKw" firstAttribute="trailing" secondItem="V1L-Cb-tMW" secondAttribute="trailing" constant="16" id="z2Y-BX-cv9"/>
                         </constraints>
@@ -1037,6 +1050,7 @@
                         <outlet property="nextButton" destination="wBx-YX-Nf7" id="SWk-g8-MTQ"/>
                         <outlet property="previousButton" destination="trN-cw-wGm" id="4C6-4q-7dh"/>
                         <outlet property="termLabel" destination="hPe-wy-pnV" id="3Ou-vR-QAo"/>
+                        <outlet property="warningButton" destination="PYc-DA-Lz3" id="w1h-74-t8R"/>
                         <outlet property="weekDisplay" destination="QG1-qZ-wHJ" id="w8W-56-REy"/>
                     </connections>
                 </viewController>
@@ -1259,6 +1273,17 @@
                                 <color key="textColor" name="LabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nih-97-fcx">
+                                <rect key="frame" x="264" y="472" width="40" height="40"/>
+                                <color key="backgroundColor" name="CalendarOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Nih-97-fcx" secondAttribute="height" multiplier="1:1" id="QZt-Nh-tRb"/>
+                                    <constraint firstAttribute="width" constant="40" id="ykB-IT-0e0"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="10" minY="9" maxX="10" maxY="11"/>
+                                <state key="normal" image="Warning"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1271,12 +1296,15 @@
                             <constraint firstItem="qxU-EE-HiE" firstAttribute="bottom" secondItem="IgX-8Z-Bq6" secondAttribute="bottom" constant="16" id="SJi-vI-9df"/>
                             <constraint firstItem="lAk-fX-6UM" firstAttribute="baseline" secondItem="5Wc-yP-iRV" secondAttribute="baseline" id="Yi0-cM-WkI"/>
                             <constraint firstItem="bme-8F-P3J" firstAttribute="leading" secondItem="qxU-EE-HiE" secondAttribute="leading" constant="16" id="Z2O-V9-5Ch"/>
+                            <constraint firstItem="Nih-97-fcx" firstAttribute="width" secondItem="Nih-97-fcx" secondAttribute="height" multiplier="1:1" id="a40-Ag-owo"/>
                             <constraint firstItem="IPN-YC-Q5I" firstAttribute="leading" secondItem="qxU-EE-HiE" secondAttribute="leading" constant="16" id="c44-nq-Yp0"/>
                             <constraint firstItem="qxU-EE-HiE" firstAttribute="trailing" secondItem="IgX-8Z-Bq6" secondAttribute="trailing" constant="16" id="eKg-zR-NcT"/>
                             <constraint firstItem="bme-8F-P3J" firstAttribute="centerY" secondItem="5Wc-yP-iRV" secondAttribute="centerY" id="qX1-FK-bde"/>
                             <constraint firstItem="IgX-8Z-Bq6" firstAttribute="top" secondItem="IPN-YC-Q5I" secondAttribute="bottom" constant="28" id="rqY-BY-6N2"/>
                             <constraint firstItem="qxU-EE-HiE" firstAttribute="trailing" secondItem="IPN-YC-Q5I" secondAttribute="trailing" constant="16" id="tQ8-vK-vG8"/>
                             <constraint firstItem="IPN-YC-Q5I" firstAttribute="top" secondItem="5Wc-yP-iRV" secondAttribute="bottom" constant="4" id="vMq-7R-rY4"/>
+                            <constraint firstItem="qxU-EE-HiE" firstAttribute="trailing" secondItem="Nih-97-fcx" secondAttribute="trailing" constant="16" id="xXi-iz-iYK"/>
+                            <constraint firstItem="IgX-8Z-Bq6" firstAttribute="top" secondItem="Nih-97-fcx" secondAttribute="bottom" constant="8" id="yRM-nk-F2u"/>
                             <constraint firstItem="5Wc-yP-iRV" firstAttribute="centerX" secondItem="qxU-EE-HiE" secondAttribute="centerX" id="zWq-hR-IQ5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qxU-EE-HiE"/>
@@ -1287,6 +1315,7 @@
                         <outlet property="nextButton" destination="GT5-3K-FkZ" id="5ID-Lp-zyz"/>
                         <outlet property="previousButton" destination="7SZ-cl-zoZ" id="SEg-f9-KGS"/>
                         <outlet property="termLabel" destination="lAk-fX-6UM" id="e8c-hA-Wz1"/>
+                        <outlet property="warningButton" destination="Nih-97-fcx" id="Wa1-qZ-8to"/>
                         <outlet property="weekDisplay" destination="IPN-YC-Q5I" id="2fg-WW-36l"/>
                     </connections>
                 </viewController>
@@ -1315,11 +1344,15 @@
         <image name="Search" width="96" height="96"/>
         <image name="SelectCourses" width="768" height="768"/>
         <image name="User" width="96" height="96"/>
+        <image name="Warning" width="96" height="96"/>
         <namedColor name="BackgroundColor">
             <color red="0.95686274509803926" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ButtonColor">
             <color red="0.34901960784313724" green="0.6470588235294118" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CalendarOrange">
+            <color red="1" green="0.61176470588235299" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HighlightColor">
             <color red="0.21568627450980393" green="0.43529411764705883" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

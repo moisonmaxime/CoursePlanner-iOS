@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ArrowDown32.png",
+      "filename" : "Warning-128.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ArrowDown32x2.png",
+      "filename" : "Warning-128@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ArrowDown-32x3.png",
+      "filename" : "Warning-128@3x.png",
       "scale" : "3x"
     }
   ],

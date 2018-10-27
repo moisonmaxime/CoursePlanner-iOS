@@ -22,6 +22,7 @@ class SchedulesVC: UIViewController {
             currentScheduleLbl.isHidden = schedules.first == nil || schedules[index].sections.count == 0
             weekDisplay.schedule = schedules[index]
             weekDisplay.setNeedsDisplay()
+            warningButton.isHidden = !schedules[index].hasConflictingFinals
         }
     }
 
@@ -31,7 +32,8 @@ class SchedulesVC: UIViewController {
     @IBOutlet weak var currentScheduleLbl: UILabel!
     @IBOutlet weak var termLabel: UILabel!
     @IBOutlet weak var detailssButton: UIButton!
-
+    @IBOutlet weak var warningButton: UIButton!
+    
     var schedules: [Schedule] = [] {
         didSet {
             currentScheduleLbl.text! = "\(index + 1)/\(schedules.count)"
@@ -42,26 +44,35 @@ class SchedulesVC: UIViewController {
         super.viewDidLoad()
         termLabel.text = term?.readableTerm()
         getInitialData()
+        warningButton.setCornerRadius(at: 20)
     }
 
     func getInitialData() {
         self.navigationController?.didStartLoading(immediately: true)
         
         RestAPI.getSchedules(term: term, courses: courses, badCRNs: badCRNs, completionHandler: { [weak self] schedules in
-            guard let strongSelf = self else { return }
-            strongSelf.navigationController?.didFinishLoading()
-            strongSelf.schedules = schedules
-            let noSchedule = strongSelf.schedules.first == nil || strongSelf.schedules[strongSelf.index].sections.count == 0
-            strongSelf.currentScheduleLbl.isHidden = noSchedule
-            strongSelf.detailssButton.isHidden = noSchedule
-            strongSelf.nextButton.isHidden = noSchedule
-            strongSelf.previousButton.isHidden = noSchedule
-            strongSelf.weekDisplay.schedule = strongSelf.schedules.first
-            strongSelf.weekDisplay.setNeedsDisplay()
+            self?.navigationController?.didFinishLoading()
+            self?.loadSchedules(schedules)
         }, errorHandler: { [weak self] error in
             self?.handleError(error: error)
             self?.schedules = []
         })
+    }
+    
+    final func loadSchedules(_ newSchedules: [Schedule]) {
+        self.schedules = newSchedules.filter({ $0.sections.count > 0 })
+        let noSchedule = schedules.first == nil
+        currentScheduleLbl.isHidden = noSchedule
+        detailssButton.isHidden = noSchedule
+        nextButton.isHidden = noSchedule || schedules.count < 2
+        previousButton.isHidden = noSchedule || schedules.count < 2
+        weekDisplay.schedule = schedules.first
+        weekDisplay.setNeedsDisplay()
+        if noSchedule {
+            warningButton.isHidden = true
+        } else {
+            warningButton.isHidden = !schedules[index].hasConflictingFinals
+        }
     }
 
     override func didReceiveMemoryWarning() {
