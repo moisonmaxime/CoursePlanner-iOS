@@ -603,7 +603,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-bX-7p5">
-                                <rect key="frame" x="0.0" y="132" width="320" height="349"/>
+                                <rect key="frame" x="0.0" y="124" width="320" height="357"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectCourses" translatesAutoresizingMaskIntoConstraints="NO" id="CE7-vY-8tS">
@@ -676,14 +676,14 @@
                                 <rect key="frame" x="0.0" y="124" width="320" height="444"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <label hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 courses selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3m-Et-Lam">
-                                <rect key="frame" x="0.0" y="124" width="320" height="24"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 courses selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="p3m-Et-Lam">
+                                <rect key="frame" x="80" y="128" width="160" height="24"/>
+                                <color key="backgroundColor" name="ButtonColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="6gB-rc-3kx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2y-oi-pBe">
@@ -741,7 +741,7 @@
                                 <rect key="frame" x="16" y="28" width="140" height="32"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="uEe-0N-sgj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="uEe-0N-sgj"/>
                                     <constraint firstAttribute="height" constant="32" id="yox-2Z-vas"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
@@ -766,26 +766,26 @@
                             <constraint firstItem="MMF-pn-q2m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yiT-ki-RXk" secondAttribute="trailing" constant="8" id="A48-IY-0Hj"/>
                             <constraint firstItem="TaZ-ol-ppf" firstAttribute="top" secondItem="RZK-bX-7p5" secondAttribute="bottom" constant="16" id="AAY-g6-djP"/>
                             <constraint firstItem="q2y-oi-pBe" firstAttribute="top" secondItem="yiT-ki-RXk" secondAttribute="bottom" constant="16" id="I9b-2j-Fkn"/>
-                            <constraint firstItem="p3m-Et-Lam" firstAttribute="top" secondItem="7j9-vT-Qo6" secondAttribute="top" id="KrN-Bq-vKx"/>
                             <constraint firstItem="RZK-bX-7p5" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" id="L2X-FG-6Ce"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="RZK-bX-7p5" secondAttribute="trailing" id="NAe-gf-Nsr"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="TaZ-ol-ppf" secondAttribute="bottom" constant="20" id="OUg-BY-wPf"/>
-                            <constraint firstItem="RZK-bX-7p5" firstAttribute="top" secondItem="q2y-oi-pBe" secondAttribute="bottom" constant="8" id="SgF-Oo-pj9"/>
+                            <constraint firstItem="RZK-bX-7p5" firstAttribute="top" secondItem="q2y-oi-pBe" secondAttribute="bottom" id="SgF-Oo-pj9"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="MMF-pn-q2m" secondAttribute="trailing" constant="8" id="X3E-Ow-jS2"/>
                             <constraint firstItem="7j9-vT-Qo6" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="XDq-bc-6g6"/>
                             <constraint firstItem="p3m-Et-Lam" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="Z0R-a0-vfs"/>
                             <constraint firstItem="CE7-vY-8tS" firstAttribute="top" secondItem="q2y-oi-pBe" secondAttribute="bottom" constant="32" id="aIV-xf-frG"/>
                             <constraint firstItem="mud-R2-aON" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" constant="20" id="bpZ-qP-Dtc"/>
                             <constraint firstItem="q2y-oi-pBe" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" id="cuc-ZH-8T1"/>
-                            <constraint firstItem="p3m-Et-Lam" firstAttribute="top" secondItem="q2y-oi-pBe" secondAttribute="bottom" id="dfS-dv-B10"/>
+                            <constraint firstItem="p3m-Et-Lam" firstAttribute="top" secondItem="q2y-oi-pBe" secondAttribute="bottom" constant="4" id="dfS-dv-B10"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="bottom" secondItem="7j9-vT-Qo6" secondAttribute="bottom" id="eMj-yq-tlt"/>
-                            <constraint firstItem="p3m-Et-Lam" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" id="gxz-Q9-0LI"/>
+                            <constraint firstItem="p3m-Et-Lam" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" multiplier="0.5" id="gxz-Q9-0LI"/>
                             <constraint firstItem="yiT-ki-RXk" firstAttribute="top" secondItem="Dug-H3-JDK" secondAttribute="top" constant="8" id="iFQ-Zq-X26"/>
                             <constraint firstItem="TaZ-ol-ppf" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="iHD-li-6Fa"/>
                             <constraint firstItem="mud-R2-aON" firstAttribute="baseline" secondItem="TaZ-ol-ppf" secondAttribute="baseline" constant="4" id="nnn-cu-3G1"/>
                             <constraint firstItem="CE7-vY-8tS" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="qmP-zv-tPU"/>
                             <constraint firstItem="MMF-pn-q2m" firstAttribute="centerY" secondItem="yiT-ki-RXk" secondAttribute="centerY" id="siE-YH-vPN"/>
                             <constraint firstItem="CE7-vY-8tS" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" multiplier="0.5" id="tmG-eV-sin"/>
+                            <constraint firstItem="7j9-vT-Qo6" firstAttribute="top" secondItem="q2y-oi-pBe" secondAttribute="bottom" id="txk-Yu-W02"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dug-H3-JDK"/>
                     </view>
@@ -1087,7 +1087,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="Save Schedule"/>
+                                        <state key="normal" title="Save"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>

@@ -193,13 +193,7 @@ class RestAPI {
                     return
             }
 
-            sections.sort(by: { (section1, section2) -> Bool in
-                let id1 = section1.courseID
-                let id2 = section2.courseID
-                let sectionNumber1 = String(id1.split(separator: "-")[2])
-                let sectionNumber2 = String(id2.split(separator: "-")[2])
-                return sectionNumber1 < sectionNumber2
-            })
+            sections = sections.sorted()
             DispatchQueue.main.async { completionHandler(sections) }
         }, errorHandler: errorHandler)
     }
@@ -251,11 +245,11 @@ class RestAPI {
                 return
             }
 
-            terms.sort(by: { (s1, s2) -> Bool in
-                if s1.prefix(4) == s2.prefix(4) {
-                    return s1.suffix(2) > s2.suffix(2)
+            terms.sort(by: { (term1, term2) -> Bool in
+                if term1.prefix(4) == term2.prefix(4) {
+                    return term1.suffix(2) > term2.suffix(2)
                 }
-                return s1.prefix(4) > s2.prefix(4)
+                return term1.prefix(4) > term2.prefix(4)
             })
             DispatchQueue.main.async { completionHandler(terms) }
         }, errorHandler: errorHandler)

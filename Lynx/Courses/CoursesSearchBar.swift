@@ -24,6 +24,7 @@ extension CoursesVC {
             searchPrompt.count >= 2 else {
                 self.searchedCourses = []
                 self.searchTable.reloadData()
+                timer?.invalidate()
                 return
         }
 

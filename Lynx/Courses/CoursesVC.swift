@@ -42,7 +42,7 @@ class CoursesVC: UIViewController {
                 let count = strongSelf.selectedCourses.count
                 strongSelf.selectionLabel.isHidden = count == 0 || strongSelf.searchTable.isHidden
                 strongSelf.selectionLabel.text = "\(count) course\(count > 1 ? "s" : "") selected"
-                strongSelf.searchTable.contentInset.top = count > 0 ? 24 : 0
+                strongSelf.searchTable.contentInset.top = count > 0 ? 32 : 0
                 strongSelf.updateEmptyCoursesPrompt()
             }
         }
@@ -56,6 +56,7 @@ class CoursesVC: UIViewController {
         
         termButton.setCornerRadius(at: 5)
         buildButton.setCornerRadius(at: 5)
+        selectionLabel.setCornerRadius(at: 5)
 
         if let lastTerm = UserSettings.defaultTerm {
             self.term = lastTerm
