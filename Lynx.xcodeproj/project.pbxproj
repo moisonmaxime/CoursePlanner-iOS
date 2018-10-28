@@ -263,7 +263,6 @@
 		1B4B6A5C208838A100D5ADFA /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
-				1B8C27EB2184F23D006D7124 /* Alerts */,
 				1B1BBF442093B899008E6D4C /* Views */,
 				1B1BBF402093AF82008E6D4C /* TextFields */,
 			);
@@ -321,13 +320,6 @@
 				1B644E222050ED9F00CA9264 /* Info.plist */,
 			);
 			path = Lynx;
-			sourceTree = "<group>";
-		};
-		1B8C27EB2184F23D006D7124 /* Alerts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Alerts;
 			sourceTree = "<group>";
 		};
 		1B8F68D32079CC7700F0D14D /* ScheduleDetails */ = {
