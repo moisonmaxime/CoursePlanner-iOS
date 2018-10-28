@@ -352,7 +352,7 @@ class RestAPI {
     }
 }
 
-
+// MARK: - Helpers
 extension RestAPI {
     static func refresh() {
         RestAPI.refreshAPIKey(completionHandler: { }, errorHandler: { _ in })
