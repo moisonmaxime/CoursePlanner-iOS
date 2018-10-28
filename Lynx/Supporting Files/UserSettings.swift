@@ -41,6 +41,15 @@ class UserSettings {
         }
     }
     
+    static var availableTerms: [String]? {
+        get {
+            return get(.availableTerms) as? [String]
+        }
+        set {
+            set(key: .availableTerms, value: newValue)
+        }
+    }
+    
     static var userInformation: UserInformation? {
         get {
             guard let data = get(.userInformation) as? Data,
@@ -71,6 +80,7 @@ extension UserSettings {
         case refreshKey = "refresh_token"
         case defaultTerm = "default_term"
         case userInformation = "user_info"
+        case availableTerms = "available_terms"
     }
     
     private static func set(key: UserSettingKey, value: Any?) {

@@ -45,8 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 
         // Refresh api key and check if there are new terms available
-        RestAPI.refreshAPIKey(completionHandler: { }, errorHandler: { _ in })
-        RestAPI.getUserInfo(completionHandler: { _ in }, errorHandler: { _ in })
+        RestAPI.refresh()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

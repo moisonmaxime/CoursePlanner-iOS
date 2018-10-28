@@ -121,25 +121,32 @@ class CoursesVC: UIViewController {
 
     @IBAction func termPress(_ sender: Any) {
         // Term selection
-        navigationController?.didStartLoading()
-        RestAPI.getTerms(completionHandler: { [weak self] terms in
-            self?.navigationController?.didFinishLoading()
-            guard let strongSelf = self else { return }
-
-            let termSelector = UIAlertController(title: "Choose a term", message: nil, preferredStyle: .actionSheet)
-
-            for term in terms {
-                termSelector.addAction(.init(title: term.readableTerm(), style: .default, handler: { _ in
-                    if term != strongSelf.term {
-                        strongSelf.term = term
-                        UserSettings.defaultTerm = term
-                    }
-                }))
-            }
-
-            termSelector.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
-            strongSelf.present(termSelector, animated: true, completion: nil)
-        }, errorHandler: handleError)
+        if let terms = UserSettings.availableTerms {
+            displayTermPicker(terms)
+        } else {
+            navigationController?.didStartLoading()
+            RestAPI.getTerms(completionHandler: { [weak self] terms in
+                self?.navigationController?.didFinishLoading()
+                self?.displayTermPicker(terms)
+                }, errorHandler: handleError)
+        }
+    }
+    
+    private func displayTermPicker(_ terms: [String]) {
+        let terms = terms.filter({ [weak self] termToCheck in
+            termToCheck != self?.term ?? ""
+        })
+        let termSelector = UIAlertController(title: "Choose a term", message: nil, preferredStyle: .actionSheet)
+        for term in terms {
+            termSelector.addAction(.init(title: term.readableTerm(), style: .default, handler: { _ in
+                if term != self.term {
+                    self.term = term
+                    UserSettings.defaultTerm = term
+                }
+            }))
+        }
+        termSelector.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
+        present(termSelector, animated: true, completion: nil)
     }
 
     // MARK: - Navigation

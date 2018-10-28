@@ -251,6 +251,7 @@ class RestAPI {
                 }
                 return term1.prefix(4) > term2.prefix(4)
             })
+            UserSettings.availableTerms = terms
             DispatchQueue.main.async { completionHandler(terms) }
         }, errorHandler: errorHandler)
     }
@@ -348,5 +349,14 @@ class RestAPI {
             }
             completionHandler(image)
         }, errorHandler: errorHandler)
+    }
+}
+
+
+extension RestAPI {
+    static func refresh() {
+        RestAPI.refreshAPIKey(completionHandler: { }, errorHandler: { _ in })
+        RestAPI.getUserInfo(completionHandler: { _ in }, errorHandler: { _ in })
+        RestAPI.getTerms(completionHandler: { _ in }, errorHandler: { _ in })
     }
 }
