@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TermPicker" customModule="Lynx" customModuleProvider="target">
+            <connections>
+                <outlet property="currentTermButton" destination="IZ4-3R-jih" id="qVK-8d-5Ko"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKd-JQ-km5">
+                    <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                    <connections>
+                        <action selector="tappedOut" destination="-1" eventType="touchUpInside" id="8Bb-Nq-4ut"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ4-3R-jih">
+                    <rect key="frame" x="16" y="28" width="140" height="32"/>
+                    <color key="backgroundColor" name="ButtonColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="xot-sV-LiE"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="yTI-Qd-fst"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
+                    <state key="normal" title="Spring 2020"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="7"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didSelect:" destination="-1" eventType="touchUpInside" id="Bvj-vV-ztq"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="DKd-JQ-km5" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="MT7-ES-0IQ"/>
+                <constraint firstItem="IZ4-3R-jih" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="PjW-MP-Ctv"/>
+                <constraint firstItem="DKd-JQ-km5" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="U64-Ac-jpi"/>
+                <constraint firstItem="DKd-JQ-km5" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="cfk-Wt-zO9"/>
+                <constraint firstItem="IZ4-3R-jih" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="vPL-Qn-Uca"/>
+                <constraint firstItem="DKd-JQ-km5" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="xdz-zq-VjU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="-87" y="-18"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="ButtonColor">
+            <color red="0.34901960784313724" green="0.6470588235294118" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

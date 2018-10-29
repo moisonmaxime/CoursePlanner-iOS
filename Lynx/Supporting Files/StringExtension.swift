@@ -45,7 +45,18 @@ extension String {
 
     func termID() -> String {
         let splitted  = self.split(separator: " ")
-        return String(splitted[1]) + String(splitted[0] == "Fall" ? 30 : 10)
+        let term: String
+        switch String(splitted[0]) {
+        case "Spring":
+            term = "10"
+        case "Summer":
+            term = "20"
+        case "Fall":
+            term = "30"
+        default:
+            term = ""
+        }
+        return String(splitted[1]) + term
     }
 
     func readableTerm() -> String {

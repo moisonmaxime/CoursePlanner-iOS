@@ -136,19 +136,18 @@ class CoursesVC: UIViewController {
         let terms = terms.filter({ [weak self] termToCheck in
             termToCheck != self?.term ?? ""
         })
-        let termSelector = UIAlertController(title: "Choose a term", message: nil, preferredStyle: .actionSheet)
-        for term in terms {
-            termSelector.addAction(.init(title: term.readableTerm(), style: .default, handler: { _ in
-                if term != self.term {
-                    self.term = term
-                    UserSettings.defaultTerm = term
-                }
-            }))
-        }
-        termSelector.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
-        present(termSelector, animated: true, completion: nil)
+        
+        let termPicker = TermPicker(currentTerm: term, terms: terms, completionHandler: { [weak self] newTerm in
+            if let newTerm = newTerm {
+                self?.term = newTerm
+            }
+        })
+        termPicker.modalPresentationStyle = .overCurrentContext
+        present(termPicker, animated: false, completion: {
+            termPicker.viewDidAppear(true)
+        })
     }
-
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

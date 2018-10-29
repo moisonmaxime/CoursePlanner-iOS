@@ -43,6 +43,8 @@
 		1BA3FD5B2181927300F8B02F /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF2B5E6217C3CCF00FB37A9 /* ErrorResponse.swift */; };
 		1BA3FD5D2181931100F8B02F /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA3FD5C2181931100F8B02F /* UserSettings.swift */; };
 		1BB2021C205A198A00A96619 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2021B205A198A00A96619 /* Animation.swift */; };
+		1BB338582186BA370070F0C1 /* TermPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB338562186BA370070F0C1 /* TermPicker.xib */; };
+		1BB338592186BA370070F0C1 /* TermPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB338572186BA370070F0C1 /* TermPicker.swift */; };
 		1BB5855C216D53AA007CC3D2 /* CellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5855B216D53AA007CC3D2 /* CellProtocols.swift */; };
 		1BB8FCE02079E4830097479D /* SavedSchedulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB8FCDF2079E4830097479D /* SavedSchedulesVC.swift */; };
 		1BB93B42205C4BB40042B021 /* UIVIewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */; };
@@ -130,6 +132,8 @@
 		1B99D459207983D8003BE359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BA3FD5C2181931100F8B02F /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		1BB2021B205A198A00A96619 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Lynx/Navigation/Animation.swift; sourceTree = SOURCE_ROOT; };
+		1BB338562186BA370070F0C1 /* TermPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TermPicker.xib; path = "Lynx/Custom UI/Modals/TermPicker.xib"; sourceTree = SOURCE_ROOT; };
+		1BB338572186BA370070F0C1 /* TermPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TermPicker.swift; path = "Lynx/Custom UI/Modals/TermPicker.swift"; sourceTree = SOURCE_ROOT; };
 		1BB5855B216D53AA007CC3D2 /* CellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocols.swift; sourceTree = "<group>"; };
 		1BB8FCDF2079E4830097479D /* SavedSchedulesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSchedulesVC.swift; sourceTree = "<group>"; };
 		1BB93B41205C4BB40042B021 /* UIVIewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewControllerExtension.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 		1B4B6A5C208838A100D5ADFA /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
+				1BB338552186BA0C0070F0C1 /* Modals */,
 				1B1BBF442093B899008E6D4C /* Views */,
 				1B1BBF402093AF82008E6D4C /* TextFields */,
 			);
@@ -366,6 +371,16 @@
 				1BB93B45205D8DF20042B021 /* InteractiveTransitioner.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		1BB338552186BA0C0070F0C1 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				1BB338562186BA370070F0C1 /* TermPicker.xib */,
+				1BB338572186BA370070F0C1 /* TermPicker.swift */,
+			);
+			name = Modals;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		1BBFDB4220742029003FBADE /* Sections */ = {
@@ -517,6 +532,7 @@
 				1B644E212050ED9F00CA9264 /* LaunchScreen.storyboard in Resources */,
 				1B644E1E2050ED9F00CA9264 /* Assets.xcassets in Resources */,
 				1B27C6312075C8E000DBA833 /* QuickCourseCell.xib in Resources */,
+				1BB338582186BA370070F0C1 /* TermPicker.xib in Resources */,
 				1BBFDB5520747A57003FBADE /* CourseCell.xib in Resources */,
 				1B644E1C2050ED9F00CA9264 /* Main.storyboard in Resources */,
 			);
@@ -582,6 +598,7 @@
 				1B30D08B207966D10035158C /* CoursesSectionsDelegate.swift in Sources */,
 				1BFE085E205EE51800FEEB1F /* CoursesVC.swift in Sources */,
 				1BBFDB4420742043003FBADE /* SectionsVC.swift in Sources */,
+				1BB338592186BA370070F0C1 /* TermPicker.swift in Sources */,
 				1B27C6302075C8E000DBA833 /* QuickCourseCell.swift in Sources */,
 				1BC2404E213B541D0003DA32 /* CustomEvent.swift in Sources */,
 				1B209D452062EED800F701C6 /* CoursesSearchBar.swift in Sources */,
