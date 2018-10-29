@@ -379,8 +379,7 @@
 				1BB338562186BA370070F0C1 /* TermPicker.xib */,
 				1BB338572186BA370070F0C1 /* TermPicker.swift */,
 			);
-			name = Modals;
-			path = "New Group";
+			path = Modals;
 			sourceTree = "<group>";
 		};
 		1BBFDB4220742029003FBADE /* Sections */ = {
