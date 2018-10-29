@@ -121,6 +121,7 @@ class CoursesVC: UIViewController {
 
     @IBAction func termPress(_ sender: Any) {
         // Term selection
+        dismissKeyboard()
         if let terms = UserSettings.availableTerms {
             displayTermPicker(terms)
         } else {

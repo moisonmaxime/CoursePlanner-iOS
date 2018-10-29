@@ -10,7 +10,6 @@ import UIKit
 
 class TermPicker: UIViewController {
     @IBOutlet weak var currentTermButton: UIButton!
-    @IBOutlet weak var blurView: UIVisualEffectView!
     
     private var currentTerm: String
     private var terms: [String]
@@ -36,7 +35,6 @@ class TermPicker: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        blurView.alpha = 1
         var offset = currentTermButton.frame.height + 16
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedOut))
@@ -57,7 +55,6 @@ class TermPicker: UIViewController {
                 button.titleLabel?.font = font
             }
             button.addTarget(nil, action: #selector(didSelect), for: .touchUpInside)
-            view.insertSubview(button, aboveSubview: blurView)
             UIView.animate(withDuration: 0.5) {
                 button.transform = CGAffineTransform(translationX: 0, y: offset)
             }

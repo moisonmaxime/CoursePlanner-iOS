@@ -13,7 +13,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TermPicker" customModule="Lynx" customModuleProvider="target">
             <connections>
-                <outlet property="blurView" destination="tWX-pc-iiw" id="oAK-C2-4Zd"/>
                 <outlet property="currentTermButton" destination="IZ4-3R-jih" id="qVK-8d-5Ko"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,14 +22,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWX-pc-iiw">
-                    <rect key="frame" x="-37.5" y="-56.5" width="450" height="800"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Mb6-am-5ck">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="800"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                    <blurEffect style="regular"/>
-                </visualEffectView>
                 <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ4-3R-jih">
                     <rect key="frame" x="16" y="28" width="140" height="32"/>
                     <color key="backgroundColor" name="ButtonColor"/>
@@ -55,11 +46,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="tWX-pc-iiw" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="5sj-u1-Kbd"/>
-                <constraint firstItem="tWX-pc-iiw" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="MF2-ss-89o"/>
                 <constraint firstItem="IZ4-3R-jih" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="PjW-MP-Ctv"/>
-                <constraint firstItem="tWX-pc-iiw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="1.2" id="ekk-po-EQT"/>
-                <constraint firstItem="tWX-pc-iiw" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1.2" id="fcy-Vu-aV0"/>
                 <constraint firstItem="IZ4-3R-jih" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="vPL-Qn-Uca"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
