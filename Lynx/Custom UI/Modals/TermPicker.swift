@@ -41,7 +41,7 @@ class TermPicker: UIViewController {
         tapGestureRecognizer.delegate = self
         view.addGestureRecognizer(tapGestureRecognizer)
         
-        UIView.animate(withDuration: 0.5) { [weak self] in
+        UIView.animate(withDuration: 0.25) { [weak self] in
             self?.view.alpha = 1
         }
         
@@ -55,7 +55,8 @@ class TermPicker: UIViewController {
                 button.titleLabel?.font = font
             }
             button.addTarget(nil, action: #selector(didSelect), for: .touchUpInside)
-            UIView.animate(withDuration: 0.5) {
+            view.insertSubview(button, at: 0)
+            UIView.animate(withDuration: 0.25) {
                 button.transform = CGAffineTransform(translationX: 0, y: offset)
             }
             offset *= 2
@@ -75,7 +76,7 @@ class TermPicker: UIViewController {
         currentTermButton.setTitle(term, for: .normal)
         let term = term?.termID() ?? nil
         completionHandler(term == currentTerm ? nil : term)
-        UIView.animate(withDuration: 0.5, animations: { [weak self] in
+        UIView.animate(withDuration: 0.25, animations: { [weak self] in
             for button in self?.view.subviews ?? [] {
                 self?.view.alpha = 0
                 button.transform = CGAffineTransform.identity
