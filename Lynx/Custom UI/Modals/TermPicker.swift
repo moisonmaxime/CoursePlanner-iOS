@@ -31,6 +31,7 @@ class TermPicker: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentTermButton.setTitle(currentTerm.readableTerm(), for: .normal)
+        currentTermButton.setCornerRadius(at: 5)
         view.alpha = 0
     }
     
