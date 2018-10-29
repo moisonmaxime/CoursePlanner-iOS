@@ -10,6 +10,7 @@ import UIKit
 
 class TermPicker: UIViewController {
     @IBOutlet weak var currentTermButton: UIButton!
+    @IBOutlet weak var blurView: UIVisualEffectView!
     
     private var currentTerm: String
     private var terms: [String]
@@ -34,9 +35,11 @@ class TermPicker: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        blurView.alpha = 1
         var offset = currentTermButton.frame.height + 16
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedOut))
+        tapGestureRecognizer.delegate = self
         view.addGestureRecognizer(tapGestureRecognizer)
         
         UIView.animate(withDuration: 0.5) { [weak self] in
@@ -53,7 +56,7 @@ class TermPicker: UIViewController {
                 button.titleLabel?.font = font
             }
             button.addTarget(nil, action: #selector(didSelect), for: .touchUpInside)
-            view.insertSubview(button, at: 0)
+            view.insertSubview(button, aboveSubview: blurView)
             UIView.animate(withDuration: 0.5) {
                 button.transform = CGAffineTransform(translationX: 0, y: offset)
             }
@@ -82,5 +85,14 @@ class TermPicker: UIViewController {
         }) { [weak self] _ in
             self?.dismiss(animated: false, completion: nil)
         }
+    }
+}
+
+extension TermPicker: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        guard let touchedView = touch.view, type(of: touchedView) != UIButton.self else {
+            return false
+        }
+        return true
     }
 }
