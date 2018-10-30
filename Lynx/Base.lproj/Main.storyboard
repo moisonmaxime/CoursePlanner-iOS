@@ -603,7 +603,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-bX-7p5">
-                                <rect key="frame" x="0.0" y="124" width="320" height="357"/>
+                                <rect key="frame" x="0.0" y="124" width="320" height="358"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SelectCourses" translatesAutoresizingMaskIntoConstraints="NO" id="CE7-vY-8tS">
@@ -614,14 +614,14 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mud-R2-aON">
-                                <rect key="frame" x="20" y="498" width="48" height="48"/>
+                                <rect key="frame" x="20" y="499" width="48" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="5fu-e0-Zs2"/>
                                     <constraint firstAttribute="width" secondItem="mud-R2-aON" secondAttribute="height" multiplier="1:1" id="WOX-ml-N4C"/>
                                 </constraints>
                                 <color key="tintColor" name="ButtonColor"/>
-                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                                 <state key="normal" image="Bookmark"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -633,9 +633,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaZ-ol-ppf" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
-                                <rect key="frame" x="101" y="497" width="118" height="51"/>
+                                <rect key="frame" x="101" y="498" width="118" height="50"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eoC-9s-jEY"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="118" id="uk1-er-8fd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
@@ -672,8 +673,8 @@
                                     <segue destination="znY-HK-LxG" kind="presentation" id="xMq-Na-XIJ"/>
                                 </connections>
                             </button>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-vT-Qo6">
-                                <rect key="frame" x="0.0" y="124" width="320" height="444"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-vT-Qo6">
+                                <rect key="frame" x="0.0" y="124" width="320" height="298"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 courses selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="p3m-Et-Lam">
@@ -737,7 +738,7 @@
                                     <constraint firstItem="OGL-AQ-jvc" firstAttribute="height" secondItem="q2y-oi-pBe" secondAttribute="height" multiplier="0.5" id="xkF-6D-uu2"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiT-ki-RXk" customClass="RoundedButton" customModule="Lynx" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiT-ki-RXk">
                                 <rect key="frame" x="16" y="28" width="140" height="32"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
                                 <constraints>
@@ -754,17 +755,32 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="termPress:" destination="tN9-yH-7gg" eventType="touchUpInside" id="vob-Z8-053"/>
+                                    <action selector="termTap" destination="tN9-yH-7gg" eventType="touchUpInside" id="YQ9-rJ-Qtj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8o8-EV-xvH">
+                                <rect key="frame" x="252" y="499" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="aoe-h1-ajE"/>
+                                    <constraint firstAttribute="width" secondItem="8o8-EV-xvH" secondAttribute="height" multiplier="1:1" id="iT6-9g-DhD"/>
+                                </constraints>
+                                <color key="tintColor" name="ButtonColor"/>
+                                <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                <state key="normal" image="Filters"/>
+                                <connections>
+                                    <action selector="scheduleOptionsTap" destination="tN9-yH-7gg" eventType="touchUpInside" id="tBa-KN-rW6"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="8o8-EV-xvH" secondAttribute="trailing" constant="20" id="2jY-ht-Njc"/>
                             <constraint firstItem="yiT-ki-RXk" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" constant="16" id="3Aw-tN-Vdg"/>
                             <constraint firstItem="7j9-vT-Qo6" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" id="7ad-Si-4l6"/>
                             <constraint firstItem="q2y-oi-pBe" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="9aQ-9c-oFu"/>
                             <constraint firstItem="MMF-pn-q2m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yiT-ki-RXk" secondAttribute="trailing" constant="8" id="A48-IY-0Hj"/>
                             <constraint firstItem="TaZ-ol-ppf" firstAttribute="top" secondItem="RZK-bX-7p5" secondAttribute="bottom" constant="16" id="AAY-g6-djP"/>
+                            <constraint firstItem="8o8-EV-xvH" firstAttribute="centerY" secondItem="TaZ-ol-ppf" secondAttribute="centerY" id="CqE-lp-jXP"/>
                             <constraint firstItem="q2y-oi-pBe" firstAttribute="top" secondItem="yiT-ki-RXk" secondAttribute="bottom" constant="16" id="I9b-2j-Fkn"/>
                             <constraint firstItem="RZK-bX-7p5" firstAttribute="leading" secondItem="Dug-H3-JDK" secondAttribute="leading" id="L2X-FG-6Ce"/>
                             <constraint firstItem="Dug-H3-JDK" firstAttribute="trailing" secondItem="RZK-bX-7p5" secondAttribute="trailing" id="NAe-gf-Nsr"/>
@@ -781,7 +797,7 @@
                             <constraint firstItem="p3m-Et-Lam" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" multiplier="0.5" id="gxz-Q9-0LI"/>
                             <constraint firstItem="yiT-ki-RXk" firstAttribute="top" secondItem="Dug-H3-JDK" secondAttribute="top" constant="8" id="iFQ-Zq-X26"/>
                             <constraint firstItem="TaZ-ol-ppf" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="iHD-li-6Fa"/>
-                            <constraint firstItem="mud-R2-aON" firstAttribute="baseline" secondItem="TaZ-ol-ppf" secondAttribute="baseline" constant="4" id="nnn-cu-3G1"/>
+                            <constraint firstItem="mud-R2-aON" firstAttribute="centerY" secondItem="TaZ-ol-ppf" secondAttribute="centerY" id="mHC-5I-g0E"/>
                             <constraint firstItem="CE7-vY-8tS" firstAttribute="centerX" secondItem="Dug-H3-JDK" secondAttribute="centerX" id="qmP-zv-tPU"/>
                             <constraint firstItem="MMF-pn-q2m" firstAttribute="centerY" secondItem="yiT-ki-RXk" secondAttribute="centerY" id="siE-YH-vPN"/>
                             <constraint firstItem="CE7-vY-8tS" firstAttribute="width" secondItem="QE0-S8-wJs" secondAttribute="width" multiplier="0.5" id="tmG-eV-sin"/>
@@ -1362,6 +1378,7 @@
         <image name="ArrowRight" width="96" height="96"/>
         <image name="Bookmark" width="96" height="96"/>
         <image name="Cross" width="96" height="96"/>
+        <image name="Filters" width="96" height="96"/>
         <image name="Key" width="96" height="96"/>
         <image name="Logo" width="192" height="192"/>
         <image name="Search" width="96" height="96"/>

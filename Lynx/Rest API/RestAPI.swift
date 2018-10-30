@@ -258,16 +258,24 @@ class RestAPI {
 
     static func getSchedules(term: String,
                              courses: [String],
-                             openOnly: Bool=false,
-                             badCRNs: [String]?=nil,
+                             openOnly: Bool = false,
+                             gaps: ScheduleSearchOptions.Order = .desc,
+                             days: ScheduleSearchOptions.Order = .desc,
+                             earliest: Double = 700,
+                             latest: Double = 2300,
+                             badCRNs: [String]? = nil,
                              completionHandler: @escaping ([Schedule]) -> Void,
                              errorHandler: @escaping (APIError) -> Void) {
-
         var postContent = ["term": term, "course_list": courses] as [String: Any]
-        postContent["search_full"] = openOnly ? "false" : "true"
+        postContent["search_full"] = !openOnly
+        postContent["gaps"] = gaps.rawValue
+        postContent["days"] = days.rawValue
+        postContent["earliest"] = String(earliest)
+        postContent["latest"] = String(latest)
         if badCRNs != nil {
             postContent["bad_crns"] = badCRNs!
         }
+        
         guard let request = URLRequest(url: API.getSchedules.url, content: postContent, type: .POST) else {
             errorHandler(.internalError)
             return

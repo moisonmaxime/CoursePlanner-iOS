@@ -20,7 +20,6 @@ class CoursesVC: UIViewController {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var emptyCoursesPrompt: UIImageView!
 
-    var timer: Timer?
 
     // If user changes term, then update UI and reset everything
     var term: String = "" {
@@ -48,8 +47,10 @@ class CoursesVC: UIViewController {
         }
     }
 
+    var timer: Timer?
     var searchedCourses: [CourseSearchResult] = []
     var badCRNs: [String] = []   // Track the CRNs to not include in the schedule building
+    var settings: ScheduleSearchOptions = ScheduleSearchOptions()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,7 +120,7 @@ class CoursesVC: UIViewController {
         }
     }
 
-    @IBAction func termPress(_ sender: Any) {
+    @IBAction func termTap() {
         // Term selection
         dismissKeyboard()
         if let terms = UserSettings.availableTerms {
@@ -133,6 +134,16 @@ class CoursesVC: UIViewController {
         }
     }
     
+    @IBAction func scheduleOptionsTap() {
+        let optionPicker = SchedulesOptions(settings: settings) { }
+        optionPicker.modalPresentationStyle = .overCurrentContext
+        present(optionPicker, animated: false, completion: nil)
+    }
+    
+    private func ddd(_ t: (action: SchedulesOptions.ExitAction, settings: ScheduleSearchOptions)) {
+        
+    }
+    
     private func displayTermPicker(_ terms: [String]) {
         let terms = terms.filter({ [weak self] termToCheck in
             termToCheck != self?.term ?? ""
@@ -144,9 +155,7 @@ class CoursesVC: UIViewController {
             }
         })
         termPicker.modalPresentationStyle = .overCurrentContext
-        present(termPicker, animated: false, completion: {
-            termPicker.viewDidAppear(true)
-        })
+        present(termPicker, animated: false, completion: nil)
     }
     
     // MARK: - Navigation
@@ -164,6 +173,7 @@ class CoursesVC: UIViewController {
                 destination.courses = selectedIDs
                 destination.term = term
                 destination.badCRNs = badCRNs
+                destination.settings = settings
             }
         } else if segue.identifier == "showSaved" {
             if let dest = segue.destination as? SavedSchedulesVC {

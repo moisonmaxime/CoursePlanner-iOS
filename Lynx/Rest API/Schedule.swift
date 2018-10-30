@@ -7,6 +7,17 @@
 //
 import Foundation
 
+struct ScheduleSearchOptions {
+    enum Order: String {
+        case asc, desc
+    }
+    var searchFullCourses: Bool = true
+    var gapOrder: Order = .desc
+    var dayOrder: Order = .desc
+    var earliest: Double = 700
+    var latest: Double = 2300
+}
+
 struct Schedule: Codable, Equatable {
 
     private struct ScheduleInformation: Codable, Equatable {

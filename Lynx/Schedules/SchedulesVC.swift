@@ -11,6 +11,7 @@ import UIKit
 class SchedulesVC: UIViewController {
 
     var term: String!
+    var settings: ScheduleSearchOptions!
     var courses: [String]!
     var badCRNs: [String]!
 
@@ -46,16 +47,24 @@ class SchedulesVC: UIViewController {
         getInitialData()
         warningButton.setCornerRadius(at: 20)
     }
-
+    
     func getInitialData() {
         self.navigationController?.didStartLoading(immediately: true)
         
-        RestAPI.getSchedules(term: term, courses: courses, badCRNs: badCRNs, completionHandler: { [weak self] schedules in
-            self?.navigationController?.didFinishLoading()
-            self?.loadSchedules(schedules)
-        }, errorHandler: { [weak self] error in
-            self?.handleError(error: error)
-            self?.schedules = []
+        RestAPI.getSchedules(term: term,
+                             courses: courses,
+                             openOnly: !settings.searchFullCourses,
+                             gaps: settings.gapOrder,
+                             days: settings.dayOrder,
+                             earliest: settings.earliest,
+                             latest: settings.latest,
+                             badCRNs: badCRNs,
+                             completionHandler: { [weak self] schedules in
+                                self?.navigationController?.didFinishLoading()
+                                self?.loadSchedules(schedules)
+            }, errorHandler: { [weak self] error in
+                self?.handleError(error: error)
+                self?.schedules = []
         })
     }
     
