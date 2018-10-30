@@ -261,8 +261,8 @@ class RestAPI {
                              openOnly: Bool = false,
                              gaps: ScheduleSearchOptions.Order = .desc,
                              days: ScheduleSearchOptions.Order = .desc,
-                             earliest: Double = 700,
-                             latest: Double = 2300,
+                             earliest: Int = 700,
+                             latest: Int = 2300,
                              badCRNs: [String]? = nil,
                              completionHandler: @escaping ([Schedule]) -> Void,
                              errorHandler: @escaping (APIError) -> Void) {
@@ -270,8 +270,8 @@ class RestAPI {
         postContent["search_full"] = !openOnly
         postContent["gaps"] = gaps.rawValue
         postContent["days"] = days.rawValue
-        postContent["earliest"] = String(earliest)
-        postContent["latest"] = String(latest)
+        postContent["earliest"] = Int(earliest)
+        postContent["latest"] = Int(latest)
         if badCRNs != nil {
             postContent["bad_crns"] = badCRNs!
         }
