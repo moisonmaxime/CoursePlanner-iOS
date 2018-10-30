@@ -24,6 +24,10 @@ class SchedulesOptionsModalView: UIViewController {
     @IBOutlet weak var hideClosedCourses: UISegmentedControl!
     @IBOutlet weak var minimizeGaps: UISegmentedControl!
     @IBOutlet weak var minimizeDays: UISegmentedControl!
+    @IBOutlet weak var earliestPlusButton: UIButton!
+    @IBOutlet weak var earliestMinusButton: UIButton!
+    @IBOutlet weak var latestPlusButton: UIButton!
+    @IBOutlet weak var latestMinusButton: UIButton!
     
     var settings: ScheduleSearchOptions
     var completionHandler: ExitClosure
@@ -44,10 +48,16 @@ class SchedulesOptionsModalView: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedOut))
         tapGestureRecognizer.delegate = self
         view.addGestureRecognizer(tapGestureRecognizer)
+        earliestPlusButton.setCornerRadius(at: 5)
+        earliestMinusButton.setCornerRadius(at: 5)
+        latestPlusButton.setCornerRadius(at: 5)
+        latestMinusButton.setCornerRadius(at: 5)
         buildButton.setCornerRadius(at: 5)
-        self.view.layoutIfNeeded()
-        self.view.layoutSubviews()
-        self.darkView.alpha = 0
+        view.layoutIfNeeded()
+        view.layoutSubviews()
+        darkView.alpha = 0
+        hideClosedCourses.alpha = 0
+        modalView.layer.maskedCorners = CACornerMask(arrayLiteral: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
         modalView.transform = CGAffineTransform(translationX: 0,
                                                 y: modalView.frame.height - 86 - view.safeAreaInsets.bottom)
         displayInitialSettings()
@@ -66,9 +76,9 @@ class SchedulesOptionsModalView: UIViewController {
         modalView.transform = CGAffineTransform(translationX: 0,
                                                 y: modalView.frame.height - 86 - view.safeAreaInsets.bottom)
         
-        UIView.animate(withDuration: 0.5) { [weak self] in
+        UIView.animate(withDuration: 0.25) { [weak self] in
             self?.darkView.alpha = 1
-            self?.modalView.layer.maskedCorners = CACornerMask(arrayLiteral: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
+            self?.hideClosedCourses.alpha = 1
             self?.modalView.setCornerRadius(at: 5)
             self?.modalView.transform = CGAffineTransform.identity
         }
@@ -91,8 +101,9 @@ class SchedulesOptionsModalView: UIViewController {
         settings.gapOrder = minimizeGaps.selectedSegmentIndex == 0 ? .asc : .desc
         settings.dayOrder = minimizeDays.selectedSegmentIndex == 0 ? .asc : .desc
         
-        UIView.animate(withDuration: 0.5, animations: { [weak self] in
+        UIView.animate(withDuration: 0.25, animations: { [weak self] in
             guard let strongSelf = self else { return }
+            self?.darkView.alpha = 0
             self?.darkView.alpha = 0
             self?.modalView.setCornerRadius(at: 0)
             strongSelf.modalView.transform = CGAffineTransform(translationX: 0,
