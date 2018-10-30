@@ -135,13 +135,19 @@ class CoursesVC: UIViewController {
     }
     
     @IBAction func scheduleOptionsTap() {
-        let optionPicker = SchedulesOptions(settings: settings) { }
+        let optionPicker = SchedulesOptionsModalView(settings: settings) { [weak self] (action, settings) in
+            self?.settings = settings
+            switch (action) {
+            case .build :
+                self?.performSegue(withIdentifier: "showSchedules", sender: nil)
+            case .save:
+                self?.performSegue(withIdentifier: "showSaved", sender: nil)
+            case .dismiss:
+                return
+            }
+        }
         optionPicker.modalPresentationStyle = .overCurrentContext
         present(optionPicker, animated: false, completion: nil)
-    }
-    
-    private func ddd(_ t: (action: SchedulesOptions.ExitAction, settings: ScheduleSearchOptions)) {
-        
     }
     
     private func displayTermPicker(_ terms: [String]) {

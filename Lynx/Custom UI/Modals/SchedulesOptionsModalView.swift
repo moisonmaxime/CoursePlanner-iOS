@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SchedulesOptions: UIViewController {
+class SchedulesOptionsModalView: UIViewController {
     
-    typealias ExitPayload = (action: ExitAction, options: ScheduleSearchOptions)
+    typealias ExitClosure = (_ action: ExitAction, _ options: ScheduleSearchOptions) -> Void
     
     enum ExitAction {
         case save
@@ -23,12 +23,12 @@ class SchedulesOptions: UIViewController {
     @IBOutlet weak var darkView: UIView!
     
     var settings: ScheduleSearchOptions
-    var completionHandler: () -> Void
+    var completionHandler: ExitClosure
     
-    init(settings: ScheduleSearchOptions, completionHandler: @escaping () -> Void) {
+    init(settings: ScheduleSearchOptions, completionHandler: @escaping ExitClosure) {
         self.settings = settings
         self.completionHandler = completionHandler
-        super.init(nibName: "SchedulesOptions", bundle: Bundle.main)
+        super.init(nibName: "SchedulesOptionsModalView", bundle: Bundle.main)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,6 +47,11 @@ class SchedulesOptions: UIViewController {
         self.darkView.alpha = 0
         modalView.transform = CGAffineTransform(translationX: 0,
                                                 y: modalView.frame.height - 86 - view.safeAreaInsets.bottom)
+        displayInitialSettings()
+    }
+    
+    private func displayInitialSettings() {
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,18 +70,18 @@ class SchedulesOptions: UIViewController {
     }
     
     @IBAction func buildTap() {
-        close()
+        close(.build)
     }
     
     @IBAction func savedSchedulesTap() {
-        close()
+        close(.save)
     }
     
     @IBAction func tappedOut() {
-        close()
+        close(.dismiss)
     }
     
-    func close() {
+    func close(_ action: ExitAction) {
         UIView.animate(withDuration: 0.5, animations: { [weak self] in
             guard let strongSelf = self else { return }
             self?.darkView.alpha = 0
@@ -85,13 +90,14 @@ class SchedulesOptions: UIViewController {
                                                                     y: strongSelf.modalView.frame.height - 86 - strongSelf.view.safeAreaInsets.bottom)
         }) { [weak self] _ in
             self?.dismiss(animated: false, completion: { [weak self] in
-                self?.completionHandler()
+                guard let strongSelf = self else { return }
+                self?.completionHandler(action, strongSelf.settings)
             })
         }
     }
 }
 
-extension SchedulesOptions: UIGestureRecognizerDelegate {
+extension SchedulesOptionsModalView: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         guard let touchedView = touch.view, !touchedView.isDescendant(of: modalView) else {
             return false

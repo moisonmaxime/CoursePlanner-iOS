@@ -31,8 +31,8 @@
 		1B644E372050EDAD00CA9264 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E362050EDAD00CA9264 /* RestAPI.swift */; };
 		1B71AC2B2187C993004CE491 /* Popup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B71AC292187C993004CE491 /* Popup.xib */; };
 		1B71AC2C2187C993004CE491 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B71AC2A2187C993004CE491 /* Popup.swift */; };
-		1B71AC2F2187D63E004CE491 /* SchedulesOptions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B71AC2D2187D63E004CE491 /* SchedulesOptions.xib */; };
-		1B71AC302187D63E004CE491 /* SchedulesOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B71AC2E2187D63E004CE491 /* SchedulesOptions.swift */; };
+		1B71AC2F2187D63E004CE491 /* SchedulesOptionsModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B71AC2D2187D63E004CE491 /* SchedulesOptionsModalView.xib */; };
+		1B71AC302187D63E004CE491 /* SchedulesOptionsModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B71AC2E2187D63E004CE491 /* SchedulesOptionsModalView.swift */; };
 		1B76605A2059AC69000929D5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7660592059AC69000929D5 /* LoginVC.swift */; };
 		1B76605E2059B089000929D5 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B76605D2059B089000929D5 /* RegisterVC.swift */; };
 		1B7C116A2071BC32001328E4 /* WeekCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7C11692071BC32001328E4 /* WeekCalendar.swift */; };
@@ -124,8 +124,8 @@
 		1B644E362050EDAD00CA9264 /* RestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPI.swift; sourceTree = "<group>"; };
 		1B71AC292187C993004CE491 /* Popup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Popup.xib; sourceTree = "<group>"; };
 		1B71AC2A2187C993004CE491 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
-		1B71AC2D2187D63E004CE491 /* SchedulesOptions.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchedulesOptions.xib; sourceTree = "<group>"; };
-		1B71AC2E2187D63E004CE491 /* SchedulesOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesOptions.swift; sourceTree = "<group>"; };
+		1B71AC2D2187D63E004CE491 /* SchedulesOptionsModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchedulesOptionsModalView.xib; sourceTree = "<group>"; };
+		1B71AC2E2187D63E004CE491 /* SchedulesOptionsModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesOptionsModalView.swift; sourceTree = "<group>"; };
 		1B7660592059AC69000929D5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1B76605D2059B089000929D5 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		1B7C11692071BC32001328E4 /* WeekCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCalendar.swift; sourceTree = "<group>"; };
@@ -388,8 +388,8 @@
 				1BB338572186BA370070F0C1 /* TermPicker.swift */,
 				1B71AC292187C993004CE491 /* Popup.xib */,
 				1B71AC2A2187C993004CE491 /* Popup.swift */,
-				1B71AC2D2187D63E004CE491 /* SchedulesOptions.xib */,
-				1B71AC2E2187D63E004CE491 /* SchedulesOptions.swift */,
+				1B71AC2D2187D63E004CE491 /* SchedulesOptionsModalView.xib */,
+				1B71AC2E2187D63E004CE491 /* SchedulesOptionsModalView.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -546,7 +546,7 @@
 				1BB338582186BA370070F0C1 /* TermPicker.xib in Resources */,
 				1BBFDB5520747A57003FBADE /* CourseCell.xib in Resources */,
 				1B71AC2B2187C993004CE491 /* Popup.xib in Resources */,
-				1B71AC2F2187D63E004CE491 /* SchedulesOptions.xib in Resources */,
+				1B71AC2F2187D63E004CE491 /* SchedulesOptionsModalView.xib in Resources */,
 				1B644E1C2050ED9F00CA9264 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,7 +606,7 @@
 				1B8F68D72079DDF900F0D14D /* ScheduleDetailsDataSource.swift in Sources */,
 				1B30D0882079643E0035158C /* UIColorExtension.swift in Sources */,
 				1BE4010B2134D2B30064F282 /* SignupResponse.swift in Sources */,
-				1B71AC302187D63E004CE491 /* SchedulesOptions.swift in Sources */,
+				1B71AC302187D63E004CE491 /* SchedulesOptionsModalView.swift in Sources */,
 				1B7C116A2071BC32001328E4 /* WeekCalendar.swift in Sources */,
 				1B71AC2C2187C993004CE491 /* Popup.swift in Sources */,
 				1BDEED552059F36B001FE6FB /* NavigationController.swift in Sources */,

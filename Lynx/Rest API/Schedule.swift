@@ -12,7 +12,7 @@ struct ScheduleSearchOptions {
         case asc, desc
     }
     var searchFullCourses: Bool = true
-    var gapOrder: Order = .desc
+    var gapOrder: Order = .asc
     var dayOrder: Order = .desc
     var earliest: Double = 700
     var latest: Double = 2300

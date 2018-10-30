@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SchedulesOptions" customModule="Lynx" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SchedulesOptionsModalView" customModule="Lynx" customModuleProvider="target">
             <connections>
                 <outlet property="buildButton" destination="O30-uK-KVN" id="OdL-Sk-Oce"/>
                 <outlet property="darkView" destination="jYE-pD-QtU" id="geS-BN-rT6"/>
@@ -51,41 +51,6 @@
                                 <action selector="buildTap" destination="-1" eventType="touchUpInside" id="7GL-JU-eTX"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latest Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQJ-wt-PLH">
-                            <rect key="frame" x="20" y="132" width="90" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gaps (min or max)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eaa-1G-G02">
-                            <rect key="frame" x="20" y="161" width="141" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Earliest Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edl-BS-9TZ">
-                            <rect key="frame" x="20" y="103" width="99" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days (min or max)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipy-Kv-97d">
-                            <rect key="frame" x="20" y="190" width="139" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Only open courses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1C-oq-iOO">
-                            <rect key="frame" x="20" y="219" width="143" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDS-wd-Srx">
                             <rect key="frame" x="20" y="17" width="48" height="48"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -118,17 +83,50 @@
                                 <action selector="tappedOut" destination="-1" eventType="touchUpInside" id="KtC-k0-6lI"/>
                             </connections>
                         </button>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="d9K-kD-tjH">
+                            <rect key="frame" x="56.5" y="98" width="262.5" height="29"/>
+                            <segments>
+                                <segment title="Show all courses"/>
+                                <segment title="Hide closed courses"/>
+                            </segments>
+                            <color key="tintColor" name="ButtonColor"/>
+                        </segmentedControl>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1gH-TM-ytU">
+                            <rect key="frame" x="56.5" y="142" width="262.5" height="29"/>
+                            <segments>
+                                <segment title="Minimize gaps"/>
+                                <segment title="Maximize gaps"/>
+                            </segments>
+                            <color key="tintColor" name="ButtonColor"/>
+                        </segmentedControl>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CQO-nG-Sqg">
+                            <rect key="frame" x="56.5" y="186" width="262.5" height="29"/>
+                            <segments>
+                                <segment title="Minimize Days"/>
+                                <segment title="Maximize Days"/>
+                            </segments>
+                            <color key="tintColor" name="ButtonColor"/>
+                        </segmentedControl>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="CQO-nG-Sqg" firstAttribute="centerX" secondItem="V9Z-Bf-gMa" secondAttribute="centerX" id="3Eu-RO-VS8"/>
+                        <constraint firstItem="CQO-nG-Sqg" firstAttribute="width" secondItem="V9Z-Bf-gMa" secondAttribute="width" multiplier="0.7" id="3Ne-OU-I36"/>
+                        <constraint firstItem="1gH-TM-ytU" firstAttribute="centerX" secondItem="d9K-kD-tjH" secondAttribute="centerX" id="6zP-64-F5m"/>
                         <constraint firstItem="O30-uK-KVN" firstAttribute="top" secondItem="V9Z-Bf-gMa" secondAttribute="top" constant="16" id="EuX-Un-ETR"/>
+                        <constraint firstItem="d9K-kD-tjH" firstAttribute="width" secondItem="V9Z-Bf-gMa" secondAttribute="width" multiplier="0.7" id="HeB-8I-s36"/>
                         <constraint firstItem="D6i-dV-DcT" firstAttribute="centerY" secondItem="O30-uK-KVN" secondAttribute="centerY" id="OT6-ur-Wsx"/>
                         <constraint firstItem="zDS-wd-Srx" firstAttribute="width" secondItem="zDS-wd-Srx" secondAttribute="height" multiplier="1:1" id="OpB-dg-Cio"/>
                         <constraint firstItem="zDS-wd-Srx" firstAttribute="leading" secondItem="V9Z-Bf-gMa" secondAttribute="leading" constant="20" id="QTK-sW-coF"/>
+                        <constraint firstItem="d9K-kD-tjH" firstAttribute="centerX" secondItem="V9Z-Bf-gMa" secondAttribute="centerX" id="Tom-ak-qi6"/>
+                        <constraint firstItem="1gH-TM-ytU" firstAttribute="top" secondItem="d9K-kD-tjH" secondAttribute="bottom" constant="16" id="VJR-yh-VL7"/>
+                        <constraint firstItem="d9K-kD-tjH" firstAttribute="top" secondItem="O30-uK-KVN" secondAttribute="bottom" constant="32" id="VKD-UK-yy8"/>
+                        <constraint firstItem="1gH-TM-ytU" firstAttribute="width" secondItem="V9Z-Bf-gMa" secondAttribute="width" multiplier="0.7" id="h6R-Sf-FyA"/>
                         <constraint firstItem="zDS-wd-Srx" firstAttribute="centerY" secondItem="O30-uK-KVN" secondAttribute="centerY" id="k54-ZZ-pQZ"/>
                         <constraint firstItem="D6i-dV-DcT" firstAttribute="width" secondItem="D6i-dV-DcT" secondAttribute="height" multiplier="1:1" id="lGE-ku-26Q"/>
                         <constraint firstAttribute="trailing" secondItem="D6i-dV-DcT" secondAttribute="trailing" constant="20" id="mID-bT-Tej"/>
                         <constraint firstItem="O30-uK-KVN" firstAttribute="centerX" secondItem="V9Z-Bf-gMa" secondAttribute="centerX" id="rNF-2x-rnW"/>
+                        <constraint firstItem="CQO-nG-Sqg" firstAttribute="top" secondItem="1gH-TM-ytU" secondAttribute="bottom" constant="16" id="uIR-PY-maK"/>
                     </constraints>
                 </view>
             </subviews>
