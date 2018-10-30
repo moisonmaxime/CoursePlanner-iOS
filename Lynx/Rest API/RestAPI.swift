@@ -270,8 +270,9 @@ class RestAPI {
         postContent["search_full"] = !openOnly
         postContent["gaps"] = gaps.rawValue
         postContent["days"] = days.rawValue
-        postContent["earliest"] = Int(earliest)
-        postContent["latest"] = Int(latest)
+        postContent["earliest"] = earliest
+        postContent["latest"] = latest
+        postContent["filters"] = true
         if badCRNs != nil {
             postContent["bad_crns"] = badCRNs!
         }
