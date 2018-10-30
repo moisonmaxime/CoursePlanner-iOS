@@ -93,9 +93,6 @@
                                 <segment title="Hide closed courses"/>
                             </segments>
                             <color key="tintColor" name="ButtonColor"/>
-                            <connections>
-                                <action selector="changeHideClosedCourses" destination="-1" eventType="valueChanged" id="DpZ-mr-iyT"/>
-                            </connections>
                         </segmentedControl>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1gH-TM-ytU">
                             <rect key="frame" x="56.5" y="166" width="262.5" height="29"/>
@@ -104,9 +101,6 @@
                                 <segment title="Maximize gaps"/>
                             </segments>
                             <color key="tintColor" name="ButtonColor"/>
-                            <connections>
-                                <action selector="changeMinimizeGaps" destination="-1" eventType="valueChanged" id="fnd-91-AWp"/>
-                            </connections>
                         </segmentedControl>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CQO-nG-Sqg">
                             <rect key="frame" x="56.5" y="210" width="262.5" height="29"/>
@@ -115,9 +109,6 @@
                                 <segment title="Maximize Days"/>
                             </segments>
                             <color key="tintColor" name="ButtonColor"/>
-                            <connections>
-                                <action selector="changeMinimizeDays" destination="-1" eventType="valueChanged" id="IRt-1b-RKX"/>
-                            </connections>
                         </segmentedControl>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

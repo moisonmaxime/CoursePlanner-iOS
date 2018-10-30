@@ -74,18 +74,6 @@ class SchedulesOptionsModalView: UIViewController {
         }
     }
     
-    @IBAction func changeHideClosedCourses() {
-         settings.searchFullCourses = hideClosedCourses.selectedSegmentIndex == 0
-    }
-    
-    @IBAction func changeMinimizeGaps() {
-        settings.gapOrder = hideClosedCourses.selectedSegmentIndex == 0 ? .asc : .desc
-    }
-    
-    @IBAction func changeMinimizeDays() {
-        settings.dayOrder = hideClosedCourses.selectedSegmentIndex == 0 ? .asc : .desc
-    }
-    
     @IBAction func buildTap() {
         close(.build)
     }
@@ -99,6 +87,10 @@ class SchedulesOptionsModalView: UIViewController {
     }
     
     func close(_ action: ExitAction) {
+        settings.searchFullCourses = hideClosedCourses.selectedSegmentIndex == 0
+        settings.gapOrder = minimizeGaps.selectedSegmentIndex == 0 ? .asc : .desc
+        settings.dayOrder = minimizeDays.selectedSegmentIndex == 0 ? .asc : .desc
+        
         UIView.animate(withDuration: 0.5, animations: { [weak self] in
             guard let strongSelf = self else { return }
             self?.darkView.alpha = 0

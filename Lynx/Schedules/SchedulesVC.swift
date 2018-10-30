@@ -53,11 +53,7 @@ class SchedulesVC: UIViewController {
         
         RestAPI.getSchedules(term: term,
                              courses: courses,
-                             openOnly: !settings.searchFullCourses,
-                             gaps: settings.gapOrder,
-                             days: settings.dayOrder,
-                             earliest: settings.earliest,
-                             latest: settings.latest,
+                             searchOptions: settings,
                              badCRNs: badCRNs,
                              completionHandler: { [weak self] schedules in
                                 self?.navigationController?.didFinishLoading()

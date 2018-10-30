@@ -14,8 +14,8 @@ struct ScheduleSearchOptions {
     var searchFullCourses: Bool = true
     var gapOrder: Order = .asc
     var dayOrder: Order = .desc
-    var earliest: Int = 700
-    var latest: Int = 2300
+    var earliest: Int = 630
+    var latest: Int = 2330
 }
 
 struct Schedule: Codable, Equatable {
