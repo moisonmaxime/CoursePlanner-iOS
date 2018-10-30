@@ -21,6 +21,9 @@ class SchedulesOptionsModalView: UIViewController {
     @IBOutlet weak var buildButton: UIButton!
     @IBOutlet weak var modalView: UIView!
     @IBOutlet weak var darkView: UIView!
+    @IBOutlet weak var hideClosedCourses: UISegmentedControl!
+    @IBOutlet weak var minimizeGaps: UISegmentedControl!
+    @IBOutlet weak var minimizeDays: UISegmentedControl!
     
     var settings: ScheduleSearchOptions
     var completionHandler: ExitClosure
@@ -51,7 +54,9 @@ class SchedulesOptionsModalView: UIViewController {
     }
     
     private func displayInitialSettings() {
-        
+        hideClosedCourses.selectedSegmentIndex = settings.searchFullCourses ? 0 : 1
+        minimizeGaps.selectedSegmentIndex = settings.gapOrder == .asc ? 0 : 1
+        minimizeDays.selectedSegmentIndex = settings.dayOrder == .asc ? 0 : 1
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,6 +72,18 @@ class SchedulesOptionsModalView: UIViewController {
             self?.modalView.setCornerRadius(at: 5)
             self?.modalView.transform = CGAffineTransform.identity
         }
+    }
+    
+    @IBAction func changeHideClosedCourses() {
+         settings.searchFullCourses = hideClosedCourses.selectedSegmentIndex == 0
+    }
+    
+    @IBAction func changeMinimizeGaps() {
+        settings.gapOrder = hideClosedCourses.selectedSegmentIndex == 0 ? .asc : .desc
+    }
+    
+    @IBAction func changeMinimizeDays() {
+        settings.dayOrder = hideClosedCourses.selectedSegmentIndex == 0 ? .asc : .desc
     }
     
     @IBAction func buildTap() {
