@@ -268,9 +268,8 @@ class RestAPI {
                                           "search_full": searchOptions.searchFullCourses,
                                           "gaps": searchOptions.gapOrder.rawValue,
                                           "days": searchOptions.dayOrder.rawValue,
-                                          "earliest": searchOptions.earliest,
-                                          "latest": searchOptions.latest,
-                                          "filters": true]
+                                          "earliest_time": searchOptions.earliest,
+                                          "latest_time": searchOptions.latest]
         if badCRNs != nil {
             postContent["bad_crns"] = badCRNs!
         }

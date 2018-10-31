@@ -28,20 +28,26 @@ class SchedulesOptionsModalView: UIViewController {
     @IBOutlet weak var earliestMinusButton: UIButton!
     @IBOutlet weak var latestPlusButton: UIButton!
     @IBOutlet weak var latestMinusButton: UIButton!
+    @IBOutlet weak var earliestLabel: UILabel!
+    @IBOutlet weak var latestLabel: UILabel!
     
     var settings: ScheduleSearchOptions
     var completionHandler: ExitClosure
+    
+    var earliest: Double = 0
+    var latest: Double = 0
     
     init(settings: ScheduleSearchOptions, completionHandler: @escaping ExitClosure) {
         self.settings = settings
         self.completionHandler = completionHandler
         super.init(nibName: "SchedulesOptionsModalView", bundle: Bundle.main)
+        self.earliest = convertTime(settings.earliest)
+        self.latest = convertTime(settings.latest)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +73,7 @@ class SchedulesOptionsModalView: UIViewController {
         hideClosedCourses.selectedSegmentIndex = settings.searchFullCourses ? 0 : 1
         minimizeGaps.selectedSegmentIndex = settings.gapOrder == .asc ? 0 : 1
         minimizeDays.selectedSegmentIndex = settings.dayOrder == .asc ? 0 : 1
+        updateTimeLabels()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,6 +89,52 @@ class SchedulesOptionsModalView: UIViewController {
             self?.modalView.setCornerRadius(at: 5)
             self?.modalView.transform = CGAffineTransform.identity
         }
+    }
+    
+    // MARK: change times +/-
+    @IBAction func earliestMinusTap() {
+        earliest -= 0.5
+        updateTimeLabels()
+    }
+    @IBAction func earliestPlusTap() {
+        earliest += 0.5
+        updateTimeLabels()
+    }
+    
+    @IBAction func latestMinusTap() {
+        latest -= 0.5
+        updateTimeLabels()
+    }
+    @IBAction func latestPlusTap() {
+        latest += 0.5
+        updateTimeLabels()
+    }
+    
+    // MARK: Time conversion
+    private func convertTime(_ time: Int) -> Double {
+        return Double(time/100) + Double(time%100)/60
+    }
+    private func convertTime(_ time: Double) -> Int {
+        return Int(time) * 100 + Int(60 * (time - Double(Int(time))))
+    }
+    private func timeString(_ time: Double) -> String {
+        let isAM = Int(time) / 12 == 0
+        let hours = "\(isAM || Int(time) == 12 ? Int(time) : Int(time) - 12)"
+        let minutes = "\(convertTime(time)%100)".padding(toLength: 2, withPad: "0", startingAt: 0)
+        return "\(hours):\(minutes) \(isAM ? "am" : "pm")"
+    }
+    
+    private func updateTimeLabels() {
+        updateButtons()
+        earliestLabel.text = "Earliest: \(timeString(earliest))"
+        latestLabel.text = "Latest: \(timeString(latest))"
+    }
+    
+    private func updateButtons() {
+        earliestPlusButton.isEnabled = earliest < 23.5
+        earliestMinusButton.isEnabled = earliest > 6.5
+        latestPlusButton.isEnabled = latest < 23.5
+        latestMinusButton.isEnabled = latest > 6.5
     }
     
     @IBAction func buildTap() {
@@ -100,6 +153,8 @@ class SchedulesOptionsModalView: UIViewController {
         settings.searchFullCourses = hideClosedCourses.selectedSegmentIndex == 0
         settings.gapOrder = minimizeGaps.selectedSegmentIndex == 0 ? .asc : .desc
         settings.dayOrder = minimizeDays.selectedSegmentIndex == 0 ? .asc : .desc
+        settings.earliest = convertTime(earliest)
+        settings.latest = convertTime(latest)
         
         UIView.animate(withDuration: 0.25, animations: { [weak self] in
             guard let strongSelf = self else { return }
