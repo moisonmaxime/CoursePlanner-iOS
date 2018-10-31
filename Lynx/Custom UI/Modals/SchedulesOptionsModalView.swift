@@ -159,7 +159,7 @@ class SchedulesOptionsModalView: UIViewController {
         UIView.animate(withDuration: 0.25, animations: { [weak self] in
             guard let strongSelf = self else { return }
             self?.darkView.alpha = 0
-            self?.darkView.alpha = 0
+            self?.hideClosedCourses.alpha = 0
             self?.modalView.setCornerRadius(at: 0)
             strongSelf.modalView.transform = CGAffineTransform(translationX: 0,
                                                                     y: strongSelf.modalView.frame.height - 86 - strongSelf.view.safeAreaInsets.bottom)

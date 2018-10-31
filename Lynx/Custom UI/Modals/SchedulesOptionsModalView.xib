@@ -38,7 +38,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9Z-Bf-gMa">
-                    <rect key="frame" x="0.0" y="203" width="375" height="609"/>
+                    <rect key="frame" x="0.0" y="404" width="375" height="408"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O30-uK-KVN">
                             <rect key="frame" x="128.66666666666666" y="16" width="118" height="50"/>
@@ -117,13 +117,13 @@
                             <color key="tintColor" name="ButtonColor"/>
                         </segmentedControl>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest: 11:30pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QB7-td-c2q">
-                            <rect key="frame" x="128" y="283.66666666666669" width="119" height="21"/>
+                            <rect key="frame" x="128" y="283.66666666666663" width="119" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earliest: 6:30am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MQY-a6-AjO">
-                            <rect key="frame" x="126" y="235.66666666666669" width="123" height="21"/>
+                            <rect key="frame" x="126" y="235.66666666666663" width="123" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -228,10 +228,10 @@
                 <constraint firstAttribute="bottom" secondItem="V9Z-Bf-gMa" secondAttribute="bottom" id="20c-Nl-ccc"/>
                 <constraint firstItem="V9Z-Bf-gMa" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="48Z-sC-iUN"/>
                 <constraint firstItem="V9Z-Bf-gMa" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="9FP-YM-ach"/>
-                <constraint firstItem="V9Z-Bf-gMa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.75" id="AKS-3o-Wj1"/>
                 <constraint firstItem="jYE-pD-QtU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EKR-Gp-yzV"/>
                 <constraint firstAttribute="trailing" secondItem="jYE-pD-QtU" secondAttribute="trailing" id="EKz-f0-QQi"/>
                 <constraint firstAttribute="bottom" secondItem="jYE-pD-QtU" secondAttribute="bottom" id="MyT-Fs-v0g"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="po8-0v-Jer" secondAttribute="bottom" constant="64" id="sYq-fD-GMW"/>
                 <constraint firstItem="jYE-pD-QtU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xGU-cU-xFp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
