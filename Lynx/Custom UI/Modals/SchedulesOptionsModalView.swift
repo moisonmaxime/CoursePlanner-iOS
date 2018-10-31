@@ -86,7 +86,7 @@ class SchedulesOptionsModalView: UIViewController {
         UIView.animate(withDuration: 0.25) { [weak self] in
             self?.darkView.alpha = 1
             self?.hideClosedCourses.alpha = 1
-            self?.modalView.setCornerRadius(at: 5)
+            self?.modalView.setCornerRadius(at: 15)
             self?.modalView.transform = CGAffineTransform.identity
         }
     }
