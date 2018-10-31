@@ -43,6 +43,7 @@ class SchedulesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        warningButton.isHidden = true
         termLabel.text = term?.readableTerm()
         getInitialData()
         warningButton.setCornerRadius(at: 20)
@@ -104,6 +105,11 @@ class SchedulesVC: UIViewController {
             next(sender)
         }
     }
+    
+    @IBAction func warningTap() {
+        displayAlert(title: "Warning", message: "This schedule has conflicting finals", handler: nil)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
