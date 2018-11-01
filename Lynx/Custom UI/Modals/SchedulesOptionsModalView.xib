@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -30,18 +30,18 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYE-pD-QtU">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9Z-Bf-gMa">
-                    <rect key="frame" x="0.0" y="404" width="375" height="408"/>
+                    <rect key="frame" x="0.0" y="488" width="414" height="408"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O30-uK-KVN">
-                            <rect key="frame" x="128.66666666666666" y="16" width="118" height="50"/>
+                            <rect key="frame" x="148" y="16" width="118" height="50"/>
                             <color key="backgroundColor" name="ButtonColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="118" id="DSX-ic-Fgm"/>
@@ -80,7 +80,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6i-dV-DcT">
-                            <rect key="frame" x="307" y="17" width="48" height="48"/>
+                            <rect key="frame" x="346" y="17" width="48" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="D6i-dV-DcT" secondAttribute="height" multiplier="1:1" id="rcx-js-meJ"/>
                                 <constraint firstAttribute="height" constant="48" id="yrb-0c-5db"/>
@@ -93,15 +93,15 @@
                             </connections>
                         </button>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="d9K-kD-tjH">
-                            <rect key="frame" x="56.333333333333343" y="98" width="262.33333333333326" height="29"/>
+                            <rect key="frame" x="62" y="98" width="290" height="29"/>
                             <segments>
-                                <segment title="Show all courses"/>
-                                <segment title="Hide full ones"/>
+                                <segment title="All courses"/>
+                                <segment title="Open courses"/>
                             </segments>
                             <color key="tintColor" name="ButtonColor"/>
                         </segmentedControl>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1gH-TM-ytU">
-                            <rect key="frame" x="56.333333333333343" y="142" width="262.33333333333326" height="29"/>
+                            <rect key="frame" x="62" y="142" width="290" height="29"/>
                             <segments>
                                 <segment title="Minimize gaps"/>
                                 <segment title="Maximize gaps"/>
@@ -109,7 +109,7 @@
                             <color key="tintColor" name="ButtonColor"/>
                         </segmentedControl>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CQO-nG-Sqg">
-                            <rect key="frame" x="56.333333333333343" y="186" width="262.33333333333326" height="29"/>
+                            <rect key="frame" x="62" y="186" width="290" height="29"/>
                             <segments>
                                 <segment title="Minimize Days"/>
                                 <segment title="Maximize Days"/>
@@ -117,19 +117,19 @@
                             <color key="tintColor" name="ButtonColor"/>
                         </segmentedControl>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest: 11:30pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QB7-td-c2q">
-                            <rect key="frame" x="128" y="283.66666666666663" width="119" height="21"/>
+                            <rect key="frame" x="147.5" y="283.5" width="119" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earliest: 6:30am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MQY-a6-AjO">
-                            <rect key="frame" x="126" y="235.66666666666663" width="123" height="21"/>
+                            <rect key="frame" x="145.5" y="235.5" width="123" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6g-wE-Qw4">
-                            <rect key="frame" x="286.66666666666669" y="230" width="32" height="32"/>
+                            <rect key="frame" x="320" y="230" width="32" height="32"/>
                             <color key="backgroundColor" name="ButtonColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="A6g-wE-Qw4" secondAttribute="height" multiplier="1:1" id="dHt-9y-VEO"/>
@@ -143,7 +143,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogW-3v-jQ0">
-                            <rect key="frame" x="286.66666666666669" y="278" width="32" height="32"/>
+                            <rect key="frame" x="320" y="278" width="32" height="32"/>
                             <color key="backgroundColor" name="ButtonColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="ogW-3v-jQ0" secondAttribute="height" multiplier="1:1" id="kvN-ao-epX"/>
@@ -157,7 +157,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="po8-0v-Jer">
-                            <rect key="frame" x="56.333333333333343" y="278" width="32" height="32"/>
+                            <rect key="frame" x="62" y="278" width="32" height="32"/>
                             <color key="backgroundColor" name="ButtonColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="po8-0v-Jer" secondAttribute="height" multiplier="1:1" id="QyX-og-W9o"/>
@@ -171,7 +171,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pi-Ev-2H3">
-                            <rect key="frame" x="56.333333333333343" y="230" width="32" height="32"/>
+                            <rect key="frame" x="62" y="230" width="32" height="32"/>
                             <color key="backgroundColor" name="ButtonColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="2Pi-Ev-2H3" secondAttribute="height" multiplier="1:1" id="K5p-Dl-0ve"/>
@@ -238,10 +238,10 @@
         </view>
     </objects>
     <resources>
-        <image name="Bookmark" width="144" height="144"/>
-        <image name="Filters" width="144" height="144"/>
-        <image name="Minus" width="144" height="144"/>
-        <image name="Plus" width="144" height="144"/>
+        <image name="Bookmark" width="96" height="96"/>
+        <image name="Filters" width="96" height="96"/>
+        <image name="Minus" width="96" height="96"/>
+        <image name="Plus" width="96" height="96"/>
         <namedColor name="ButtonColor">
             <color red="0.34901960784313724" green="0.6470588235294118" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
