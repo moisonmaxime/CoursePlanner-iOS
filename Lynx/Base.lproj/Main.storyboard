@@ -371,7 +371,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="loginClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AT2-uL-rmK"/>
+                                    <action selector="registerPressed:" destination="JlZ-CH-N0H" eventType="touchUpInside" id="Dch-ll-BXS"/>
                                 </connections>
                             </button>
                         </subviews>
