@@ -68,7 +68,7 @@ class ProfileVC: UIViewController {
 
     @IBAction func logout() {
 
-        UserSettings.accessKey = nil
+        UserSettings.clear()
 
         self.dismiss(animated: true, completion: {
             let nav = UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController

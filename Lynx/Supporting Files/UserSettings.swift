@@ -89,6 +89,7 @@ extension UserSettings {
         } else {
             UserDefaults.standard.removeObject(forKey: key.rawValue)
         }
+        UserDefaults.standard.synchronize()
     }
     
     private static func get(_ key: UserSettingKey) -> Any? {
