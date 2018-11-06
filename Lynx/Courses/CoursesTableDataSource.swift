@@ -19,17 +19,33 @@ extension CoursesVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuickCourseCell") as? QuickCourseCell else {
+        if tableView == searchTable {
+            return searchCell(for: indexPath.row)
+        } else {
+            return selectedCell(for: indexPath.row)
+        }
+    }
+    
+    func searchCell(for index: Int) -> UITableViewCell {
+        guard let cell = searchTable.dequeueReusableCell(withIdentifier: "QuickCourseCell") as? QuickCourseCell else {
             return UITableViewCell()
         }
         cell.selectionStyle = .none // no selection style
-        let isSearchTable = tableView == searchTable
-        let course = isSearchTable ? searchedCourses[indexPath.row] : selectedCourses[indexPath.row]
-        let isSelected = isSearchTable ? selectedCourses.contains(course) : false
-        let hasDetails = !isSearchTable
-
-        cell.load(with: QuickCourseCellPayload(hasDetails: hasDetails,
-                                               isSelected: isSelected,
+        let course = searchedCourses[index]
+        cell.load(with: QuickCourseCellPayload(hasDetails: false,
+                                               isSelected: selectedCourses.contains(course),
+                                               course: course))
+        return cell
+    }
+    
+    func selectedCell(for index: Int) -> UITableViewCell {
+        guard let cell = selectedTable.dequeueReusableCell(withIdentifier: "QuickCourseCell") as? QuickCourseCell else {
+            return UITableViewCell()
+        }
+        cell.selectionStyle = .none // no selection style
+        let course = selectedCourses[index]
+        cell.load(with: QuickCourseCellPayload(hasDetails: true,
+                                               isSelected: false,
                                                course: course))
         return cell
     }

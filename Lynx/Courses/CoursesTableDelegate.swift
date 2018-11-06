@@ -11,21 +11,31 @@ import UIKit
 extension CoursesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == searchTable {
-            let course = searchedCourses[indexPath.row]
-            if !removeCourse(course) {
-                selectedCourses.append(course)  // try to remove if fail add
-            }
-            let cell = searchTable.cellForRow(at: indexPath) as? QuickCourseCell
-            cell?.setSelected(selectedCourses.contains(course), animated: false)
-            cell?.updateView()
-            selectedTable.reloadData()
+            tapSearchCell(indexPath)
         } else {
-            if let destination = (storyboard?.instantiateViewController(withIdentifier: "Sections"))! as? SectionsVC {
-                destination.course = selectedCourses[indexPath.row]
-                destination.sectionsDelegate = self
-                destination.term = term
-                self.navigationController?.pushViewController(destination, animated: true)
-            }
+            tapSelectedCell(indexPath)
+        }
+    }
+    
+    
+    private func tapSearchCell(_ indexPath: IndexPath) {
+        let course = searchedCourses[indexPath.row]
+        if !removeCourse(course) {
+            selectedCourses.append(course)  // try to remove if fail add
+        }
+        let cell = searchTable.cellForRow(at: indexPath) as? QuickCourseCell
+        cell?.setSelected(selectedCourses.contains(course), animated: false)
+        cell?.updateView()
+        selectedTable.reloadData()
+    }
+    
+    
+    private func tapSelectedCell(_ indexPath: IndexPath) {
+        if let destination = (storyboard?.instantiateViewController(withIdentifier: "Sections"))! as? SectionsVC {
+            destination.course = selectedCourses[indexPath.row]
+            destination.sectionsDelegate = self
+            destination.term = term
+            self.navigationController?.pushViewController(destination, animated: true)
         }
     }
 

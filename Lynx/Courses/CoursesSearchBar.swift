@@ -30,7 +30,9 @@ extension CoursesVC {
 
         timer?.invalidate()
 
-        timer = Timer(timeInterval: 0.25, repeats: false, block: { [weak self] _ in
+        timer = Timer(timeInterval: 0.25,
+                      repeats: false,
+                      block: { [weak self] _ in
             guard let strongSelf = self else { return }
             RestAPI.searchCourseIDs(id: searchPrompt,
                                     term: strongSelf.term,
