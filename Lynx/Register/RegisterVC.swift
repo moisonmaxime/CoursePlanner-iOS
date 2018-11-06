@@ -99,10 +99,11 @@ class RegisterVC: UIViewController {
 
         // API Call to register (transition to Homepage if successful)
         self.navigationController?.didStartLoading()
-        RestAPI.signup(user: username, password: password, first: firstName, last: lastName, email: email, completionHandler: {
-            self.navigationController?.setAnimationType(type: FadingAnimation.self, forever: false)
-            let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-            self.navigationController?.setViewControllers([home!], animated: true)
+        RestAPI.signup(user: username, password: password, first: firstName, last: lastName, email: email, completionHandler: { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.navigationController?.setAnimationType(type: FadingAnimation.self, forever: false)
+            let home = strongSelf.storyboard?.instantiateViewController(withIdentifier: "Home")
+            strongSelf.navigationController?.setViewControllers([home!], animated: true)
         }, errorHandler: handleError)
     }
     /*

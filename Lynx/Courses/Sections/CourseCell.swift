@@ -30,8 +30,8 @@ class CourseCell: UITableViewCell {
     
     private func updateView() {
         let newAlpha: CGFloat = isAvailable ? 1 : 0.2
-        DispatchQueue.main.async {
-            self.alpha = newAlpha
+        DispatchQueue.main.async { [weak self] in
+            self?.alpha = newAlpha
         }
     }
 }

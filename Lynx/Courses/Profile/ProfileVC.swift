@@ -61,8 +61,8 @@ class ProfileVC: UIViewController {
                 return
         }
 
-        RestAPI.changePassword(oldPass: oldPass, newPass: password, completionHandler: {
-            self.displayAlert(title: "Success", message: "Your Password was changed")
+        RestAPI.changePassword(oldPass: oldPass, newPass: password, completionHandler: { [weak self] in
+            self?.displayAlert(title: "Success", message: "Your Password was changed")
         }, errorHandler: handleError)
     }
 
@@ -70,10 +70,11 @@ class ProfileVC: UIViewController {
 
         UserSettings.clear()
 
-        self.dismiss(animated: true, completion: {
+        self.dismiss(animated: true, completion: { [weak self] in
+            guard let strongSelf = self else { return }
             let nav = UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController
             nav?.setAnimationType(type: FadingAnimation.self, forever: false)
-            let home = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+            let home = strongSelf.storyboard?.instantiateViewController(withIdentifier: "Login")
             nav?.setViewControllers([home!], animated: true)
         })
     }

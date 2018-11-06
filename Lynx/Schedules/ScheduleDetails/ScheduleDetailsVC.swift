@@ -50,14 +50,12 @@ class ScheduleDetailsVC: UIViewController {
             RestAPI.deleteSchedule(term: delegate.getTerm(),
                                    crns: delegate.getSchedule().crns,
                                    customEvents: delegate.getSchedule().customEvents,
-                                   completionHandler: {
-                self.didFinishLoading()
-                delegate.removeScheduleLocally()
-                self.dismiss(animated: true, completion: nil)
-            }, errorHandler: { error in
-                DispatchQueue.main.async { self.didFinishLoading() }
-                self.handleError(error: error)
-            })
+                                   completionHandler: { [weak self] in
+                                    guard let strongSelf = self else { return }
+                                    strongSelf.didFinishLoading()
+                                    delegate.removeScheduleLocally()
+                                    strongSelf.dismiss(animated: true, completion: nil)
+                }, errorHandler: handleError)
         } else {
             RestAPI.saveSchedule(term: detailDelegate.getTerm(),
                                  crns: detailDelegate.getSchedule().crns,

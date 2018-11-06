@@ -34,10 +34,11 @@ class SectionsVC: UIViewController {
         self.sectionTable.register(nib, forCellReuseIdentifier: "CourseCell")
 
         self.navigationController?.didStartLoading(immediately: true)
-        RestAPI.getSections(term: term!, id: course.name, completionHandler: { sections in
-            self.navigationController?.didFinishLoading()
-            self.sections = sections
-            self.sectionTable.reloadData()
+        RestAPI.getSections(term: term!, id: course.name, completionHandler: { [weak self] sections in
+            guard let strongSelf = self else { return }
+            strongSelf.navigationController?.didFinishLoading()
+            strongSelf.sections = sections
+            strongSelf.sectionTable.reloadData()
         }, errorHandler: handleError)
         // Do any additional setup after loading the view.
     }

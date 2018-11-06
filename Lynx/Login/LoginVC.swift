@@ -34,10 +34,11 @@ class LoginVC: UIViewController {
             return
         }
 
-        RestAPI.login(user: user, password: password, completionHandler: {
-            self.navigationController?.setAnimationType(type: FadingAnimation.self, forever: false)
-            let home = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-            self.navigationController?.setViewControllers([home!], animated: true)
+        RestAPI.login(user: user, password: password, completionHandler: { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.navigationController?.setAnimationType(type: FadingAnimation.self, forever: false)
+            let home = strongSelf.storyboard?.instantiateViewController(withIdentifier: "Home")
+            strongSelf.navigationController?.setViewControllers([home!], animated: true)
         }, errorHandler: handleError)
     }
 
