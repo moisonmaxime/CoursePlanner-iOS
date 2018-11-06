@@ -74,8 +74,8 @@ class UserSettings {
 
 
 
-extension UserSettings {
-    private enum UserSettingKey: String {
+private extension UserSettings {
+    enum UserSettingKey: String {
         case accessKey = "access_tokey"
         case refreshKey = "refresh_token"
         case defaultTerm = "default_term"
@@ -83,7 +83,7 @@ extension UserSettings {
         case availableTerms = "available_terms"
     }
     
-    private static func set(key: UserSettingKey, value: Any?) {
+    static func set(key: UserSettingKey, value: Any?) {
         if let newValue = value {
             UserDefaults.standard.set(newValue, forKey: key.rawValue)
         } else {
@@ -92,7 +92,7 @@ extension UserSettings {
         UserDefaults.standard.synchronize()
     }
     
-    private static func get(_ key: UserSettingKey) -> Any? {
+    static func get(_ key: UserSettingKey) -> Any? {
         return UserDefaults.standard.object(forKey: key.rawValue)
     }
 }

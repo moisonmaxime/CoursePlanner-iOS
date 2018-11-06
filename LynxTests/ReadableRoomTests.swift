@@ -6,6 +6,7 @@
 //  Copyright © 2018 Maxime Moison. All rights reserved.
 //
 
+@testable import Lynx
 import XCTest
 
 class ReadableRoomTests: XCTestCase {
