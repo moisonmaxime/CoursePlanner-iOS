@@ -10,54 +10,47 @@ import UIKit
 
 extension SectionsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
+        // deal with adding/removing from badCRNs accordingly
+        
         let crn = sections[indexPath.row].crn
-        let attached = sections[indexPath.row].attachedCourse
-        let lecture = sections[indexPath.row].lecture
-        let dependents = sections[indexPath.row].dependents
-
-        if attached != nil {
-            if sectionsDelegate.removeCRN(attached!) {
+        
+        let isRemoving = sectionsDelegate.removeCRN(crn)
+        if !isRemoving { sectionsDelegate.addCRN(crn) }
+        
+        updateAvailability(for: crn)
+        
+        if let attached = sections[indexPath.row].attachedCourse {
+            if isRemoving {
+                _ = sectionsDelegate.removeCRN(attached)
             } else {
-                sectionsDelegate.addCRN(attached!)
+                sectionsDelegate.addCRN(attached)
             }
+            updateAvailability(for: attached)
         }
 
-        if let lecture = lecture {
-            _ = sectionsDelegate.removeCRN(lecture)
+        if let lecture = sections[indexPath.row].lecture {
+            if isRemoving {
+                _ = sectionsDelegate.removeCRN(lecture)
+            }
+            updateAvailability(for: lecture)
         }
 
-        if !sectionsDelegate.removeCRN(crn) {
-            sectionsDelegate.addCRN(crn)
-            for dependent in dependents {
+        for dependent in sections[indexPath.row].dependents {
+            if isRemoving {
+                _ = sectionsDelegate.removeCRN(dependent)
+            } else {
                 sectionsDelegate.addCRN(dependent)
             }
-        } else {
-            for dependent in dependents {
-                _ = sectionsDelegate.removeCRN(dependent)
-            }
-        }
-
-        let mainCell = sectionTable.cellForRow(at: indexPath) as? CourseCell
-        mainCell?.updateAvailability(sectionsDelegate.getBadCRNs())
-        mainCell?.updateView()
-
-        updateAvailability(for: attached)
-        updateAvailability(for: lecture)
-
-        for dependent in dependents {
             updateAvailability(for: dependent)
         }
     }
 
-    func updateAvailability(for crn: String?) {
-        guard crn != nil else {
-            return
-        }
+    func updateAvailability(for crn: String) {
         if let indexFound = sections.index(where: { (section) -> Bool in return section.crn == crn }) {
             if let cell = sectionTable.cellForRow(at: IndexPath(row: indexFound, section: 0)) as? CourseCell {
-                cell.updateAvailability(sectionsDelegate.getBadCRNs())
-                cell.updateView()
+                let isAvailable = !sectionsDelegate.getBadCRNs().contains(crn)
+                cell.update(isAvailable)
             }
         }
     }

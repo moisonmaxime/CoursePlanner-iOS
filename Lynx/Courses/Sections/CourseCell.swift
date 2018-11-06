@@ -20,17 +20,27 @@ class CourseCell: UITableViewCell {
     @IBOutlet weak var seatsLabel: UILabel!
     @IBOutlet weak var finalLabel: UILabel!
     
-    var section: Section!
-    var isAvailable: Bool = true
-    var neededCRN: String?
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    private var section: Section!
+    private var isAvailable: Bool = true
+    
+    func update(_ isAvailable: Bool) {
+        self.isAvailable = isAvailable
+        updateView()
     }
+    
+    private func updateView() {
+        let newAlpha: CGFloat = isAvailable ? 1 : 0.2
+        DispatchQueue.main.async {
+            self.alpha = newAlpha
+        }
+    }
+}
 
-    func setup(section: Section) {
-        self.section = section
+extension CourseCell: CellLoadable {
+    typealias PayloadType = (section: Section, isAvailable: Bool)
+    
+    func load(with payload: PayloadType) {
+        self.section = payload.section
         courseIDLabel.text = section.courseID
         daysLabel.text = section.days
         hoursLabel.text = section.hours
@@ -49,20 +59,6 @@ class CourseCell: UITableViewCell {
             let finalHours = section.finalHours {
             finalLabel.text = "Final \(finalDays) \(finalHours)"
         }
-    }
-
-    func updateAvailability(_ badCRNs: [String]) {
-
-        if badCRNs.contains(section.crn) {
-            isAvailable = false
-        } else {
-            isAvailable = true
-            neededCRN = nil
-        }
-    }
-
-    func updateView() {
-        let newAlpha: CGFloat = isAvailable ? 1 : 0.2
-        self.alpha = newAlpha
+        update(payload.isAvailable)
     }
 }

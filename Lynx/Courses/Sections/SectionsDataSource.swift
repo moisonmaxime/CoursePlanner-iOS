@@ -16,9 +16,9 @@ extension SectionsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as? CourseCell
         cell?.selectionStyle = .none
-        cell?.setup(section: sections[indexPath.row])
-        cell?.updateAvailability(sectionsDelegate.getBadCRNs())
-        cell?.updateView()
+        let section = sections[indexPath.row]
+        let isAvailable = !sectionsDelegate.getBadCRNs().contains(section.crn)
+        cell?.load(with: (section, isAvailable))
         return cell ?? UITableViewCell()
     }
 }
