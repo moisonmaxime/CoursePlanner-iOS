@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if UserSettings.isLoggedIn {  // If there is an API Key saved (then someone is logged in)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let newVC = storyboard.instantiateViewController(withIdentifier: "Home")
-
             let navigationController: UINavigationController? = self.window?.rootViewController as? UINavigationController
             navigationController?.viewControllers = [newVC]         // If someone is logged in switch to the homepage
         }

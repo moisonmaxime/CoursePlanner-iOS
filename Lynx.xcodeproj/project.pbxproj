@@ -18,6 +18,8 @@
 		1B2E26DA208981C800707B1A /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E26D9208981C800707B1A /* ProfileVC.swift */; };
 		1B30D0882079643E0035158C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30D0872079643E0035158C /* UIColorExtension.swift */; };
 		1B30D08B207966D10035158C /* CoursesSectionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30D08A207966D10035158C /* CoursesSectionsDelegate.swift */; };
+		1B47D33621924A7000732301 /* TermsAndConditionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B47D33421924A7000732301 /* TermsAndConditionsView.xib */; };
+		1B47D33721924A7000732301 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47D33521924A7000732301 /* TermsAndConditionsView.swift */; };
 		1B644E172050ED9F00CA9264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B644E162050ED9F00CA9264 /* AppDelegate.swift */; };
 		1B644E1C2050ED9F00CA9264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1A2050ED9F00CA9264 /* Main.storyboard */; };
 		1B644E1E2050ED9F00CA9264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B644E1D2050ED9F00CA9264 /* Assets.xcassets */; };
@@ -110,6 +112,8 @@
 		1B37625320783902006C20D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B37625B20783AD4006C20D6 /* ReadableTermTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadableTermTests.swift; sourceTree = "<group>"; };
 		1B37625D20783B22006C20D6 /* ReadableRoomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadableRoomTests.swift; sourceTree = "<group>"; };
+		1B47D33421924A7000732301 /* TermsAndConditionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermsAndConditionsView.xib; sourceTree = "<group>"; };
+		1B47D33521924A7000732301 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
 		1B4E1B50205332F30051CFE8 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
 		1B644E132050ED9F00CA9264 /* Lynx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lynx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B644E162050ED9F00CA9264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -380,6 +384,8 @@
 		1BB338552186BA0C0070F0C1 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
+				1B47D33421924A7000732301 /* TermsAndConditionsView.xib */,
+				1B47D33521924A7000732301 /* TermsAndConditionsView.swift */,
 				1BB338562186BA370070F0C1 /* TermPicker.xib */,
 				1BB338572186BA370070F0C1 /* TermPicker.swift */,
 				1B71AC292187C993004CE491 /* Popup.xib */,
@@ -542,6 +548,7 @@
 				1BB338582186BA370070F0C1 /* TermPicker.xib in Resources */,
 				1BBFDB5520747A57003FBADE /* CourseCell.xib in Resources */,
 				1B71AC2B2187C993004CE491 /* Popup.xib in Resources */,
+				1B47D33621924A7000732301 /* TermsAndConditionsView.xib in Resources */,
 				1B71AC2F2187D63E004CE491 /* SchedulesOptionsModalView.xib in Resources */,
 				1B644E1C2050ED9F00CA9264 /* Main.storyboard in Resources */,
 			);
@@ -610,6 +617,7 @@
 				1BC2404E213B541D0003DA32 /* CustomEvent.swift in Sources */,
 				1B209D452062EED800F701C6 /* CoursesSearchBar.swift in Sources */,
 				1B209D412062EE1000F701C6 /* CoursesTableDataSource.swift in Sources */,
+				1B47D33721924A7000732301 /* TermsAndConditionsView.swift in Sources */,
 				1B849937217C4342007939D4 /* URLRequestExtension.swift in Sources */,
 				1BE401032134CB680064F282 /* LoginResponse.swift in Sources */,
 				1B7C116C2071C00C001328E4 /* StringExtension.swift in Sources */,

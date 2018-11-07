@@ -93,6 +93,13 @@ class CoursesVC: UIViewController {
             object: nil
         )
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !UserSettings.hasSignedTermsAndConditions {
+            let termsAndConditions = TermsAndConditionsView()
+            self.present(termsAndConditions, animated: true, completion: nil)
+        }
+    }
 
     deinit {
         // When deinit, remove observer...
