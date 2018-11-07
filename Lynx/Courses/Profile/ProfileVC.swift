@@ -68,7 +68,7 @@ class ProfileVC: UIViewController {
 
     @IBAction func logout() {
 
-        UserSettings.clear()
+        UserSettings.logout()
 
         self.dismiss(animated: true, completion: { [weak self] in
             guard let strongSelf = self else { return }

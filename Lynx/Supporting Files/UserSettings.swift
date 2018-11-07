@@ -62,6 +62,23 @@ class UserSettings {
         }
     }
     
+    static var hasSignedTermsAndConditions: Bool {
+        get {
+            return get(.hasSignedTermsAndConditions) as? Bool ?? false
+        }
+        set {
+            set(key: .hasSignedTermsAndConditions, value: newValue)
+        }
+    }
+    
+    static func logout() {
+        UserSettings.accessKey = nil
+        UserSettings.refreshKey = nil
+        UserSettings.defaultTerm = nil
+        UserSettings.userInformation = nil
+        UserSettings.availableTerms = nil   
+    }
+    
     static func clear() {
         if let appDomain = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
@@ -81,6 +98,7 @@ private extension UserSettings {
         case defaultTerm = "default_term"
         case userInformation = "user_info"
         case availableTerms = "available_terms"
+        case hasSignedTermsAndConditions = "has_accepted_license"
     }
     
     static func set(key: UserSettingKey, value: Any?) {
